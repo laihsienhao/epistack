@@ -1,0 +1,74 @@
+- id: coffee-is-healthy
+  case: toy
+  text: "Habitual moderate coffee consumption is net beneficial for long-term health."
+  explanation: "Synthetic toy claim — root thesis A. Used only to validate the pipeline's hierarchy/crux logic, not a real research position."
+  status: reviewed
+  tags: [toy]
+  sources: []
+  confidence: null
+  author: 171384n
+  created: 2026-07-13
+
+- id: coffee-is-harmful
+  case: toy
+  text: "Habitual moderate coffee consumption is net harmful for long-term health."
+  explanation: "Synthetic toy claim — root thesis B, rival to coffee-is-healthy. No edge connects the two roots directly; the disagreement is structural."
+  status: reviewed
+  tags: [toy]
+  sources: []
+  confidence: null
+  author: 171384n
+  created: 2026-07-13
+
+- id: coffee-contains-caffeine
+  case: toy
+  text: "Coffee contains caffeine, a stimulant that affects the central nervous and cardiovascular systems."
+  explanation: "An uncontested baseline fact both theses build on. Reachable from both roots via supports-only edges, so it is a shared ground truth — but not a crux, since no depends_on edge is involved."
+  status: reviewed
+  tags: [toy, ground-truth]
+  sources: [toy-source-1]
+  confidence: null
+  author: 171384n
+  created: 2026-07-13
+
+- id: caffeine-improves-alertness
+  case: toy
+  text: "Caffeine improves short-term alertness and cognitive performance."
+  status: reviewed
+  tags: [toy]
+  sources: [toy-source-1]
+  confidence: null
+  author: 171384n
+  created: 2026-07-13
+
+- id: caffeine-raises-blood-pressure-acutely
+  case: toy
+  text: "Caffeine causes a temporary rise in blood pressure shortly after consumption."
+  status: reviewed
+  tags: [toy]
+  sources: [toy-source-2]
+  confidence: null
+  author: 171384n
+  created: 2026-07-13
+
+- id: long-term-mortality-data-favor-coffee
+  case: toy
+  text: "Large long-term cohort studies show habitual coffee drinkers have lower all-cause mortality than non-drinkers."
+  explanation: "A crux for thesis A only: if these cohort findings didn't hold up, the health-benefit thesis loses its main pillar."
+  status: reviewed
+  tags: [toy, crux]
+  sources: [toy-source-2]
+  confidence: null
+  author: 171384n
+  created: 2026-07-13
+
+- id: coffee-net-mortality-effect-contested
+  case: toy
+  text: "Whether long-term cohort data on coffee and all-cause mortality reflect a genuine causal effect or residual confounding is scientifically contested."
+  explanation: "Double crux: settling this one way supports thesis A's strongest form; settling it the other way supports thesis B's strongest form instead. Both root theses' strongest support routes through how this question is eventually resolved."
+  status: reviewed
+  tags: [toy, double-crux]
+  sources: [toy-source-1, toy-source-2]
+  confidence: null
+  author: 171384n
+  created: 2026-07-13

@@ -1,0 +1,63 @@
+- id: jama2019
+  type: cohort
+  title: "Associations of Dietary Cholesterol or Egg Consumption With Incident Cardiovascular Disease and Mortality"
+  authors: "Zhong VW, Van Horn L, Cornelis MC, Wilkins JT, Ning H, Carnethon MR, Greenland P, Mentz RJ, Tucker KL, Zhao L, Norwood AF, Lloyd-Jones DM, Allen NB"
+  year: 2019
+  venue: "JAMA, 321(11):1081-1095"
+  url: "https://jamanetwork.com/journals/jama/fullarticle/2728487"
+
+- id: circulation2022
+  type: meta_analysis
+  title: "Associations of Dietary Cholesterol, Serum Cholesterol, and Egg Consumption With Overall and Cause-Specific Mortality: Systematic Review and Updated Meta-Analysis"
+  authors: "Zhao B, Gan L, Graubard BI, Mannisto S, Albanes D, Huang J"
+  year: 2022
+  venue: "Circulation, 145(20):1506-1520"
+  url: "https://www.ahajournals.org/doi/10.1161/CIRCULATIONAHA.121.057642"
+
+- id: frontiers2022
+  type: meta_analysis
+  title: "Egg and Dietary Cholesterol Intake and Risk of All-Cause, Cardiovascular, and Cancer Mortality: A Systematic Review and Dose-Response Meta-Analysis of Prospective Cohort Studies"
+  authors: "Mofrad MD, Naghshi S, Lotfi K, Beyene J, Hypponen E, Pirouzi A, Sadeghi O"
+  year: 2022
+  venue: "Frontiers in Nutrition, 9:878979"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9195585/"
+
+- id: ajcn2025
+  type: rct
+  title: "Impact of dietary cholesterol from eggs and saturated fat on LDL cholesterol levels: a randomized cross-over study"
+  authors: "Carter S, Hill AM, Yandell C, Wood L, Coates AM, Buckley JD"
+  year: 2025
+  venue: "American Journal of Clinical Nutrition"
+  url: "https://ajcn.nutrition.org/article/S0002-9165(25)00253-9/abstract"
+
+- id: katan1987
+  type: review
+  title: "Hypo- and hyperresponders: individual differences in the response of serum cholesterol concentration to changes in diet"
+  authors: "Beynen AC, Katan MB, Van Zutphen LF"
+  year: 1987
+  venue: "Advances in Lipid Research, 22:115-171"
+  url: "https://pubmed.ncbi.nlm.nih.gov/3328488/"
+
+- id: khalighi2020
+  type: meta_analysis
+  title: "The responses of different dosages of egg consumption on blood lipid profile: an updated systematic review and meta-analysis of randomized clinical trials"
+  authors: "Khalighi Sikaroudi M, et al."
+  year: 2020
+  venue: "Journal of Food Biochemistry"
+  url: "https://pubmed.ncbi.nlm.nih.gov/32524644/"
+
+- id: galvis2023
+  type: rct
+  title: "Consumption of Eggs Alone or Enriched with Annatto (Bixa orellana L.) Does Not Increase Cardiovascular Risk in Healthy Adults — A Randomized Clinical Trial, the Eggant Study"
+  authors: "Galvis MA, et al."
+  year: 2023
+  venue: "Nutrients"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9865189/"
+
+- id: aha-news-2023
+  type: news
+  title: "Here's the latest on dietary cholesterol and how it fits in with a healthy diet (reporting on the AHA's 2019 science advisory)"
+  authors: "Merschel M (American Heart Association News)"
+  year: 2023
+  venue: "American Heart Association News"
+  url: "https://www.heart.org/en/news/2023/08/25/heres-the-latest-on-dietary-cholesterol-and-how-it-fits-in-with-a-healthy-diet"

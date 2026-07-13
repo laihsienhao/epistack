@@ -1,0 +1,55 @@
+- id: e-caffeine-alertness
+  relation: supports
+  from: coffee-contains-caffeine
+  to: caffeine-improves-alertness
+  provenance: [toy-source-1]
+  author: 171384n
+  created: 2026-07-13
+
+- id: e-alertness-into-healthy
+  relation: supports
+  from: caffeine-improves-alertness
+  to: coffee-is-healthy
+  provenance: [toy-source-1]
+  author: 171384n
+  created: 2026-07-13
+
+- id: e-caffeine-bp
+  relation: supports
+  from: coffee-contains-caffeine
+  to: caffeine-raises-blood-pressure-acutely
+  provenance: [toy-source-2]
+  author: 171384n
+  created: 2026-07-13
+
+- id: e-bp-into-harmful
+  relation: supports
+  from: caffeine-raises-blood-pressure-acutely
+  to: coffee-is-harmful
+  provenance: [toy-source-2]
+  author: 171384n
+  created: 2026-07-13
+
+- id: e-mortality-data-into-healthy
+  relation: depends_on
+  from: long-term-mortality-data-favor-coffee
+  to: coffee-is-healthy
+  provenance: [toy-source-2]
+  author: 171384n
+  created: 2026-07-13
+
+- id: e-contested-into-healthy
+  relation: depends_on
+  from: coffee-net-mortality-effect-contested
+  to: coffee-is-healthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-13
+
+- id: e-contested-into-harmful
+  relation: depends_on
+  from: coffee-net-mortality-effect-contested
+  to: coffee-is-harmful
+  provenance: []
+  author: 171384n
+  created: 2026-07-13

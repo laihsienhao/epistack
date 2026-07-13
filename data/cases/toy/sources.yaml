@@ -1,0 +1,15 @@
+- id: toy-source-1
+  type: review
+  title: "Synthetic placeholder source #1 (toy case — not real data, for pipeline testing only)"
+  authors: "N/A"
+  year: 2026
+  venue: null
+  url: null
+
+- id: toy-source-2
+  type: cohort
+  title: "Synthetic placeholder source #2 (toy case — not real data, for pipeline testing only)"
+  authors: "N/A"
+  year: 2026
+  venue: null
+  url: null

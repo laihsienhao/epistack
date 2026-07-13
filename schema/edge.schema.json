@@ -1,0 +1,50 @@
+{
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "relation": {
+      "enum": [
+        "supports",
+        "depends_on"
+      ],
+      "title": "Relation",
+      "type": "string"
+    },
+    "from": {
+      "title": "From",
+      "type": "string"
+    },
+    "to": {
+      "title": "To",
+      "type": "string"
+    },
+    "provenance": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Provenance",
+      "type": "array"
+    },
+    "author": {
+      "title": "Author",
+      "type": "string"
+    },
+    "created": {
+      "format": "date",
+      "title": "Created",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "relation",
+    "from",
+    "to",
+    "author",
+    "created"
+  ],
+  "title": "Edge",
+  "type": "object"
+}
