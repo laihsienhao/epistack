@@ -18,6 +18,7 @@ def _minimal_claim(id_, **overrides):
         "id": id_,
         "case": "synthetic",
         "text": f"claim {id_}",
+        "label": f"claim {id_}",
         "author": "tester",
         "created": "2026-07-13",
     }

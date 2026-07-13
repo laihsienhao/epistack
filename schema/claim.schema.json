@@ -12,6 +12,10 @@
       "title": "Text",
       "type": "string"
     },
+    "label": {
+      "title": "Label",
+      "type": "string"
+    },
     "explanation": {
       "anyOf": [
         {
@@ -73,6 +77,7 @@
     "id",
     "case",
     "text",
+    "label",
     "author",
     "created"
   ],

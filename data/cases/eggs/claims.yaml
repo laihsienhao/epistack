@@ -1,6 +1,7 @@
 - id: eggs-fine-in-moderation
   case: eggs
   text: "For most healthy people, dietary cholesterol from eggs eaten in moderation is not a meaningful cardiovascular risk factor."
+  label: "Eggs in moderation aren't a real heart risk for most people"
   explanation: "Root thesis A. The 'moderation' framing matters — this side does not claim eggs are risk-free at any quantity, only that typical moderate intake (roughly 1-2 eggs/day) is not a meaningful independent CVD risk driver for most people."
   status: reviewed
   tags: [root, thesis-a]
@@ -12,6 +13,7 @@
 - id: eggs-should-be-limited
   case: eggs
   text: "Dietary cholesterol from eggs meaningfully raises cardiovascular disease and mortality risk, and intake should be limited."
+  label: "Egg cholesterol meaningfully raises heart disease and death risk"
   explanation: "Root thesis B, rival to eggs-fine-in-moderation. No edge connects the two roots directly — the disagreement is structural, visible as two diverging trees built from the same underlying evidence base."
   status: reviewed
   tags: [root, thesis-b]
@@ -23,6 +25,7 @@
 - id: egg-cholesterol-content
   case: eggs
   text: "One large egg contains roughly 200 mg of dietary cholesterol, almost entirely in the yolk."
+  label: "One egg has about 200mg of cholesterol, mostly in the yolk"
   explanation: "An uncontested baseline fact both sides build on. Reachable from both roots (via the claims it feeds), so it renders as a shared ground truth — not a crux, since it's a settled fact, not an open question."
   status: reviewed
   tags: [ground-truth, fact]
@@ -34,6 +37,7 @@
 - id: individual-cholesterol-response-variability
   case: eggs
   text: "There is substantial individual variability in serum cholesterol response to dietary cholesterol: 'hyper-responders' show large increases while 'hypo-responders' show little to no change from the same intake."
+  label: "Some people's cholesterol barely reacts to eggs; others react strongly"
   explanation: "The classic Katan/Beynen finding. Both sides accept this happens, but it cuts differently for each: the 'fine in moderation' side reads it as 'most people are hypo-responders, so average-case caution overstates personal risk'; the 'should be limited' side reads it as 'some people are hyper-responders and face meaningfully elevated risk, which argues for caution.'"
   status: reviewed
   tags: [mechanism, ground-truth]
@@ -45,6 +49,7 @@
 - id: cholesterol-causal-effect-contested
   case: eggs
   text: "Whether dietary cholesterol from eggs has a genuine causal effect on cardiovascular disease risk independent of confounders (especially saturated fat intake and overall dietary pattern) is unresolved."
+  label: "Whether egg cholesterol truly causes heart disease is unresolved"
   explanation: "The actual double crux of the debate — and it doesn't split cleanly along RCT-vs-cohort lines. Cohort studies (JAMA 2019, Circulation 2022) consistently find a significant dose-response association between dietary cholesterol/eggs and CVD/mortality even after standard covariate adjustment, while RCT evidence is itself mixed: a 2025 cross-over trial isolating cholesterol from saturated fat (AJCN) found no LDL effect from cholesterol specifically, but a meta-analysis of 66 RCTs (Khalighi Sikaroudi et al. 2020) found egg consumption does raise LDL, especially at higher intakes in short trials. If this resolves toward 'no independent causal effect — cohort associations reflect residual confounding, and short RCTs don't capture real long-run risk,' thesis A stands on its strongest ground; if it resolves toward 'a genuine causal effect that most short RCTs are underpowered or too brief to fully capture,' thesis B stands instead."
   status: reviewed
   tags: [crux, double-crux]
@@ -56,6 +61,7 @@
 - id: hypo-responders-minimal-effect
   case: eggs
   text: "For the majority of people, who are hypo-responders, moderate dietary cholesterol intake from eggs has minimal effect on serum cholesterol and cardiovascular risk."
+  label: "Most people are hypo-responders, barely affected by moderate egg intake"
   status: reviewed
   tags: [mechanism, thesis-a]
   sources: [katan1987]
@@ -66,6 +72,7 @@
 - id: rct-cholesterol-no-ldl-effect
   case: eggs
   text: "In a randomized cross-over trial (n=61), dietary cholesterol intake up to ~600 mg/day from 2 eggs/day was not significantly associated with LDL cholesterol, while saturated fat intake was the significant driver of LDL differences across matched diets."
+  label: "Trial: egg cholesterol didn't raise LDL — saturated fat did"
   explanation: "Carter et al. 2025 (AJCN): across three isocaloric diets differing in cholesterol and saturated fat content, saturated fat intake was positively associated with LDL-C; dietary cholesterol was not. The high-cholesterol/low-saturated-fat egg diet actually produced lower LDL than the egg-free/high-saturated-fat control diet."
   status: reviewed
   tags: [rct, ldl, thesis-a]
@@ -77,6 +84,7 @@
 - id: meta-analysis-no-cvd-mortality-link
   case: eggs
   text: "A dose-response meta-analysis of 55 prospective cohort studies (n=2,772,486) found no significant association between egg or dietary cholesterol intake and cardiovascular-disease-specific mortality."
+  label: "Large meta-analysis: no link between egg intake and CVD death"
   status: reviewed
   tags: [meta-analysis, cvd, thesis-a]
   sources: [frontiers2022]
@@ -87,6 +95,7 @@
 - id: rct-no-lipid-change-healthy-adults
   case: eggs
   text: "In a randomized trial (n=105 healthy adults, the Eggant study), eating 2 whole eggs daily for 8 weeks produced no significant change in LDL cholesterol, HDL cholesterol, or triglycerides compared to an egg-white control."
+  label: "Trial: 2 eggs a day for 8 weeks didn't change cholesterol"
   status: reviewed
   tags: [rct, ldl, thesis-a]
   sources: [galvis2023]
@@ -97,6 +106,7 @@
 - id: aha-guidance-moderate-intake-ok
   case: eggs
   text: "The American Heart Association's 2019 science advisory allows healthy adults up to one egg per day (two per day for healthy older adults) as part of an overall healthy dietary pattern, rather than setting a strict cholesterol cap."
+  label: "AHA: up to 1-2 eggs a day is fine for most"
   status: reviewed
   tags: [guideline, thesis-a]
   sources: [aha-news-2023]
@@ -107,6 +117,7 @@
 - id: hyper-responders-elevated-risk
   case: eggs
   text: "Hyper-responders face meaningfully elevated LDL and cardiovascular risk from dietary cholesterol intake, and would be expected to benefit from limiting it."
+  label: "Hyper-responders face real elevated risk and should limit cholesterol"
   status: reviewed
   tags: [mechanism, thesis-b]
   sources: [katan1987]
@@ -117,6 +128,7 @@
 - id: jama-cohort-cholesterol-mortality-link
   case: eggs
   text: "In a pooled analysis of 6 large US prospective cohorts (n=29,615; median follow-up 17.5 years), each additional 300 mg/day of dietary cholesterol was associated with a 17% higher risk of incident cardiovascular disease and an 18% higher risk of all-cause mortality."
+  label: "Large US cohort study: more cholesterol, higher death risk"
   status: reviewed
   tags: [cohort, cvd, mortality, thesis-b]
   sources: [jama2019]
@@ -127,6 +139,7 @@
 - id: jama-cohort-egg-mortality-link
   case: eggs
   text: "In the same pooled cohort analysis, each additional half egg consumed per day was associated with a 6% higher risk of incident cardiovascular disease and an 8% higher risk of all-cause mortality."
+  label: "Same study: half an extra egg a day raised mortality too"
   status: reviewed
   tags: [cohort, cvd, mortality, thesis-b]
   sources: [jama2019]
@@ -137,6 +150,7 @@
 - id: atbc-cohort-cholesterol-mortality-link
   case: eggs
   text: "In the ATBC cohort of 27,078 Finnish men followed up to 31 years, each 300 mg/day increment in dietary cholesterol intake was associated with significantly higher overall mortality (HR 1.10) and cardiovascular mortality (HR 1.13)."
+  label: "31-year Finnish cohort: higher cholesterol, higher death risk"
   status: reviewed
   tags: [cohort, mortality, thesis-b]
   sources: [circulation2022]
@@ -147,6 +161,7 @@
 - id: meta-analysis-allcause-mortality-link
   case: eggs
   text: "The same 55-cohort dose-response meta-analysis found each additional egg per day was associated with a 7% higher risk of all-cause mortality, and each 100 mg/day increment in dietary cholesterol was associated with a 6% higher risk of all-cause mortality."
+  label: "Same meta-analysis: more eggs did raise all-cause mortality risk"
   status: reviewed
   tags: [meta-analysis, mortality, thesis-b]
   sources: [frontiers2022]
@@ -157,6 +172,7 @@
 - id: rct-meta-analysis-egg-raises-lipids
   case: eggs
   text: "A systematic review and meta-analysis of 66 RCTs (3,185 participants) found that egg consumption significantly increases total and LDL cholesterol, with the clearest effect at higher intakes in short (<12 week) trials."
+  label: "66-trial meta-analysis: eggs do raise LDL, especially at high intake"
   status: reviewed
   tags: [rct, meta-analysis, ldl, thesis-b]
   sources: [khalighi2020]

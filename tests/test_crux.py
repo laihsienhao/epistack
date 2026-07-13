@@ -23,7 +23,7 @@ def test_double_cruxes_on_toy_case():
 
 
 def _claim(id_):
-    return Claim(id=id_, case="synthetic", text=id_, author="tester", created=date(2026, 7, 13))
+    return Claim(id=id_, case="synthetic", text=id_, label=id_, author="tester", created=date(2026, 7, 13))
 
 
 def _edge(id_, from_, to, relation):

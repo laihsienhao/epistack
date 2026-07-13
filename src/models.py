@@ -12,6 +12,7 @@ class Claim(BaseModel):
     id: str
     case: str
     text: str
+    label: str
     explanation: Optional[str] = None
     status: ClaimStatus = "draft"
     tags: list[str] = Field(default_factory=list)

@@ -19,12 +19,22 @@ tooling required.
 
 ## Schema at a glance
 
-**Claim** (`schema/claim.schema.json`): `id`, `case`, `text` (the one-liner shown on
-the graph — keep it to a single crisp assertion), `explanation` (optional, longer
-markdown shown when the node is expanded), `status` (`draft` or `reviewed` — this is
-a curation flag, not a contestedness flag; contestedness is structural, see below),
-`tags`, `sources` (ids into `sources.yaml`), `confidence` (leave `null` — reserved for
-the Assessment-layer stretch goal), `author`, `created`.
+**Claim** (`schema/claim.schema.json`): `id`, `case`, `text` (the precise claim
+statement — shown in the detail panel and cruxes list, can be as long as it needs to
+be to be accurate), `label` (**required** — a genuine summary of `text` in well under
+15 words, written for a small circle on a graph; never just `text` truncated with an
+ellipsis — see below), `explanation` (optional, longer markdown shown when the node is
+expanded), `status` (`draft` or `reviewed` — this is a curation flag, not a
+contestedness flag; contestedness is structural, see below), `tags`, `sources` (ids
+into `sources.yaml`), `confidence` (leave `null` — reserved for the Assessment-layer
+stretch goal), `author`, `created`.
+
+**Writing a good `label`:** it should read as a complete thought on its own, in plain
+language, not an academic sentence fragment. Bad: "In a pooled analysis of 6 large US
+prospective cohorts (n=29,615; median follow-up 17.5 ye…" (truncated). Good: "Large US
+cohort study: more cholesterol, higher death risk." The label is what a reader sees
+first — it has to earn a second look at the full `text`, not just be a shorter version
+of it.
 
 **Edge** (`schema/edge.schema.json`): `id`, `relation` (`supports` or `depends_on`
 only — see below), `from` and `to` — **direction always runs from the more

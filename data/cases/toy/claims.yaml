@@ -1,6 +1,7 @@
 - id: coffee-is-healthy
   case: toy
   text: "Habitual moderate coffee consumption is net beneficial for long-term health."
+  label: "Moderate coffee drinking is net good for long-term health"
   explanation: "Synthetic toy claim — root thesis A. Used only to validate the pipeline's hierarchy/crux logic, not a real research position."
   status: reviewed
   tags: [toy]
@@ -12,6 +13,7 @@
 - id: coffee-is-harmful
   case: toy
   text: "Habitual moderate coffee consumption is net harmful for long-term health."
+  label: "Moderate coffee drinking is net bad for long-term health"
   explanation: "Synthetic toy claim — root thesis B, rival to coffee-is-healthy. No edge connects the two roots directly; the disagreement is structural."
   status: reviewed
   tags: [toy]
@@ -23,6 +25,7 @@
 - id: coffee-contains-caffeine
   case: toy
   text: "Coffee contains caffeine, a stimulant that affects the central nervous and cardiovascular systems."
+  label: "Coffee contains caffeine, a stimulant affecting heart and brain"
   explanation: "An uncontested baseline fact both theses build on. Reachable from both roots via supports-only edges, so it is a shared ground truth — but not a crux, since no depends_on edge is involved."
   status: reviewed
   tags: [toy, ground-truth]
@@ -34,6 +37,7 @@
 - id: caffeine-improves-alertness
   case: toy
   text: "Caffeine improves short-term alertness and cognitive performance."
+  label: "Caffeine boosts short-term alertness and thinking"
   status: reviewed
   tags: [toy]
   sources: [toy-source-1]
@@ -44,6 +48,7 @@
 - id: caffeine-raises-blood-pressure-acutely
   case: toy
   text: "Caffeine causes a temporary rise in blood pressure shortly after consumption."
+  label: "Caffeine briefly raises blood pressure after drinking it"
   status: reviewed
   tags: [toy]
   sources: [toy-source-2]
@@ -54,6 +59,7 @@
 - id: long-term-mortality-data-favor-coffee
   case: toy
   text: "Large long-term cohort studies show habitual coffee drinkers have lower all-cause mortality than non-drinkers."
+  label: "Cohort studies: coffee drinkers have lower death rates"
   explanation: "A crux for thesis A only: if these cohort findings didn't hold up, the health-benefit thesis loses its main pillar."
   status: reviewed
   tags: [toy, crux]
@@ -65,6 +71,7 @@
 - id: coffee-net-mortality-effect-contested
   case: toy
   text: "Whether long-term cohort data on coffee and all-cause mortality reflect a genuine causal effect or residual confounding is scientifically contested."
+  label: "Whether coffee's mortality link is causal or confounded is contested"
   explanation: "Double crux: settling this one way supports thesis A's strongest form; settling it the other way supports thesis B's strongest form instead. Both root theses' strongest support routes through how this question is eventually resolved."
   status: reviewed
   tags: [toy, double-crux]

@@ -11,29 +11,31 @@ def _format_source(source: Source) -> str:
     if meta:
         parts.append(meta)
     if source.url:
-        parts.append(f"[link]({source.url})")
-    return " — ".join(parts)
+        parts.append(f"[↗ view source]({source.url})")
+    return "  \n".join(parts)
 
 
-def render_detail(graph: Graph, claim_id: str | None) -> None:
-    if claim_id is None or claim_id not in graph.claims:
-        st.info("Click a node in the graph to see its full explanation, references, and edges.")
-        return
-
+def _render_body(graph: Graph, claim_id: str) -> None:
     claim = graph.claims[claim_id]
     crux_for = compute_cruxes(graph).get(claim_id, set())
-
-    st.subheader(claim.text)
+    is_root = claim_id in graph.roots()
+    is_double_crux = len(crux_for) >= 2
 
     badges = []
-    if claim_id in graph.roots():
-        badges.append("🏛️ root thesis")
-    if len(crux_for) >= 2:
-        badges.append("🔑🔑 double crux")
+    if is_root:
+        badges.append("🏛️ Root thesis")
+    if is_double_crux:
+        badges.append("🔑🔑 Double crux")
     elif crux_for:
-        badges.append("🔑 crux")
+        badges.append("🔑 Crux")
     if badges:
-        st.caption(" · ".join(badges))
+        st.caption(" &nbsp;·&nbsp; ".join(badges))
+
+    st.markdown(f"#### {claim.text}")
+
+    if crux_for:
+        root_texts = [graph.claims[r].label for r in crux_for if r in graph.claims]
+        st.warning("**Crux for:** " + " · ".join(root_texts), icon="🔑")
 
     if claim.explanation:
         st.markdown(claim.explanation)
@@ -42,24 +44,37 @@ def render_detail(graph: Graph, claim_id: str | None) -> None:
     if sources:
         st.markdown("**References**")
         for source in sources:
-            st.markdown(f"- {_format_source(source)}")
+            with st.container(border=True):
+                st.markdown(_format_source(source))
 
     incoming = graph.incoming(claim_id)
-    if incoming:
-        st.markdown("**Claims that point into this one**")
-        for edge in incoming:
-            other = graph.claims.get(edge.from_)
-            if other:
-                st.markdown(f"- ({edge.relation}) {other.text}")
-
     outgoing = graph.outgoing(claim_id)
-    if outgoing:
-        st.markdown("**This claim points into**")
-        for edge in outgoing:
-            other = graph.claims.get(edge.to)
-            if other:
-                st.markdown(f"- ({edge.relation}) {other.text}")
+    if incoming or outgoing:
+        st.divider()
+        col_in, col_out = st.columns(2)
+        with col_in:
+            if incoming:
+                st.markdown("**⬅ Points into this claim**")
+                for edge in incoming:
+                    other = graph.claims.get(edge.from_)
+                    if other:
+                        icon = "🔑" if edge.relation == "depends_on" else "•"
+                        st.markdown(f"{icon} {other.label}")
+        with col_out:
+            if outgoing:
+                st.markdown("**➡ This claim points into**")
+                for edge in outgoing:
+                    other = graph.claims.get(edge.to)
+                    if other:
+                        icon = "🔑" if edge.relation == "depends_on" else "•"
+                        st.markdown(f"{icon} {other.label}")
 
-    if crux_for:
-        root_texts = [graph.claims[r].text for r in crux_for if r in graph.claims]
-        st.warning("Crux for: " + "; ".join(root_texts))
+
+@st.dialog("Claim details", width="medium")
+def _dialog(graph: Graph, claim_id: str) -> None:
+    _render_body(graph, claim_id)
+
+
+def show_node_dialog(graph: Graph, claim_id: str) -> None:
+    if claim_id in graph.claims:
+        _dialog(graph, claim_id)

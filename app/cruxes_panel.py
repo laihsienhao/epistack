@@ -7,13 +7,13 @@ from src.loader import Graph
 def render_cruxes_panel(graph: Graph) -> None:
     crux_map = compute_cruxes(graph)
     if not crux_map:
-        st.info("No cruxes detected yet — add depends_on edges to mark load-bearing claims.")
+        st.info("No cruxes detected yet — add depends-on edges to mark load-bearing claims.")
         return
 
     st.markdown(
         "Claims whose falsification would break a necessary condition for a root "
         "thesis, ranked by how many theses they're load-bearing for. "
-        "🔑🔑 double cruxes are the highest-value entries — settling them would "
+        "🔑🔑 Double cruxes are the highest-value entries — settling them would "
         "move more than one school of thought."
     )
 

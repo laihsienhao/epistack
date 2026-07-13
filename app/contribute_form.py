@@ -24,17 +24,19 @@ def render_contribute_form(graph: Graph, author: str = "anonymous") -> None:
 
     with st.form("add_claim_form", clear_on_submit=True):
         st.markdown("**Add a claim**")
-        claim_id = st.text_input("id (kebab-case)")
-        text = st.text_area("one-liner")
-        explanation = st.text_area("explanation (optional, markdown)")
-        tags = st.text_input("tags (comma-separated)")
+        claim_id = st.text_input("Claim ID (kebab-case)")
+        text = st.text_area("One-liner (the precise claim)")
+        label = st.text_input("Graph label — a genuine <15-word summary, not a truncation")
+        explanation = st.text_area("Explanation (optional, markdown)")
+        tags = st.text_input("Tags (comma-separated)")
         submitted = st.form_submit_button("Add claim")
-        if submitted and claim_id and text:
+        if submitted and claim_id and text and label:
             st.session_state.draft_claims.append(
                 {
                     "id": claim_id,
                     "case": graph.case_id,
                     "text": text,
+                    "label": label,
                     "explanation": explanation or None,
                     "status": "draft",
                     "tags": [t.strip() for t in tags.split(",") if t.strip()],
@@ -50,10 +52,12 @@ def render_contribute_form(graph: Graph, author: str = "anonymous") -> None:
     if existing_ids:
         with st.form("add_edge_form", clear_on_submit=True):
             st.markdown("**Add an edge**")
-            edge_id = st.text_input("edge id")
-            relation = st.selectbox("relation", ["supports", "depends_on"])
-            from_id = st.selectbox("from (the more specific claim)", existing_ids)
-            to_id = st.selectbox("to (the more general claim it relates to)", existing_ids)
+            edge_id = st.text_input("Edge ID")
+            relation = st.selectbox(
+                "Relation", ["supports", "depends_on"], format_func=lambda r: r.replace("_", " ")
+            )
+            from_id = st.selectbox("From (the more specific claim)", existing_ids)
+            to_id = st.selectbox("To (the more general claim it relates to)", existing_ids)
             submitted_edge = st.form_submit_button("Add edge")
             if submitted_edge and edge_id:
                 st.session_state.draft_edges.append(
