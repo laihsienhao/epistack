@@ -25,7 +25,7 @@
 - id: egg-cholesterol-content
   case: eggs
   text: "One large egg contains roughly 200 mg of dietary cholesterol, almost entirely in the yolk."
-  label: "One egg has about 200mg of cholesterol, mostly in the yolk"
+  label: "Fact: one egg has about 200mg of cholesterol, mostly in the yolk"
   explanation: "An uncontested baseline fact both sides build on. Reachable from both roots (via the claims it feeds), so it renders as a shared ground truth — not a crux, since it's a settled fact, not an open question."
   status: reviewed
   tags: [ground-truth, fact]
@@ -37,7 +37,7 @@
 - id: individual-cholesterol-response-variability
   case: eggs
   text: "There is substantial individual variability in serum cholesterol response to dietary cholesterol: 'hyper-responders' show large increases while 'hypo-responders' show little to no change from the same intake."
-  label: "Some people's cholesterol barely reacts to eggs; others react strongly"
+  label: "Study: cholesterol response to eggs varies sharply between people"
   explanation: "The classic Katan/Beynen finding. Both sides accept this happens, but it cuts differently for each: the 'fine in moderation' side reads it as 'most people are hypo-responders, so average-case caution overstates personal risk'; the 'should be limited' side reads it as 'some people are hyper-responders and face meaningfully elevated risk, which argues for caution.'"
   status: reviewed
   tags: [mechanism, ground-truth]
@@ -61,7 +61,7 @@
 - id: hypo-responders-minimal-effect
   case: eggs
   text: "For the majority of people, who are hypo-responders, moderate dietary cholesterol intake from eggs has minimal effect on serum cholesterol and cardiovascular risk."
-  label: "Most people are hypo-responders, barely affected by moderate egg intake"
+  label: "Study: most people are hypo-responders, barely affected by eggs"
   status: reviewed
   tags: [mechanism, thesis-a]
   sources: [katan1987]
@@ -84,7 +84,7 @@
 - id: meta-analysis-no-cvd-mortality-link
   case: eggs
   text: "A dose-response meta-analysis of 55 prospective cohort studies (n=2,772,486) found no significant association between egg or dietary cholesterol intake and cardiovascular-disease-specific mortality."
-  label: "Large meta-analysis: no link between egg intake and CVD death"
+  label: "Meta-analysis: no link between egg intake and CVD death"
   status: reviewed
   tags: [meta-analysis, cvd, thesis-a]
   sources: [frontiers2022]
@@ -106,7 +106,7 @@
 - id: aha-guidance-moderate-intake-ok
   case: eggs
   text: "The American Heart Association's 2019 science advisory allows healthy adults up to one egg per day (two per day for healthy older adults) as part of an overall healthy dietary pattern, rather than setting a strict cholesterol cap."
-  label: "AHA: up to 1-2 eggs a day is fine for most"
+  label: "Guideline: up to 1-2 eggs a day is fine for most"
   status: reviewed
   tags: [guideline, thesis-a]
   sources: [aha-news-2023]
@@ -117,7 +117,7 @@
 - id: hyper-responders-elevated-risk
   case: eggs
   text: "Hyper-responders face meaningfully elevated LDL and cardiovascular risk from dietary cholesterol intake, and would be expected to benefit from limiting it."
-  label: "Hyper-responders face real elevated risk and should limit cholesterol"
+  label: "Study: hyper-responders face real risk and should limit cholesterol"
   status: reviewed
   tags: [mechanism, thesis-b]
   sources: [katan1987]
@@ -128,7 +128,7 @@
 - id: jama-cohort-cholesterol-mortality-link
   case: eggs
   text: "In a pooled analysis of 6 large US prospective cohorts (n=29,615; median follow-up 17.5 years), each additional 300 mg/day of dietary cholesterol was associated with a 17% higher risk of incident cardiovascular disease and an 18% higher risk of all-cause mortality."
-  label: "Large US cohort study: more cholesterol, higher death risk"
+  label: "Study: more cholesterol, higher death risk"
   status: reviewed
   tags: [cohort, cvd, mortality, thesis-b]
   sources: [jama2019]
@@ -139,7 +139,7 @@
 - id: jama-cohort-egg-mortality-link
   case: eggs
   text: "In the same pooled cohort analysis, each additional half egg consumed per day was associated with a 6% higher risk of incident cardiovascular disease and an 8% higher risk of all-cause mortality."
-  label: "Same study: half an extra egg a day raised mortality too"
+  label: "Study: half an extra egg a day raised mortality too"
   status: reviewed
   tags: [cohort, cvd, mortality, thesis-b]
   sources: [jama2019]
@@ -150,7 +150,7 @@
 - id: atbc-cohort-cholesterol-mortality-link
   case: eggs
   text: "In the ATBC cohort of 27,078 Finnish men followed up to 31 years, each 300 mg/day increment in dietary cholesterol intake was associated with significantly higher overall mortality (HR 1.10) and cardiovascular mortality (HR 1.13)."
-  label: "31-year Finnish cohort: higher cholesterol, higher death risk"
+  label: "Study: higher cholesterol, higher death risk"
   status: reviewed
   tags: [cohort, mortality, thesis-b]
   sources: [circulation2022]
@@ -161,7 +161,7 @@
 - id: meta-analysis-allcause-mortality-link
   case: eggs
   text: "The same 55-cohort dose-response meta-analysis found each additional egg per day was associated with a 7% higher risk of all-cause mortality, and each 100 mg/day increment in dietary cholesterol was associated with a 6% higher risk of all-cause mortality."
-  label: "Same meta-analysis: more eggs did raise all-cause mortality risk"
+  label: "Meta-analysis: more eggs did raise all-cause mortality risk"
   status: reviewed
   tags: [meta-analysis, mortality, thesis-b]
   sources: [frontiers2022]
@@ -172,7 +172,7 @@
 - id: rct-meta-analysis-egg-raises-lipids
   case: eggs
   text: "A systematic review and meta-analysis of 66 RCTs (3,185 participants) found that egg consumption significantly increases total and LDL cholesterol, with the clearest effect at higher intakes in short (<12 week) trials."
-  label: "66-trial meta-analysis: eggs do raise LDL, especially at high intake"
+  label: "Meta-analysis: eggs do raise LDL, especially at high intake"
   status: reviewed
   tags: [rct, meta-analysis, ldl, thesis-b]
   sources: [khalighi2020]

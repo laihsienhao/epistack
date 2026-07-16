@@ -22,13 +22,24 @@ st.set_page_config(page_title="Epistemic Claim Graph", layout="wide")
 st.markdown(
     """
     <style>
+    div[data-testid="stMainBlockContainer"] {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    /* Streamlit derives this backdrop's default color from the app's own
+       (warm, cream/tan) theme tokens rather than a neutral gray, so it reads
+       as a strong yellow/tan wash instead of a normal modal scrim -- pin it
+       to a fixed neutral dark tint instead, independent of the page theme. */
+    div[data-testid="stDialog"] {
+        background-color: rgba(17, 17, 17, 0.35) !important;
+    }
     div[data-testid="stDialog"] > div {
-        background-color: rgba(255, 255, 255, 0.88) !important;
+        background-color: rgba(255, 255, 255, 0.97) !important;
         backdrop-filter: blur(10px);
     }
     @media (prefers-color-scheme: dark) {
         div[data-testid="stDialog"] > div {
-            background-color: rgba(14, 17, 23, 0.88) !important;
+            background-color: rgba(14, 17, 23, 0.97) !important;
         }
     }
     </style>
@@ -88,7 +99,7 @@ with bar[3]:
         st.markdown("---")
         st.markdown("**Crux status (node border)**")
         st.markdown(
-            "🔑 Crux (amber border) · 🔑🔑 Double crux (black border). Root theses "
+            "Crux (amber border) · Double crux (black border). Root theses "
             "render as the larger circles."
         )
         st.markdown("---")
@@ -116,7 +127,7 @@ with tab_graph:
     # fallback that doesn't depend on canvas click detection.
     last_node = st.session_state.get("last_clicked_node")
     if last_node and last_node in graph.claims:
-        if st.button(f'🔍 Reopen "{graph.claims[last_node].label}"', key="reopen_last_claim"):
+        if st.button(f'Reopen "{graph.claims[last_node].label}"', key="reopen_last_claim"):
             detail_panel.show_node_dialog(graph, last_node)
     else:
         st.caption("Click a node in the graph to see its full explanation, references, and edges.")

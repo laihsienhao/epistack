@@ -30,11 +30,33 @@ into `sources.yaml`), `confidence` (leave `null` — reserved for the Assessment
 stretch goal), `author`, `created`.
 
 **Writing a good `label`:** it should read as a complete thought on its own, in plain
-language, not an academic sentence fragment. Bad: "In a pooled analysis of 6 large US
-prospective cohorts (n=29,615; median follow-up 17.5 ye…" (truncated). Good: "Large US
-cohort study: more cholesterol, higher death risk." The label is what a reader sees
-first — it has to earn a second look at the full `text`, not just be a shorter version
-of it.
+language, not an academic sentence fragment, and it must follow one of three fixed
+templates below depending on the claim's role. Never just `text` truncated with an
+ellipsis. Bad: "In a pooled analysis of 6 large US prospective cohorts (n=29,615;
+median follow-up 17.5 ye…" (truncated). Good: "Study: more cholesterol, higher death
+risk". The label is what a reader sees first — it has to earn a second look at the
+full `text`, not just be a shorter version of it.
+
+- **Root thesis** (no outgoing edges — a school of thought): a plain sentence-case
+  clause, no tag, no trailing punctuation. E.g. "Egg cholesterol meaningfully raises
+  heart disease and death risk".
+- **Evidentiary claim** (reports a finding from a source, or a basic fact): `<tag>:
+  <lowercase clause>`, no trailing punctuation. The tag is one of a **fixed, generic
+  vocabulary** — never an organization name or a specific qualifying detail (no "AHA",
+  no "31-year Finnish cohort", no "Same study"):
+  - `Trial` — a randomized controlled trial
+  - `Study` — an observational/cohort study, or a guideline body's own supporting study
+  - `Meta-analysis` — a pooled analysis across multiple studies
+  - `Guideline` — an official recommendation
+  - `Fact` — a basic, uncontested fact
+
+  E.g. "Study: more cholesterol, higher death risk", "Trial: egg cholesterol didn't
+  raise LDL — saturated fat did", "Fact: one egg has about 200mg of cholesterol,
+  mostly in the yolk".
+- **Open-question / contested claim** (the claim itself is the unresolved crux, not a
+  finding): `Whether <clause> is unresolved` or `Whether <clause> is contested`, no
+  trailing punctuation. E.g. "Whether egg cholesterol truly causes heart disease is
+  unresolved".
 
 **Edge** (`schema/edge.schema.json`): `id`, `relation` (`supports` or `depends_on`
 only — see below), `from` and `to` — **direction always runs from the more

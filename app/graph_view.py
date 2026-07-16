@@ -13,38 +13,66 @@ from src.loader import Graph, compute_depths, reachable_roots
 # reset the tracked click value without remounting the component).
 GRAPH_WIDGET_KEY = "agraph_graph"
 
-# One hue per "school of thought" (root), assigned in a fixed order. Blue/red
-# is the palette's diverging pair -- exactly the right fit for two opposing
-# theses. Amber/black (crux status, below) are deliberately excluded here so
-# the two channels never collide.
-SIDE_HUES = ["#2a78d6", "#e34948", "#4a3aa7", "#1baf7a", "#008300", "#e87ba4"]
+# The dataviz skill's validated categorical palette, in its documented fixed
+# order -- never reordered or cycled, since that order is what its CVD-safety
+# validation is computed against. Also names blue<->red as the designated
+# diverging pair, which is the correct encoding for exactly two opposing
+# theses (see _root_hues): reserve red for that role rather than spending it
+# as an ordinary 3rd+ category slot.
+CATEGORICAL_HUES = ["#2a78d6", "#008300", "#e87ba4", "#eda100", "#1baf7a", "#eb6834", "#4a3aa7", "#e34948"]
+# Off the palette's stock blue/red entirely -- both the original saturated
+# primary pair (clashing crayon-box look) and a muted navy/terracotta pass
+# (read as flat and lifeless) missed the mark against the app's cream
+# background. Indigo/coral is a warm/cool jewel-tone pair instead: saturated
+# enough to stay lively, still two clearly distinct, non-red-green hues
+# (colorblind safe), and clear of the amber/near-black crux border colors.
+DIVERGING_PAIR = ("#4b4a8f", "#e0724f")  # indigo, coral
 
-NEUTRAL_FILL = "#898781"  # shared ground-truths / double cruxes belong to no single side
+# Warm stone/taupe instead of a cool pure gray -- same lightness as the old
+# gray (so white text and overall visual weight stay unchanged), but the
+# warmer undertone sits with the cream background instead of against it.
+NEUTRAL_FILL = "#8f8571"  # shared ground-truths / double cruxes belong to no single side
+
+# Non-root claims tint their side's hue toward this instead of pure white, so
+# the lightened fills read as warm paper tones consistent with the page
+# background rather than a chalky, mismatched pale blue/red.
+TINT_TARGET = "#faf6ec"
 
 # Crux status is a small fixed scale, so it borrows a track separate from the
-# side hues entirely (amber -> black), never blue/red.
+# side hues entirely (amber -> near-black), never blue/red.
 NO_CRUX_BORDER = "#c3c2b7"
 CRUX_BORDER = "#fab219"
-DOUBLE_CRUX_BORDER = "#111111"
+DOUBLE_CRUX_BORDER = "#0b0b0b"
 
 TEXT_ON_DARK = "#ffffff"
 TEXT_ON_LIGHT = "#0b0b0b"
 
 WRAP_WIDTH = 20
 
-ROOT_SPACING = 1500
-NODE_GAP = 170
+NODE_GAP = 200
 LEVEL_HEIGHT = 250
+BLOCK_MARGIN = 100  # small extra buffer between adjacent root blocks, on top of
+# the per-depth neutral clearance _compute_positions already guarantees
+SPLIT_THRESHOLD = 4  # side-groups larger than this split into two stacked rows,
+# to keep any one tier from stretching too wide
+SPLIT_GAP = NODE_GAP  # vertical gap between a split tier's two rows -- kept
+# small and equal to NODE_GAP on purpose, so the two rows still read as one
+# tier rather than an extra level. Clearance from the neutral column (which
+# sits at the midpoint, closer than NODE_GAP away vertically) comes from
+# horizontal separation instead -- see half_width below, which always
+# reserves that regardless of whether a row is split.
 
 
 def _wrap(text: str, width: int = WRAP_WIDTH) -> str:
     return "\n".join(textwrap.wrap(text, width=width))
 
 
-def _lighten(hex_color: str, amount: float = 0.55) -> str:
+def _lighten(hex_color: str, amount: float = 0.55, target: str = TINT_TARGET) -> str:
     hex_color = hex_color.lstrip("#")
+    target = target.lstrip("#")
     r, g, b = (int(hex_color[i : i + 2], 16) for i in (0, 2, 4))
-    r, g, b = (round(c + (255 - c) * amount) for c in (r, g, b))
+    tr, tg, tb = (int(target[i : i + 2], 16) for i in (0, 2, 4))
+    r, g, b = (round(c + (t - c) * amount) for c, t in zip((r, g, b), (tr, tg, tb)))
     return f"#{r:02x}{g:02x}{b:02x}"
 
 
@@ -56,7 +84,14 @@ def _text_color_for(hex_color: str) -> str:
 
 
 def _root_hues(roots: list[str]) -> dict[str, str]:
-    return {root: SIDE_HUES[i % len(SIDE_HUES)] for i, root in enumerate(sorted(roots))}
+    """One hue per "school of thought" (root). Exactly two roots is polarity --
+    two opposing theses -- so it gets the palette's actual diverging pair.
+    Three or more is plain categorical identity, so it draws from the fixed
+    8-hue order in sequence, never reordered."""
+    roots_sorted = sorted(roots)
+    if len(roots_sorted) == 2:
+        return dict(zip(roots_sorted, DIVERGING_PAIR))
+    return {root: CATEGORICAL_HUES[i % len(CATEGORICAL_HUES)] for i, root in enumerate(roots_sorted)}
 
 
 def _claim_side(claim_id: str, reached: dict[str, set[str]]) -> str | None:
@@ -73,28 +108,99 @@ def _side_fill(claim_id: str, roots: set[str], reached: dict[str, set[str]], roo
     return hue if claim_id in roots else _lighten(hue)
 
 
+def _offset_max(members: list[str]) -> float:
+    """How far a row's outermost member sits from its own center, given
+    NODE_GAP spacing -- i.e. that row's half-footprint, measured center to
+    center like every other NODE_GAP gap in this layout."""
+    count = len(members)
+    return ((count - 1) / 2) * NODE_GAP if count else 0.0
+
+
 def _compute_positions(
     graph: Graph, roots: set[str], reached: dict[str, set[str]], depths: dict[str, int]
 ) -> dict[str, tuple[float, float]]:
     """Manually lay out nodes: y from depth (root at top), x clustered by side
     so each side's claims sit under its own root instead of vis-network's
-    generic hierarchical solver interleaving them."""
-    roots_sorted = sorted(roots)
-    n_roots = len(roots_sorted)
-    root_x = {r: (i - (n_roots - 1) / 2) * ROOT_SPACING for i, r in enumerate(roots_sorted)}
+    generic hierarchical solver interleaving them.
 
+    Root anchors are spaced dynamically from the data rather than a fixed
+    constant, so a case with few claims per side compacts much tighter than
+    one with many. A side's row at a given depth splits into two stacked rows
+    once it has more than SPLIT_THRESHOLD members, to keep any one tier from
+    stretching too wide horizontally -- the neutral/shared column at that
+    depth stays a single row, centered vertically between the two split rows
+    (see SPLIT_GAP)."""
     groups: dict[tuple[int, str | None], list[str]] = defaultdict(list)
     for cid in graph.claims:
         groups[(depths[cid], _claim_side(cid, reached))].append(cid)
 
-    positions: dict[str, tuple[float, float]] = {}
+    # Expand each (depth, side) group into one or two "rows" -- (depth, side,
+    # sub_index, members) -- splitting large side-groups into two stacked
+    # halves. Neutral groups are never split.
+    rows: list[tuple[int, str | None, int, list[str]]] = []
+    split_depths: set[int] = set()
     for (depth, side), members in groups.items():
         members_sorted = sorted(members)
-        base_x = root_x[side] if side is not None else 0.0
-        count = len(members_sorted)
-        for i, cid in enumerate(members_sorted):
+        if side is not None and len(members_sorted) > SPLIT_THRESHOLD:
+            mid = -(-len(members_sorted) // 2)  # ceil(n/2)
+            rows.append((depth, side, 0, members_sorted[:mid]))
+            rows.append((depth, side, 1, members_sorted[mid:]))
+            split_depths.add(depth)
+        else:
+            rows.append((depth, side, 0, members_sorted))
+
+    # Each depth occupies a vertical "band" -- zero height normally (a single
+    # row), or SPLIT_GAP tall when split (two rows, that far apart). Bands
+    # stack with a constant LEVEL_HEIGHT gap between the bottom of one and the
+    # top of the next, so a split tier pushes everything below it down rather
+    # than risking a collision.
+    all_depths = sorted({d for d, _s, _i, _m in rows})
+    band_height = {d: (SPLIT_GAP if d in split_depths else 0.0) for d in all_depths}
+    top: dict[int, float] = {}
+    bottom = 0.0
+    for i, d in enumerate(all_depths):
+        top[d] = 0.0 if i == 0 else bottom + LEVEL_HEIGHT
+        bottom = top[d] + band_height[d]
+
+    neutral_offset_max = {depth: _offset_max(members) for depth, side, _sub, members in rows if side is None}
+
+    roots_sorted = sorted(roots)
+    half_width: dict[str, float] = {}
+    for r in roots_sorted:
+        terms = [NODE_GAP]
+        for depth, side, _sub, members in rows:
+            if side != r:
+                continue
+            # Every row -- split or not -- keeps NODE_GAP horizontal
+            # clearance from the neutral column at this depth. With SPLIT_GAP
+            # kept small (see above), the vertical distance to a split row's
+            # midpoint-seated neutral column isn't enough on its own, so
+            # horizontal separation is what actually guarantees no overlap.
+            terms.append(_offset_max(members) + neutral_offset_max.get(depth, 0.0) + NODE_GAP)
+        half_width[r] = max(terms)
+
+    root_x: dict[str, float] = {}
+    cursor = 0.0
+    for i, r in enumerate(roots_sorted):
+        cursor += half_width[r]
+        if i > 0:
+            cursor += BLOCK_MARGIN
+        root_x[r] = cursor
+        cursor += half_width[r]
+    shift = sum(root_x.values()) / len(root_x) if root_x else 0.0
+    root_x = {r: x - shift for r, x in root_x.items()}
+
+    positions: dict[str, tuple[float, float]] = {}
+    for depth, side, sub_index, members in rows:
+        if side is None:
+            base_x, y = 0.0, top[depth] + band_height[depth] / 2
+        else:
+            base_x = root_x[side]
+            y = top[depth] if sub_index == 0 else top[depth] + band_height[depth]
+        count = len(members)
+        for i, cid in enumerate(members):
             offset = (i - (count - 1) / 2) * NODE_GAP
-            positions[cid] = (base_x + offset, depth * LEVEL_HEIGHT)
+            positions[cid] = (base_x + offset, y)
 
     return positions
 
@@ -145,8 +251,7 @@ def build_elements(
         else:
             border_color, border_width = NO_CRUX_BORDER, 1
 
-        badge = "\n🔑🔑" if is_double_crux else ("\n🔑" if is_crux else "")
-        label = _wrap(claim.label) + badge
+        label = _wrap(claim.label)
         x, y = positions[cid]
 
         nodes.append(
@@ -201,17 +306,16 @@ def render_graph(
     nodes, edges = build_elements(graph, search_query, show_only_cruxes)
     config = Config(
         height=800,
-        width=2800,
+        width=1400,
         directed=True,
         physics=False,
         hierarchical=False,
         groups={},
-        # vis-network's default autoResize watches the container and re-fits
-        # the view on any resize -- including the container being briefly
-        # hidden/shown behind the dialog overlay, which was silently resetting
-        # the user's zoom/pan every time a dialog closed. The canvas here is a
-        # fixed size by design (see height/width above), so it never needs to
-        # adapt to its container anyway.
+        # autoResize=False so a container resize (e.g. the network briefly
+        # hidden/shown behind the dialog overlay) never triggers a re-fit that
+        # would silently reset the user's zoom/pan -- it only affects re-fits
+        # *after* the initial mount, so it's compatible with the width override
+        # below, which only matters at that one initial `_setSize()` call.
         autoResize=False,
         interaction={
             "navigationButtons": False,
@@ -221,6 +325,13 @@ def render_graph(
             "keyboard": False,
         },
     )
+    # Override the width Config just built to a CSS percentage instead of a
+    # fixed pixel value -- Config.__init__ always suffixes its int argument
+    # with "px", so there's no way to request this through the constructor.
+    # Without this, the canvas frame is a literal fixed-pixel box regardless
+    # of the actual column width it's embedded in, and it was previously wide
+    # enough (2800px) to overflow past the page on typical screens.
+    config.width = "100%"
     # Calling the raw declared component (rather than streamlit_agraph's own
     # agraph() wrapper, which doesn't forward key) so we can give it a
     # stable, explicit key. This keeps the same component instance across

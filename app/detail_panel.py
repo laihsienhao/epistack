@@ -23,11 +23,11 @@ def _render_body(graph: Graph, claim_id: str) -> None:
 
     badges = []
     if is_root:
-        badges.append("🏛️ Root thesis")
+        badges.append("Root thesis")
     if is_double_crux:
-        badges.append("🔑🔑 Double crux")
+        badges.append("Double crux")
     elif crux_for:
-        badges.append("🔑 Crux")
+        badges.append("Crux")
     if badges:
         st.caption(" &nbsp;·&nbsp; ".join(badges))
 
@@ -35,7 +35,7 @@ def _render_body(graph: Graph, claim_id: str) -> None:
 
     if crux_for:
         root_texts = [graph.claims[r].label for r in crux_for if r in graph.claims]
-        st.warning("**Crux for:** " + " · ".join(root_texts), icon="🔑")
+        st.warning("**Crux for:** " + " · ".join(root_texts))
 
     if claim.explanation:
         st.markdown(claim.explanation)
@@ -54,20 +54,20 @@ def _render_body(graph: Graph, claim_id: str) -> None:
         col_in, col_out = st.columns(2)
         with col_in:
             if incoming:
-                st.markdown("**⬅ Points into this claim**")
+                st.markdown("**Points into this claim**")
                 for edge in incoming:
                     other = graph.claims.get(edge.from_)
                     if other:
-                        icon = "🔑" if edge.relation == "depends_on" else "•"
-                        st.markdown(f"{icon} {other.label}")
+                        bullet = "‣" if edge.relation == "depends_on" else "•"
+                        st.markdown(f"{bullet} {other.label}")
         with col_out:
             if outgoing:
-                st.markdown("**➡ This claim points into**")
+                st.markdown("**This claim points into**")
                 for edge in outgoing:
                     other = graph.claims.get(edge.to)
                     if other:
-                        icon = "🔑" if edge.relation == "depends_on" else "•"
-                        st.markdown(f"{icon} {other.label}")
+                        bullet = "‣" if edge.relation == "depends_on" else "•"
+                        st.markdown(f"{bullet} {other.label}")
 
 
 @st.dialog("Claim details", width="medium")

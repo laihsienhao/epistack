@@ -13,7 +13,7 @@ def render_cruxes_panel(graph: Graph) -> None:
     st.markdown(
         "Claims whose falsification would break a necessary condition for a root "
         "thesis, ranked by how many theses they're load-bearing for. "
-        "🔑🔑 Double cruxes are the highest-value entries — settling them would "
+        "Double cruxes are the highest-value entries — settling them would "
         "move more than one school of thought."
     )
 
@@ -22,9 +22,9 @@ def render_cruxes_panel(graph: Graph) -> None:
         claim = graph.claims.get(claim_id)
         if claim is None:
             continue
-        icon = "🔑🔑" if len(roots) >= 2 else "🔑"
+        label = "Double crux" if len(roots) >= 2 else "Crux"
         root_texts = [graph.claims[r].text for r in roots if r in graph.claims]
-        with st.expander(f"{icon} {claim.text}"):
+        with st.expander(f"[{label}] {claim.text}"):
             if claim.explanation:
                 st.markdown(claim.explanation)
             st.markdown("**Crux for:**")
