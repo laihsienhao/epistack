@@ -1,122 +1,13 @@
-- id: e-content-into-jama-dose
-  relation: supports
-  from: egg-cholesterol-content
-  to: jama-cohort-cholesterol-mortality-link
-  provenance: []
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-content-into-ajcn-dose
-  relation: supports
-  from: egg-cholesterol-content
-  to: rct-cholesterol-no-ldl-effect
-  provenance: []
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-mechanism-into-hypo
-  relation: supports
-  from: individual-cholesterol-response-variability
-  to: hypo-responders-minimal-effect
-  provenance: [katan1987]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-mechanism-into-hyper
-  relation: supports
-  from: individual-cholesterol-response-variability
-  to: hyper-responders-elevated-risk
-  provenance: [katan1987]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-hypo-into-fine
-  relation: supports
-  from: hypo-responders-minimal-effect
-  to: eggs-fine-in-moderation
-  provenance: []
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-hyper-into-limited
-  relation: supports
-  from: hyper-responders-elevated-risk
-  to: eggs-should-be-limited
-  provenance: []
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-ajcn-into-fine
-  relation: supports
-  from: rct-cholesterol-no-ldl-effect
-  to: eggs-fine-in-moderation
-  provenance: [ajcn2025]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-frontiers-cvd-into-fine
-  relation: supports
-  from: meta-analysis-no-cvd-mortality-link
-  to: eggs-fine-in-moderation
-  provenance: [frontiers2022]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-eggant-into-fine
-  relation: supports
-  from: rct-no-lipid-change-healthy-adults
-  to: eggs-fine-in-moderation
-  provenance: [galvis2023]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-aha-into-fine
-  relation: supports
-  from: aha-guidance-moderate-intake-ok
-  to: eggs-fine-in-moderation
-  provenance: [aha-news-2023]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-jama-dose-into-limited
-  relation: supports
-  from: jama-cohort-cholesterol-mortality-link
-  to: eggs-should-be-limited
-  provenance: [jama2019]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-jama-egg-into-limited
-  relation: supports
-  from: jama-cohort-egg-mortality-link
-  to: eggs-should-be-limited
-  provenance: [jama2019]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-atbc-into-limited
-  relation: supports
-  from: atbc-cohort-cholesterol-mortality-link
-  to: eggs-should-be-limited
-  provenance: [circulation2022]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-frontiers-allcause-into-limited
-  relation: supports
-  from: meta-analysis-allcause-mortality-link
-  to: eggs-should-be-limited
-  provenance: [frontiers2022]
-  author: 171384n
-  created: 2026-07-13
-
-- id: e-khalighi-into-limited
-  relation: supports
-  from: rct-meta-analysis-egg-raises-lipids
-  to: eggs-should-be-limited
-  provenance: [khalighi2020]
-  author: 171384n
-  created: 2026-07-13
+# =========================================================================
+# Consolidated 2026-07-17 (same-day pass): folded 38 single-study "evidentiary
+# claim" leaf nodes (each supporting exactly one parent) into their parent
+# claims' `sources` lists + narrated `explanation` prose, per user request to
+# avoid one-node-per-example sprawl. See docs/CONTRIBUTING_CLAIMS.md's "Avoid
+# one-node-per-finding sprawl" guidance and CLAUDE.md's session history for
+# the full rationale. Every edge below either survived that pass untouched or
+# is a new direct edge needed to preserve a shared ground truth's reachability
+# from both sides now that its old single-parent intermediate nodes are gone.
+# =========================================================================
 
 - id: e-crux-into-fine
   relation: depends_on
@@ -133,3 +24,167 @@
   provenance: []
   author: 171384n
   created: 2026-07-13
+
+- id: e-cholesterol-content-into-fine
+  relation: supports
+  from: egg-cholesterol-content
+  to: eggs-fine-in-moderation
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+- id: e-cholesterol-content-into-limited
+  relation: supports
+  from: egg-cholesterol-content
+  to: eggs-should-be-limited
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+- id: e-variability-into-fine
+  relation: supports
+  from: individual-cholesterol-response-variability
+  to: eggs-fine-in-moderation
+  provenance: [katan1987]
+  author: 171384n
+  created: 2026-07-17
+
+- id: e-variability-into-limited
+  relation: supports
+  from: individual-cholesterol-response-variability
+  to: eggs-should-be-limited
+  provenance: [katan1987]
+  author: 171384n
+  created: 2026-07-17
+
+- id: e-fine-into-healthy
+  relation: supports
+  from: eggs-fine-in-moderation
+  to: eggs-are-healthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+- id: e-limited-into-unhealthy
+  relation: supports
+  from: eggs-should-be-limited
+  to: eggs-are-unhealthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- TMAO ---
+
+- id: e-choline-into-tmao-contested
+  relation: supports
+  from: egg-choline-content
+  to: tmao-cvd-risk-contested
+  provenance: [tang2013-tmao-nejm]
+  author: 171384n
+  created: 2026-07-17
+
+- id: e-tmao-contested-into-unhealthy
+  relation: supports
+  from: tmao-cvd-risk-contested
+  to: eggs-are-unhealthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- Type 2 diabetes ---
+
+- id: e-t2d-contested-into-unhealthy
+  relation: supports
+  from: egg-t2d-association-region-dependent
+  to: eggs-are-unhealthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- Saturated fat ---
+
+- id: e-satfat-contested-into-unhealthy
+  relation: supports
+  from: saturated-fat-cvd-link-contested
+  to: eggs-are-unhealthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- Cooking-method oxidation products ---
+
+- id: e-cop-contested-into-unhealthy
+  relation: supports
+  from: cooking-oxidation-cop-contested
+  to: eggs-are-unhealthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- Salmonella / food safety ---
+
+- id: e-salmonella-contested-into-unhealthy
+  relation: supports
+  from: egg-salmonella-risk-contested
+  to: eggs-are-unhealthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- Allergenicity ---
+
+- id: e-allergenicity-synthesis-into-unhealthy
+  relation: supports
+  from: egg-allergenicity-narrow-but-real-risk
+  to: eggs-are-unhealthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- Protein quality ---
+
+- id: e-protein-benefit-into-healthy
+  relation: supports
+  from: egg-protein-quality-benefit
+  to: eggs-are-healthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- Satiety / weight management ---
+
+- id: e-satiety-contested-into-healthy
+  relation: supports
+  from: egg-satiety-effect-contested
+  to: eggs-are-healthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- Choline benefit ---
+
+- id: e-choline-into-choline-benefit
+  relation: supports
+  from: egg-choline-content
+  to: egg-choline-benefit
+  provenance: [wallace-fulgoni-2017-nhanes-choline-eggs]
+  author: 171384n
+  created: 2026-07-17
+
+- id: e-choline-benefit-into-healthy
+  relation: supports
+  from: egg-choline-benefit
+  to: eggs-are-healthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17
+
+# --- Lutein/zeaxanthin & other micronutrients ---
+
+- id: e-micronutrient-benefit-into-healthy
+  relation: supports
+  from: egg-micronutrient-benefit
+  to: eggs-are-healthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-17

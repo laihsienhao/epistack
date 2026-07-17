@@ -7,7 +7,17 @@ from src.loader import Graph
 def render_cruxes_panel(graph: Graph) -> None:
     crux_map = compute_cruxes(graph)
     if not crux_map:
-        st.info("No cruxes detected yet — add depends-on edges to mark load-bearing claims.")
+        st.info(
+            "No cruxes detected for the current root theses. This can mean the case "
+            "hasn't been built out yet — add depends-on edges to mark load-bearing "
+            "claims. It can also be a genuine finding rather than a gap: once a thesis "
+            "rests on several independently-sufficient pillars (e.g. a broad 'eggs are "
+            "unhealthy' claim backed by cholesterol, TMAO, diabetes risk, and food-safety "
+            "arguments that don't depend on each other), no single sub-question is "
+            "strictly necessary for it anymore — so nothing qualifies as a crux at that "
+            "level, even though narrower sub-arguments inside the tree may still have "
+            "their own load-bearing cruxes."
+        )
         return
 
     st.markdown(

@@ -129,32 +129,33 @@ def _compute_positions(
     once it has more than SPLIT_THRESHOLD members, to keep any one tier from
     stretching too wide horizontally -- the neutral/shared column at that
     depth stays a single row, centered vertically between the two split rows
-    (see SPLIT_GAP)."""
+    (see SPLIT_GAP).
+
+    Within a row, members are ordered by *barycenter* -- the average x of the
+    node(s) each one points to -- rather than alphabetically by id. Every
+    edge points to a strictly shallower depth (see compute_depths), so
+    processing depths shallow-to-deep means a claim's targets are always
+    already positioned by the time it needs ordering. This is the standard
+    layered-graph-drawing heuristic for cutting down edge crossings; sorting
+    by id instead (the previous approach) put a claim's x position at no
+    relation to what it actually points to, which is what made the arrows
+    hard to visually trace once the graph grew past a handful of claims per
+    row."""
     groups: dict[tuple[int, str | None], list[str]] = defaultdict(list)
     for cid in graph.claims:
         groups[(depths[cid], _claim_side(cid, reached))].append(cid)
 
-    # Expand each (depth, side) group into one or two "rows" -- (depth, side,
-    # sub_index, members) -- splitting large side-groups into two stacked
-    # halves. Neutral groups are never split.
-    rows: list[tuple[int, str | None, int, list[str]]] = []
-    split_depths: set[int] = set()
-    for (depth, side), members in groups.items():
-        members_sorted = sorted(members)
-        if side is not None and len(members_sorted) > SPLIT_THRESHOLD:
-            mid = -(-len(members_sorted) // 2)  # ceil(n/2)
-            rows.append((depth, side, 0, members_sorted[:mid]))
-            rows.append((depth, side, 1, members_sorted[mid:]))
-            split_depths.add(depth)
-        else:
-            rows.append((depth, side, 0, members_sorted))
+    # Row *sizing* only needs counts, not final member order -- actual member
+    # assignment happens later, once barycenters are available (see the
+    # position-filling loop at the bottom).
+    split_depths = {depth for (depth, side), members in groups.items() if side is not None and len(members) > SPLIT_THRESHOLD}
 
     # Each depth occupies a vertical "band" -- zero height normally (a single
     # row), or SPLIT_GAP tall when split (two rows, that far apart). Bands
     # stack with a constant LEVEL_HEIGHT gap between the bottom of one and the
     # top of the next, so a split tier pushes everything below it down rather
     # than risking a collision.
-    all_depths = sorted({d for d, _s, _i, _m in rows})
+    all_depths = sorted({d for d, _s in groups})
     band_height = {d: (SPLIT_GAP if d in split_depths else 0.0) for d in all_depths}
     top: dict[int, float] = {}
     bottom = 0.0
@@ -162,13 +163,13 @@ def _compute_positions(
         top[d] = 0.0 if i == 0 else bottom + LEVEL_HEIGHT
         bottom = top[d] + band_height[d]
 
-    neutral_offset_max = {depth: _offset_max(members) for depth, side, _sub, members in rows if side is None}
+    neutral_offset_max = {depth: _offset_max(members) for (depth, side), members in groups.items() if side is None}
 
     roots_sorted = sorted(roots)
     half_width: dict[str, float] = {}
     for r in roots_sorted:
         terms = [NODE_GAP]
-        for depth, side, _sub, members in rows:
+        for (depth, side), members in groups.items():
             if side != r:
                 continue
             # Every row -- split or not -- keeps NODE_GAP horizontal
@@ -179,28 +180,66 @@ def _compute_positions(
             terms.append(_offset_max(members) + neutral_offset_max.get(depth, 0.0) + NODE_GAP)
         half_width[r] = max(terms)
 
+    # Pack roots outward from the neutral column at x=0 -- first half of the
+    # sorted roots to the left (negative x), second half to the right
+    # (positive x) -- each root positioned at exactly its own half_width (plus
+    # BLOCK_MARGIN from any same-side sibling), so its widest row always
+    # clears the neutral column regardless of how wide any other root's rows
+    # are. A prior "pack cursor left-to-right, then shift by the average of
+    # all root_x" approach diluted a very wide root's clearance whenever a
+    # much narrower sibling root pulled that average back toward zero --
+    # exactly the failure the numeric sanity check in CLAUDE.md is meant to
+    # catch (see also the min-pairwise-distance check after any layout edit).
     root_x: dict[str, float] = {}
-    cursor = 0.0
-    for i, r in enumerate(roots_sorted):
-        cursor += half_width[r]
-        if i > 0:
-            cursor += BLOCK_MARGIN
-        root_x[r] = cursor
-        cursor += half_width[r]
-    shift = sum(root_x.values()) / len(root_x) if root_x else 0.0
-    root_x = {r: x - shift for r, x in root_x.items()}
+    split_index = (len(roots_sorted) + 1) // 2
+    for sign, side_roots in ((-1.0, roots_sorted[:split_index]), (1.0, roots_sorted[split_index:])):
+        cursor = 0.0
+        for i, r in enumerate(side_roots):
+            cursor += half_width[r]
+            if i > 0:
+                cursor += BLOCK_MARGIN
+            root_x[r] = sign * cursor
+            cursor += half_width[r]
 
-    positions: dict[str, tuple[float, float]] = {}
-    for depth, side, sub_index, members in rows:
-        if side is None:
-            base_x, y = 0.0, top[depth] + band_height[depth] / 2
-        else:
-            base_x = root_x[side]
-            y = top[depth] if sub_index == 0 else top[depth] + band_height[depth]
+    def _place_row(members: list[str], base_x: float, y: float, positions: dict[str, tuple[float, float]]) -> None:
         count = len(members)
         for i, cid in enumerate(members):
             offset = (i - (count - 1) / 2) * NODE_GAP
             positions[cid] = (base_x + offset, y)
+
+    def _barycenter(cid: str, positions: dict[str, tuple[float, float]]) -> float:
+        xs = [positions[edge.to][0] for edge in graph.outgoing(cid) if edge.to in positions]
+        return sum(xs) / len(xs) if xs else 0.0
+
+    # Depth 0 is always roots (a claim has depth 0 iff it has no outgoing
+    # edges iff it's a root), each alone in its own (0, own_id) group, so no
+    # ordering/barycenter is needed there -- root_x already fixes their x.
+    # Every depth >= 1 group is ordered by the already-placed positions of
+    # whatever its members point to, processed shallow-to-deep so a claim's
+    # targets are always resolved before the claim itself needs ordering.
+    positions: dict[str, tuple[float, float]] = {}
+    for depth in all_depths:
+        for (d, side), members in groups.items():
+            if d != depth:
+                continue
+            if depth == 0:
+                _place_row(members, root_x[side], top[depth], positions)
+                continue
+
+            ordered = sorted(members, key=lambda cid: (_barycenter(cid, positions), cid))
+
+            if side is None:
+                _place_row(ordered, 0.0, top[depth] + band_height[depth] / 2, positions)
+            elif len(ordered) > SPLIT_THRESHOLD:
+                # Interleave the barycenter-sorted order across both split
+                # rows (rather than a contiguous first-half/second-half cut)
+                # so each row still spans -- and reflects -- the full
+                # left-to-right barycenter range instead of one row reading
+                # systematically further left than the other.
+                _place_row(ordered[0::2], root_x[side], top[depth], positions)
+                _place_row(ordered[1::2], root_x[side], top[depth] + band_height[depth], positions)
+            else:
+                _place_row(ordered, root_x[side], top[depth], positions)
 
     return positions
 

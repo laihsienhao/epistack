@@ -40,7 +40,8 @@ full `text`, not just be a shorter version of it.
 - **Root thesis** (no outgoing edges — a school of thought): a plain sentence-case
   clause, no tag, no trailing punctuation. E.g. "Egg cholesterol meaningfully raises
   heart disease and death risk".
-- **Evidentiary claim** (reports a finding from a source, or a basic fact): `<tag>:
+- **Evidentiary claim** (reports a finding from a source, or a basic fact — see "Avoid
+  one-node-per-finding sprawl" just below before creating one of these): `<tag>:
   <lowercase clause>`, no trailing punctuation. The tag is one of a **fixed, generic
   vocabulary** — never an organization name or a specific qualifying detail (no "AHA",
   no "31-year Finnish cohort", no "Same study"):
@@ -57,6 +58,22 @@ full `text`, not just be a shorter version of it.
   finding): `Whether <clause> is unresolved` or `Whether <clause> is contested`, no
   trailing punctuation. E.g. "Whether egg cholesterol truly causes heart disease is
   unresolved".
+
+**Avoid one-node-per-finding sprawl.** Only give a finding its own standalone node
+when it is a genuine, independently reachable **shared ground truth** used by 2+
+branches (e.g. a basic content fact like "one egg has ~200mg of cholesterol") or is
+itself the claim under dispute (a crux/contested node). If a finding's only role is to
+support exactly one parent claim, don't create a node for it — fold its citation into
+that parent's `sources` list and narrate the finding in the parent's `explanation`
+prose instead. The detail panel already renders every source in `claim.sources` as a
+full citation card (title/authors/year/venue/link), so merging several studies onto
+one claim loses no citation fidelity — it just keeps the graph itself readable as a
+set of broad claims/arguments rather than a forest of single-study leaves. A claim
+built this way is a **synthesis of several sources**, not a report of one finding, so
+it should use the **root thesis** or **open-question** label template (a plain
+sentence-case clause, or "Whether X is contested"), never the `<Tag>: <clause>`
+evidentiary template — that template is reserved for the rare standalone
+shared-fact/single-finding node described above.
 
 **Edge** (`schema/edge.schema.json`): `id`, `relation` (`supports` or `depends_on`
 only — see below), `from` and `to` — **direction always runs from the more

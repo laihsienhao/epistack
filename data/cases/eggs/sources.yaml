@@ -61,3 +61,253 @@
   year: 2023
   venue: "American Heart Association News"
   url: "https://www.heart.org/en/news/2023/08/25/heres-the-latest-on-dietary-cholesterol-and-how-it-fits-in-with-a-healthy-diet"
+
+# --- TMAO mechanism ---
+
+- id: tang2013-tmao-nejm
+  type: cohort
+  title: "Intestinal microbial metabolism of phosphatidylcholine and cardiovascular risk"
+  authors: "Tang WHW, Wang Z, Levison BS, Koeth RA, Britt EB, Fu X, Wu Y, Hazen SL"
+  year: 2013
+  venue: "New England Journal of Medicine, 368(17):1575-1584"
+  url: "https://pubmed.ncbi.nlm.nih.gov/23614584/"
+
+- id: miller2014-egg-dose-response-ajcn
+  type: rct
+  title: "Effect of egg ingestion on trimethylamine-N-oxide production in humans: a randomized, controlled, dose-response study"
+  authors: "Miller CA, Corbin KD, da Costa KA, Zhang S, Zhao X, Galanko JA, Blevins T, Bennett BJ, O'Connor A, Zeisel SH"
+  year: 2014
+  venue: "American Journal of Clinical Nutrition, 100(3):778-786"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4135488/"
+
+- id: wilcox2021-choline-vs-eggs-ajm
+  type: rct
+  title: "Dietary Choline Supplements, but Not Eggs, Raise Fasting TMAO Levels in Participants with Normal Renal Function: A Randomized Clinical Trial"
+  authors: "Wilcox J, Skye SM, Graham B, Zabell A, Li XS, Li L, Shelkay S, Fu X, Neale S, O'Laughlin C, Peterson K, Hazen SL, Tang WHW"
+  year: 2021
+  venue: "American Journal of Medicine, 134(9):1160-1169.e3"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8410632/"
+
+- id: aryaeian2025-egg-tmao-metaanalysis
+  type: meta_analysis
+  title: "Effect of egg consumption on circulating choline, betaine, and trimethylamine n-oxide in adults: a systematic review and meta-analysis of randomized controlled trials"
+  authors: "Aryaeian N, Heydarian A, Tahvilian N, Hosseini H, Ramezani Ahmadi A, Davarpanah SH"
+  year: 2025
+  venue: "Nutrition Journal, 24:165"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12560564/"
+
+# --- Type 2 diabetes ---
+
+- id: drouin-chartier-2020-t2d-eggs
+  type: cohort
+  title: "Egg consumption and risk of type 2 diabetes: findings from 3 large US cohort studies of men and women and a systematic review and meta-analysis of prospective cohort studies"
+  authors: "Drouin-Chartier JP, et al."
+  year: 2020
+  venue: "American Journal of Clinical Nutrition"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7458776/"
+
+- id: tamez-2016-bjn-eggs-t2d
+  type: meta_analysis
+  title: "Egg consumption and risk of incident type 2 diabetes: a dose-response meta-analysis of prospective cohort studies"
+  authors: "Tamez M, Virtanen JK, Lajous M"
+  year: 2016
+  venue: "British Journal of Nutrition, 115(12)"
+  url: "https://pubmed.ncbi.nlm.nih.gov/27108219/"
+
+- id: diabegg-2015-rct-eggs-t2d
+  type: rct
+  title: "The effect of a high-egg diet on cardiovascular risk factors in people with type 2 diabetes: the Diabetes and Egg (DIABEGG) study — a 3-mo randomized controlled trial"
+  authors: "Fuller NR, Caterson ID, Sainsbury A, Denyer G, Fong M, Gerofi J, Baqleh K, Williams KH, Lau NS, Markovic TP"
+  year: 2015
+  venue: "American Journal of Clinical Nutrition, 101(4):705-713"
+  url: "https://pubmed.ncbi.nlm.nih.gov/25833969/"
+
+# --- Saturated fat ---
+
+- id: usda-fdc-egg-171287
+  type: other
+  title: "FoodData Central: Egg, whole, raw, fresh (FDC ID 171287)"
+  authors: "U.S. Department of Agriculture, Agricultural Research Service"
+  year: 2019
+  venue: "USDA FoodData Central"
+  url: "https://fdc.nal.usda.gov/food-details/171287/nutrients"
+
+- id: astrup-2020-jacc-satfat-food-matrix
+  type: review
+  title: "Saturated Fats and Health: A Reassessment and Proposal for Food-Based Recommendations"
+  authors: "Astrup A, Magkos F, Bier DM, et al."
+  year: 2020
+  venue: "Journal of the American College of Cardiology, 76(7)"
+  url: "https://www.jacc.org/doi/10.1016/j.jacc.2020.05.077"
+
+# --- Cooking-method oxidation products ---
+
+- id: cop-thermal-storage-eggs
+  type: other
+  title: "Increase of Cholesterol Oxidation and Decrease of PUFA as a Result of Thermal Processing and Storage in Eggs Enriched with n-3 Fatty Acids"
+  authors: "Mazalli MR, Bragagnolo N"
+  year: 2009
+  venue: "Journal of Agricultural and Food Chemistry, 57(11):5028-5034"
+  url: "https://pubmed.ncbi.nlm.nih.gov/19438228/"
+
+- id: oxysterols-stored-powders
+  type: other
+  title: "Oxysterols in stored powders as potential health hazards"
+  authors: "Chudy S, Teichert J"
+  year: 2021
+  venue: "Scientific Reports, 11:21192"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8551233/"
+
+- id: oxysterols-atherosclerosis-mechanism
+  type: review
+  title: "Oxysterols in Vascular Cells and Role in Atherosclerosis"
+  authors: "Luquain-Costaz C, Delton I"
+  year: 2024
+  venue: "Advances in Experimental Medicine and Biology, 1440:213-229"
+  url: "https://pubmed.ncbi.nlm.nih.gov/38036882/"
+
+- id: fried-scrambled-eggs-lipid-quality
+  type: other
+  title: "Lipid quality of fried and scrambled eggs prepared in different frying medium"
+  authors: "Ferreira SRR, et al."
+  year: 2022
+  venue: "International Journal of Gastronomy and Food Science, 29:100552"
+  url: "https://www.sciencedirect.com/science/article/abs/pii/S1878450X22000877"
+
+# --- Salmonella / food safety ---
+
+- id: fda-egg-safety-final-rule
+  type: guideline
+  title: "Egg Safety Final Rule"
+  authors: "U.S. Food and Drug Administration"
+  year: 2009
+  venue: "FDA (21 CFR Part 118)"
+  url: "https://www.fda.gov/food/egg-guidance-regulation-and-other-information/egg-safety-final-rule"
+
+- id: cdc-eid-se-egg-illness-estimate-2000
+  type: other
+  title: "Estimate of Illnesses from Salmonella Enteritidis in Eggs, United States, 2000"
+  authors: "Schroeder CM, Naugle AL, Schlosser WD, Hogue AT, Angulo FJ, et al."
+  year: 2005
+  venue: "Emerging Infectious Diseases (CDC)"
+  url: "https://wwwnc.cdc.gov/eid/article/11/1/04-0401_article"
+
+- id: ebel-schlosser-2000-contamination-fraction
+  type: other
+  title: "Estimating the annual fraction of eggs contaminated with Salmonella enteritidis in the United States"
+  authors: "Ebel E, Schlosser W"
+  year: 2000
+  venue: "International Journal of Food Microbiology"
+  url: "https://pubmed.ncbi.nlm.nih.gov/11028959/"
+
+# --- Allergenicity ---
+
+- id: egg-allergy-prevalence-us-children
+  type: cohort
+  title: "Egg Allergy in US Children"
+  authors: "Samady W, Warren C, Wang J, Das R, Gupta R"
+  year: 2020
+  venue: "Journal of Allergy and Clinical Immunology: In Practice"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7895443/"
+
+- id: egg-allergy-natural-history-savage
+  type: cohort
+  title: "The natural history of egg allergy"
+  authors: "Savage JH, Matsui EC, Skripak JM, Wood RA"
+  year: 2007
+  venue: "Journal of Allergy and Clinical Immunology"
+  url: "https://pubmed.ncbi.nlm.nih.gov/18073126/"
+
+- id: egg-induced-anaphylaxis-severity-prosty
+  type: cohort
+  title: "Clinical characteristics and management of pediatric egg-induced anaphylaxis: A cross-sectional study"
+  authors: "Prosty C, Alyasin M, Gabrielli S, et al."
+  year: 2024
+  venue: "Annals of Allergy, Asthma & Immunology, 133(1):81-85"
+  url: "https://pubmed.ncbi.nlm.nih.gov/38499059/"
+
+# --- Protein quality & satiety ---
+
+- id: vander-wal-2005-egg-satiety
+  type: rct
+  title: "Short-term effect of eggs on satiety in overweight and obese subjects"
+  authors: "Vander Wal JS, Marth JM, Khosla P, Jen KC, Dhurandhar NV"
+  year: 2005
+  venue: "Journal of the American College of Nutrition"
+  url: "https://pubmed.ncbi.nlm.nih.gov/16373948/"
+
+- id: vander-wal-2008-egg-weight-loss
+  type: rct
+  title: "Egg breakfast enhances weight loss"
+  authors: "Vander Wal JS, Gupta A, Khosla P, Dhurandhar NV"
+  year: 2008
+  venue: "International Journal of Obesity, 32(10):1545-1551"
+  url: "https://pubmed.ncbi.nlm.nih.gov/18679412/"
+
+- id: zhu-2022-egg-cereal-nuance
+  type: rct
+  title: "Greater protein quality of an egg breakfast may be inadequate to induce satiety during weight loss, compared with a cereal breakfast of equal protein quantity"
+  authors: "Zhu Y, Bailey D, Childress A, Dawson JA, Binks M, Dhurandhar NV"
+  year: 2022
+  venue: "International Journal of Food Sciences and Nutrition, 73(8):1096-1103"
+  url: "https://pubmed.ncbi.nlm.nih.gov/36237122/"
+
+- id: van-vliet-2017-whole-egg-mps
+  type: rct
+  title: "Consumption of whole eggs promotes greater stimulation of postexercise muscle protein synthesis than consumption of isonitrogenous amounts of egg whites in young men"
+  authors: "van Vliet S, Shy EL, Abou Sawan S, et al."
+  year: 2017
+  venue: "American Journal of Clinical Nutrition, 106(6):1401-1412"
+  url: "https://pubmed.ncbi.nlm.nih.gov/28978542/"
+
+- id: herreman-2020-diaas-review
+  type: review
+  title: "Comprehensive overview of the quality of plant- and animal-sourced proteins based on the digestible indispensable amino acid score"
+  authors: "Herreman L, Nommensen P, Pennings B, Laus MC"
+  year: 2020
+  venue: "Food Science & Nutrition, 8(10):5379-5391"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7590266/"
+
+# --- Choline ---
+
+- id: nih-ods-choline-professional
+  type: guideline
+  title: "Choline — Health Professional Fact Sheet"
+  authors: "NIH Office of Dietary Supplements"
+  year: 2022
+  venue: "ods.od.nih.gov"
+  url: "https://ods.od.nih.gov/factsheets/Choline-HealthProfessional/"
+
+- id: wallace-fulgoni-2017-nhanes-choline-eggs
+  type: cohort
+  title: "Usual Choline Intakes Are Associated with Egg and Protein Food Consumption in the United States"
+  authors: "Wallace TC, Fulgoni VL III"
+  year: 2017
+  venue: "Nutrients, 9(8):839"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5579632/"
+
+- id: bahnfleth-2022-prenatal-choline-attention
+  type: rct
+  title: "Prenatal choline supplementation improves child sustained attention: A 7-year follow-up of a randomized controlled feeding trial"
+  authors: "Bahnfleth CL, Strupp BJ, Caudill MA, Canfield RL"
+  year: 2022
+  venue: "The FASEB Journal, 36:e22054"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9303951/"
+
+# --- Lutein/zeaxanthin & micronutrients ---
+
+- id: vishwanathan-2009-egg-yolk-macular-pigment
+  type: rct
+  title: "Consumption of 2 and 4 egg yolks/d for 5 wk increases macular pigment concentrations in older adults with low macular pigment taking cholesterol-lowering statins"
+  authors: "Vishwanathan R, Goodrow-Kotyla EF, Wooten BR, Wilson TA, Nicolosi RJ"
+  year: 2009
+  venue: "American Journal of Clinical Nutrition, 90(5):1272-1279"
+  url: "https://pubmed.ncbi.nlm.nih.gov/19759170/"
+
+- id: chung-2004-lutein-bioavailability-eggs
+  type: rct
+  title: "Lutein bioavailability is higher from lutein-enriched eggs than from supplements and spinach in men"
+  authors: "Chung HY, Rasmussen HM, Johnson EJ"
+  year: 2004
+  venue: "The Journal of Nutrition, 134(8):1887-1893"
+  url: "https://pubmed.ncbi.nlm.nih.gov/15284371/"
