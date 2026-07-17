@@ -30,34 +30,58 @@ into `sources.yaml`), `confidence` (leave `null` — reserved for the Assessment
 stretch goal), `author`, `created`.
 
 **Writing a good `label`:** it should read as a complete thought on its own, in plain
-language, not an academic sentence fragment, and it must follow one of three fixed
+language, not an academic sentence fragment, and it must follow one of two fixed
 templates below depending on the claim's role. Never just `text` truncated with an
-ellipsis. Bad: "In a pooled analysis of 6 large US prospective cohorts (n=29,615;
-median follow-up 17.5 ye…" (truncated). Good: "Study: more cholesterol, higher death
-risk". The label is what a reader sees first — it has to earn a second look at the
-full `text`, not just be a shorter version of it.
+ellipsis, and **never tag it with its evidence type** — no "Study:", "Trial:",
+"Meta-analysis:", "Guideline:", or "Fact:" prefixes, ever. A node represents a broad
+claim or argument, not a report of one finding, so its label should always read that
+way, even for a single-fact node. Bad: "In a pooled analysis of 6 large US prospective
+cohorts (n=29,615; median follow-up 17.5 ye…" (truncated) or "Study: more cholesterol,
+higher death risk" (tagged with evidence type). Good: "More cholesterol is linked to
+higher death risk". The label is what a reader sees first — it has to earn a second
+look at the full `text`, not just be a shorter version of it.
 
-- **Root thesis** (no outgoing edges — a school of thought): a plain sentence-case
-  clause, no tag, no trailing punctuation. E.g. "Egg cholesterol meaningfully raises
-  heart disease and death risk".
-- **Evidentiary claim** (reports a finding from a source, or a basic fact — see "Avoid
-  one-node-per-finding sprawl" just below before creating one of these): `<tag>:
-  <lowercase clause>`, no trailing punctuation. The tag is one of a **fixed, generic
-  vocabulary** — never an organization name or a specific qualifying detail (no "AHA",
-  no "31-year Finnish cohort", no "Same study"):
-  - `Trial` — a randomized controlled trial
-  - `Study` — an observational/cohort study, or a guideline body's own supporting study
-  - `Meta-analysis` — a pooled analysis across multiple studies
-  - `Guideline` — an official recommendation
-  - `Fact` — a basic, uncontested fact
-
-  E.g. "Study: more cholesterol, higher death risk", "Trial: egg cholesterol didn't
-  raise LDL — saturated fat did", "Fact: one egg has about 200mg of cholesterol,
-  mostly in the yolk".
+- **Claim, thesis, or shared fact** (anything that isn't itself an open question): a
+  plain sentence-case clause, no tag, no trailing punctuation. This covers root theses
+  ("Egg cholesterol meaningfully raises heart disease and death risk"), sub-theses,
+  synthesis/argument nodes built from several sources, and standalone shared-fact
+  nodes alike ("One egg has about 200mg of cholesterol, mostly in the yolk") — there is
+  no separate tagged template for facts or findings. The specific studies, trials, and
+  analyses behind a claim belong in its `sources` list and `explanation` prose (shown
+  in the detail-panel popup on click), not in the label — see "Avoid one-node-per-
+  finding sprawl" below for why almost nothing should be a single-source finding node
+  in the first place.
 - **Open-question / contested claim** (the claim itself is the unresolved crux, not a
-  finding): `Whether <clause> is unresolved` or `Whether <clause> is contested`, no
-  trailing punctuation. E.g. "Whether egg cholesterol truly causes heart disease is
-  unresolved".
+  finding, tagged `contested` — see "Contested vs. contextual claims" below): `Whether
+  <clause> is unresolved` or `Whether <clause> is contested`, no trailing punctuation.
+  E.g. "Whether egg cholesterol truly causes heart disease is unresolved".
+
+**Contested vs. contextual claims.** Not every claim that "isn't a clean yes/no" is
+the same kind of unsettled, and the two are tagged and worded differently:
+
+- **`contested`** — a genuine open dispute: real evidence pulls in both directions
+  even once you specify a realistic scenario, and the field hasn't converged. Use the
+  open-question label template above (`Whether X is contested/unresolved`), since the
+  claim really is a live question, not yet a settled fact. E.g.
+  `tmao-cvd-risk-contested` — dose-response trials show eggs raise TMAO, a rebuttal
+  trial found whole-egg choline specifically doesn't raise fasting TMAO, and a 2025
+  meta-analysis found no pooled effect; the tension persists even for whole-egg
+  consumption specifically.
+- **`contextual`** — the apparent conflict is actually explained by a concrete,
+  nameable real-world variable (how something is prepared, handled, or sourced), and
+  once you specify which case you're in, the answer is fairly clear on each side. This
+  is a **claim, not an open question**, so it uses the plain-clause template, not the
+  `Whether X` template — phrase it to foreground the resolving variable. E.g.
+  `cooking-oxidation-cop-contested`: "Egg cooking method and storage determine
+  cholesterol-oxidation risk" (frying/long storage clearly raises COPs; quick
+  home-cooking clearly doesn't) — not "whether cooking oxidation is a real risk is
+  contested," which would wrongly suggest the science itself is unresolved.
+
+Both tags are currently informational/organizational only — they drive the label
+wording convention above, but no distinct node color or border. A fill-color
+treatment and a dashed-border treatment were each tried and then explicitly reverted
+(see CLAUDE.md's Design system entry for that history) — a reader currently spots a
+nuanced claim by reading its label/text, not by a visual channel on the node itself.
 
 **Avoid one-node-per-finding sprawl.** Only give a finding its own standalone node
 when it is a genuine, independently reachable **shared ground truth** used by 2+
@@ -70,10 +94,8 @@ full citation card (title/authors/year/venue/link), so merging several studies o
 one claim loses no citation fidelity — it just keeps the graph itself readable as a
 set of broad claims/arguments rather than a forest of single-study leaves. A claim
 built this way is a **synthesis of several sources**, not a report of one finding, so
-it should use the **root thesis** or **open-question** label template (a plain
-sentence-case clause, or "Whether X is contested"), never the `<Tag>: <clause>`
-evidentiary template — that template is reserved for the rare standalone
-shared-fact/single-finding node described above.
+it uses the same plain-clause label template as any other claim/thesis — never a
+tagged one, even the rare standalone shared-fact node described above.
 
 **Edge** (`schema/edge.schema.json`): `id`, `relation` (`supports` or `depends_on`
 only — see below), `from` and `to` — **direction always runs from the more

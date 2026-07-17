@@ -25,7 +25,7 @@
 - id: coffee-contains-caffeine
   case: toy
   text: "Coffee contains caffeine, a stimulant that affects the central nervous and cardiovascular systems."
-  label: "Fact: coffee contains caffeine, a stimulant affecting heart and brain"
+  label: "Coffee contains caffeine, a stimulant affecting heart and brain"
   explanation: "An uncontested baseline fact both theses build on. Reachable from both roots via supports-only edges, so it is a shared ground truth — but not a crux, since no depends_on edge is involved."
   status: reviewed
   tags: [toy, ground-truth]
@@ -37,7 +37,7 @@
 - id: caffeine-improves-alertness
   case: toy
   text: "Caffeine improves short-term alertness and cognitive performance."
-  label: "Study: caffeine boosts short-term alertness and thinking"
+  label: "Caffeine boosts short-term alertness and thinking"
   status: reviewed
   tags: [toy]
   sources: [toy-source-1]
@@ -48,7 +48,7 @@
 - id: caffeine-raises-blood-pressure-acutely
   case: toy
   text: "Caffeine causes a temporary rise in blood pressure shortly after consumption."
-  label: "Study: caffeine briefly raises blood pressure after drinking it"
+  label: "Caffeine briefly raises blood pressure after drinking it"
   status: reviewed
   tags: [toy]
   sources: [toy-source-2]
@@ -59,7 +59,7 @@
 - id: long-term-mortality-data-favor-coffee
   case: toy
   text: "Large long-term cohort studies show habitual coffee drinkers have lower all-cause mortality than non-drinkers."
-  label: "Study: coffee drinkers have lower death rates"
+  label: "Coffee drinkers have lower death rates"
   explanation: "A crux for thesis A only: if these cohort findings didn't hold up, the health-benefit thesis loses its main pillar."
   status: reviewed
   tags: [toy, crux]

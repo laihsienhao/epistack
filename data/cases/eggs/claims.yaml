@@ -49,7 +49,7 @@
 - id: egg-cholesterol-content
   case: eggs
   text: "One large egg contains roughly 200 mg of dietary cholesterol, almost entirely in the yolk."
-  label: "Fact: one egg has about 200mg of cholesterol, mostly in the yolk"
+  label: "One egg has about 200mg of cholesterol, mostly in the yolk"
   explanation: "An uncontested baseline fact both sides build on. Reachable from both roots (via the claims it feeds), so it renders as a shared ground truth — not a crux, since it's a settled fact, not an open question."
   status: reviewed
   tags: [ground-truth, fact]
@@ -61,7 +61,7 @@
 - id: individual-cholesterol-response-variability
   case: eggs
   text: "There is substantial individual variability in serum cholesterol response to dietary cholesterol: 'hyper-responders' show large increases while 'hypo-responders' show little to no change from the same intake."
-  label: "Study: cholesterol response to eggs varies sharply between people"
+  label: "Cholesterol response to eggs varies sharply between people"
   explanation: "The classic Katan/Beynen finding. Both sides accept this happens, but it cuts differently for each: the 'fine in moderation' side reads it as 'most people are hypo-responders, so average-case caution overstates personal risk'; the 'should be limited' side reads it as 'some people are hyper-responders and face meaningfully elevated risk, which argues for caution.'"
   status: reviewed
   tags: [mechanism, ground-truth]
@@ -85,7 +85,7 @@
 - id: egg-choline-content
   case: eggs
   text: "One large egg (mostly the yolk) provides approximately 147 mg of dietary choline, making eggs one of the most concentrated common dietary sources of choline."
-  label: "Fact: one egg has about 147mg of choline, a top dietary source"
+  label: "One egg has about 147mg of choline, a top dietary source"
   explanation: "A shared ground truth, structurally like egg-cholesterol-content: it feeds both the TMAO branch on the unhealthy side and the choline-benefit branch on the healthy side, since both mechanisms start from the same underlying fact about how much choline eggs actually provide."
   status: reviewed
   tags: [ground-truth, fact]
@@ -120,11 +120,11 @@
 
 - id: saturated-fat-cvd-link-contested
   case: eggs
-  text: "Whether saturated fat intake itself is a reliable, independent driver of cardiovascular risk is contested: while it raises LDL cholesterol, a 2020 state-of-the-art review found recent meta-analyses of RCTs and observational studies show no consistent benefit from reducing saturated fat on cardiovascular disease or mortality, that its LDL-raising effect is mainly via larger, less atherogenic LDL particles, and that its cardiovascular impact varies substantially by food source (food-matrix effects) — arguing for food-based rather than nutrient-based dietary limits."
-  label: "Whether saturated fat itself reliably drives heart disease is contested"
-  explanation: "One large egg contains about 1.6 g of saturated fat (~3.1 g/100g), about 12% of the American Heart Association's recommended daily saturated-fat limit (~13g on a 2000-calorie diet) (USDA FoodData Central). In a randomized cross-over trial isolating cholesterol from saturated fat across three matched diets, saturated fat intake — not dietary cholesterol from eggs — was significantly associated with higher LDL; a low-saturated-fat diet including 2 eggs/day produced lower LDL than an egg-free, high-saturated-fat control diet (Carter et al. 2025, AJCN). Whether that LDL-raising effect actually translates into meaningfully higher cardiovascular risk is itself contested: a 2020 state-of-the-art review found recent meta-analyses of RCTs and observational studies show no consistent CVD/mortality benefit from reducing saturated fat, that its LDL effect is mainly via larger, less atherogenic LDL particles, and that its cardiovascular impact varies substantially by food source (food-matrix effects) — arguing for food-based rather than nutrient-based dietary limits (Astrup et al. 2020, JACC)."
+  text: "Saturated fat's cardiovascular relevance depends significantly on its food source: a 2020 state-of-the-art review found its impact varies substantially by food matrix, with no consistent RCT/observational evidence that reducing saturated fat generically improves cardiovascular or mortality outcomes, arguing for food-based rather than nutrient-based dietary limits."
+  label: "Saturated fat's heart-disease impact depends on its food source"
+  explanation: "One large egg contains about 1.6 g of saturated fat (~3.1 g/100g), about 12% of the American Heart Association's recommended daily saturated-fat limit (~13g on a 2000-calorie diet) (USDA FoodData Central). In a randomized cross-over trial isolating cholesterol from saturated fat across three matched diets, saturated fat intake — not dietary cholesterol from eggs — was significantly associated with higher LDL; a low-saturated-fat diet including 2 eggs/day produced lower LDL than an egg-free, high-saturated-fat control diet (Carter et al. 2025, AJCN). But raising LDL doesn't automatically mean raising real-world cardiovascular risk by the same amount: a 2020 state-of-the-art review found recent meta-analyses of RCTs and observational studies show no consistent CVD/mortality benefit from reducing saturated fat generically, that its LDL effect is mainly via larger, less atherogenic LDL particles, and that its cardiovascular impact varies substantially by food source (food-matrix effects) — arguing for food-based rather than nutrient-based dietary limits (Astrup et al. 2020, JACC)."
   status: reviewed
-  tags: [contested]
+  tags: [contextual]
   sources: [astrup-2020-jacc-satfat-food-matrix, usda-fdc-egg-171287, ajcn2025]
   confidence: null
   author: 171384n
@@ -132,11 +132,11 @@
 
 - id: cooking-oxidation-cop-contested
   case: eggs
-  text: "Whether typical home cooking of eggs produces cholesterol oxidation products at levels that meaningfully affect cardiovascular health is contested: COP and oxysterol formation is well documented in fried eggs and long-stored powdered egg products, and oxysterols are mechanistically linked to atherosclerosis, but a study of common quick home-cooking methods (frying and scrambling in various fats) found minimal lipid oxidation — suggesting the effect depends heavily on cooking method, heat exposure, and storage rather than being an inherent property of eggs."
-  label: "Whether cooking oxidation products from eggs are a real risk is contested"
-  explanation: "Frying eggs produces substantially higher levels of cholesterol oxidation products (COPs, e.g. 7-ketocholesterol, 7-alpha/7-beta-hydroxycholesterol) than boiling, and COP levels rise progressively with storage time and temperature while beneficial omega-3s and vitamin E decline (Mazalli & Bragagnolo 2009). Thermal processing used to make powdered/dehydrated egg products initiates oxysterol formation, and extended room-temperature storage (up to 24 months) further increases oxysterol content (Chudy & Teichert 2021). Mechanistically, oxysterols enriched in oxidized LDL accumulate in atherosclerotic plaques and contribute to endothelial dysfunction, foam-cell formation, smooth-muscle proliferation, and plaque destabilization (Luquain-Costaz & Delton 2024). A study of common quick home-cooking methods (frying and scrambling in various fats), however, found minimal lipid oxidation, suggesting the effect depends heavily on cooking method, heat exposure, and storage rather than being an inherent property of eggs (Ferreira et al. 2022)."
+  text: "The cardiovascular relevance of cholesterol oxidation products (COPs) from eggs depends heavily on cooking method and storage: frying and long-term storage measurably increase COP/oxysterol formation, mechanistically linked to atherosclerosis, while common quick home-cooking methods (frying and scrambling right away) produce minimal oxidation — so the real risk concentrates in specific preparation practices rather than being an inherent property of eggs."
+  label: "Egg cooking method and storage determine cholesterol-oxidation risk"
+  explanation: "Frying eggs produces substantially higher levels of cholesterol oxidation products (COPs, e.g. 7-ketocholesterol, 7-alpha/7-beta-hydroxycholesterol) than boiling, and COP levels rise progressively with storage time and temperature while beneficial omega-3s and vitamin E decline (Mazalli & Bragagnolo 2009). Thermal processing used to make powdered/dehydrated egg products initiates oxysterol formation, and extended room-temperature storage (up to 24 months) further increases oxysterol content (Chudy & Teichert 2021). Mechanistically, oxysterols enriched in oxidized LDL accumulate in atherosclerotic plaques and contribute to endothelial dysfunction, foam-cell formation, smooth-muscle proliferation, and plaque destabilization (Luquain-Costaz & Delton 2024). A study of common quick home-cooking methods (frying and scrambling in various fats), however, found minimal lipid oxidation (Ferreira et al. 2022) — so the practical risk is concentrated in specific preparation and storage practices (frying, long-term storage of powdered/dehydrated egg), not in eggs generically."
   status: reviewed
-  tags: [contested]
+  tags: [contextual]
   sources: [fried-scrambled-eggs-lipid-quality, cop-thermal-storage-eggs, oxysterols-stored-powders, oxysterols-atherosclerosis-mechanism]
   confidence: null
   author: 171384n
@@ -144,11 +144,11 @@
 
 - id: egg-salmonella-risk-contested
   case: eggs
-  text: "Whether Salmonella contamination represents a meaningful ongoing health risk from eggs, as opposed to a largely mitigated one, depends on the point of comparison: absolute per-egg contamination risk is small (~1 in 20,000) and has been further reduced by modern safety regulation, but foodborne illness from eggs still occurs, particularly when eggs are undercooked or mishandled."
-  label: "Whether Salmonella is still a meaningful egg risk today is contested"
-  explanation: "Prior to modern safety regulation, an estimated 1 in 20,000 eggs in the US was internally contaminated with Salmonella Enteritidis, modeled to cause roughly 182,000 illnesses and about 70 deaths in the US in 2000 alone (Ebel & Schlosser 2000; Schroeder et al. 2005, CDC). The FDA's 2009 Egg Safety Rule, requiring Salmonella-prevention measures (biosecurity, pest control, testing) and refrigeration for large shell-egg producers, is projected to prevent about 79,000 illnesses and 30 deaths per year, cutting egg-attributable Salmonella infections by nearly 60%."
+  text: "Salmonella risk from eggs depends heavily on handling and cooking practice: absolute per-egg contamination risk is already small (~1 in 20,000) and has been further reduced by modern safety regulation, and thoroughly cooking eggs rather than eating them raw or undercooked further minimizes risk — so for properly handled, well-cooked eggs the practical risk is low, even though foodborne illness still occurs when eggs are undercooked or mishandled."
+  label: "Egg handling and cooking practice determine Salmonella risk"
+  explanation: "Prior to modern safety regulation, an estimated 1 in 20,000 eggs in the US was internally contaminated with Salmonella Enteritidis, modeled to cause roughly 182,000 illnesses and about 70 deaths in the US in 2000 alone (Ebel & Schlosser 2000; Schroeder et al. 2005, CDC). The FDA's 2009 Egg Safety Rule, requiring Salmonella-prevention measures (biosecurity, pest control, testing) and refrigeration for large shell-egg producers, is projected to prevent about 79,000 illnesses and 30 deaths per year, cutting egg-attributable Salmonella infections by nearly 60% — and thoroughly cooking eggs (rather than eating them raw or undercooked) further reduces the residual risk, concentrating most remaining harm in undercooked or mishandled eggs specifically."
   status: reviewed
-  tags: [contested]
+  tags: [contextual]
   sources: [ebel-schlosser-2000-contamination-fraction, cdc-eid-se-egg-illness-estimate-2000, fda-egg-safety-final-rule]
   confidence: null
   author: 171384n

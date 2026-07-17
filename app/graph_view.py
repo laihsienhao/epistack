@@ -28,11 +28,6 @@ CATEGORICAL_HUES = ["#2a78d6", "#008300", "#e87ba4", "#eda100", "#1baf7a", "#eb6
 # (colorblind safe), and clear of the amber/near-black crux border colors.
 DIVERGING_PAIR = ("#4b4a8f", "#e0724f")  # indigo, coral
 
-# Warm stone/taupe instead of a cool pure gray -- same lightness as the old
-# gray (so white text and overall visual weight stay unchanged), but the
-# warmer undertone sits with the cream background instead of against it.
-NEUTRAL_FILL = "#8f8571"  # shared ground-truths / double cruxes belong to no single side
-
 # Non-root claims tint their side's hue toward this instead of pure white, so
 # the lightened fills read as warm paper tones consistent with the page
 # background rather than a chalky, mismatched pale blue/red.
@@ -49,6 +44,25 @@ TEXT_ON_LIGHT = "#0b0b0b"
 
 WRAP_WIDTH = 20
 
+# vis-network's `circle` shape (unlike `dot`) auto-sizes each node to fit its
+# label -- both width AND height grow with line count -- which silently
+# overrode our own `size` field: two non-root claims both declared `size=26`
+# could render at visibly different diameters (measured ~113px vs ~121px)
+# purely because one label wrapped to one more line than the other, and a
+# root claim with a short 1-line label could render *smaller* than a
+# long-label non-root claim despite `size=40` vs `size=26`. Found 2026-07-18
+# after the user noticed nodes in the same tier looking inconsistently
+# sized. Fixed with `widthConstraint` (min=max pins the width, and `circle`
+# keeps height equal to width, so this pins the whole circle) so every
+# root/non-root node renders at the same true diameter regardless of label
+# length -- `_wrap()`'s line-wrapping still keeps text from overflowing a
+# fixed-size circle. Values chosen to comfortably fit the longest current
+# labels (~5 wrapped lines for non-root, still just 1-2 for root) and then
+# sized up further per user feedback that the fitted diameters read as too
+# small overall.
+ROOT_NODE_WIDTH = 210
+NON_ROOT_NODE_WIDTH = 140
+
 NODE_GAP = 200
 LEVEL_HEIGHT = 250
 BLOCK_MARGIN = 100  # small extra buffer between adjacent root blocks, on top of
@@ -64,16 +78,62 @@ SPLIT_GAP = NODE_GAP  # vertical gap between a split tier's two rows -- kept
 
 
 def _wrap(text: str, width: int = WRAP_WIDTH) -> str:
-    return "\n".join(textwrap.wrap(text, width=width))
+    """Word-wrap a label for display inside a circle -- balances line
+    lengths rather than greedily filling each line to `width`, which can
+    front-load early lines and leave a short, ragged trailing line (e.g.
+    "Egg cooking method" at 18 chars then "determine" at 9 chars a few
+    lines later). Added 2026-07-18 per user feedback that per-line length
+    should read as more even/"circle-like". Keeps the same line count a
+    plain wrap at `width` would need (so it never makes a label taller or
+    risks overflowing the node), just searches nearby per-line widths for
+    the one that distributes words most evenly across that many lines.
+    Never breaks a word mid-way (only ever splits at existing hyphens, via
+    textwrap's default `break_on_hyphens`), so no line ends truncated."""
+    natural = textwrap.wrap(text, width=width, break_long_words=False)
+    if len(natural) <= 1:
+        return text
+
+    target_lines = len(natural)
+    longest_word = max(len(word) for word in text.split())
+    best = natural
+    best_key = (max(len(line) for line in natural) - min(len(line) for line in natural), max(len(line) for line in natural))
+    for candidate_width in range(longest_word, width + 1):
+        candidate = textwrap.wrap(text, width=candidate_width, break_long_words=False)
+        if len(candidate) != target_lines:
+            continue
+        key = (max(len(line) for line in candidate) - min(len(line) for line in candidate), max(len(line) for line in candidate))
+        if key < best_key:
+            best_key = key
+            best = candidate
+    return "\n".join(best)
+
+
+def _blend(hex_a: str, hex_b: str, ratio: float = 0.5) -> str:
+    """Linear per-channel RGB blend of two colors -- ratio=0.5 is their exact
+    midpoint, ratio=1 is hex_b, ratio=0 is hex_a. `_lighten` is this same
+    operation with the page background as `hex_b`."""
+    hex_a = hex_a.lstrip("#")
+    hex_b = hex_b.lstrip("#")
+    ra, ga, ba = (int(hex_a[i : i + 2], 16) for i in (0, 2, 4))
+    rb, gb, bb = (int(hex_b[i : i + 2], 16) for i in (0, 2, 4))
+    r, g, b = (round(c + (t - c) * ratio) for c, t in zip((ra, ga, ba), (rb, gb, bb)))
+    return f"#{r:02x}{g:02x}{b:02x}"
 
 
 def _lighten(hex_color: str, amount: float = 0.55, target: str = TINT_TARGET) -> str:
-    hex_color = hex_color.lstrip("#")
-    target = target.lstrip("#")
-    r, g, b = (int(hex_color[i : i + 2], 16) for i in (0, 2, 4))
-    tr, tg, tb = (int(target[i : i + 2], 16) for i in (0, 2, 4))
-    r, g, b = (round(c + (t - c) * amount) for c, t in zip((r, g, b), (tr, tg, tb)))
-    return f"#{r:02x}{g:02x}{b:02x}"
+    return _blend(hex_color, target, amount)
+
+
+# Warm sienna/clay, added 2026-07-18 replacing the original taupe ("#8f8571")
+# -- picked from a side-by-side swatch comparison the user reviewed directly
+# (see CLAUDE.md's Design system entry for the full candidate list). Run
+# through `_lighten()` just like the tinted non-root side hues below, per
+# user feedback that the raw swatch color read as too intense/saturated next
+# to its muted lavender/peach neighbors at the same tier -- shared/neutral
+# claims are never roots (see `_claim_side`), so unlike DIVERGING_PAIR
+# there's no full-strength variant to preserve.
+NEUTRAL_FILL = _lighten("#b08968")  # shared ground-truths / double cruxes belong to no single side
+
 
 
 def _text_color_for(hex_color: str) -> str:
@@ -182,24 +242,32 @@ def _compute_positions(
 
     # Pack roots outward from the neutral column at x=0 -- first half of the
     # sorted roots to the left (negative x), second half to the right
-    # (positive x) -- each root positioned at exactly its own half_width (plus
-    # BLOCK_MARGIN from any same-side sibling), so its widest row always
-    # clears the neutral column regardless of how wide any other root's rows
-    # are. A prior "pack cursor left-to-right, then shift by the average of
-    # all root_x" approach diluted a very wide root's clearance whenever a
-    # much narrower sibling root pulled that average back toward zero --
-    # exactly the failure the numeric sanity check in CLAUDE.md is meant to
-    # catch (see also the min-pairwise-distance check after any layout edit).
+    # (positive x). Every root uses the SAME shared half-width (the widest
+    # any root actually needs), not its own -- using each root's own
+    # half_width (as a prior version of this function did) let one side's
+    # anchor sit closer to 0 than the other's whenever the two sides' content
+    # was asymmetric (e.g. one side with more branches than the other), which
+    # pulled the true visual midpoint between the two root anchors away from
+    # 0 -- exactly where the neutral/shared column is always rendered. Found
+    # 2026-07-18 when the user noticed the neutral nodes weren't centered
+    # under the two roots. Using the shared max keeps every root at least as
+    # far from 0 as it needs (so clearance from the neutral column is never
+    # reduced, only ever generous) while guaranteeing the two root anchors
+    # are symmetric around 0 -- the narrower side just gets some unused
+    # horizontal margin as a result, which is a strictly safe trade. Always
+    # re-run the min-pairwise-distance sanity check in CLAUDE.md after
+    # touching this function.
     root_x: dict[str, float] = {}
+    shared_half_width = max(half_width.values()) if half_width else 0.0
     split_index = (len(roots_sorted) + 1) // 2
     for sign, side_roots in ((-1.0, roots_sorted[:split_index]), (1.0, roots_sorted[split_index:])):
         cursor = 0.0
         for i, r in enumerate(side_roots):
-            cursor += half_width[r]
+            cursor += shared_half_width
             if i > 0:
                 cursor += BLOCK_MARGIN
             root_x[r] = sign * cursor
-            cursor += half_width[r]
+            cursor += shared_half_width
 
     def _place_row(members: list[str], base_x: float, y: float, positions: dict[str, tuple[float, float]]) -> None:
         count = len(members)
@@ -303,13 +371,17 @@ def build_elements(
                 fixed={"x": True, "y": True},
                 shape="circle",
                 size=40 if is_root else 26,
+                widthConstraint={
+                    "minimum": ROOT_NODE_WIDTH if is_root else NON_ROOT_NODE_WIDTH,
+                    "maximum": ROOT_NODE_WIDTH if is_root else NON_ROOT_NODE_WIDTH,
+                },
                 color={"background": fill, "border": border_color},
                 borderWidth=border_width,
                 borderWidthSelected=border_width + 2,
                 font={
                     "color": text_color,
-                    "size": 17 if is_root else 14,
-                    "face": "system-ui, -apple-system, sans-serif",
+                    "size": 19 if is_root else 16,
+                    "face": "Georgia, serif",
                     "multi": False,
                 },
                 margin=10,
