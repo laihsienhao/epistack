@@ -76,6 +76,18 @@ SPLIT_GAP = NODE_GAP  # vertical gap between a split tier's two rows -- kept
 # horizontal separation instead -- see half_width below, which always
 # reserves that regardless of whether a row is split.
 
+QUESTION_WRAP_WIDTH = 36
+QUESTION_FONT_SIZE = 42
+QUESTION_LINE_HEIGHT = 50  # approx pixel-equivalent height of one wrapped
+# question line at QUESTION_FONT_SIZE (world units == screen px at zoom 1,
+# same space widthConstraint/NODE_GAP already use) -- needed because a
+# longer question can wrap to 3+ lines instead of 2, and a *fixed* y-offset
+# (an earlier version of this) doesn't grow with line count, so a longer
+# question's text block can reach down far enough to overlap the roots'
+# top edge (found on the `toy` case, whose question wraps to 3 lines).
+QUESTION_MIN_GAP = 40  # clearance kept between the question's text block
+# and the root's top edge, regardless of how many lines it wraps to.
+
 
 def _wrap(text: str, width: int = WRAP_WIDTH) -> str:
     """Word-wrap a label for display inside a circle -- balances line
@@ -317,6 +329,7 @@ def build_elements(
     search_query: str = "",
     show_only_cruxes: bool = False,
     topic_filter: list[str] | None = None,
+    dark_mode: bool = False,
 ) -> tuple[list[Node], list[Edge]]:
     """Translate a Graph into agraph Nodes/Edges with side and crux salience baked in.
 
@@ -403,6 +416,44 @@ def build_elements(
         node.title = None
         nodes.append(node)
 
+    # The case's neutral framing question, rendered directly on the canvas
+    # (not just above it in the page) -- shape="text" draws only the label,
+    # no circle/box, so it reads as a heading rather than another node.
+    # Always shown regardless of search/crux/topic filters, same as roots.
+    if graph.question:
+        wrapped_question = _wrap(graph.question, width=QUESTION_WRAP_WIDTH)
+        line_count = wrapped_question.count("\n") + 1
+        text_block_height = line_count * QUESTION_LINE_HEIGHT
+        root_top_edge = -(ROOT_NODE_WIDTH / 2)  # roots sit at y=0
+        # vis-network centers a text-shape label vertically at its given y,
+        # so half the text block extends below that point -- solve for the
+        # y that keeps the block's *bottom* edge QUESTION_MIN_GAP above the
+        # root's top edge, regardless of how many lines it wraps to.
+        question_y = root_top_edge - QUESTION_MIN_GAP - (text_block_height / 2)
+        question_node = Node(
+            id="__question__",
+            label=wrapped_question,
+            x=0,
+            y=question_y,
+            fixed={"x": True, "y": True},
+            shape="text",
+            font={
+                # Unlike every other node, this one has no fill color of its
+                # own to derive contrast from (shape="text" draws no
+                # background) -- it sits directly on the page's actual
+                # background, which switches between the cream light theme
+                # and near-black dark theme (.streamlit/config.toml), so its
+                # text color has to follow that rather than being fixed.
+                "color": TEXT_ON_DARK if dark_mode else TEXT_ON_LIGHT,
+                "size": QUESTION_FONT_SIZE,
+                "face": "Georgia, serif",
+                "multi": False,
+                "mod": "bold",
+            },
+        )
+        question_node.title = None
+        nodes.append(question_node)
+
     edges: list[Edge] = []
     for edge in graph.edges:
         if edge.from_ not in visible_ids or edge.to not in visible_ids:
@@ -429,8 +480,9 @@ def render_graph(
     search_query: str = "",
     show_only_cruxes: bool = False,
     topic_filter: list[str] | None = None,
+    dark_mode: bool = False,
 ) -> str | None:
-    nodes, edges = build_elements(graph, search_query, show_only_cruxes, topic_filter)
+    nodes, edges = build_elements(graph, search_query, show_only_cruxes, topic_filter, dark_mode)
     config = Config(
         height=800,
         width=1400,

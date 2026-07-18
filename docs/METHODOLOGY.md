@@ -1,11 +1,12 @@
-# Methodology: known limitations, and how this scales with contributors
+# Methodology: known limitations, and how this scales
 
 This is supporting material for judges of the Future of Life Foundation's Epistemic
 Case Study Competition — a direct, judge-facing account of where this tool's
-methodology is genuinely uncertain or attackable, and how contribution to it could
-scale beyond a single author. It's written to be read on its own, not as a
-continuation of `CLAUDE.md` (which is working-context memory for picking the project
-back up mid-stream, not a methodology statement).
+methodology is genuinely uncertain or attackable, and how it scales: with compute and
+model capability (its own construction pipeline is the evidence), and with more
+contributors (governance models for scaling past a single author). It's written to be
+read on its own, not as a continuation of `CLAUDE.md` (which is working-context memory
+for picking the project back up mid-stream, not a methodology statement).
 
 ## Where this contributes across the competition's three layers
 
@@ -53,7 +54,13 @@ mislabeled edge can manufacture a crux that shouldn't exist (overstating how
 load-bearing a claim is) or hide a real one (understating it). This is the highest-
 leverage way this tool's central claim could be gamed or simply gotten wrong, and
 nothing in the current pipeline defends against it beyond `docs/CONTRIBUTING_CLAIMS.md`'s
-guidance and reviewer attention.
+guidance and reviewer attention. `src/research_priorities.py`'s ranking (which reference
+points a claim is load-bearing for, and how much of the graph's structure routes
+through it) is built directly on this same edge labeling, so it inherits the exact
+same exposure — a mislabeled `depends_on` edge doesn't just distort crux detection,
+it distorts *research-priority ranking* too, potentially pointing a reader at the
+wrong open question as "highest impact." Naming this once here rather than treating
+the newer feature as a separate risk.
 
 **Two of the competition's four Structure sub-requirements remain open.** "Similar
 but not identical" claims (different framings, caveats, or uncertainty estimates of
@@ -69,8 +76,7 @@ small honest partial step: the claim-detail popup's Evidence tab now orders sour
 reverse-chronologically by publication year (newest first, with the year bolded
 alongside each title rather than buried in the citation body), so a reader can see
 the timeline of evidence behind a claim — real, but not the same as versioning the
-graph's structure itself,
-which still doesn't exist.
+graph's structure itself, which still doesn't exist.
 
 **The discourse-coverage panel is gameable at the tagging layer.** The Coverage tab
 (`src/discourse.py`, `app/discourse_panel.py`) surfaces which side actually engages
@@ -121,6 +127,100 @@ would produce false positives (two different "Wang J"s flagged as one). It's siz
 correctly as a hint prompting a reader to check, not an assertion — but that
 scaling limit is real and worth naming before this pattern is reused on a bigger
 corpus.
+
+## Scalability: what actually demonstrates it, not just architecture
+
+The Scalability criterion asks whether this approach gets better with more compute,
+better models, or more contributors — and whether it's bottlenecked on any single
+hand-designed human step. The strongest evidence here isn't hypothetical: it's what
+already happened while building this submission.
+
+**The verification work in this repo was produced by the mechanism it's arguing for.**
+All 37 `eggs` sources' `funding`/`bias_note` classifications (`src/models.py`,
+`data/cases/eggs/sources.yaml`) were backfilled by parallel AI research agents
+checking each paper's actual disclosed funding/COI statement — not one person reading
+37 papers by hand. `src/ingestion.py`'s `shared_authorship()` flag was itself debugged
+this way: a false positive (two different "Zhao"s conflated by surname-only matching)
+was caught by checking a primary source (a co-investigator's own CV) before being
+reported, not by code inspection. This is the "benefits as base-model capability
+rises" bullet in action, not an argument for it: the same fetch-verify-structure
+pipeline (formalized below) gets cheaper and more accurate as the underlying model
+improves, with zero code changes required.
+
+**More compute/scrutiny strictly improves existing checks, never degrades them.** The
+shared-authorship checker currently does surname+initials-compatibility string
+matching (`_initials_compatible` in `src/ingestion.py`), which is why "Known
+limitations" above names a real ceiling: a sufficiently common surname+initials
+combination could still coincidentally match two different people. A more capable
+model doing genuine entity resolution (cross-checking institutional affiliation,
+publication history) would strictly tighten this without touching the surrounding
+architecture — the check's *output* improves, its *shape* doesn't need to change. The
+same is true of funding verification: spending more agent-time cross-referencing a
+source's disclosure only ever increases confidence, never decreases it.
+
+**The one place this property doesn't yet hold: edge labeling.** `supports` vs.
+`depends_on` — the single input to crux detection, this project's flagship feature —
+is decided by human (or AI-assisted human) judgment alone, with no automated check
+today. This is the one genuine exception to an otherwise-scalable pipeline: nothing
+currently spends compute verifying that this specific judgment call was made
+correctly, even though the same fetch-verify pattern used for funding/authorship would
+apply directly — an agent given a claim's text and its source(s) could check whether
+the source's own language supports a "necessary condition" reading vs. a "contributing
+evidence" one, and flag disagreements for review. Designed here, explicitly not yet
+built, given the deadline — the highest-leverage next step for this specific
+criterion.
+
+### The claim-construction pipeline, formalized
+
+Everything above refers to one underlying workflow, used to build every claim/edge/
+source in this repo. Written down explicitly here because a scalability argument that
+only exists as prose is weaker than one a reader could actually replicate or automate
+further — this is also, in the competition's own submission-type language, a
+"specification describing a step-by-step human-AI workflow."
+
+1. **Source discovery.** Given a sub-question to build out (e.g. "does egg-derived
+   TMAO raise cardiovascular risk"), identify candidate real, peer-reviewed sources.
+   Output: a candidate list of papers (title/author/venue), nothing written yet.
+2. **Source verification & metadata extraction.** For each candidate, confirm it's
+   real — not fabricated — by fetching the actual paper or its abstract/record, then
+   extract structured metadata (`type`, `authors`, `year`, `venue`, `url`) matching
+   `schema/source.schema.json`. *Decision point*: a source that can't be verified as
+   real is rejected outright, never included on the strength of a plausible-sounding
+   title alone.
+3. **Funding/COI verification.** For each verified source, check its actual disclosed
+   funding/COI statement — the paper's own text, PubMed/PMC grant metadata, Crossref
+   funder records, or (last resort) author institutional affiliation. Classify
+   `funding` (`industry | independent | government | mixed | unknown`); write
+   `bias_note` only when something concrete and specific is disclosed. *Decision
+   point*: `unknown` is the honest output when verification genuinely fails —
+   never inferred from venue/author as a shortcut (see `docs/CONTRIBUTING_CLAIMS.md`).
+4. **Claim & edge authoring.** Given verified sources, draft `claim.text` / `label` /
+   `explanation` / `tags` (following the label templates and anti-sprawl rule in
+   `docs/CONTRIBUTING_CLAIMS.md`), then decide each edge's `relation`. *Decision
+   point*: `supports` vs. `depends_on` — the single highest-leverage judgment call in
+   the whole pipeline (see "Known limitations" above), currently made without
+   automated support.
+5. **Structural validation.** Run `python -m src.main validate <case_id>` — schema
+   conformance, duplicate ids, dangling references, cycle detection. Mechanical,
+   already fully automated.
+6. **Derived-view sanity check.** Re-run the derived views (`compute_cruxes`,
+   `topic_coverage`, `shared_authorship`) against the updated graph and inspect
+   whether the results are sensible. This is how the Zhao false positive described
+   above was actually caught — not by re-reading `src/ingestion.py`'s code, but by
+   noticing a *derived output* (a shared-authorship flag) didn't match the
+   *underlying data* (the two papers' actual, different author initials) once
+   checked. Treat a surprising derived result as a prompt to verify, not as ground
+   truth to cite directly.
+
+**Parallelization, and where it currently stops.** Stages 1–3 batch cleanly across
+independent sources — this session ran them as 5+ parallel AI research agents, each
+handling a disjoint batch, converging back into one dataset (the 37-source funding
+backfill), with two agents independently resuming from a stalled state without losing
+progress. Stage 4 is where parallelization currently stops: claim/edge authoring, and
+specifically the `supports`/`depends_on` decision, is done serially by whoever's
+curating, with no automated check afterward. Extending stages 1–3's pattern to an
+adversarial audit of stage 4's decisions specifically is the concrete next step named
+above, not a vague aspiration.
 
 ## Scaling contribution: two governance models
 

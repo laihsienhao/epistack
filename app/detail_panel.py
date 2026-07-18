@@ -84,6 +84,18 @@ _FUNDING_LABELS = {
     "unknown": "Funding unknown",
 }
 
+# Distinct from every other color track (side hues, crux amber/black,
+# neutral sienna) -- red vs. teal maps to the actual distinction:
+# `contested` is a live, unresolved dispute (hot/alarm-like); `contextual` reads
+# as resolved-once-scoped (cool/calm). Unlike the graph canvas's node fills
+# (see CLAUDE.md's "Contested/contextual claims currently have NO distinct
+# visual treatment" -- that history is about the canvas specifically, tried
+# and reverted twice), this is popup badge text, not a new graph-level
+# visual channel, so it's a different, lower-risk surface for the same
+# underlying distinction.
+_CONTESTED_COLOR = "#c0392b"  # red
+_CONTEXTUAL_COLOR = "#3d7a6e"  # cool teal
+
 
 def _format_citation_apa(source: Source) -> str:
     author_part = _format_authors_apa(source.authors)
@@ -139,14 +151,19 @@ def _render_body(graph: Graph, claim_id: str) -> None:
         badges.append("Double crux")
     elif crux_for:
         badges.append("Crux")
-    if "contested" in claim.tags:
-        badges.append("Contested")
-    elif "contextual" in claim.tags:
-        badges.append("Contextual")
     if claim.status == "draft":
         badges.append("Draft")
     if badges:
         st.caption(" &nbsp;·&nbsp; ".join(badges))
+
+    # Rendered separately from the plain badges above (not folded into the
+    # same muted caption line) so it's the one status a reader can't miss --
+    # bold, full-opacity, colored by which of the two it is, rather than
+    # competing for attention at the same visual weight as "Draft."
+    if "contested" in claim.tags:
+        st.markdown(f"<span style='color:{_CONTESTED_COLOR}; font-weight:700'>Contested</span>", unsafe_allow_html=True)
+    elif "contextual" in claim.tags:
+        st.markdown(f"<span style='color:{_CONTEXTUAL_COLOR}; font-weight:700'>Contextual</span>", unsafe_allow_html=True)
 
     topics = [t for t in claim.tags if t.startswith("topic:")]
     if topics:

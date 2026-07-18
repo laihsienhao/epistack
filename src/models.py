@@ -45,3 +45,15 @@ class Source(BaseModel):
     url: Optional[str] = None
     funding: SourceFunding
     bias_note: Optional[str] = None
+
+
+class Case(BaseModel):
+    """Case-level metadata -- currently just the neutral question the case
+    explores. Deliberately separate from the root claims themselves: a root
+    is one side's *answer* ("Eggs are healthy"), not the shared *question*
+    both sides are answering ("What are the health impacts of eggs as a
+    human food source?") -- the latter can't be mechanically derived from
+    the former, so unlike hierarchy/cruxes/coverage this is authored, not
+    computed."""
+
+    question: str

@@ -2,8 +2,8 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
-from .loader import DATA_DIR, _load_yaml
-from .models import Claim, Edge, Source
+from .loader import DATA_DIR, _load_yaml, _load_yaml_dict
+from .models import Case, Claim, Edge, Source
 
 
 def validate_case(case_id: str, base_dir: Path | None = None) -> list[str]:
@@ -15,6 +15,12 @@ def validate_case(case_id: str, base_dir: Path | None = None) -> list[str]:
     """
     errors: list[str] = []
     case_dir = (base_dir or DATA_DIR) / case_id
+
+    try:
+        Case(**_load_yaml_dict(case_dir / "case.yaml"))
+    except ValidationError as e:
+        errors.append(f"case.yaml: schema error: {e}")
+
     claims_raw = _load_yaml(case_dir / "claims.yaml")
     edges_raw = _load_yaml(case_dir / "edges.yaml")
     sources_raw = _load_yaml(case_dir / "sources.yaml")

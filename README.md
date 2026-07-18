@@ -79,17 +79,22 @@ where this is still weak.
 
 ## Case studies
 
-- **`eggs`** — is dietary cholesterol from eggs something to limit, or fine in
-  moderation? Matches the competition's own "eggs as food" official case study.
-- **`toy`** — a small synthetic example (coffee and mortality) used to exercise and
-  test the pipeline's mechanics independent of any real research question.
+Every case states its own neutral framing question (`case.yaml`), separate from the
+root claims themselves — a root is one side's *answer*, not the question both sides
+are answering.
+
+- **`eggs`** — "What are the health impacts of eggs as a human food source?" Matches
+  the competition's own "eggs as food" official case study.
+- **`toy`** — "Is habitual moderate coffee consumption beneficial or harmful for
+  long-term health?" A small synthetic example used to exercise and test the
+  pipeline's mechanics independent of any real research question.
 
 The competition provides three official case studies — **eggs** (covered above),
 **COVID-19 origins**, and **LHC black hole risk** — deliberately spanning three
 different shapes (mundane-but-contested / curated debate / confident-answer-with-
 complex-evidence). Only the eggs shape has real content here; adding a case requires
-**zero application code changes** (just new `claims.yaml` / `edges.yaml` /
-`sources.yaml` files under `data/cases/<case_id>/`, see
+**zero application code changes** (just new `case.yaml` / `claims.yaml` / `edges.yaml`
+/ `sources.yaml` files under `data/cases/<case_id>/`, see
 [`docs/CONTRIBUTING_CLAIMS.md`](docs/CONTRIBUTING_CLAIMS.md)), but that generalizability
 claim is architectural, not yet demonstrated on the other two officially-provided
 cases — named as an open item in `docs/METHODOLOGY.md`, not glossed over.
@@ -124,9 +129,9 @@ pytest tests/
 ## Project layout
 
 ```
-data/cases/<case_id>/{claims,edges,sources}.yaml   # the portable artifact itself
+data/cases/<case_id>/{case,claims,edges,sources}.yaml   # the portable artifact itself
 schema/*.schema.json                               # JSON Schema for each YAML shape
-src/models.py                                      # pydantic Claim/Edge/Source
+src/models.py                                      # pydantic Case/Claim/Edge/Source
 src/loader.py                                       # load_case, depth/reachability helpers
 src/validate.py                                     # referential integrity + cycle detection
 src/crux.py                                          # crux / double-crux detection

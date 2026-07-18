@@ -42,7 +42,7 @@ def _graph():
         _edge("e2", "leaf-tmao", "root-b"),
         _edge("e3", "leaf-untagged", "root-b"),
     ]
-    return Graph(case_id="synthetic", claims=claims, edges=edges, sources={})
+    return Graph(case_id="synthetic", question="Test question?", claims=claims, edges=edges, sources={})
 
 
 def test_topic_filter_shows_only_matching_claims_plus_roots():
@@ -51,21 +51,21 @@ def test_topic_filter_shows_only_matching_claims_plus_roots():
     # sides a filtered-down claim belongs to.
     graph = _graph()
     nodes, _edges = graph_view.build_elements(graph, topic_filter=["topic:cholesterol"])
-    ids = {n.id for n in nodes}
+    ids = {n.id for n in nodes} - {"__question__"}
     assert ids == {"leaf-cholesterol", "root-a", "root-b"}
 
 
 def test_topic_filter_is_or_across_multiple_topics():
     graph = _graph()
     nodes, _edges = graph_view.build_elements(graph, topic_filter=["topic:cholesterol", "topic:tmao"])
-    ids = {n.id for n in nodes}
+    ids = {n.id for n in nodes} - {"__question__"}
     assert ids == {"leaf-cholesterol", "leaf-tmao", "root-a", "root-b"}
 
 
 def test_no_topic_filter_shows_everything():
     graph = _graph()
     nodes, _edges = graph_view.build_elements(graph, topic_filter=None)
-    ids = {n.id for n in nodes}
+    ids = {n.id for n in nodes} - {"__question__"}
     assert ids == set(graph.claims)
 
 
@@ -75,12 +75,40 @@ def test_topic_filter_combines_with_crux_filter_but_roots_still_show():
     # but roots are exempt from every filter, so they remain.
     graph = _graph()
     nodes, _edges = graph_view.build_elements(graph, show_only_cruxes=True, topic_filter=["topic:cholesterol"])
-    ids = {n.id for n in nodes}
+    ids = {n.id for n in nodes} - {"__question__"}
     assert ids == {"root-a", "root-b"}
 
 
 def test_roots_survive_a_non_matching_search():
     graph = _graph()
     nodes, _edges = graph_view.build_elements(graph, search_query="text that matches nothing")
-    ids = {n.id for n in nodes}
+    ids = {n.id for n in nodes} - {"__question__"}
     assert ids == {"root-a", "root-b"}
+
+
+def test_question_node_always_present_above_roots_and_survives_filters():
+    graph = _graph()
+    nodes, _edges = graph_view.build_elements(graph, show_only_cruxes=True, topic_filter=["topic:cholesterol"])
+    question_nodes = [n for n in nodes if n.id == "__question__"]
+    assert len(question_nodes) == 1
+    node = question_nodes[0]
+    assert node.shape == "text"
+    assert node.y < -(graph_view.ROOT_NODE_WIDTH / 2)  # clears the root's top edge, which sits at y=0
+    assert node.x == 0
+
+
+def test_question_node_y_grows_with_wrapped_line_count():
+    # a longer question wraps to more lines and needs a text block that
+    # extends further down -- its y must move further up (more negative)
+    # to keep the same minimum gap above the roots, not stay fixed.
+    short = Graph(case_id="s", question="Short?", claims={"root-a": _claim("root-a")}, edges=[], sources={})
+    long = Graph(
+        case_id="l",
+        question="A genuinely much longer question that will wrap across several lines " * 2,
+        claims={"root-a": _claim("root-a")},
+        edges=[],
+        sources={},
+    )
+    short_y = next(n.y for n in graph_view.build_elements(short)[0] if n.id == "__question__")
+    long_y = next(n.y for n in graph_view.build_elements(long)[0] if n.id == "__question__")
+    assert long_y < short_y

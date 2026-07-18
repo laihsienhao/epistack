@@ -76,6 +76,14 @@ if errors:
 
 graph = load_case(case_id)
 
+# The neutral question a case explores -- distinct from the root claims,
+# which are each side's *answer* to it, not the shared question itself.
+# Authored per-case (data/cases/<id>/case.yaml), not derived: unlike
+# hierarchy/cruxes/coverage, there's no mechanical way to produce "What are
+# the health impacts of eggs as a human food source?" from "Eggs are
+# healthy" and "Eggs are unhealthy" alone.
+st.markdown(f"<div style='font-size:1.15em; margin-bottom:0.5em'>{graph.question}</div>", unsafe_allow_html=True)
+
 all_topics = sorted({t for claim in graph.claims.values() for t in claim.tags if t.startswith("topic:")})
 
 with bar[1]:
@@ -120,7 +128,12 @@ tab_graph, tab_cruxes, tab_coverage, tab_contribute = st.tabs(["Graph", "Cruxes"
 
 with tab_graph:
     zoom_controls.render_zoom_controls()
-    selected = graph_view.render_graph(graph, search_query, show_only_cruxes, topic_filter)
+    # st.context.theme.type reflects the browser's actual active theme
+    # ("light"/"dark"/None) -- needed because the in-canvas question node
+    # (graph_view.py) has no fill color of its own to derive text contrast
+    # from, unlike every other node.
+    dark_mode = st.context.theme.type == "dark"
+    selected = graph_view.render_graph(graph, search_query, show_only_cruxes, topic_filter, dark_mode)
 
     if selected and selected != st.session_state.get("last_clicked_node"):
         st.session_state.last_clicked_node = selected

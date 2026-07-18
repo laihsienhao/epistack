@@ -19,6 +19,10 @@ tooling required.
 
 ## Schema at a glance
 
+**Case** (`schema/case.schema.json`, `case.yaml`): just `question` — the neutral
+problem the case explores, not a position on it. See "Starting a new case study"
+below for the authoring guidance.
+
 **Claim** (`schema/claim.schema.json`): `id`, `case`, `text` (the precise claim
 statement — shown in the detail panel and cruxes list, can be as long as it needs to
 be to be accurate), `label` (**required** — a genuine summary of `text` in well under
@@ -186,10 +190,17 @@ an existing root, either:
 
 ## Starting a new case study
 
-1. Create `data/cases/<case_id>/` with `claims.yaml`, `edges.yaml`, `sources.yaml`.
-2. Identify the competing root claims (schools of thought) for the topic.
-3. Gather real sources first (`sources.yaml`), then build claims and edges from them.
-4. Run `python -m src.main validate <case_id>` until clean.
+1. Create `data/cases/<case_id>/` with `case.yaml`, `claims.yaml`, `edges.yaml`,
+   `sources.yaml`.
+2. Write `case.yaml`'s `question` — the neutral problem the case explores (e.g.
+   "What are the health impacts of eggs as a human food source?"), not a position on
+   it. This is authored, not derived: unlike hierarchy, cruxes, or topic coverage,
+   there's no mechanical way to produce the shared question from the root claims
+   themselves, since a root is one side's *answer*, not the question both sides are
+   answering.
+3. Identify the competing root claims (schools of thought) for the topic.
+4. Gather real sources first (`sources.yaml`), then build claims and edges from them.
+5. Run `python -m src.main validate <case_id>` until clean.
 
 No application code changes needed — the case selector in `app/app.py` picks up any
 directory under `data/cases/` automatically.

@@ -4,9 +4,10 @@ from src.loader import compute_depths, list_cases, load_case, reachable_roots
 from src.validate import validate_case
 
 
-def _write_case(base_dir, case_id, claims, edges, sources):
+def _write_case(base_dir, case_id, claims, edges, sources, question="Test question?"):
     case_dir = base_dir / case_id
     case_dir.mkdir(parents=True)
+    (case_dir / "case.yaml").write_text(yaml.safe_dump({"question": question}))
     (case_dir / "claims.yaml").write_text(yaml.safe_dump(claims))
     (case_dir / "edges.yaml").write_text(yaml.safe_dump(edges))
     (case_dir / "sources.yaml").write_text(yaml.safe_dump(sources))
@@ -45,6 +46,13 @@ def test_load_toy_case():
     assert set(graph.roots()) == {"coffee-is-healthy", "coffee-is-harmful"}
     assert "coffee-contains-caffeine" in graph.claims
     assert len(graph.edges) == 7
+
+
+def test_load_case_exposes_the_neutral_question():
+    graph = load_case("toy")
+    assert graph.question
+    # the question is the shared problem, not either side's answer to it
+    assert graph.question not in {graph.claims[r].text for r in graph.roots()}
 
 
 def test_outgoing_incoming():
@@ -127,6 +135,17 @@ def test_validate_detects_dangling_source_reference(tmp_path):
     )
     errors = validate_case("bad-source-ref", base_dir=tmp_path)
     assert any("dangling source id missing-source" in e for e in errors)
+
+
+def test_validate_detects_missing_case_question(tmp_path):
+    case_dir = tmp_path / "bad-no-question"
+    case_dir.mkdir(parents=True)
+    (case_dir / "case.yaml").write_text(yaml.safe_dump({}))
+    (case_dir / "claims.yaml").write_text(yaml.safe_dump([_minimal_claim("a")]))
+    (case_dir / "edges.yaml").write_text(yaml.safe_dump([]))
+    (case_dir / "sources.yaml").write_text(yaml.safe_dump([]))
+    errors = validate_case("bad-no-question", base_dir=tmp_path)
+    assert any("case.yaml" in e for e in errors)
 
 
 def test_validate_detects_cycle(tmp_path):

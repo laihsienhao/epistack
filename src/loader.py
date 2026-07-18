@@ -3,7 +3,7 @@ from pathlib import Path
 
 import yaml
 
-from .models import Claim, Edge, Source
+from .models import Case, Claim, Edge, Source
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "cases"
 
@@ -11,6 +11,7 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "cases"
 @dataclass
 class Graph:
     case_id: str
+    question: str
     claims: dict[str, Claim]
     edges: list[Edge]
     sources: dict[str, Source]
@@ -44,8 +45,17 @@ def _load_yaml(path: Path) -> list[dict]:
     return data or []
 
 
+def _load_yaml_dict(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    with path.open() as f:
+        data = yaml.safe_load(f)
+    return data or {}
+
+
 def load_case(case_id: str, base_dir: Path | None = None) -> Graph:
     case_dir = (base_dir or DATA_DIR) / case_id
+    case_meta = Case(**_load_yaml_dict(case_dir / "case.yaml"))
     claims_raw = _load_yaml(case_dir / "claims.yaml")
     edges_raw = _load_yaml(case_dir / "edges.yaml")
     sources_raw = _load_yaml(case_dir / "sources.yaml")
@@ -73,7 +83,7 @@ def load_case(case_id: str, base_dir: Path | None = None) -> Graph:
         seen_edge_ids.add(edge.id)
         edges.append(edge)
 
-    return Graph(case_id=case_id, claims=claims, edges=edges, sources=sources)
+    return Graph(case_id=case_id, question=case_meta.question, claims=claims, edges=edges, sources=sources)
 
 
 def compute_depths(graph: Graph) -> dict[str, int]:
