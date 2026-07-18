@@ -52,3 +52,24 @@ def test_no_self_pairing_and_no_duplicate_pairs():
     flagged = shared_authorship([a, b, c])
     # 3 sources, all sharing one surname -> 3 distinct pairs, not 6+ duplicates
     assert len(flagged) == 3
+
+
+def test_same_surname_different_initials_is_not_flagged():
+    # regression test: an earlier surname-only version of this function
+    # produced exactly this false positive on the real eggs corpus --
+    # "Zhao L" and "Zhao B" are almost certainly two different people.
+    a = _source("a", "Zhao L, Zhong VW")
+    b = _source("b", "Zhao B, Gan L")
+    assert shared_authorship([a, b]) == []
+
+
+def test_prefix_compatible_initials_are_flagged():
+    # "Schlosser W" and "Schlosser WD" are almost certainly the same person
+    # recorded with/without a middle initial -- prefix-compatible, not an
+    # exact match, so this must not require strict equality.
+    a = _source("a", "Ebel E, Schlosser W")
+    b = _source("b", "Schroeder CM, Schlosser WD")
+    flagged = shared_authorship([a, b])
+    assert len(flagged) == 1
+    _a, _b, surnames = flagged[0]
+    assert surnames == ["schlosser"]
