@@ -1,15 +1,76 @@
+import re
+from typing import Optional
+
 import streamlit as st
 
 from src.crux import compute_cruxes
 from src.loader import Graph
 from src.models import Source
 
+# `sources.yaml` stores authors as a compact "Surname Initials" shorthand
+# (e.g. "Zhong VW, Van Horn L") rather than pre-formatted APA -- like the
+# graph's structure, the citation is derived at render time, not stored.
+_PERSON_RE = re.compile(
+    r"^(?P<surname>[A-Za-z][\w'\-]*(?:\s[A-Za-z][\w'\-]*)*?)\s+"
+    r"(?P<initials>[A-Z]{1,4})"
+    r"(?:\s+(?P<suffix>Jr\.?|Sr\.?|II|III|IV))?$"
+)
+
+
+def _format_person(token: str) -> Optional[str]:
+    match = _PERSON_RE.match(token.strip())
+    if not match:
+        return None
+    formatted = f"{match.group('surname')}, {'. '.join(match.group('initials'))}."
+    if match.group("suffix"):
+        formatted += f", {match.group('suffix')}"
+    return formatted
+
+
+def _format_authors_apa(authors: str) -> str:
+    authors = authors.strip()
+    if not authors or authors.upper() == "N/A":
+        return ""
+    # Drop a trailing organizational parenthetical (e.g. "Merschel M
+    # (American Heart Association News)") -- the venue field already names
+    # the organization, so it isn't lost.
+    authors = re.sub(r"\s*\([^)]*\)\s*$", "", authors).strip()
+    tokens = [t.strip() for t in authors.split(",") if t.strip()]
+    has_et_al = bool(tokens) and tokens[-1].lower().rstrip(".") == "et al"
+    if has_et_al:
+        tokens = tokens[:-1]
+    formatted = [_format_person(t) for t in tokens]
+    if not tokens or any(f is None for f in formatted):
+        # Doesn't parse as a person list -- an organizational author, used
+        # verbatim (already in correct form, e.g. "U.S. Food and Drug
+        # Administration").
+        return authors if authors.endswith(".") else authors + "."
+    if has_et_al:
+        return ", ".join(formatted) + ", et al."
+    if len(formatted) == 1:
+        return formatted[0]
+    return ", ".join(formatted[:-1]) + f", & {formatted[-1]}"
+
+
+def _venue_to_apa(venue: str) -> str:
+    # "Journal, 321(11):1081-1095" -> "Journal, 321(11), 1081-1095" --
+    # the source data uses a "vol(issue):pages" shorthand; APA separates
+    # volume/issue from the page range with a comma, not a colon.
+    return re.sub(r"(\d\)?):(\w)", r"\1, \2", venue)
+
+
+def _format_citation_apa(source: Source) -> str:
+    author_part = _format_authors_apa(source.authors)
+    year_part = f"({source.year})."
+    citation = f"{author_part} {year_part}".strip() if author_part else year_part
+    citation += f" {source.title}."
+    if source.venue:
+        citation += f" *{_venue_to_apa(source.venue)}*."
+    return citation
+
 
 def _format_source(source: Source) -> str:
-    parts = [f"**{source.title}**"]
-    meta = ", ".join(filter(None, [source.authors, str(source.year), source.venue]))
-    if meta:
-        parts.append(meta)
+    parts = [f"**{source.title}**", _format_citation_apa(source)]
     if source.url:
         parts.append(f"[↗ view source]({source.url})")
     return "  \n".join(parts)

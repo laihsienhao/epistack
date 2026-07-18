@@ -24,7 +24,13 @@ statement — shown in the detail panel and cruxes list, can be as long as it ne
 be to be accurate), `label` (**required** — a genuine summary of `text` in well under
 15 words, written for a small circle on a graph; never just `text` truncated with an
 ellipsis — see below), `explanation` (optional, longer markdown shown when the node is
-expanded), `status` (`draft` or `reviewed` — this is a curation flag, not a
+expanded — if it narrates more than one finding, break it into separate paragraphs
+(blank line between them) rather than one dense multi-sentence block; one paragraph
+per finding/study reads far more scannably in the detail-panel popup than a wall of
+text, even though it's the same content either way — see any claim in
+`data/cases/eggs/claims.yaml` with more than one citation for the pattern, written as
+a YAML folded block scalar (`explanation: >-`) so the source file stays readable too),
+`status` (`draft` or `reviewed` — this is a curation flag, not a
 contestedness flag; contestedness is structural, see below), `tags`, `sources` (ids
 into `sources.yaml`), `confidence` (leave `null` — reserved for the Assessment-layer
 stretch goal), `author`, `created`.
@@ -108,6 +114,16 @@ something a paper explicitly states).
 (`rct | meta_analysis | cohort | review | guideline | news | other`), `title`,
 `authors`, `year`, `venue`, `url`. Use real, verifiable citations — a fabricated or
 unverified citation defeats the entire point of this tool.
+
+Write `authors` as a plain comma-separated "Surname Initials" shorthand (e.g.
+`"Zhong VW, Van Horn L, Cornelis MC"`), not a pre-formatted citation — the detail
+panel (`app/detail_panel.py`) derives a full APA-style reference from `authors`,
+`year`, `title`, and `venue` at render time, same as the graph's structure is never
+stored pre-computed. An organizational author (`"U.S. Food and Drug
+Administration"`) or an already-truncated `"Surname M, et al."` are both handled
+as-is. Write `venue` as `"Journal Name, volume(issue):pages"` (colon before the
+page range) — the formatter converts that to APA's `volume(issue), pages` comma
+form automatically.
 
 ## Choosing `supports` vs `depends_on`
 

@@ -120,17 +120,7 @@ with tab_graph:
     elif not selected:
         st.session_state.last_clicked_node = None
 
-    # The graph component only ever reports the plain clicked node id, and
-    # Streamlit skips a rerun when a widget's value is unchanged -- so
-    # re-clicking the same node right after closing its dialog produces no
-    # rerun at all and can't be detected here. This button is a reliable
-    # fallback that doesn't depend on canvas click detection.
-    last_node = st.session_state.get("last_clicked_node")
-    if last_node and last_node in graph.claims:
-        if st.button(f'Reopen "{graph.claims[last_node].label}"', key="reopen_last_claim"):
-            detail_panel.show_node_dialog(graph, last_node)
-    else:
-        st.caption("Click a node in the graph to see its full explanation, references, and edges.")
+    st.caption("Click a node in the graph to see its full explanation, references, and edges.")
 
 with tab_cruxes:
     cruxes_panel.render_cruxes_panel(graph)

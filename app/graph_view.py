@@ -361,32 +361,34 @@ def build_elements(
         label = _wrap(claim.label)
         x, y = positions[cid]
 
-        nodes.append(
-            Node(
-                id=cid,
-                label=label,
-                title=claim.text,
-                x=x,
-                y=y,
-                fixed={"x": True, "y": True},
-                shape="circle",
-                size=40 if is_root else 26,
-                widthConstraint={
-                    "minimum": ROOT_NODE_WIDTH if is_root else NON_ROOT_NODE_WIDTH,
-                    "maximum": ROOT_NODE_WIDTH if is_root else NON_ROOT_NODE_WIDTH,
-                },
-                color={"background": fill, "border": border_color},
-                borderWidth=border_width,
-                borderWidthSelected=border_width + 2,
-                font={
-                    "color": text_color,
-                    "size": 19 if is_root else 16,
-                    "face": "Georgia, serif",
-                    "multi": False,
-                },
-                margin=10,
-            )
+        node = Node(
+            id=cid,
+            label=label,
+            x=x,
+            y=y,
+            fixed={"x": True, "y": True},
+            shape="circle",
+            size=40 if is_root else 26,
+            widthConstraint={
+                "minimum": ROOT_NODE_WIDTH if is_root else NON_ROOT_NODE_WIDTH,
+                "maximum": ROOT_NODE_WIDTH if is_root else NON_ROOT_NODE_WIDTH,
+            },
+            color={"background": fill, "border": border_color},
+            borderWidth=border_width,
+            font={
+                "color": text_color,
+                "size": 19 if is_root else 16,
+                "face": "Georgia, serif",
+                "multi": False,
+            },
+            margin=10,
         )
+        # streamlit_agraph's Node.__init__ defaults `title` (the vis-network
+        # hover tooltip) to `id` whenever it's falsy, so passing None/omitting
+        # it doesn't suppress the tooltip -- it has to be overridden after
+        # construction to actually remove it.
+        node.title = None
+        nodes.append(node)
 
     edges: list[Edge] = []
     for edge in graph.edges:
@@ -428,6 +430,16 @@ def render_graph(
         # *after* the initial mount, so it's compatible with the width override
         # below, which only matters at that one initial `_setSize()` call.
         autoResize=False,
+        # vis-network's default "chosen" behavior restyles a node/edge on
+        # click (and leaves it that way, since our stable component key means
+        # the network instance -- and its internal selection state -- persists
+        # across reruns, so closing the detail-panel dialog doesn't reset it).
+        # Disabling it outright means a clicked node never visually changes in
+        # the first place, so there's nothing to "get stuck" after the popup
+        # closes; click detection for opening the dialog is unaffected, since
+        # that comes from vis-network's click event, not this rendering hook.
+        nodes={"chosen": False},
+        edges={"chosen": False},
         interaction={
             "navigationButtons": False,
             "zoomView": True,

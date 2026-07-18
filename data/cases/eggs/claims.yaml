@@ -2,7 +2,33 @@
   case: eggs
   text: "For most healthy people, dietary cholesterol from eggs eaten in moderation is not a meaningful cardiovascular risk factor."
   label: "Eggs in moderation aren't a real heart risk for most people"
-  explanation: "The cholesterol/CVD sub-thesis on the 'healthy' side — no longer a root itself; it now feeds into the broader eggs-are-healthy thesis alongside independent, non-cholesterol pillars (protein quality, satiety, choline, lutein/zeaxanthin, micronutrient density). The 'moderation' framing still matters on its own terms — this side does not claim eggs are risk-free at any quantity, only that typical moderate intake (roughly 1-2 eggs/day) is not a meaningful independent CVD risk driver for most people. The direct evidence for this side: most people are hypo-responders whose serum cholesterol barely moves with dietary cholesterol intake (Katan/Beynen 1987); a randomized cross-over trial (n=61) found dietary cholesterol from 2 eggs/day wasn't significantly associated with LDL, while saturated fat was the actual driver of LDL differences across matched diets (Carter et al. 2025, AJCN); a dose-response meta-analysis of 55 prospective cohorts (n=2,772,486) found no significant association between egg or dietary-cholesterol intake and CVD-specific mortality (Frontiers in Nutrition 2022); a randomized trial (n=105 healthy adults, the Eggant study) found 2 whole eggs/day for 8 weeks produced no significant change in LDL, HDL, or triglycerides vs. an egg-white control (Galvis et al. 2023); and the American Heart Association's 2019 science advisory allows healthy adults up to 1 egg/day (2/day for healthy older adults) as part of an overall healthy pattern, rather than setting a strict cholesterol cap."
+  explanation: >-
+    The cholesterol/CVD sub-thesis on the 'healthy' side — no longer a root
+    itself; it now feeds into the broader eggs-are-healthy thesis alongside
+    independent, non-cholesterol pillars (protein quality, satiety, choline,
+    lutein/zeaxanthin, micronutrient density). The 'moderation' framing still
+    matters on its own terms — this side does not claim eggs are risk-free at
+    any quantity, only that typical moderate intake (roughly 1-2 eggs/day) is
+    not a meaningful independent CVD risk driver for most people.
+
+
+    The direct evidence for this side: most people are hypo-responders whose
+    serum cholesterol barely moves with dietary cholesterol intake
+    (Katan/Beynen 1987). A randomized cross-over trial (n=61) found dietary
+    cholesterol from 2 eggs/day wasn't significantly associated with LDL,
+    while saturated fat was the actual driver of LDL differences across
+    matched diets (Carter et al. 2025, AJCN). A dose-response meta-analysis
+    of 55 prospective cohorts (n=2,772,486) found no significant association
+    between egg or dietary-cholesterol intake and CVD-specific mortality
+    (Frontiers in Nutrition 2022).
+
+
+    A randomized trial (n=105 healthy adults, the Eggant study) found 2 whole
+    eggs/day for 8 weeks produced no significant change in LDL, HDL, or
+    triglycerides vs. an egg-white control (Galvis et al. 2023). And the
+    American Heart Association's 2019 science advisory allows healthy adults
+    up to 1 egg/day (2/day for healthy older adults) as part of an overall
+    healthy pattern, rather than setting a strict cholesterol cap.
   status: reviewed
   tags: [thesis-a]
   sources: [katan1987, ajcn2025, frontiers2022, galvis2023, aha-news-2023]
@@ -14,7 +40,40 @@
   case: eggs
   text: "Dietary cholesterol from eggs meaningfully raises cardiovascular disease and mortality risk, and intake should be limited."
   label: "Egg cholesterol meaningfully raises heart disease and death risk"
-  explanation: "The cholesterol/CVD sub-thesis on the 'unhealthy' side, rival to eggs-fine-in-moderation. No longer a root itself; it now feeds into the broader eggs-are-unhealthy thesis alongside independent, non-cholesterol pillars (TMAO, type 2 diabetes association, saturated fat, cooking-oxidation products, Salmonella, allergenicity). No edge connects it directly to eggs-fine-in-moderation — the disagreement is still structural, visible as two diverging trees built from the same underlying cholesterol evidence base. The direct evidence for this side: hyper-responders face meaningfully elevated LDL and cardiovascular risk from dietary cholesterol and would be expected to benefit from limiting it (Katan/Beynen 1987); a pooled analysis of 6 large US cohorts (n=29,615, median follow-up 17.5 years) found each additional 300 mg/day of dietary cholesterol was associated with 17% higher incident CVD risk and 18% higher all-cause mortality, and each additional half egg/day with 6% higher CVD risk and 8% higher all-cause mortality (Zhong et al. 2019, JAMA); the ATBC cohort of 27,078 Finnish men followed up to 31 years found each 300 mg/day cholesterol increment associated with higher overall (HR 1.10) and cardiovascular (HR 1.13) mortality (Zhao et al. 2022, Circulation); the same 55-cohort dose-response meta-analysis found each additional egg/day associated with 7% higher all-cause mortality risk, and each 100 mg/day cholesterol increment with 6% higher all-cause mortality (Frontiers in Nutrition 2022); and a systematic review/meta-analysis of 66 RCTs (3,185 participants) found egg consumption significantly increases total and LDL cholesterol, most clearly at higher intakes in short (<12-week) trials (Khalighi Sikaroudi et al. 2020)."
+  explanation: >-
+    The cholesterol/CVD sub-thesis on the 'unhealthy' side, rival to
+    eggs-fine-in-moderation. No longer a root itself; it now feeds into the
+    broader eggs-are-unhealthy thesis alongside independent, non-cholesterol
+    pillars (TMAO, type 2 diabetes association, saturated fat,
+    cooking-oxidation products, Salmonella, allergenicity). No edge connects
+    it directly to eggs-fine-in-moderation — the disagreement is still
+    structural, visible as two diverging trees built from the same
+    underlying cholesterol evidence base.
+
+
+    The direct evidence for this side: hyper-responders face meaningfully
+    elevated LDL and cardiovascular risk from dietary cholesterol and would
+    be expected to benefit from limiting it (Katan/Beynen 1987). A pooled
+    analysis of 6 large US cohorts (n=29,615, median follow-up 17.5 years)
+    found each additional 300 mg/day of dietary cholesterol was associated
+    with 17% higher incident CVD risk and 18% higher all-cause mortality,
+    and each additional half egg/day with 6% higher CVD risk and 8% higher
+    all-cause mortality (Zhong et al. 2019, JAMA).
+
+
+    The ATBC cohort of 27,078 Finnish men followed up to 31 years found each
+    300 mg/day cholesterol increment associated with higher overall (HR
+    1.10) and cardiovascular (HR 1.13) mortality (Zhao et al. 2022,
+    Circulation). The same 55-cohort dose-response meta-analysis found each
+    additional egg/day associated with 7% higher all-cause mortality risk,
+    and each 100 mg/day cholesterol increment with 6% higher all-cause
+    mortality (Frontiers in Nutrition 2022).
+
+
+    A systematic review/meta-analysis of 66 RCTs (3,185 participants) found
+    egg consumption significantly increases total and LDL cholesterol, most
+    clearly at higher intakes in short (<12-week) trials (Khalighi Sikaroudi
+    et al. 2020).
   status: reviewed
   tags: [thesis-b]
   sources: [katan1987, jama2019, circulation2022, frontiers2022, khalighi2020]
@@ -26,7 +85,20 @@
   case: eggs
   text: "Taken as a whole, eggs are a nutrient-dense, high-quality food whose benefits — complete protein, choline, lutein/zeaxanthin, satiety, and broad micronutrient content — outweigh the risks raised on the other side, and the traditional cholesterol/CVD concern specifically does not hold up for most people."
   label: "Eggs are healthy"
-  explanation: "The umbrella root thesis on the 'healthy' side, sitting above eggs-fine-in-moderation (the cholesterol-specific sub-thesis) and several independent, non-cholesterol pillars: protein quality (egg-protein-quality-benefit), satiety/weight management (egg-satiety-effect-contested), choline (egg-choline-benefit), and eye-health carotenoids plus broader micronutrients (egg-micronutrient-benefit). Because each pillar is independently sufficient rather than individually necessary, no single sub-question here registers as a crux for this root — that's a deliberate, accurate consequence of broadening the thesis, not an oversight."
+  explanation: >-
+    The umbrella root thesis on the 'healthy' side, sitting above
+    eggs-fine-in-moderation (the cholesterol-specific sub-thesis) and
+    several independent, non-cholesterol pillars: protein quality
+    (egg-protein-quality-benefit), satiety/weight management
+    (egg-satiety-effect-contested), choline (egg-choline-benefit), and
+    eye-health carotenoids plus broader micronutrients
+    (egg-micronutrient-benefit).
+
+
+    Because each pillar is independently sufficient rather than individually
+    necessary, no single sub-question here registers as a crux for this root
+    — that's a deliberate, accurate consequence of broadening the thesis,
+    not an oversight.
   status: reviewed
   tags: [root, thesis-healthy]
   sources: []
@@ -38,7 +110,22 @@
   case: eggs
   text: "Taken as a whole, the cumulative evidence across cardiovascular, metabolic, food-safety, and allergenic pathways shows that egg consumption carries meaningful health risks that argue for limiting or avoiding eggs."
   label: "Eggs are unhealthy"
-  explanation: "The umbrella root thesis on the 'unhealthy' side, sitting above eggs-should-be-limited (the cholesterol-specific sub-thesis) and several independent, non-cholesterol pillars: TMAO from gut-bacterial choline metabolism (tmao-cvd-risk-contested), an association with type 2 diabetes risk (egg-t2d-association-region-dependent), the cardiovascular relevance of eggs' own saturated fat content (saturated-fat-cvd-link-contested), cholesterol-oxidation products from cooking/storage (cooking-oxidation-cop-contested), Salmonella/food-safety risk (egg-salmonella-risk-contested), and allergenicity (egg-allergenicity-narrow-but-real-risk). Because each pillar is independently sufficient rather than individually necessary, no single sub-question here registers as a crux for this root — the same deliberate consequence as on the healthy side."
+  explanation: >-
+    The umbrella root thesis on the 'unhealthy' side, sitting above
+    eggs-should-be-limited (the cholesterol-specific sub-thesis) and several
+    independent, non-cholesterol pillars: TMAO from gut-bacterial choline
+    metabolism (tmao-cvd-risk-contested), an association with type 2
+    diabetes risk (egg-t2d-association-region-dependent), the cardiovascular
+    relevance of eggs' own saturated fat content
+    (saturated-fat-cvd-link-contested), cholesterol-oxidation products from
+    cooking/storage (cooking-oxidation-cop-contested), Salmonella/food-safety
+    risk (egg-salmonella-risk-contested), and allergenicity
+    (egg-allergenicity-narrow-but-real-risk).
+
+
+    Because each pillar is independently sufficient rather than individually
+    necessary, no single sub-question here registers as a crux for this root
+    — the same deliberate consequence as on the healthy side.
   status: reviewed
   tags: [root, thesis-unhealthy]
   sources: []
@@ -74,7 +161,26 @@
   case: eggs
   text: "Whether dietary cholesterol from eggs has a genuine causal effect on cardiovascular disease risk independent of confounders (especially saturated fat intake and overall dietary pattern) is unresolved."
   label: "Whether egg cholesterol truly causes heart disease is unresolved"
-  explanation: "The actual double crux of the debate — and it doesn't split cleanly along RCT-vs-cohort lines. Cohort studies (JAMA 2019, Circulation 2022) consistently find a significant dose-response association between dietary cholesterol/eggs and CVD/mortality even after standard covariate adjustment, while RCT evidence is itself mixed: a 2025 cross-over trial isolating cholesterol from saturated fat (AJCN) found no LDL effect from cholesterol specifically, but a meta-analysis of 66 RCTs (Khalighi Sikaroudi et al. 2020) found egg consumption does raise LDL, especially at higher intakes in short trials. If this resolves toward 'no independent causal effect — cohort associations reflect residual confounding, and short RCTs don't capture real long-run risk,' thesis A stands on its strongest ground; if it resolves toward 'a genuine causal effect that most short RCTs are underpowered or too brief to fully capture,' thesis B stands instead."
+  explanation: >-
+    The actual double crux of the debate — and it doesn't split cleanly
+    along RCT-vs-cohort lines.
+
+
+    Cohort studies (JAMA 2019, Circulation 2022) consistently find a
+    significant dose-response association between dietary cholesterol/eggs
+    and CVD/mortality even after standard covariate adjustment, while RCT
+    evidence is itself mixed: a 2025 cross-over trial isolating cholesterol
+    from saturated fat (AJCN) found no LDL effect from cholesterol
+    specifically, but a meta-analysis of 66 RCTs (Khalighi Sikaroudi et al.
+    2020) found egg consumption does raise LDL, especially at higher intakes
+    in short trials.
+
+
+    If this resolves toward 'no independent causal effect — cohort
+    associations reflect residual confounding, and short RCTs don't capture
+    real long-run risk,' thesis A stands on its strongest ground; if it
+    resolves toward 'a genuine causal effect that most short RCTs are
+    underpowered or too brief to fully capture,' thesis B stands instead.
   status: reviewed
   tags: [crux, double-crux]
   sources: [ajcn2025, jama2019, khalighi2020]
@@ -98,7 +204,28 @@
   case: eggs
   text: "Whether egg-derived TMAO elevation meaningfully raises cardiovascular disease risk under habitual egg consumption is contested: acute dose-response trials show eggs raise TMAO, and elevated TMAO independently predicts cardiovascular events in clinical cohorts, but a randomized trial found whole-egg choline (unlike free-choline supplements) did not raise fasting TMAO, and a 2025 meta-analysis of RCTs found no significant pooled effect of egg consumption on circulating TMAO."
   label: "Whether egg-derived TMAO meaningfully raises heart risk is contested"
-  explanation: "Gut bacteria metabolize dietary choline/phosphatidylcholine (abundant in egg yolks) into trimethylamine (TMA), which the liver oxidizes into TMAO — in volunteers eating phosphatidylcholine via eggs, plasma TMAO rose in a gut-bacteria-dependent way (suppressed by antibiotics), and among 4,007 cardiac-catheterization patients, higher fasting TMAO independently predicted higher 3-year risk of major cardiovascular events (Tang et al. 2013, NEJM). A randomized dose-response trial found consuming 2+ egg yolks produced measurable, dose-dependent increases in plasma/urinary TMAO, with roughly 11-15% of ingested choline converted to TMAO (Miller et al. 2014, AJCN). On the other hand, a 4-week randomized trial found free-choline supplements raised fasting TMAO nearly 6-fold, but whole-egg consumption at an equivalent choline dose caused no significant change (Wilcox et al. 2021, AJM), and a 2025 systematic review/meta-analysis of RCTs found egg consumption had no significant pooled effect on circulating TMAO, choline, or betaine (Aryaeian et al. 2025)."
+  explanation: >-
+    Gut bacteria metabolize dietary choline/phosphatidylcholine (abundant in
+    egg yolks) into trimethylamine (TMA), which the liver oxidizes into
+    TMAO — in volunteers eating phosphatidylcholine via eggs, plasma TMAO
+    rose in a gut-bacteria-dependent way (suppressed by antibiotics), and
+    among 4,007 cardiac-catheterization patients, higher fasting TMAO
+    independently predicted higher 3-year risk of major cardiovascular
+    events (Tang et al. 2013, NEJM).
+
+
+    A randomized dose-response trial found consuming 2+ egg yolks produced
+    measurable, dose-dependent increases in plasma/urinary TMAO, with
+    roughly 11-15% of ingested choline converted to TMAO (Miller et al.
+    2014, AJCN).
+
+
+    On the other hand, a 4-week randomized trial found free-choline
+    supplements raised fasting TMAO nearly 6-fold, but whole-egg consumption
+    at an equivalent choline dose caused no significant change (Wilcox et
+    al. 2021, AJM), and a 2025 systematic review/meta-analysis of RCTs found
+    egg consumption had no significant pooled effect on circulating TMAO,
+    choline, or betaine (Aryaeian et al. 2025).
   status: reviewed
   tags: [contested]
   sources: [tang2013-tmao-nejm, miller2014-egg-dose-response-ajcn, wilcox2021-choline-vs-eggs-ajm, aryaeian2025-egg-tmao-metaanalysis]
@@ -110,7 +237,22 @@
   case: eggs
   text: "Whether egg consumption causally raises type 2 diabetes risk, or whether the association reflects confounding by broader US dietary patterns, is contested: the same pooled US cohort analysis found no significant association in an accompanying meta-analysis of 16 international studies (589,559 participants), and a separate dose-response meta-analysis found the elevated risk was driven entirely by US studies (RR 1.47) while high-quality studies alone showed a null result (RR 0.94)."
   label: "Whether eggs raise diabetes risk, or it's US-specific confounding, is contested"
-  explanation: "In a pooled analysis of 3 large US cohorts (213,798 participants, 20,514 incident cases), each additional whole egg/day was associated with a 14% higher risk of incident type 2 diabetes — but an accompanying meta-analysis of 16 international studies (589,559 participants) found no significant association overall, and a separate dose-response meta-analysis found the elevated risk was driven entirely by US studies (RR 1.47) while high-quality studies alone showed a null result (RR 0.94) (Drouin-Chartier et al. 2020; Tamez et al. 2016). Consistent with a 'not causal, or at least not harmful short-term' reading: a 3-month randomized controlled trial in people with existing type 2 diabetes found a high-egg diet (2 eggs/day, 6 days/week) produced no significant difference in glycemic control or lipid profile vs. a low-egg diet (DIABEGG study, Fuller et al. 2015)."
+  explanation: >-
+    In a pooled analysis of 3 large US cohorts (213,798 participants, 20,514
+    incident cases), each additional whole egg/day was associated with a 14%
+    higher risk of incident type 2 diabetes — but an accompanying
+    meta-analysis of 16 international studies (589,559 participants) found
+    no significant association overall, and a separate dose-response
+    meta-analysis found the elevated risk was driven entirely by US studies
+    (RR 1.47) while high-quality studies alone showed a null result (RR
+    0.94) (Drouin-Chartier et al. 2020; Tamez et al. 2016).
+
+
+    Consistent with a 'not causal, or at least not harmful short-term'
+    reading: a 3-month randomized controlled trial in people with existing
+    type 2 diabetes found a high-egg diet (2 eggs/day, 6 days/week) produced
+    no significant difference in glycemic control or lipid profile vs. a
+    low-egg diet (DIABEGG study, Fuller et al. 2015).
   status: reviewed
   tags: [contested]
   sources: [drouin-chartier-2020-t2d-eggs, tamez-2016-bjn-eggs-t2d, diabegg-2015-rct-eggs-t2d]
@@ -122,7 +264,27 @@
   case: eggs
   text: "Saturated fat's cardiovascular relevance depends significantly on its food source: a 2020 state-of-the-art review found its impact varies substantially by food matrix, with no consistent RCT/observational evidence that reducing saturated fat generically improves cardiovascular or mortality outcomes, arguing for food-based rather than nutrient-based dietary limits."
   label: "Saturated fat's heart-disease impact depends on its food source"
-  explanation: "One large egg contains about 1.6 g of saturated fat (~3.1 g/100g), about 12% of the American Heart Association's recommended daily saturated-fat limit (~13g on a 2000-calorie diet) (USDA FoodData Central). In a randomized cross-over trial isolating cholesterol from saturated fat across three matched diets, saturated fat intake — not dietary cholesterol from eggs — was significantly associated with higher LDL; a low-saturated-fat diet including 2 eggs/day produced lower LDL than an egg-free, high-saturated-fat control diet (Carter et al. 2025, AJCN). But raising LDL doesn't automatically mean raising real-world cardiovascular risk by the same amount: a 2020 state-of-the-art review found recent meta-analyses of RCTs and observational studies show no consistent CVD/mortality benefit from reducing saturated fat generically, that its LDL effect is mainly via larger, less atherogenic LDL particles, and that its cardiovascular impact varies substantially by food source (food-matrix effects) — arguing for food-based rather than nutrient-based dietary limits (Astrup et al. 2020, JACC)."
+  explanation: >-
+    One large egg contains about 1.6 g of saturated fat (~3.1 g/100g), about
+    12% of the American Heart Association's recommended daily saturated-fat
+    limit (~13g on a 2000-calorie diet) (USDA FoodData Central).
+
+
+    In a randomized cross-over trial isolating cholesterol from saturated
+    fat across three matched diets, saturated fat intake — not dietary
+    cholesterol from eggs — was significantly associated with higher LDL; a
+    low-saturated-fat diet including 2 eggs/day produced lower LDL than an
+    egg-free, high-saturated-fat control diet (Carter et al. 2025, AJCN).
+
+
+    But raising LDL doesn't automatically mean raising real-world
+    cardiovascular risk by the same amount: a 2020 state-of-the-art review
+    found recent meta-analyses of RCTs and observational studies show no
+    consistent CVD/mortality benefit from reducing saturated fat generically,
+    that its LDL effect is mainly via larger, less atherogenic LDL particles,
+    and that its cardiovascular impact varies substantially by food source
+    (food-matrix effects) — arguing for food-based rather than
+    nutrient-based dietary limits (Astrup et al. 2020, JACC).
   status: reviewed
   tags: [contextual]
   sources: [astrup-2020-jacc-satfat-food-matrix, usda-fdc-egg-171287, ajcn2025]
@@ -134,7 +296,31 @@
   case: eggs
   text: "The cardiovascular relevance of cholesterol oxidation products (COPs) from eggs depends heavily on cooking method and storage: frying and long-term storage measurably increase COP/oxysterol formation, mechanistically linked to atherosclerosis, while common quick home-cooking methods (frying and scrambling right away) produce minimal oxidation — so the real risk concentrates in specific preparation practices rather than being an inherent property of eggs."
   label: "Egg cooking method and storage determine cholesterol-oxidation risk"
-  explanation: "Frying eggs produces substantially higher levels of cholesterol oxidation products (COPs, e.g. 7-ketocholesterol, 7-alpha/7-beta-hydroxycholesterol) than boiling, and COP levels rise progressively with storage time and temperature while beneficial omega-3s and vitamin E decline (Mazalli & Bragagnolo 2009). Thermal processing used to make powdered/dehydrated egg products initiates oxysterol formation, and extended room-temperature storage (up to 24 months) further increases oxysterol content (Chudy & Teichert 2021). Mechanistically, oxysterols enriched in oxidized LDL accumulate in atherosclerotic plaques and contribute to endothelial dysfunction, foam-cell formation, smooth-muscle proliferation, and plaque destabilization (Luquain-Costaz & Delton 2024). A study of common quick home-cooking methods (frying and scrambling in various fats), however, found minimal lipid oxidation (Ferreira et al. 2022) — so the practical risk is concentrated in specific preparation and storage practices (frying, long-term storage of powdered/dehydrated egg), not in eggs generically."
+  explanation: >-
+    Frying eggs produces substantially higher levels of cholesterol
+    oxidation products (COPs, e.g. 7-ketocholesterol,
+    7-alpha/7-beta-hydroxycholesterol) than boiling, and COP levels rise
+    progressively with storage time and temperature while beneficial
+    omega-3s and vitamin E decline (Mazalli & Bragagnolo 2009).
+
+
+    Thermal processing used to make powdered/dehydrated egg products
+    initiates oxysterol formation, and extended room-temperature storage (up
+    to 24 months) further increases oxysterol content (Chudy & Teichert
+    2021).
+
+
+    Mechanistically, oxysterols enriched in oxidized LDL accumulate in
+    atherosclerotic plaques and contribute to endothelial dysfunction,
+    foam-cell formation, smooth-muscle proliferation, and plaque
+    destabilization (Luquain-Costaz & Delton 2024).
+
+
+    A study of common quick home-cooking methods (frying and scrambling in
+    various fats), however, found minimal lipid oxidation (Ferreira et al.
+    2022) — so the practical risk is concentrated in specific preparation
+    and storage practices (frying, long-term storage of powdered/dehydrated
+    egg), not in eggs generically.
   status: reviewed
   tags: [contextual]
   sources: [fried-scrambled-eggs-lipid-quality, cop-thermal-storage-eggs, oxysterols-stored-powders, oxysterols-atherosclerosis-mechanism]
@@ -146,7 +332,20 @@
   case: eggs
   text: "Salmonella risk from eggs depends heavily on handling and cooking practice: absolute per-egg contamination risk is already small (~1 in 20,000) and has been further reduced by modern safety regulation, and thoroughly cooking eggs rather than eating them raw or undercooked further minimizes risk — so for properly handled, well-cooked eggs the practical risk is low, even though foodborne illness still occurs when eggs are undercooked or mishandled."
   label: "Egg handling and cooking practice determine Salmonella risk"
-  explanation: "Prior to modern safety regulation, an estimated 1 in 20,000 eggs in the US was internally contaminated with Salmonella Enteritidis, modeled to cause roughly 182,000 illnesses and about 70 deaths in the US in 2000 alone (Ebel & Schlosser 2000; Schroeder et al. 2005, CDC). The FDA's 2009 Egg Safety Rule, requiring Salmonella-prevention measures (biosecurity, pest control, testing) and refrigeration for large shell-egg producers, is projected to prevent about 79,000 illnesses and 30 deaths per year, cutting egg-attributable Salmonella infections by nearly 60% — and thoroughly cooking eggs (rather than eating them raw or undercooked) further reduces the residual risk, concentrating most remaining harm in undercooked or mishandled eggs specifically."
+  explanation: >-
+    Prior to modern safety regulation, an estimated 1 in 20,000 eggs in the
+    US was internally contaminated with Salmonella Enteritidis, modeled to
+    cause roughly 182,000 illnesses and about 70 deaths in the US in 2000
+    alone (Ebel & Schlosser 2000; Schroeder et al. 2005, CDC).
+
+
+    The FDA's 2009 Egg Safety Rule, requiring Salmonella-prevention measures
+    (biosecurity, pest control, testing) and refrigeration for large
+    shell-egg producers, is projected to prevent about 79,000 illnesses and
+    30 deaths per year, cutting egg-attributable Salmonella infections by
+    nearly 60% — and thoroughly cooking eggs (rather than eating them raw or
+    undercooked) further reduces the residual risk, concentrating most
+    remaining harm in undercooked or mishandled eggs specifically.
   status: reviewed
   tags: [contextual]
   sources: [ebel-schlosser-2000-contamination-fraction, cdc-eid-se-egg-illness-estimate-2000, fda-egg-safety-final-rule]
@@ -158,7 +357,24 @@
   case: eggs
   text: "Egg allergy is a real health risk from eggs, but a narrow one: it affects a small minority of the population (concentrated in early childhood, around 1-2% at peak), most cases resolve with age, and most reactions when they occur are mild to moderate rather than life-threatening — though undiagnosed severe reactions do happen."
   label: "Egg allergy is a real but narrow risk, mostly in young children"
-  explanation: "In a nationally representative US survey, egg allergy affected about 0.9% of all children, peaking near 2% at ages 1-2; about 64% of egg-allergic children tolerated baked egg, and nearly half had comorbid asthma (Samady et al. 2020). Most children eventually outgrow egg allergy, but resolution is gradual: about 4% resolve by age 4, 12% by age 6, 37% by age 10, and 68% by age 16 — children with very high egg-specific IgE are unlikely to become tolerant (Savage et al. 2007). In a registry of 302 children with egg-induced anaphylaxis, most reactions were mild (30.5%) to moderate (60.3%), only 9.3% were severe, and only 1.4% required hospital admission — though 61% of affected children had no prior egg-allergy diagnosis before the reaction (Prosty et al. 2024)."
+  explanation: >-
+    In a nationally representative US survey, egg allergy affected about
+    0.9% of all children, peaking near 2% at ages 1-2; about 64% of
+    egg-allergic children tolerated baked egg, and nearly half had comorbid
+    asthma (Samady et al. 2020).
+
+
+    Most children eventually outgrow egg allergy, but resolution is gradual:
+    about 4% resolve by age 4, 12% by age 6, 37% by age 10, and 68% by age
+    16 — children with very high egg-specific IgE are unlikely to become
+    tolerant (Savage et al. 2007).
+
+
+    In a registry of 302 children with egg-induced anaphylaxis, most
+    reactions were mild (30.5%) to moderate (60.3%), only 9.3% were severe,
+    and only 1.4% required hospital admission — though 61% of affected
+    children had no prior egg-allergy diagnosis before the reaction (Prosty
+    et al. 2024).
   status: reviewed
   tags: [thesis-unhealthy]
   sources: [egg-allergy-prevalence-us-children, egg-allergy-natural-history-savage, egg-induced-anaphylaxis-severity-prosty]
@@ -170,7 +386,18 @@
   case: eggs
   text: "Whole egg provides complete, highly digestible protein (DIAAS about 101, rated 'excellent'), and this protein quality translates into a measurably greater muscle-protein-synthesis response after exercise compared with egg whites alone despite similar leucine content — suggesting non-protein yolk components also contribute to the anabolic response."
   label: "Egg protein is complete, high-quality, and builds muscle"
-  explanation: "Herreman et al. 2020's review situates whole egg's DIAAS at about 101 ('excellent', >=100), ahead of whey (85) and soy (91) — though the review authors caution DIAAS reflects amino-acid digestibility only, not confirmed muscle-building outcomes on its own. That confirmation comes from van Vliet et al. 2017: in resistance-trained young men given protein-matched doses after exercise, whole-egg ingestion increased post-exercise muscle protein synthesis more than isonitrogenous egg whites, despite similar leucine availability, implying yolk fat/micronutrients also matter, not just protein content."
+  explanation: >-
+    Herreman et al. 2020's review situates whole egg's DIAAS at about 101
+    ('excellent', >=100), ahead of whey (85) and soy (91) — though the
+    review authors caution DIAAS reflects amino-acid digestibility only, not
+    confirmed muscle-building outcomes on its own.
+
+
+    That confirmation comes from van Vliet et al. 2017: in resistance-trained
+    young men given protein-matched doses after exercise, whole-egg
+    ingestion increased post-exercise muscle protein synthesis more than
+    isonitrogenous egg whites, despite similar leucine availability,
+    implying yolk fat/micronutrients also matter, not just protein content.
   status: reviewed
   tags: [thesis-healthy]
   sources: [herreman-2020-diaas-review, van-vliet-2017-whole-egg-mps]
@@ -182,7 +409,25 @@
   case: eggs
   text: "Whether eggs' satiety benefit comes from their protein quality specifically, or simply from protein quantity that any similar source could provide, is contested: follow-up crossover trials matching total protein quantity between egg and cereal breakfasts found no significant difference in appetite hormones or subsequent energy intake, suggesting higher protein quality alone may be insufficient to drive satiety once quantity is controlled for."
   label: "Whether eggs' fullness effect is special, or just protein amount, is contested"
-  explanation: "In a controlled crossover trial, an isocaloric egg breakfast produced greater fullness before lunch than a bagel breakfast, and participants ate significantly less at lunch afterward (2405.6 vs 3091.3 kJ, p<0.0001), with reduced intake persisting for the following 36 hours (Vander Wal et al. 2005). In an 8-week energy-restricted diet trial, participants eating an egg breakfast lost 65% more weight than those eating a bagel breakfast of equal calories (2.63 kg vs 1.59 kg), though the effect required combining eggs with an overall calorie deficit (Vander Wal et al. 2008). Follow-up crossover trials matching total protein quantity between egg and cereal breakfasts, however, found no significant difference in appetite hormones or subsequent energy intake, suggesting higher protein quality alone may be insufficient to drive satiety once quantity is controlled for (Zhu et al. 2022)."
+  explanation: >-
+    In a controlled crossover trial, an isocaloric egg breakfast produced
+    greater fullness before lunch than a bagel breakfast, and participants
+    ate significantly less at lunch afterward (2405.6 vs 3091.3 kJ,
+    p<0.0001), with reduced intake persisting for the following 36 hours
+    (Vander Wal et al. 2005).
+
+
+    In an 8-week energy-restricted diet trial, participants eating an egg
+    breakfast lost 65% more weight than those eating a bagel breakfast of
+    equal calories (2.63 kg vs 1.59 kg), though the effect required
+    combining eggs with an overall calorie deficit (Vander Wal et al. 2008).
+
+
+    Follow-up crossover trials matching total protein quantity between egg
+    and cereal breakfasts, however, found no significant difference in
+    appetite hormones or subsequent energy intake, suggesting higher protein
+    quality alone may be insufficient to drive satiety once quantity is
+    controlled for (Zhu et al. 2022).
   status: reviewed
   tags: [contested]
   sources: [zhu-2022-egg-cereal-nuance, vander-wal-2005-egg-satiety, vander-wal-2008-egg-weight-loss]
@@ -194,7 +439,24 @@
   case: eggs
   text: "Eggs are a practical way to meet choline intake that most people fall short on, and adequate choline matters for both liver health and, via prenatal intake, offspring cognitive development."
   label: "Eggs are a practical, meaningful source of health-supporting choline"
-  explanation: "Only about 8% of US adults (8.5% of pregnant women) meet the adequate intake for choline, but egg consumers get nearly double the choline intake of non-consumers (525 vs 294 mg/day), and 57% of egg consumers meet the AI vs. just 2.4% of non-consumers (Wallace & Fulgoni 2017, NHANES) — eggs are a practical way to close this gap. The AI matters because choline deficiency causes real harm: in a controlled deprivation study, most men (77%) and postmenopausal women (80%) developed fatty liver or muscle-damage markers on insufficient choline intake (NIH Office of Dietary Supplements). Choline also appears to matter for offspring cognition: in a randomized trial, children of mothers given higher-dose (930 vs ~480 mg/day) choline in the third trimester showed significantly better sustained attention at age 7 (Bahnfleth et al. 2022)."
+  explanation: >-
+    Only about 8% of US adults (8.5% of pregnant women) meet the adequate
+    intake for choline, but egg consumers get nearly double the choline
+    intake of non-consumers (525 vs 294 mg/day), and 57% of egg consumers
+    meet the AI vs. just 2.4% of non-consumers (Wallace & Fulgoni 2017,
+    NHANES) — eggs are a practical way to close this gap.
+
+
+    The AI matters because choline deficiency causes real harm: in a
+    controlled deprivation study, most men (77%) and postmenopausal women
+    (80%) developed fatty liver or muscle-damage markers on insufficient
+    choline intake (NIH Office of Dietary Supplements).
+
+
+    Choline also appears to matter for offspring cognition: in a randomized
+    trial, children of mothers given higher-dose (930 vs ~480 mg/day)
+    choline in the third trimester showed significantly better sustained
+    attention at age 7 (Bahnfleth et al. 2022).
   status: reviewed
   tags: [thesis-healthy]
   sources: [wallace-fulgoni-2017-nhanes-choline-eggs, nih-ods-choline-professional, bahnfleth-2022-prenatal-choline-attention]
@@ -206,7 +468,27 @@
   case: eggs
   text: "Egg yolks are a concentrated, highly bioavailable source of the eye-health carotenoids lutein and zeaxanthin, and eggs also provide a broad, meaningful share of several other daily micronutrient needs relative to their modest calorie content."
   label: "Egg yolks deliver eye-protective carotenoids and broad micronutrients"
-  explanation: "Egg yolks concentrate lutein and zeaxanthin, carotenoids that accumulate in the retina's macula and are thought to filter damaging blue light. In a controlled feeding trial, eating 2-4 yolks/day for 5 weeks raised serum lutein 16-24% and zeaxanthin 36-82%, and raised macular pigment optical density up to 50% in people with low baseline levels, without harming LDL (HDL rose 5%) (Vishwanathan et al. 2009). Bioavailability also seems to matter: a crossover trial giving equal lutein doses found roughly 3x higher serum lutein response from lutein-enriched eggs than from equal doses via spinach or supplements, likely due to the egg's fat matrix (Chung et al. 2004). Beyond the eye-health carotenoids, one large egg also provides a broad share of several daily micronutrient needs relative to its modest ~70-calorie content: about 19% DV vitamin B12, 28% selenium, 18% riboflavin, and 5% vitamin D (USDA FoodData Central)."
+  explanation: >-
+    Egg yolks concentrate lutein and zeaxanthin, carotenoids that accumulate
+    in the retina's macula and are thought to filter damaging blue light.
+
+
+    In a controlled feeding trial, eating 2-4 yolks/day for 5 weeks raised
+    serum lutein 16-24% and zeaxanthin 36-82%, and raised macular pigment
+    optical density up to 50% in people with low baseline levels, without
+    harming LDL (HDL rose 5%) (Vishwanathan et al. 2009).
+
+
+    Bioavailability also seems to matter: a crossover trial giving equal
+    lutein doses found roughly 3x higher serum lutein response from
+    lutein-enriched eggs than from equal doses via spinach or supplements,
+    likely due to the egg's fat matrix (Chung et al. 2004).
+
+
+    Beyond the eye-health carotenoids, one large egg also provides a broad
+    share of several daily micronutrient needs relative to its modest
+    ~70-calorie content: about 19% DV vitamin B12, 28% selenium, 18%
+    riboflavin, and 5% vitamin D (USDA FoodData Central).
   status: reviewed
   tags: [thesis-healthy]
   sources: [vishwanathan-2009-egg-yolk-macular-pigment, chung-2004-lutein-bioavailability-eggs, usda-fdc-egg-171287]
