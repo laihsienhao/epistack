@@ -28,7 +28,7 @@
   label: "Coffee contains caffeine, a stimulant affecting heart and brain"
   explanation: "An uncontested baseline fact both theses build on. Reachable from both roots via supports-only edges, so it is a shared ground truth — but not a crux, since no depends_on edge is involved."
   status: reviewed
-  tags: [toy, ground-truth]
+  tags: [toy, ground-truth, topic:caffeine]
   sources: [toy-source-1]
   confidence: null
   author: 171384n
@@ -39,7 +39,7 @@
   text: "Caffeine improves short-term alertness and cognitive performance."
   label: "Caffeine boosts short-term alertness and thinking"
   status: reviewed
-  tags: [toy]
+  tags: [toy, topic:alertness]
   sources: [toy-source-1]
   confidence: null
   author: 171384n
@@ -50,7 +50,7 @@
   text: "Caffeine causes a temporary rise in blood pressure shortly after consumption."
   label: "Caffeine briefly raises blood pressure after drinking it"
   status: reviewed
-  tags: [toy]
+  tags: [toy, topic:blood-pressure]
   sources: [toy-source-2]
   confidence: null
   author: 171384n
@@ -62,7 +62,7 @@
   label: "Coffee drinkers have lower death rates"
   explanation: "A crux for thesis A only: if these cohort findings didn't hold up, the health-benefit thesis loses its main pillar."
   status: reviewed
-  tags: [toy, crux]
+  tags: [toy, crux, topic:mortality]
   sources: [toy-source-2]
   confidence: null
   author: 171384n
@@ -74,7 +74,7 @@
   label: "Whether coffee's mortality link is causal or confounded is contested"
   explanation: "Double crux: settling this one way supports thesis A's strongest form; settling it the other way supports thesis B's strongest form instead. Both root theses' strongest support routes through how this question is eventually resolved."
   status: reviewed
-  tags: [toy, double-crux]
+  tags: [toy, double-crux, topic:mortality]
   sources: [toy-source-1, toy-source-2]
   confidence: null
   author: 171384n

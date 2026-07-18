@@ -12,8 +12,10 @@ import streamlit as st  # noqa: E402
 import contribute_form  # noqa: E402
 import cruxes_panel  # noqa: E402
 import detail_panel  # noqa: E402
+import discourse_panel  # noqa: E402
 import graph_view  # noqa: E402
 import zoom_controls  # noqa: E402
+from src.discourse import topic_label  # noqa: E402
 from src.loader import list_cases, load_case  # noqa: E402
 from src.validate import validate_case  # noqa: E402
 
@@ -61,7 +63,7 @@ if not cases:
 
 default_index = cases.index("eggs") if "eggs" in cases else 0
 
-bar = st.columns([1.2, 3, 1.3, 1])
+bar = st.columns([1.1, 2, 1.8, 1.2, 1])
 with bar[0]:
     case_id = st.selectbox("Case", cases, index=default_index)
 
@@ -74,12 +76,18 @@ if errors:
 
 graph = load_case(case_id)
 
+all_topics = sorted({t for claim in graph.claims.values() for t in claim.tags if t.startswith("topic:")})
+
 with bar[1]:
     search_query = st.text_input("Search claim text")
 with bar[2]:
+    topic_filter = (
+        st.multiselect("Filter by topic", all_topics, format_func=topic_label) if all_topics else []
+    )
+with bar[3]:
     st.markdown("<div style='height: 1.7em'></div>", unsafe_allow_html=True)
     show_only_cruxes = st.checkbox("Show only cruxes", value=False)
-with bar[3]:
+with bar[4]:
     st.markdown("<div style='height: 1.7em'></div>", unsafe_allow_html=True)
     with st.popover("Legend"):
         roots = sorted(graph.roots())
@@ -108,11 +116,11 @@ with bar[3]:
             "dashed = no direct source citation (editorial judgment)."
         )
 
-tab_graph, tab_cruxes, tab_contribute = st.tabs(["Graph", "Cruxes", "Contribute"])
+tab_graph, tab_cruxes, tab_coverage, tab_contribute = st.tabs(["Graph", "Cruxes", "Coverage", "Contribute"])
 
 with tab_graph:
     zoom_controls.render_zoom_controls()
-    selected = graph_view.render_graph(graph, search_query, show_only_cruxes)
+    selected = graph_view.render_graph(graph, search_query, show_only_cruxes, topic_filter)
 
     if selected and selected != st.session_state.get("last_clicked_node"):
         st.session_state.last_clicked_node = selected
@@ -124,6 +132,9 @@ with tab_graph:
 
 with tab_cruxes:
     cruxes_panel.render_cruxes_panel(graph)
+
+with tab_coverage:
+    discourse_panel.render_discourse_panel(graph)
 
 with tab_contribute:
     contribute_form.render_contribute_form(graph)

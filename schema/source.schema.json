@@ -52,6 +52,29 @@
       ],
       "default": null,
       "title": "Url"
+    },
+    "funding": {
+      "enum": [
+        "industry",
+        "independent",
+        "government",
+        "mixed",
+        "unknown"
+      ],
+      "title": "Funding",
+      "type": "string"
+    },
+    "bias_note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Bias Note"
     }
   },
   "required": [
@@ -59,7 +82,8 @@
     "type",
     "title",
     "authors",
-    "year"
+    "year",
+    "funding"
   ],
   "title": "Source",
   "type": "object"

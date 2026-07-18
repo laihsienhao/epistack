@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 EdgeRelation = Literal["supports", "depends_on"]
 ClaimStatus = Literal["draft", "reviewed"]
 SourceType = Literal["rct", "meta_analysis", "cohort", "review", "guideline", "news", "other"]
+SourceFunding = Literal["industry", "independent", "government", "mixed", "unknown"]
 
 
 class Claim(BaseModel):
@@ -42,3 +43,5 @@ class Source(BaseModel):
     year: int
     venue: Optional[str] = None
     url: Optional[str] = None
+    funding: SourceFunding
+    bias_note: Optional[str] = None

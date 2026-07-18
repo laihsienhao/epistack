@@ -30,7 +30,7 @@
     up to 1 egg/day (2/day for healthy older adults) as part of an overall
     healthy pattern, rather than setting a strict cholesterol cap.
   status: reviewed
-  tags: [thesis-a]
+  tags: [thesis-a, topic:cholesterol]
   sources: [katan1987, ajcn2025, frontiers2022, galvis2023, aha-news-2023]
   confidence: null
   author: 171384n
@@ -75,7 +75,7 @@
     clearly at higher intakes in short (<12-week) trials (Khalighi Sikaroudi
     et al. 2020).
   status: reviewed
-  tags: [thesis-b]
+  tags: [thesis-b, topic:cholesterol]
   sources: [katan1987, jama2019, circulation2022, frontiers2022, khalighi2020]
   confidence: null
   author: 171384n
@@ -139,7 +139,7 @@
   label: "One egg has about 200mg of cholesterol, mostly in the yolk"
   explanation: "An uncontested baseline fact both sides build on. Reachable from both roots (via the claims it feeds), so it renders as a shared ground truth — not a crux, since it's a settled fact, not an open question."
   status: reviewed
-  tags: [ground-truth, fact]
+  tags: [ground-truth, fact, topic:cholesterol]
   sources: [aha-news-2023]
   confidence: null
   author: 171384n
@@ -151,7 +151,7 @@
   label: "Cholesterol response to eggs varies sharply between people"
   explanation: "The classic Katan/Beynen finding. Both sides accept this happens, but it cuts differently for each: the 'fine in moderation' side reads it as 'most people are hypo-responders, so average-case caution overstates personal risk'; the 'should be limited' side reads it as 'some people are hyper-responders and face meaningfully elevated risk, which argues for caution.'"
   status: reviewed
-  tags: [mechanism, ground-truth]
+  tags: [mechanism, ground-truth, topic:cholesterol]
   sources: [katan1987]
   confidence: null
   author: 171384n
@@ -182,7 +182,7 @@
     resolves toward 'a genuine causal effect that most short RCTs are
     underpowered or too brief to fully capture,' thesis B stands instead.
   status: reviewed
-  tags: [crux, double-crux]
+  tags: [crux, double-crux, topic:cholesterol]
   sources: [ajcn2025, jama2019, khalighi2020]
   confidence: null
   author: 171384n
@@ -194,7 +194,7 @@
   label: "One egg has about 147mg of choline, a top dietary source"
   explanation: "A shared ground truth, structurally like egg-cholesterol-content: it feeds both the TMAO branch on the unhealthy side and the choline-benefit branch on the healthy side, since both mechanisms start from the same underlying fact about how much choline eggs actually provide."
   status: reviewed
-  tags: [ground-truth, fact]
+  tags: [ground-truth, fact, topic:choline]
   sources: [nih-ods-choline-professional]
   confidence: null
   author: 171384n
@@ -227,7 +227,7 @@
     egg consumption had no significant pooled effect on circulating TMAO,
     choline, or betaine (Aryaeian et al. 2025).
   status: reviewed
-  tags: [contested]
+  tags: [contested, topic:choline, topic:tmao]
   sources: [tang2013-tmao-nejm, miller2014-egg-dose-response-ajcn, wilcox2021-choline-vs-eggs-ajm, aryaeian2025-egg-tmao-metaanalysis]
   confidence: null
   author: 171384n
@@ -254,7 +254,7 @@
     no significant difference in glycemic control or lipid profile vs. a
     low-egg diet (DIABEGG study, Fuller et al. 2015).
   status: reviewed
-  tags: [contested]
+  tags: [contested, topic:diabetes]
   sources: [drouin-chartier-2020-t2d-eggs, tamez-2016-bjn-eggs-t2d, diabegg-2015-rct-eggs-t2d]
   confidence: null
   author: 171384n
@@ -286,7 +286,7 @@
     (food-matrix effects) — arguing for food-based rather than
     nutrient-based dietary limits (Astrup et al. 2020, JACC).
   status: reviewed
-  tags: [contextual]
+  tags: [contextual, topic:saturated-fat]
   sources: [astrup-2020-jacc-satfat-food-matrix, usda-fdc-egg-171287, ajcn2025]
   confidence: null
   author: 171384n
@@ -322,7 +322,7 @@
     and storage practices (frying, long-term storage of powdered/dehydrated
     egg), not in eggs generically.
   status: reviewed
-  tags: [contextual]
+  tags: [contextual, topic:cooking-oxidation]
   sources: [fried-scrambled-eggs-lipid-quality, cop-thermal-storage-eggs, oxysterols-stored-powders, oxysterols-atherosclerosis-mechanism]
   confidence: null
   author: 171384n
@@ -347,7 +347,7 @@
     undercooked) further reduces the residual risk, concentrating most
     remaining harm in undercooked or mishandled eggs specifically.
   status: reviewed
-  tags: [contextual]
+  tags: [contextual, topic:food-safety]
   sources: [ebel-schlosser-2000-contamination-fraction, cdc-eid-se-egg-illness-estimate-2000, fda-egg-safety-final-rule]
   confidence: null
   author: 171384n
@@ -376,7 +376,7 @@
     children had no prior egg-allergy diagnosis before the reaction (Prosty
     et al. 2024).
   status: reviewed
-  tags: [thesis-unhealthy]
+  tags: [thesis-unhealthy, topic:allergenicity]
   sources: [egg-allergy-prevalence-us-children, egg-allergy-natural-history-savage, egg-induced-anaphylaxis-severity-prosty]
   confidence: null
   author: 171384n
@@ -399,7 +399,7 @@
     isonitrogenous egg whites, despite similar leucine availability,
     implying yolk fat/micronutrients also matter, not just protein content.
   status: reviewed
-  tags: [thesis-healthy]
+  tags: [thesis-healthy, topic:protein-quality]
   sources: [herreman-2020-diaas-review, van-vliet-2017-whole-egg-mps]
   confidence: null
   author: 171384n
@@ -429,7 +429,7 @@
     quality alone may be insufficient to drive satiety once quantity is
     controlled for (Zhu et al. 2022).
   status: reviewed
-  tags: [contested]
+  tags: [contested, topic:satiety]
   sources: [zhu-2022-egg-cereal-nuance, vander-wal-2005-egg-satiety, vander-wal-2008-egg-weight-loss]
   confidence: null
   author: 171384n
@@ -458,7 +458,7 @@
     choline in the third trimester showed significantly better sustained
     attention at age 7 (Bahnfleth et al. 2022).
   status: reviewed
-  tags: [thesis-healthy]
+  tags: [thesis-healthy, topic:choline]
   sources: [wallace-fulgoni-2017-nhanes-choline-eggs, nih-ods-choline-professional, bahnfleth-2022-prenatal-choline-attention]
   confidence: null
   author: 171384n
@@ -490,7 +490,7 @@
     ~70-calorie content: about 19% DV vitamin B12, 28% selenium, 18%
     riboflavin, and 5% vitamin D (USDA FoodData Central).
   status: reviewed
-  tags: [thesis-healthy]
+  tags: [thesis-healthy, topic:micronutrients]
   sources: [vishwanathan-2009-egg-yolk-macular-pigment, chung-2004-lutein-bioavailability-eggs, usda-fdc-egg-171287]
   confidence: null
   author: 171384n

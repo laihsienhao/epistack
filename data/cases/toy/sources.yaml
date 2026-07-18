@@ -5,6 +5,8 @@
   year: 2026
   venue: null
   url: null
+  funding: unknown
+  bias_note: "Synthetic placeholder, not a real source — funding is intentionally unclassifiable rather than fabricated."
 
 - id: toy-source-2
   type: cohort
@@ -13,3 +15,5 @@
   year: 2026
   venue: null
   url: null
+  funding: unknown
+  bias_note: "Synthetic placeholder, not a real source — funding is intentionally unclassifiable rather than fabricated."

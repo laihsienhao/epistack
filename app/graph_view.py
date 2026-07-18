@@ -316,6 +316,7 @@ def build_elements(
     graph: Graph,
     search_query: str = "",
     show_only_cruxes: bool = False,
+    topic_filter: list[str] | None = None,
 ) -> tuple[list[Node], list[Edge]]:
     """Translate a Graph into agraph Nodes/Edges with side and crux salience baked in.
 
@@ -338,7 +339,19 @@ def build_elements(
         q = search_query.lower()
         visible_ids = {cid for cid in visible_ids if q in graph.claims[cid].text.lower()}
     if show_only_cruxes:
-        visible_ids &= set(crux_for) | roots
+        visible_ids &= set(crux_for)
+    if topic_filter:
+        # OR semantics -- a claim can carry more than one topic tag (e.g.
+        # tmao-cvd-risk-contested is both topic:choline and topic:tmao), and
+        # "filter by these topics" reads as "show me anything touching any of
+        # them," not "only claims tagged with every one selected."
+        wanted = set(topic_filter)
+        visible_ids = {cid for cid in visible_ids if wanted & set(graph.claims[cid].tags)}
+    # Root theses are the graph's top-level "schools of thought" -- always
+    # shown regardless of any filter combination, so a reader never loses
+    # the sides a filtered-down claim belongs to, even though a root itself
+    # rarely matches a text search, crux status, or topic tag.
+    visible_ids |= roots
 
     nodes: list[Node] = []
     for cid in visible_ids:
@@ -415,8 +428,9 @@ def render_graph(
     graph: Graph,
     search_query: str = "",
     show_only_cruxes: bool = False,
+    topic_filter: list[str] | None = None,
 ) -> str | None:
-    nodes, edges = build_elements(graph, search_query, show_only_cruxes)
+    nodes, edges = build_elements(graph, search_query, show_only_cruxes, topic_filter)
     config = Config(
         height=800,
         width=1400,

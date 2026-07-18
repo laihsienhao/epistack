@@ -89,6 +89,36 @@ treatment and a dashed-border treatment were each tried and then explicitly reve
 (see CLAUDE.md's Design system entry for that history) — a reader currently spots a
 nuanced claim by reading its label/text, not by a visual channel on the node itself.
 
+**Topic tags (discourse structure).** Alongside the status/side tags above, add one
+or more `topic:<name>` entries to a claim's `tags` list to mark which sub-question it
+addresses (e.g. `topic:cholesterol`, `topic:tmao`) — kebab-case, no spaces. This is
+what powers the **Coverage** tab (`src/discourse.py`, `app/discourse_panel.py`): a
+topic reachable from two or more roots is a genuinely shared/contested sub-question
+both sides engage with (even if they draw opposite conclusions from it); a topic
+reachable from exactly one root is a sub-question only that side has built out. A
+claim can carry more than one topic tag when it genuinely spans two sub-questions
+(e.g. `tmao-cvd-risk-contested` carries both `topic:choline` and `topic:tmao`, since
+TMAO risk *is* the choline-metabolism pathway, and tagging it `topic:choline` is what
+makes it register as shared with the `egg-choline-benefit` branch on the other side).
+Don't invent a topic tag just to force a claim into the "shared" bucket — see
+`docs/METHODOLOGY.md` for why this tagging step is itself a named limitation of the
+Coverage view, not a fully mechanical derivation.
+
+**Source funding & bias transparency.** Every source now requires a `funding` field
+(`industry | independent | government | mixed | unknown`), rendered as a badge on
+every citation card in the detail panel alongside the (pre-existing but previously
+unrendered) `type` field. Determine this by actually checking the paper's own
+funding/acknowledgments/conflict-of-interest disclosure — via the paper's page,
+PubMed record, or full text — never by inferring from venue or author name alone.
+Use `unknown` only when genuinely undeterminable after checking, not as a shortcut.
+Add an optional `bias_note` (plain string) only when something concrete and specific
+is actually disclosed (e.g. "Funded by the Egg Nutrition Center," or a named
+industry-linked patent/consulting relationship) — don't editorialize or speculate
+beyond what's disclosed. This is structural transparency, not a quality score: it
+sits deliberately outside the `confidence` field (still reserved, still `null`, for
+the Assessment-layer stretch goal) — a source's funding origin is a fact about where
+it came from, not a judgment about whether its findings are correct.
+
 **Avoid one-node-per-finding sprawl.** Only give a finding its own standalone node
 when it is a genuine, independently reachable **shared ground truth** used by 2+
 branches (e.g. a basic content fact like "one egg has ~200mg of cholesterol") or is
@@ -112,8 +142,10 @@ something a paper explicitly states).
 
 **Source** (`schema/source.schema.json`): a bibliography entry — `id`, `type`
 (`rct | meta_analysis | cohort | review | guideline | news | other`), `title`,
-`authors`, `year`, `venue`, `url`. Use real, verifiable citations — a fabricated or
-unverified citation defeats the entire point of this tool.
+`authors`, `year`, `venue`, `url`, `funding` (required —
+`industry | independent | government | mixed | unknown`, see below), `bias_note`
+(optional). Use real, verifiable citations — a fabricated or unverified citation
+defeats the entire point of this tool.
 
 Write `authors` as a plain comma-separated "Surname Initials" shorthand (e.g.
 `"Zhong VW, Van Horn L, Cornelis MC"`), not a pre-formatted citation — the detail
