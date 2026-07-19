@@ -86,24 +86,20 @@ SPLIT_GAP = NODE_GAP  # vertical gap between a split tier's two rows -- kept
 # sits at the midpoint, closer than NODE_GAP away vertically) comes from
 # horizontal separation instead -- see half_width below, which always
 # reserves that regardless of whether a row is split.
-EDGE_SAFETY_MARGIN = 150  # extra blank world-space reserved beyond each
-# side's outermost row, added to shared_half_width in _compute_positions.
-# Found 2026-07-19 on `covid-19-origins` (the widest case built so far, one
-# side splitting to 7 members): the rendered graph consistently opens
-# shifted ~28px left of true center -- measured identically on `eggs` and
-# `lhc-black-holes` too, so it's a small, constant, pre-existing quirk in how
-# the underlying vis-network component's one-time initial fit() centers
-# itself (not something introduced by any case's data), invisible on
-# narrower graphs that have enough slack to absorb it, but big enough here
-# to clip the outermost node. `autoResize=False` in render_graph() means
-# nothing ever corrects an initial mis-fit afterward (deliberately, so the
-# detail-panel dialog's overlay/hide cycle never resets a user's own
-# zoom/pan), so the fix is a data-side safety margin rather than chasing the
-# vis-network internals -- this pushes both sides' outermost row further
-# from center, which nothing else in the layout depends on (it only ever
-# increases pairwise node distance, never decreases it, so it can't
-# reintroduce overlap; re-run the min-pairwise-distance sanity check anyway
-# after touching this).
+#
+# `EDGE_SAFETY_MARGIN` (150 world units, added 2026-07-19 to the outermost
+# row's clearance to fight vis-network's ~25-28px off-center initial-fit
+# quirk -- see CLAUDE.md's Layout algorithm section) was **removed
+# 2026-07-19, same day**, per user feedback that the graph pans/zooms out
+# further than necessary: precise pixel-centroid measurement had already
+# shown the margin bought back only ~3px of the ~28px shift while making
+# every case's layout ~13-17% wider -- a real, measured cost for a
+# negligible, already-acknowledged-as-not-a-real-fix benefit. The
+# off-center quirk itself is unchanged (still a known upstream
+# `streamlit_agraph` limitation, see CLAUDE.md), but reducing unnecessary
+# width directly serves the more noticeable, more recent complaint;
+# `NODE_GAP` alone (the actual project-wide min-pairwise-distance
+# invariant, not extra padding) is what still guarantees no node overlap.
 
 QUESTION_WRAP_WIDTH = 36
 QUESTION_FONT_SIZE = 42
@@ -299,7 +295,7 @@ def _compute_positions(
     # re-run the min-pairwise-distance sanity check in CLAUDE.md after
     # touching this function.
     root_x: dict[str, float] = {}
-    shared_half_width = (max(half_width.values()) if half_width else 0.0) + EDGE_SAFETY_MARGIN
+    shared_half_width = max(half_width.values()) if half_width else 0.0
     split_index = (len(roots_sorted) + 1) // 2
     for sign, side_roots in ((-1.0, roots_sorted[:split_index]), (1.0, roots_sorted[split_index:])):
         cursor = 0.0

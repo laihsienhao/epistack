@@ -385,3 +385,111 @@
   url: "https://pubmed.ncbi.nlm.nih.gov/15284371/"
   funding: mixed
   bias_note: "Jointly funded by the USDA Agricultural Research Service and the Egg Nutrition Center."
+
+# --- Cancer ---
+
+- id: richman2011-lethal-prostate-cancer-eggs
+  type: cohort
+  title: "Egg, red meat, and poultry intake and risk of lethal prostate cancer in the prostate-specific antigen-era: incidence and survival"
+  authors: "Richman EL, Kenfield SA, Stampfer MJ, Giovannucci EL, Chan JM"
+  year: 2011
+  venue: "Cancer Prevention Research, 4(12):2110-2121"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3232297/"
+  funding: government
+  bias_note: "Funded by NIH grants (R01 CA141298-02, R25 CA098566, R01/P01 CA55075); authors declared no conflicts of interest."
+
+- id: richman2012-choline-lethal-prostate-cancer
+  type: cohort
+  title: "Choline intake and risk of lethal prostate cancer: incidence and survival"
+  authors: "Richman EL, Kenfield SA, Stampfer MJ, Giovannucci EL, Zeisel SH, Willett WC, Chan JM"
+  year: 2012
+  venue: "American Journal of Clinical Nutrition, 96(4):855-863"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3441112/"
+  funding: mixed
+  bias_note: "Funded by NIH grants and the Prostate Cancer Foundation (a nonprofit); no conflicts of interest reported."
+
+- id: keum2015-egg-cancer-dose-response
+  type: meta_analysis
+  title: "Egg intake and cancers of the breast, ovary and prostate: a dose-response meta-analysis of prospective observational studies"
+  authors: "Keum N, Lee DH, Marchand N, Oh H, Liu H, Aune D, Greenwood DC, Giovannucci EL"
+  year: 2015
+  venue: "British Journal of Nutrition, 114(7):1099-1107"
+  url: "https://doi.org/10.1017/S0007114515002135"
+  funding: independent
+  bias_note: "Authors state they have no conflicts of interest; a separate dedicated funding-source statement could not be located in the accessible full text."
+
+- id: tse-eslick2014-gi-neoplasms-eggs
+  type: meta_analysis
+  title: "Egg consumption and risk of GI neoplasms: dose-response meta-analysis and systematic review"
+  authors: "Tse G, Eslick GD"
+  year: 2014
+  venue: "European Journal of Nutrition, 53(7):1581-1590"
+  url: "https://doi.org/10.1007/s00394-014-0664-5"
+  funding: independent
+  bias_note: "Authors state \"Conflict of interest: None\"; no separate funding-source statement appears in the article text."
+
+# --- Inflammation ---
+
+- id: sajadi-hezaveh2019-egg-inflammation
+  type: meta_analysis
+  title: "Effect of egg consumption on inflammatory markers: a systematic review and meta-analysis of randomized controlled clinical trials"
+  authors: "Sajadi Hezaveh Z, Khalighi Sikaroudi M, Vafa M, Clayton ZS, Soltani S"
+  year: 2019
+  venue: "Journal of the Science of Food and Agriculture, 99(15):6663-6670"
+  url: "https://pubmed.ncbi.nlm.nih.gov/31259415/"
+  funding: independent
+  bias_note: "The paper's own funding statement reads: \"This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.\" One co-author separately discloses individual support via an NIH T32 training grant, unrelated to study funding."
+
+# --- Non-alcoholic fatty liver disease (NAFLD) ---
+
+- id: mokhtari2017-egg-nafld-iran
+  type: other
+  title: "Egg consumption and risk of non-alcoholic fatty liver disease"
+  authors: "Mokhtari Z, Poustchi H, Eslamparast T, Hekmatdoost A"
+  year: 2017
+  venue: "World Journal of Hepatology, 9(10):503-509"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5387362/"
+  funding: government
+  bias_note: "Funded by Iran's National Nutrition and Food Technology Research Institute and Digestive Disease Research Institute, both government-affiliated research bodies; no conflict of interest declared."
+
+- id: mazidi2020-egg-nafld-nhanes
+  type: cohort
+  title: "Adverse impact of egg consumption on fatty liver is partially explained by cardiometabolic risk factors: A population-based study"
+  authors: "Mazidi M, Mikhailidis DP, Banach M"
+  year: 2020
+  venue: "Clinical Nutrition, 39(12):3730-3735"
+  url: "https://pubmed.ncbi.nlm.nih.gov/32928581/"
+  funding: mixed
+  bias_note: "A US NHANES secondary analysis with no dedicated study grant identified; one co-author discloses unrelated, paid pharmaceutical-industry speaking engagements (MSD, AstraZeneca, Libytec)."
+
+- id: yin2023-egg-nafld-kailuan
+  type: cohort
+  title: "Egg consumption and non-alcoholic fatty liver disease: a prospective cohort study (Kailuan cohort)"
+  authors: "Yin M, Chen S, Sun Y, Feng B, Lan Y, Wu S, Wang L"
+  year: 2023
+  venue: "Wei Sheng Yan Jiu (Journal of Hygiene Research), 52(3):362-368"
+  url: "https://pubmed.ncbi.nlm.nih.gov/37500513/"
+  funding: unknown
+  bias_note: "This specific paper's funding statement could not be located (not indexed in PMC/Europe PMC, primary journal portal inaccessible). The underlying Kailuan cohort's biennial health screenings, which supply the cohort's data infrastructure, are funded by the Kailuan (Group) Co., Ltd. coal-mining company as employer-provided occupational health surveillance — a fact about the cohort generally, not confirmed for this specific analysis."
+
+# --- Dietary cholesterol guideline history (context for cholesterol-causal-effect-contested) ---
+
+- id: odphp-2015-dietary-guidelines-cholesterol-comment
+  type: guideline
+  title: "Public Comments on the Scientific Report of the 2015 Dietary Guidelines Advisory Committee"
+  authors: "Office of Disease Prevention and Health Promotion (ODPHP), U.S. Department of Health and Human Services"
+  year: 2015
+  venue: "health.gov"
+  url: "https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines/previous-dietary-guidelines/2015/advisory-report/public-comments/public-comments-scientific-report-2015-dietary-guidelines-advisory-committee"
+  funding: government
+  bias_note: null
+
+- id: williams2015-ajc-cholesterol-editorial
+  type: other
+  title: "The 2015 Dietary Guidelines Advisory Committee Report Concerning Dietary Cholesterol"
+  authors: "Williams KA Sr, Krause AJ, Shearer S, Devries S"
+  year: 2015
+  venue: "American Journal of Cardiology, 116(9):1479-1480"
+  url: "https://doi.org/10.1016/j.amjcard.2015.07.077"
+  funding: unknown
+  bias_note: "Paywalled editorial — no accessible copy exposed a funding or conflict-of-interest statement despite multiple attempts; left unknown rather than inferred."

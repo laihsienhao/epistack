@@ -158,7 +158,7 @@
     MERS to widespread camel-to-human transmission.
   status: reviewed
   tags: [topic:zoonotic-precedent]
-  sources: [guan2003-sars-civets]
+  sources: [guan2003-sars-civets, temmam2022-banal-bat-coronaviruses]
   confidence: null
   author: 171384n
   created: 2026-07-19
@@ -172,6 +172,14 @@
     SARS-CoV-2 argue this precedent makes market-associated zoonotic
     spillover the default, base-rate explanation absent strong contrary
     evidence.
+
+    A further real-world natural-relative precedent: bat coronaviruses
+    collected in Laos and characterized in 2022, more than 95% identical to
+    SARS-CoV-2 in the receptor-binding domain and directly capable of
+    infecting human cells via ACE2, were found to lack a furin cleavage
+    site entirely — confirming that a close natural relative of SARS-CoV-2
+    capable of infecting human cells can and does exist without any
+    engineering (Temmam et al. 2022).
 
 # --- Supporting research-related/lab-associated origin ---
 
@@ -295,7 +303,7 @@
     biosafety health exams.
   status: reviewed
   tags: [topic:wiv-biosafety]
-  sources: [odni-2023-wiv-links-report]
+  sources: [odni-2023-wiv-links-report, usrtk2021-wiv-biosafety-level-experts]
   confidence: null
   author: 171384n
   created: 2026-07-19
@@ -307,6 +315,14 @@
     proponents as circumstantial evidence of an early cluster of illness
     connected to WIV specifically, prior to any public acknowledgment of
     the outbreak.
+
+    Separately, named biosafety experts (James Le Duc, former director,
+    Galveston National Laboratory; David Franz, former commander, USAMRIID)
+    have stated that lower-biosafety-level labs (BSL-2/3, as opposed to
+    BSL-4) generally draw less regulatory scrutiny and are more
+    accident-prone as a category — a general biosafety-policy point cited
+    by lab-origin proponents as relevant context, not a specific finding
+    about which biosafety level WIV's own bat-coronavirus work used.
 
 - id: wiv-database-takedown-unexplained
   case: covid-19-origins
@@ -481,3 +497,133 @@
     disputing claims that NIH leadership orchestrated a "lab-leak
     suppression" campaign. These are two adversarial, single-party
     documents from the same subcommittee, not a bipartisan finding.
+
+- id: who-sago-2025-independence-controversy
+  case: covid-19-origins
+  label: "WHO's 2025 expert panel favored natural origin but called it unresolved"
+  text: >-
+    In June 2025, the WHO's Scientific Advisory Group for the Origins of
+    Novel Pathogens (SAGO) concluded, after nearly four years of work, that
+    the weight of available evidence favors zoonotic spillover, but stated
+    the question remains genuinely unresolved without primary data China has
+    not supplied — including early patient records, market supply-chain
+    documentation, and WIV biosafety and staff-health records. China's
+    National Health Commission formally rejected the report days later.
+  status: reviewed
+  tags: [topic:who-investigation]
+  sources: [who-sago-2025-report, china-nhc-2025-rejects-sago]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    SAGO's report is the most substantial independent origins assessment
+    since the original 2021 WHO-China joint mission, and it explicitly
+    itemizes the specific categories of Chinese-held records still missing
+    four years on — a concrete, ongoing transparency gap rather than a
+    vague complaint. Natural-origin proponents point to the report's
+    headline conclusion (zoonotic spillover favored); lab-origin proponents
+    point to the same report's own itemized list of unsupplied records as
+    reason the question can't yet be closed, and to China's swift rejection
+    of even a WHO body's own assessment as further evidence of the access
+    problem documented elsewhere in this graph.
+
+- id: covid-evolutionary-signature-matches-natural-spillovers
+  case: covid-19-origins
+  label: "SARS-CoV-2's evolutionary signature matches natural spillovers, not lab passage"
+  text: >-
+    A comparative genomic study of seven historical viral emergence events
+    — including Ebola, several influenza outbreaks, and the 1977 "Russian
+    flu" H1N1 reintroduction (widely believed to stem from a laboratory
+    freezer or vaccine-trial escape) — found that most zoonotic spillovers,
+    including SARS-CoV-2, show no evidence of adaptive evolution before
+    jumping to humans, instead accumulating human-adapted mutations only
+    after transmission began; the 1977 flu strain was the sole outlier,
+    carrying a genetic signature consistent with laboratory passage, and
+    SARS-CoV-2 matched the natural-spillover group rather than that outlier.
+  status: reviewed
+  tags: [topic:genomic-evidence]
+  sources: [havens2026-cell-viral-emergence-comparison]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    The comparison's logic is that laboratory passage leaves a
+    characteristic signature — adaptation to the lab environment before
+    onward spread — which is present in the one historical case with a
+    well-documented lab-escape origin (1977 H1N1) but absent from SARS-CoV-2
+    and every other studied natural spillover. This is a genuinely new
+    comparative-genomics angle not previously in this graph, but it comes
+    from largely the same research network as the Proximal Origin paper and
+    the Pekar two-spillover analysis already tracked here (co-authors
+    include Kristian Andersen and Michael Worobey) — it should be read
+    alongside those existing authorship/COI disclosures, not as an
+    independent line of evidence from a different group. It was reported
+    here via UC San Diego's own institutional press release; the underlying
+    Cell paper itself is paywalled and its exact funding/COI disclosures
+    should be verified directly before being cited further.
+
+- id: deleted-sequencing-data-controversy
+  case: covid-19-origins
+  label: "Whether deleted early sequencing data suggests suppression is contested"
+  text: >-
+    In 2021, virologist Jesse Bloom recovered most of 99 raw sequencing
+    files quietly deleted from NIH's Sequence Read Archive at a Wuhan
+    University-based team's request, arguing the deletion was scientifically
+    unjustified and might have obscured a more bat-like "progenitor" lineage
+    circulating in Wuhan before the market-linked cases — cited by
+    lab-origin proponents as evidence of data suppression. A 2025
+    peer-reviewed reexamination found the recovered sequences' actual
+    collection dates and mutation patterns were fully consistent with the
+    known outbreak timeline, undercutting the inference that anything
+    anomalous had been hidden.
+  status: reviewed
+  tags: [contested, topic:scientific-integrity]
+  sources: [bloom2021-deleted-sequences-mbe, debarre-hensel2025-reexamination-mbe]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    This is a distinct incident from the September 2019 WIV genomic-database
+    takedown already in this graph — it concerns Wuhan University/Wuhan CDC
+    clinical sequencing files deleted from NIH's SRA in mid-2020, recovered
+    via cloud-caching artifacts. Bloom's original paper discloses he
+    consults for Moderna on SARS-CoV-2 evolution and holds potential IP
+    interest in a related patent — a relevant financial tie for a paper
+    alleging suppression, worth weighing alongside its technical argument.
+    The 2025 reexamination's finding — that the recovered sequences'
+    collection dates (Jan 30, 2020, later than hundreds of other known
+    sequences) and mutations fit the ordinary outbreak timeline — directly
+    undercuts the "hidden progenitor" reading without disputing that the
+    files were, in fact, quietly deleted.
+
+- id: mojiang-mine-sample-history-contested
+  case: covid-19-origins
+  label: "Whether WIV's Mojiang mine sample history is significant is contested"
+  text: >-
+    In 2012, six workers clearing bat guano from a disused Mojiang, Yunnan
+    copper mine developed severe pneumonia and three died; a 2013 Kunming
+    Medical University thesis concluded a SARS-like bat coronavirus was the
+    likely cause. WIV collected RaTG13 — still the closest known relative of
+    SARS-CoV-2 — from that same mineshaft in 2013, but did not publicly
+    connect the mine, the miners' illness, and RaTG13 in its own SARS-CoV-2
+    origin publications; the link surfaced only when outside researchers
+    found and publicized the Chinese-language thesis.
+  status: reviewed
+  tags: [contested, topic:wiv-biosafety]
+  sources: [rahalkar-bahulikar2020-mojiang-frontiers, speciale2021-mojiang-commentary-frontiers]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    Lab-origin proponents cite WIV's non-disclosure of this specific
+    connection — between its closest-known SARS-CoV-2 relative, its
+    collection site, and a documented, fatal, coronavirus-suspected illness
+    cluster at that site — as an example of underdisclosed sample-collection
+    history directly relevant to the pandemic virus's closest relative.
+    Natural-origin proponents read the same facts as confirming that this
+    remote bat-cave ecosystem is a genuine, independently documented site of
+    natural spillover risk, with WIV's own Shi Zhengli stating in a 2020
+    interview that the miners died of a fungal infection (histoplasmosis)
+    unrelated to coronaviruses — a claim disputed by researchers who
+    reexamined the thesis's clinical records but which this graph could not
+    independently verify against the original interview.

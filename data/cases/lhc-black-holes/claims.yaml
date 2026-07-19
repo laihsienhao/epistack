@@ -307,6 +307,72 @@
   author: 171384n
   created: 2026-07-19
 
+- id: hawking-own-public-confidence
+  case: lhc-black-holes
+  text: "Stephen Hawking — the physicist whose own theoretical result the case's central evaporation argument rests on — publicly and repeatedly expressed confidence the LHC was safe enough that he hoped it would actually produce microscopic black holes, since observing their predicted evaporation would confirm his own theory."
+  label: "Hawking himself publicly hoped the LHC would make black holes"
+  explanation: >-
+    In a 2008 public lecture, Hawking stated observing evaporating black
+    holes at the LHC could earn him a Nobel Prize, saying "if they had, I
+    would have got a Nobel prize" and "so, I might get a Nobel prize, after
+    all" — a direct, primary-source statement of confidence in the safety
+    case, from the theorist with the most personal stake in whether it holds.
+
+    Separately, physicist Thomas Hertog's 2023 memoir recounts that during a
+    2009 visit to CERN's ATLAS cavern (amid the ongoing Wagner/Sancho
+    lawsuit), Hawking told CERN's Director-General, smiling, "I hope you'll
+    make black holes."
+  status: reviewed
+  tags: [topic:hawking-radiation]
+  sources: [hawking-2008-into-a-black-hole-lecture, hertog2023-daily-beast-hawking-anecdote]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: aps-independent-endorsement-of-safety-argument
+  case: lhc-black-holes
+  text: "Beyond CERN's own internal review, the American Physical Society's own commentary venue independently highlighted and endorsed the Giddings-Mangano cosmic-ray safety argument as sound, via a named theorist with no involvement in the original papers or CERN's own review process."
+  label: "An outside physicist's independent commentary endorsed the safety case"
+  explanation: >-
+    Michael Peskin (SLAC/Stanford, co-author of the standard graduate
+    quantum-field-theory textbook) published a "Viewpoint" commentary in the
+    American Physical Society's Physics — a venue that selects and endorses
+    noteworthy physics results — affirming the Giddings-Mangano astrophysical
+    safety argument. This is independent in a specific sense worth being
+    precise about: independent of CERN's own institutional review process,
+    not independent of the broader physics community that authored the
+    argument itself.
+  status: reviewed
+  tags: []
+  sources: [peskin2008-aps-physics-viewpoint]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: stable-remnant-scenario-also-excluded
+  case: lhc-black-holes
+  text: "Even under the hypothetical scenario the Hawking-radiation-evaporation argument doesn't itself directly address — that a microscopic black hole might not fully evaporate but instead settle into a stable remnant — a separate analysis found such a remnant still could not pose a danger, using two additional independent mechanisms: electromagnetic deceleration of any charge-accreting black hole passing through stellar matter, and a velocity decrease from its own mass growth."
+  label: "A stable black-hole remnant, if one formed, would still pose no danger"
+  explanation: >-
+    Koch, Bleicher, and Stocker (2009) address the specific scenario left
+    open if Hawking evaporation somehow didn't go to completion: they argue
+    a stable remnant would still be electromagnetically decelerated while
+    passing through stellar matter, and would slow further as it grows in
+    mass, before it could accrete enough to become dangerous — again
+    anchored to the observed billions-of-year survival of white dwarfs and
+    neutron stars under real cosmic-ray bombardment. This is a distinct
+    pillar from the existing gravitational-capture-gap argument: a different
+    paper, addressing a different specific mechanism (electromagnetic
+    deceleration and mass-growth-driven velocity loss, not just escape
+    velocity), for a scenario the case's other evaporation-based arguments
+    don't themselves cover.
+  status: reviewed
+  tags: [topic:metastable-evaporation]
+  sources: [koch-bleicher-stocker-2009-remnant-exclusion]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
 - id: rhic-strangelet-search-corroborates-pattern
   case: lhc-black-holes
   text: "A parallel experimental search by the STAR Collaboration at RHIC for strangelets — a different hypothetical exotic-matter risk raised alongside black holes in the same 2008 legal challenges — likewise found no evidence across 100 million real collision events, corroborating the broader pattern that direct experimental searches for exotic collider risk scenarios consistently return null results."

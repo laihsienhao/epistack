@@ -205,3 +205,45 @@
   url: "https://arxiv.org/abs/nucl-ex/0412011"
   funding: government
   bias_note: "Paper's own acknowledgments defer to a standard STAR Collaboration funding appendix not reproduced in this short proceedings version; contemporaneous STAR papers' standard boilerplate credits the US DOE Office of Science (Nuclear and High-Energy Physics divisions), the US NSF, and multiple international government funding agencies — a publicly-funded, multi-national collaboration based at Brookhaven National Laboratory."
+
+# --- Independent commentary / remnant-scenario physics ---
+
+- id: hawking-2008-into-a-black-hole-lecture
+  type: other
+  title: "Into a Black Hole (public lecture text)"
+  authors: "Hawking S"
+  year: 2008
+  venue: "Stephen Hawking Estate (hawking.org.uk)"
+  url: "https://www.hawking.org.uk/in-words/lectures/into-a-black-hole"
+  funding: independent
+  bias_note: "A personal public lecture, hosted on Hawking's own estate archive — not a funded research output. Included because it's a real, direct, verifiable statement from the physicist whose own theoretical result (Hawking radiation) the case's central safety argument rests on."
+
+- id: hertog2023-daily-beast-hawking-anecdote
+  type: news
+  title: "That Time Stephen Hawking Hoped the Large Hadron Collider Would Make a Black Hole"
+  authors: "Hertog T (excerpted by The Daily Beast)"
+  year: 2023
+  venue: "The Daily Beast"
+  url: "https://www.thedailybeast.com/that-time-stephen-hawking-hoped-the-large-hadron-collider-would-make-a-black-hole/"
+  funding: industry
+  bias_note: "The Daily Beast is owned by IAC, a for-profit media conglomerate. The underlying account is drawn from Thomas Hertog's memoir 'On the Origin of Time' (2023, Bantam/Penguin Random House), a named eyewitness co-author, not journalistic reporting."
+
+- id: peskin2008-aps-physics-viewpoint
+  type: other
+  title: "Viewpoint: The End of the World at the Large Hadron Collider?"
+  authors: "Peskin ME"
+  year: 2008
+  venue: "Physics, 1:14 (American Physical Society)"
+  url: "https://physics.aps.org/articles/v1/14"
+  funding: government
+  bias_note: "Author's own acknowledgment: \"This work is supported by the Department of Energy under contract DE-AC02-76SF00515\" (SLAC National Accelerator Laboratory). An independent APS commentary endorsing the Giddings-Mangano safety argument, by a theorist uninvolved in the original papers."
+
+- id: koch-bleicher-stocker-2009-remnant-exclusion
+  type: other
+  title: "Exclusion of black hole disaster scenarios at the LHC"
+  authors: "Koch B, Bleicher M, Stocker H"
+  year: 2009
+  venue: "Physics Letters B, 672:71-76"
+  url: "https://arxiv.org/abs/0807.3349"
+  funding: government
+  bias_note: "Verbatim acknowledgment: \"This work was supported by GSI\" (the German national heavy-ion research center); the paper also credits direct discussions with Michelangelo Mangano and Rainer Plaga."

@@ -181,9 +181,20 @@
     real long-run risk,' thesis A stands on its strongest ground; if it
     resolves toward 'a genuine causal effect that most short RCTs are
     underpowered or too brief to fully capture,' thesis B stands instead.
+
+    The debate's own official framing has shifted over time: the 2015 US
+    Dietary Guidelines Advisory Committee recommended dropping the
+    longstanding 300 mg/day dietary cholesterol cap, citing limited
+    population-level evidence that dietary cholesterol raises serum
+    cholesterol on average — a real, citable regulatory shift, not just an
+    activist talking point (it drew roughly 29,000 public comments). But
+    this was itself contested at the time: a group of cardiologists argued
+    in a contemporaneous editorial that removing the cap risked being
+    over-read as "dietary cholesterol doesn't matter," when hyper-responders
+    specifically still face a real, individual-level effect.
   status: reviewed
   tags: [crux, double-crux, contested, topic:cholesterol]
-  sources: [ajcn2025, jama2019, khalighi2020]
+  sources: [ajcn2025, jama2019, khalighi2020, odphp-2015-dietary-guidelines-cholesterol-comment, williams2015-ajc-cholesterol-editorial]
   confidence: null
   author: 171384n
   created: 2026-07-13
@@ -495,3 +506,107 @@
   confidence: null
   author: 171384n
   created: 2026-07-17
+
+- id: egg-cancer-risk-lethal-forms
+  case: eggs
+  label: "Egg and choline intake are linked to higher lethal prostate and colorectal cancer risk"
+  text: >-
+    Higher egg and choline intake is associated with meaningfully higher risk
+    of lethal (fatal/aggressive) prostate cancer and of colorectal cancer
+    specifically, and with higher overall cancer mortality in dose-response
+    analysis — but shows no significant association with total (non-lethal)
+    prostate cancer incidence, breast cancer, ovarian cancer, or colorectal
+    adenomas, suggesting any real effect concentrates in disease
+    aggressiveness/progression rather than initiation.
+  status: reviewed
+  tags: [thesis-unhealthy, topic:cancer]
+  sources: [richman2011-lethal-prostate-cancer-eggs, richman2012-choline-lethal-prostate-cancer, keum2015-egg-cancer-dose-response, tse-eslick2014-gi-neoplasms-eggs, frontiers2022]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    Two prospective-cohort analyses (Health Professionals Follow-up Study,
+    n=27,607-47,896) found men in the highest egg-intake category had 81%
+    higher risk of lethal prostate cancer, and men in the highest
+    choline-intake quintile had 70% higher risk, versus the lowest category
+    — with no corresponding association with total (non-lethal) prostate
+    cancer incidence in either analysis (Richman et al. 2011, 2012).
+
+    A dose-response meta-analysis of prospective studies found fatal prostate
+    cancer risk rose 47% per 5 eggs/week, but found no association with total
+    prostate cancer, breast cancer, or ovarian cancer (Keum et al. 2015). A
+    separate dose-response meta-analysis across 424,867 participants found
+    egg intake associated with 15-29% higher risk of GI neoplasms overall and
+    colon cancer specifically, though a related evidence review found no
+    significant link to colorectal adenomas (precancerous lesions) (Tse &
+    Eslick 2014).
+
+    The same 55-cohort dose-response meta-analysis already used elsewhere in
+    this graph for CVD/all-cause mortality also found each additional
+    egg/day associated with 13% higher cancer-mortality risk, and each 100
+    mg/day cholesterol increment with 6% higher cancer-mortality risk
+    (Mofrad et al. 2022).
+
+- id: egg-nafld-association-inconsistent
+  case: eggs
+  label: "Whether egg consumption raises fatty liver disease risk is contested"
+  text: >-
+    Whether egg consumption meaningfully raises non-alcoholic fatty liver
+    disease (NAFLD) risk is contested: a small Iranian case-control study
+    found a strong positive association at moderate intake, a larger US
+    cross-sectional study found a much weaker association that lost
+    significance after adjusting for triglycerides/hypertension/diabetes, and
+    a Chinese prospective cohort found a non-monotonic (J-shaped)
+    relationship where moderate intake had the lowest NAFLD incidence and
+    both lower and higher intake showed elevated risk — collectively
+    inconsistent rather than a clean dose-response signal.
+  status: reviewed
+  tags: [contested, topic:nafld]
+  sources: [mokhtari2017-egg-nafld-iran, mazidi2020-egg-nafld-nhanes, yin2023-egg-nafld-kailuan]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    A Tehran case-control study (169 NAFLD cases, 782 controls) found 2-3
+    eggs/week associated with more than 3-fold higher NAFLD odds versus fewer
+    than 2/week, but no significant association at 4+ eggs/week — an
+    inconsistent dose pattern on its own (Mokhtari et al. 2017).
+
+    A US NHANES cross-sectional study (n=14,369) found the highest
+    egg-intake tertile associated with 11% higher NAFLD odds, but this
+    association became non-significant after adjusting for triglycerides,
+    hypertension, and diabetes — suggesting the raw association may reflect
+    confounding by broader cardiometabolic risk rather than eggs
+    specifically (Mazidi et al. 2020).
+
+    A Chinese prospective cohort (n=6,734) found a J-shaped relationship: the
+    lowest 4-year NAFLD incidence occurred at moderate intake (5-7 eggs/week,
+    19.9%), with both lower intake (0-4/week, 27.1%) and higher intake
+    (>7/week, 29.6%) associated with more incident NAFLD (Yin et al. 2023).
+    Taken together, the direction and shape of any real effect isn't
+    consistent across studies.
+
+- id: egg-inflammation-markers-null
+  case: eggs
+  label: "Egg consumption does not meaningfully raise inflammatory markers"
+  text: >-
+    Randomized controlled trial evidence does not support egg consumption
+    raising systemic inflammation: a meta-analysis of 9 RCTs found no
+    significant effect of egg intake on hs-CRP, IL-6, or TNF-alpha, weighing
+    against inflammation as a mechanism behind egg-associated chronic disease
+    risk.
+  status: reviewed
+  tags: [thesis-healthy, topic:inflammation]
+  sources: [sajadi-hezaveh2019-egg-inflammation]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    A systematic review and meta-analysis of 9 randomized controlled trials
+    found egg consumption had no significant effect on any of three major
+    inflammatory markers: hs-CRP, IL-6, or TNF-alpha (Sajadi Hezaveh et al.
+    2019). This is a relevant null result specifically because chronic
+    low-grade inflammation is a commonly proposed mechanism linking diet to
+    cardiovascular and metabolic disease risk — this trial evidence weighs
+    against that particular pathway being how eggs would cause harm, if they
+    do.

@@ -188,3 +188,33 @@
   provenance: []
   author: 171384n
   created: 2026-07-17
+
+# --- Cancer ---
+
+- id: e-cancer-into-unhealthy
+  relation: supports
+  from: egg-cancer-risk-lethal-forms
+  to: eggs-are-unhealthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+# --- NAFLD ---
+
+- id: e-nafld-into-unhealthy
+  relation: supports
+  from: egg-nafld-association-inconsistent
+  to: eggs-are-unhealthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+# --- Inflammation ---
+
+- id: e-inflammation-into-healthy
+  relation: supports
+  from: egg-inflammation-markers-null
+  to: eggs-are-healthy
+  provenance: []
+  author: 171384n
+  created: 2026-07-19

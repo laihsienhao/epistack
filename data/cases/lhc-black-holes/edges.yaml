@@ -78,6 +78,30 @@
   author: 171384n
   created: 2026-07-19
 
+- id: e14
+  relation: supports
+  from: hawking-own-public-confidence
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e15
+  relation: supports
+  from: aps-independent-endorsement-of-safety-argument
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e16
+  relation: supports
+  from: stable-remnant-scenario-also-excluded
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
 - id: e9
   relation: supports
   from: rossler-general-relativity-critique

@@ -323,3 +323,95 @@
   url: "https://oversightdemocrats.house.gov/news/press-releases/ranking-member-ruiz-leads-select-subcommittee-democrats-releasing-final-report"
   funding: government
   bias_note: "A Democratic-minority-staff report dissenting from the majority's origin conclusion, arguing the coronaviruses studied under EcoHealth's NIH-funded WIV subcontract were genetically too distant from SARS-CoV-2 to have caused the pandemic."
+
+# --- 2025-2026 developments ---
+
+- id: who-sago-2025-report
+  type: guideline
+  title: "WHO Scientific advisory group issues report on origins of COVID-19"
+  authors: "WHO Scientific Advisory Group for the Origins of Novel Pathogens (SAGO)"
+  year: 2025
+  venue: "World Health Organization"
+  url: "https://www.who.int/news/item/27-06-2025-who-scientific-advisory-group-issues-report-on-origins-of-covid-19"
+  funding: government
+  bias_note: "An international expert body operating under WHO after nearly four years of work; concluded the weight of evidence favors zoonotic spillover but stated the question remains unresolved without primary Chinese data (early patient records/sequences, market supply-chain documentation, WIV biosafety and staff-health records) that China has not supplied."
+
+- id: china-nhc-2025-rejects-sago
+  type: guideline
+  title: "China National Health Commission does not Approve Part of the SAGO's 'Independent Assessment'"
+  authors: "National Health Commission of the People's Republic of China"
+  year: 2025
+  venue: "en.nhc.gov.cn"
+  url: "https://en.nhc.gov.cn/2025-06/30/c_86491.htm"
+  funding: government
+  bias_note: "China's official rejection, three days after the SAGO report's release, calling it based on \"false information based on subjective speculation\"; reasserts China's own April 2025 White Paper as the authoritative account."
+
+- id: havens2026-cell-viral-emergence-comparison
+  type: news
+  title: "Recent Pandemic Viruses Jumped to Humans Without Prior Adaptation, UC San Diego Study Finds (press release for a Cell paper)"
+  authors: "UC San Diego (covering Havens JL, Pekar JE, Wertheim JO, Kosakovsky Pond SL, Zehr JD, Parker E, Andersen KG, Worobey M)"
+  year: 2026
+  venue: "UC San Diego Today"
+  url: "https://today.ucsd.edu/story/recent-pandemic-viruses-jumped-to-humans-without-prior-adaptation-uc-san-diego-study-finds"
+  funding: government
+  bias_note: "NIH/NIAID/NSF-funded (grants including R01AI153044, U19AI135995, R01AI135992). Cited via this institutional press release rather than the paywalled Cell paper itself, which could not be directly verified — flagged for follow-up verification against the primary article. Senior authors Kristian Andersen and Michael Worobey are the same Proximal Origin/market-epicenter authors already tracked elsewhere in this graph for their private-doubts controversy; this shared authorship should be read alongside that existing disclosure, not as an independent confirmation."
+
+- id: bloom2021-deleted-sequences-mbe
+  type: other
+  title: "Recovery of Deleted Deep Sequencing Data Sheds More Light on the Early Wuhan SARS-CoV-2 Epidemic"
+  authors: "Bloom JD"
+  year: 2021
+  venue: "Molecular Biology and Evolution, 38(12)"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8436388/"
+  funding: mixed
+  bias_note: "Bloom is an HHMI investigator; discloses consulting for Moderna on SARS-CoV-2 evolution and for Flagship Labs 77, with potential IP revenue-sharing on a Fred Hutch-licensed patent — a relevant financial-industry tie for a paper arguing genomic data was suppressed."
+
+- id: debarre-hensel2025-reexamination-mbe
+  type: other
+  title: "A Critical Reexamination of Recovered SARS-CoV-2 Sequencing Data"
+  authors: "Debarre F, Hensel Z"
+  year: 2025
+  venue: "Molecular Biology and Evolution, 42(6)"
+  url: "https://academic.oup.com/mbe/article/42/6/msaf109/8158640"
+  funding: government
+  bias_note: "Hensel funded by Portugal's FCT via MOSTMICRO-ITQB and LS4FUTURE; no other conflict of interest disclosed."
+
+- id: rahalkar-bahulikar2020-mojiang-frontiers
+  type: other
+  title: "Lethal Pneumonia Cases in Mojiang Miners (2012) and the Mineshaft Could Provide Important Clues to the Origin of SARS-CoV-2"
+  authors: "Rahalkar MC, Bahulikar RA"
+  year: 2020
+  venue: "Frontiers in Public Health"
+  url: "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2020.581569/full"
+  funding: unknown
+  bias_note: "No conflict of interest declared; a specific funding-source statement could not be located."
+
+- id: speciale2021-mojiang-commentary-frontiers
+  type: other
+  title: "Commentary: Lethal Pneumonia Cases in Mojiang Miners (2012)..."
+  authors: "Speciale AC"
+  year: 2021
+  venue: "Frontiers in Public Health"
+  url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8313728/"
+  funding: unknown
+  bias_note: "Independent researcher commentary; no conflict of interest declared, and a specific funding-source statement could not be located."
+
+- id: usrtk2021-wiv-biosafety-level-experts
+  type: news
+  title: "Wuhan's lower biosafety-level labs posed greater risk for coronavirus lab leak"
+  authors: "Suryanarayanan S (U.S. Right to Know)"
+  year: 2021
+  venue: "U.S. Right to Know (usrtk.org)"
+  url: "https://usrtk.org/risky-research/wuhans-lower-biosafety-level-labs-posed-greater-risk-for-coronavirus-lab-leak/"
+  funding: independent
+  bias_note: "U.S. Right to Know is a nonprofit investigative/transparency organization with a documented editorial stance skeptical of the natural-origin consensus. Cited here specifically for its direct, named-expert quotes (James Le Duc, former director, Galveston National Laboratory; David Franz, former commander, USAMRIID) on biosafety-level risk generally, not for its own framing."
+
+- id: temmam2022-banal-bat-coronaviruses
+  type: other
+  title: "Bat coronaviruses related to SARS-CoV-2 and infectious for human cells"
+  authors: "Temmam S, Vongphayloth K, Baquero E, et al."
+  year: 2022
+  venue: "Nature, 604:330-336"
+  url: "https://www.nature.com/articles/s41586-022-04532-4"
+  funding: mixed
+  bias_note: "Funded by Institut Pasteur's Covid Taskforce and EU Horizon 2020 grant 101003589; no competing interests declared."

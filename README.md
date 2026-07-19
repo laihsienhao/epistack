@@ -90,13 +90,13 @@ are answering.
   risk" official case study — a structurally different shape than `eggs`: not a
   roughly-symmetric rival-schools-of-thought debate, but an overwhelming,
   institutionally-endorsed scientific consensus against a handful of named,
-  individually-rebutted critics. ~19 real sources, individually funding-verified.
+  individually-rebutted critics. 24 real sources, individually funding-verified.
 - **`covid-19-origins`** — "How did SARS-CoV-2 first enter the human population?"
   Matches the competition's own "COVID-19 origins" official case study — the
   "curated debate" shape, and the most evenly-contested of the three: natural
   zoonotic spillover (the dominant peer-reviewed virology position) against a
   plausible, unexcluded research-related origin (taken seriously by several split
-  US intelligence assessments). 32 real sources, individually funding-verified,
+  US intelligence assessments). 41 real sources, individually funding-verified,
   including several with disclosed industry/advocacy ties on both sides of the
   debate, surfaced rather than smoothed over. Crux detection finds a genuine
   single-root crux here too — but, unlike `lhc-black-holes` (crux on the

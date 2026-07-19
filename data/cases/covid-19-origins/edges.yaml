@@ -125,3 +125,51 @@
   provenance: []
   author: 171384n
   created: 2026-07-19
+
+- id: e17
+  relation: supports
+  from: who-sago-2025-independence-controversy
+  to: covid-natural-spillover-most-likely
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e18
+  relation: supports
+  from: who-sago-2025-independence-controversy
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e19
+  relation: supports
+  from: covid-evolutionary-signature-matches-natural-spillovers
+  to: covid-natural-spillover-most-likely
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e20
+  relation: supports
+  from: deleted-sequencing-data-controversy
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e21
+  relation: supports
+  from: mojiang-mine-sample-history-contested
+  to: covid-natural-spillover-most-likely
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e22
+  relation: supports
+  from: mojiang-mine-sample-history-contested
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
