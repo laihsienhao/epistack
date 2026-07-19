@@ -1,0 +1,330 @@
+- id: lhc-collisions-are-safe
+  case: lhc-black-holes
+  text: "Taken as a whole, the safety case for LHC collisions — Hawking-radiation evaporation, decades of higher-energy natural cosmic-ray collisions with no destructive consequence, and the absence of any experimental signal for the extra-dimensional physics a dangerous black hole would even require in the first place — shows that LHC operation poses no meaningful risk of a runaway black hole or other destructive exotic remnant."
+  label: "LHC black holes pose no real danger"
+  explanation: >-
+    The umbrella root thesis on the consensus side, backed by several
+    independent, chained safety arguments (Hawking-radiation evaporation,
+    the cosmic-ray natural-experiment argument and its own internal
+    gravitational-capture-gap closure, direct rebuttals of the two named
+    dissenting critics, and the LHC's own null-result experimental
+    searches) rather than a single argument the whole thesis rests on.
+
+
+    Because each pillar is independently sufficient rather than
+    individually necessary, no single sub-question here registers as a
+    crux for this root — the same structural pattern documented on the
+    `eggs` case's broadened roots, discovered here on freshly-researched
+    content rather than designed in advance.
+  status: reviewed
+  tags: [root, thesis-safe]
+  sources: []
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: lhc-risk-not-fully-excluded
+  case: lhc-black-holes
+  text: "A small number of named critics — physicist Rainer Plaga, biochemist and systems theorist Otto Rössler, and the plaintiffs behind 2008 legal challenges against CERN — have each argued that specific gaps or errors in the mainstream safety arguments mean the risk of a dangerous black hole (or other exotic remnant) from LHC collisions has not been fully and rigorously excluded, even though their individual technical objections were each addressed by physicists and never gained peer-reviewed traction."
+  label: "LHC black-hole risk isn't fully ruled out"
+  explanation: >-
+    The umbrella root thesis on the dissenting side. Unlike `eggs`'s two
+    roots, this is not a comparably-weighted rival position — it
+    represents a handful of named individuals, not an institutional or
+    peer-reviewed body of support. The graph models it as its own root
+    regardless, since disagreement here is still structural (a separate
+    tree), not an edge — and its entire live relevance turns on exactly
+    one open question, surfaced as this root's crux (see
+    `extra-dimensions-dependency`).
+  status: reviewed
+  tags: [root, thesis-dissent]
+  sources: []
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: hawking-radiation-evaporation-argument
+  case: lhc-black-holes
+  text: "Any microscopic black hole produced at LHC energies would sit far above the Planck-mass scale in a regime where Hawking radiation causes it to evaporate via thermal radiation almost instantaneously, long before it could accrete any meaningful mass."
+  label: "Microscopic black holes would evaporate almost instantly"
+  explanation: >-
+    This is the primary mechanism argument in CERN's official LHC Safety
+    Assessment Group (LSAG) report: standard quantum-field-theory-on-
+    curved-spacetime treatments predict near-instant evaporation for a
+    TeV-scale black hole.
+
+
+    A real caveat worth naming plainly: Hawking radiation itself has never
+    been directly experimentally observed — it remains a theoretical
+    prediction, not a measured phenomenon. That gap is precisely what
+    Otto Rössler's dissenting argument (see
+    `rossler-general-relativity-critique`) tries to exploit, and what
+    physicists' rebuttal of his specific claim addresses directly (see
+    `giulini-nicolai-informal-rebuttal-of-rossler`).
+
+
+    Worth a scoping note, since it sounds related but isn't: a genuine,
+    actively-discussed line of mainstream quantum-gravity research (e.g.
+    Rovelli & Vidotto's "Planck stars" proposal, and a substantial body of
+    black-hole-remnant literature) questions whether Hawking evaporation
+    goes to full completion — but only at the very end of evaporation, as
+    a black hole's mass approaches the Planck scale (~10^19 GeV) and
+    trans-Planckian quantum-gravity effects take over. This has no bearing
+    on whether a much heavier TeV-scale black hole evaporates promptly,
+    which is not in dispute in that literature. It's not evidence for this
+    claim and isn't cited as such — it's flagged here only so the
+    distinction is explicit rather than left for a reader to wonder about.
+  status: reviewed
+  tags: [topic:hawking-radiation]
+  sources: [lsag-report]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: cosmic-ray-natural-experiment-argument
+  case: lhc-black-holes
+  text: "Cosmic rays have struck the Earth's atmosphere, the Sun, and other astronomical bodies at energies far exceeding those of the LHC for billions of years without producing any destructive consequence, bounding the risk from any black holes the LHC could produce to be negligible."
+  label: "Cosmic rays already hit far higher energies with no harm done"
+  explanation: >-
+    This argument's methodology traces back to Jaffe, Busza, Sandweiss &
+    Wilczek's 2000 review of speculative disaster scenarios at RHIC (the
+    Relativistic Heavy Ion Collider), which Giddings & Mangano extended
+    specifically to LHC-scale collisions in 2008: since Earth and other
+    astronomical bodies have already absorbed a vast number of far
+    higher-energy natural collisions over cosmic timescales with no
+    observed ill effect, any equivalent process at the LHC is bounded to
+    be similarly harmless.
+  status: reviewed
+  tags: []
+  sources: [giddings-mangano-2008, jaffe-busza-sandweiss-wilczek-2000]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: gravitational-capture-gap-closed-by-stellar-bound
+  case: lhc-black-holes
+  text: "The basic cosmic-ray comparison has a gap: an LHC-produced black hole would typically be moving too slowly to escape Earth's gravity, unlike a fast-moving cosmic-ray-produced one that would simply pass through — but cosmic rays of comparable energy have struck far denser white dwarfs and neutron stars for billions of years, and any destructive accretion in a captured black hole would already have caused those objects to visibly collapse, which is not observed."
+  label: "Denser stars close the 'could Earth capture it' gap in that argument"
+  explanation: >-
+    Giddings & Mangano's 2008 paper confirms LHC-produced black holes
+    would typically be ejected at a velocity exceeding Earth's escape
+    velocity and would simply pass through — but for the hypothetical
+    exceptional case where one is captured, they derive a separate,
+    complementary bound: white dwarfs and neutron stars are struck by
+    cosmic rays of comparable or higher energy, and any black hole capable
+    of destructive accretion would already have caused these far denser
+    objects to collapse on observable timescales, which hasn't happened.
+
+
+    Both stellar types are needed, not just one: neutron stars' intense
+    surface magnetic fields deflect or attenuate which cosmic rays
+    penetrate deep enough to matter, so white dwarfs (with much weaker
+    fields) provide a cleaner, complementary constraint covering the gap
+    neutron stars alone leave open.
+  status: reviewed
+  tags: []
+  sources: [giddings-mangano-2008]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: giddings-mangano-rebuttal-of-plaga
+  case: lhc-black-holes
+  text: "Giddings and Mangano directly analyzed Rainer Plaga's specific claim that a metastable black hole could pose a catastrophic risk before fully evaporating, and found the claimed risk does not hold once the actual accretion and evaporation timescales are computed correctly."
+  label: "The specific 'metastable black hole' risk argument doesn't hold up"
+  explanation: >-
+    Published as a direct, targeted response (arXiv:0808.4087) to Plaga's
+    argument (see `plaga-metastable-risk-argument`) — rather than a
+    general restatement of the evaporation argument, this paper works
+    through Plaga's own proposed mechanism specifically and finds it
+    doesn't produce the catastrophic outcome he described.
+  status: reviewed
+  tags: [topic:metastable-evaporation]
+  sources: [giddings-mangano-2008-rebuttal]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: giulini-nicolai-informal-rebuttal-of-rossler
+  case: lhc-black-holes
+  text: "CERN physicist Rolf Landua asked Hermann Nicolai, director of the Max Planck Institute for Gravitational Physics (Albert Einstein Institute), to review Otto Rössler's general-relativity argument; Nicolai concluded it would not pass peer review at a serious journal, and Nicolai together with physicist Domenico Giulini publicly stated the argument concerns only general relativity, has no logical connection to LHC physics, and is neither valid nor self-consistent."
+  label: "Physicists publicly assessed Rössler's argument as invalid"
+  explanation: >-
+    Worth being precise about what this is: a documented public and
+    informal assessment (recorded in secondary sources, including a law
+    review article examining the LHC lawsuits), not a published,
+    peer-reviewed rebuttal paper. It's included because it's a real,
+    verifiable, direct response to a real, named critic's specific
+    technical claim — not because it carries the same evidentiary weight
+    as a journal publication.
+  status: reviewed
+  tags: [topic:hawking-radiation]
+  sources: [johnson-2009-black-hole-case]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: lhc-direct-search-no-signal
+  case: lhc-black-holes
+  text: "Direct experimental searches by the CMS and ATLAS collaborations for microscopic black hole production and large-extra-dimension signatures at the LHC have found no evidence for either, excluding a range of theoretical models up to multi-TeV mass scales."
+  label: "LHC's own searches have found no sign of this physics"
+  explanation: >-
+    Three separate collaboration results (2012, 2014, 2018) at increasing
+    collision energies all report null results — no observed microscopic
+    black holes, no observed large-extra-dimension signatures — each
+    tightening the excluded mass range. This is direct empirical evidence
+    bearing on whether the mechanism `extra-dimensions-dependency`
+    describes actually exists at energies within reach, though it doesn't
+    fully settle the question: higher, still-untested energies remain
+    theoretically possible.
+  status: reviewed
+  tags: []
+  sources: [cms-2012-microscopic-bh-search, atlas-2014-bh-string-balls-search, atlas-2018-strong-gravity-search]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: extra-dimensions-dependency
+  case: lhc-black-holes
+  text: "Whether large extra spatial dimensions exist and lower the effective Planck scale to around 1 TeV — the specific theoretical mechanism that would need to be true for the LHC to produce a black hole at all — remains an open, unconfirmed question in fundamental physics."
+  label: "Whether large extra dimensions exist at the TeV scale is unresolved"
+  explanation: >-
+    This is the actual crux of the dissenting position, though it's easy
+    to miss: TeV-scale black hole production isn't just unlikely absent
+    extra dimensions, it's mechanistically impossible under the Standard
+    Model's ordinary four-dimensional gravity, where the Planck scale sits
+    far beyond any conceivable collider's reach. Large-extra-dimensions
+    models (Dimopoulos & Landsberg 2001; Giddings & Thomas 2002)
+    specifically proposed lowering the effective Planck scale to ~1 TeV as
+    a way black hole production could become possible at all.
+
+
+    No collider data has confirmed this lowered-Planck-scale scenario —
+    LHC's own direct searches (`lhc-direct-search-no-signal`) have found
+    no signature of it so far, though higher untested energies remain
+    theoretically possible. If large extra dimensions at this scale don't
+    exist, the entire premise behind the dissenting root thesis has no
+    mechanism to act through in the first place.
+
+
+    Notably, this does *not* register as a crux for the safety root
+    (`lhc-collisions-are-safe`): that thesis holds regardless of how this
+    resolves, since it has independent arguments covering the case where
+    black holes *are* produced. It only registers as a crux for the
+    dissenting root, whose entire concern presupposes this mechanism is
+    real.
+  status: reviewed
+  tags: [contested]
+  sources: [dimopoulos-landsberg-2001, giddings-thomas-2002]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: plaga-metastable-risk-argument
+  case: lhc-black-holes
+  text: "Physicist Rainer Plaga argued that if a microscopic black hole were metastable rather than fully obeying idealized Hawking-radiation evaporation, its accretion of surrounding matter could become catastrophic before it fully evaporated — a risk he argued the mainstream safety analyses hadn't fully excluded."
+  label: "A metastable black hole's accretion could outpace its evaporation"
+  explanation: >-
+    Plaga's argument (arXiv:0808.1415, 2008) was never peer-reviewed or
+    published in a journal despite revisions, and was directly rebutted
+    by Giddings & Mangano's targeted response (see
+    `giddings-mangano-rebuttal-of-plaga`), which found the claimed
+    catastrophic outcome doesn't hold once accretion and evaporation
+    timescales are computed correctly.
+  status: reviewed
+  tags: [topic:metastable-evaporation]
+  sources: [plaga-2008]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: rossler-general-relativity-critique
+  case: lhc-black-holes
+  text: "Otto Rössler, a biochemist and systems theorist, argued that the standard derivation of Hawking radiation conflates coordinate time with proper time in the Schwarzschild metric, implying that microscopic black holes would grow rather than evaporate — a claim never published in a peer-reviewed physics journal."
+  label: "Rössler claimed a hidden error in the Hawking radiation derivation"
+  explanation: >-
+    Rössler's papers (including "Abraham-Solution to Schwarzschild Metric
+    Implies That CERN Miniblack Holes Pose a Planetary Risk," 2008) were
+    self-hosted or conference-adjacent rather than arXiv-posted or
+    peer-reviewed. A direct technical rebuttal exists: Gerhard Bruhn (TU
+    Darmstadt) argues Rössler misreads the metric, conflating a coordinate
+    artifact with a physical effect. See also
+    `giulini-nicolai-informal-rebuttal-of-rossler` for the physicists'
+    public assessment of the same argument.
+  status: reviewed
+  tags: [contested, topic:hawking-radiation]
+  sources: [rossler-2008-abraham-solution, bruhn-2008-commentary]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: lawsuits-and-legal-history
+  case: lhc-black-holes
+  text: "In 2008, Walter Wagner and Luis Sancho filed a US lawsuit (and Otto Rössler pursued parallel actions before the European Court of Human Rights and German courts) seeking to halt LHC operation over alleged risk from black holes, strangelets, and magnetic monopoles collectively; every filing was dismissed on jurisdictional or standing grounds rather than on scientific merit, with the US case closed on appeal in 2010 and the German proceedings concluding by 2012."
+  label: "Legal challenges to halt the LHC were all dismissed, not on the science"
+  explanation: >-
+    An uncontested baseline fact both sides build on — reachable from both
+    roots, so it renders as a shared ground truth. Wagner & Sancho's US
+    suit (578 F. Supp. 2d 1258, D. Haw. 2008) was dismissed for lack of
+    jurisdiction in September 2008; Nobel laureates Sheldon Glashow and
+    Frank Wilczek, together with Harvard's Richard Wilson, filed an amicus
+    brief rebutting the doomsday claims in the 9th Circuit appeal (Case No.
+    08-17389) in April 2009, ahead of the circuit's eventual affirmance on
+    standing grounds in August 2010. Rössler's parallel European Court of
+    Human Rights filing was rejected the same day it was filed (August
+    2008); his German domestic court petitions were rejected in 2010 and
+    again in 2011–2012. None of these proceedings ever reached a ruling on
+    the underlying physics.
+  status: reviewed
+  tags: [ground-truth, fact]
+  sources: [symmetry-2010-lhc-lawsuit-dismissed, physorg-2010-lhc-lawsuit-dismissed, nbc-2008-doomsday-fears-lawsuit, nbc-2010-collider-court-case-closed]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: cern-spc-independent-review-and-2015-reaffirmation
+  case: lhc-black-holes
+  text: "CERN's Scientific Policy Committee — a body of external, non-CERN scientists including Nobel laureate Gerard 't Hooft — independently reviewed and unanimously endorsed the LSAG safety report in 2008, and CERN issued a further updated review, likewise endorsed by the Scientific Policy Committee, before the Large Hadron Collider's 2015 Run 2 restart at a substantially higher (13 TeV) collision energy."
+  label: "The safety case was independently reviewed twice, including before a real energy increase"
+  explanation: >-
+    A five-member Scientific Policy Committee panel (Peter Braun-Munzinger,
+    Matteo Cavalli-Sforza, Gerard 't Hooft, Bryan Webber, and Fabio
+    Zwirner) reviewed both the LSAG report and the Giddings-Mangano paper
+    in detail and endorsed the authors' approach; the full committee then
+    agreed unanimously — an external check on CERN's own internal safety
+    review, not just a restatement of it.
+
+
+    The updated review ahead of 2015's higher-energy Run 2 restart matters
+    structurally: it's a second, independent point in time where the
+    safety case was re-examined against a real, materially different
+    operating condition (13 TeV instead of 2008's 7-8 TeV), rather than a
+    single assessment that was simply never revisited.
+  status: reviewed
+  tags: []
+  sources: [cern-safety-page, cern-2008-reiterates-safety-news]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: rhic-strangelet-search-corroborates-pattern
+  case: lhc-black-holes
+  text: "A parallel experimental search by the STAR Collaboration at RHIC for strangelets — a different hypothetical exotic-matter risk raised alongside black holes in the same 2008 legal challenges — likewise found no evidence across 100 million real collision events, corroborating the broader pattern that direct experimental searches for exotic collider risk scenarios consistently return null results."
+  label: "A parallel search for a different exotic risk also found nothing"
+  explanation: >-
+    Deliberately scoped as a corroborating, adjacent finding rather than
+    black-hole evidence itself: strangelets are a different hypothesized
+    form of exotic matter, not a black hole, but Wagner and Sancho's
+    original legal challenge (see `lawsuits-and-legal-history`) alleged
+    risk from both together. This search is also a genuinely different
+    evidentiary category from most of this case's other safety arguments:
+    an actual empirical search of 100 million real collected RHIC
+    collision events with a null result, rather than a pre-operational
+    theoretical prediction (like Jaffe et al. 2000) or an astrophysical
+    natural-experiment bound.
+  status: reviewed
+  tags: []
+  sources: [tang-2005-rhic-strangelet-search]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19

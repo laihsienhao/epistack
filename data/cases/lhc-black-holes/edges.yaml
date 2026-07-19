@@ -1,0 +1,103 @@
+- id: e1
+  relation: supports
+  from: hawking-radiation-evaporation-argument
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e2
+  relation: supports
+  from: cosmic-ray-natural-experiment-argument
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e3
+  relation: depends_on
+  from: gravitational-capture-gap-closed-by-stellar-bound
+  to: cosmic-ray-natural-experiment-argument
+  provenance: [giddings-mangano-2008]
+  author: 171384n
+  created: 2026-07-19
+
+- id: e4
+  relation: supports
+  from: giddings-mangano-rebuttal-of-plaga
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e5
+  relation: supports
+  from: giulini-nicolai-informal-rebuttal-of-rossler
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e6
+  relation: supports
+  from: lhc-direct-search-no-signal
+  to: extra-dimensions-dependency
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e7
+  relation: depends_on
+  from: extra-dimensions-dependency
+  to: lhc-risk-not-fully-excluded
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e8
+  relation: supports
+  from: plaga-metastable-risk-argument
+  to: lhc-risk-not-fully-excluded
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e12
+  relation: supports
+  from: cern-spc-independent-review-and-2015-reaffirmation
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e13
+  relation: supports
+  from: rhic-strangelet-search-corroborates-pattern
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e9
+  relation: supports
+  from: rossler-general-relativity-critique
+  to: lhc-risk-not-fully-excluded
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e10
+  relation: supports
+  from: lawsuits-and-legal-history
+  to: lhc-collisions-are-safe
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e11
+  relation: supports
+  from: lawsuits-and-legal-history
+  to: lhc-risk-not-fully-excluded
+  provenance: []
+  author: 171384n
+  created: 2026-07-19

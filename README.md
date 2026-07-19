@@ -85,19 +85,25 @@ are answering.
 
 - **`eggs`** — "What are the health impacts of eggs as a human food source?" Matches
   the competition's own "eggs as food" official case study.
+- **`lhc-black-holes`** — "Does the Large Hadron Collider pose a genuine risk of
+  creating dangerous black holes?" Matches the competition's own "LHC black hole
+  risk" official case study — a structurally different shape than `eggs`: not a
+  roughly-symmetric rival-schools-of-thought debate, but an overwhelming,
+  institutionally-endorsed scientific consensus against a handful of named,
+  individually-rebutted critics. ~19 real sources, individually funding-verified.
 - **`toy`** — "Is habitual moderate coffee consumption beneficial or harmful for
   long-term health?" A small synthetic example used to exercise and test the
   pipeline's mechanics independent of any real research question.
 
-The competition provides three official case studies — **eggs** (covered above),
-**COVID-19 origins**, and **LHC black hole risk** — deliberately spanning three
-different shapes (mundane-but-contested / curated debate / confident-answer-with-
-complex-evidence). Only the eggs shape has real content here; adding a case requires
-**zero application code changes** (just new `case.yaml` / `claims.yaml` / `edges.yaml`
-/ `sources.yaml` files under `data/cases/<case_id>/`, see
-[`docs/CONTRIBUTING_CLAIMS.md`](docs/CONTRIBUTING_CLAIMS.md)), but that generalizability
-claim is architectural, not yet demonstrated on the other two officially-provided
-cases — named as an open item in `docs/METHODOLOGY.md`, not glossed over.
+The competition provides three official case studies — **eggs** and **LHC black hole
+risk** (both covered above), and **COVID-19 origins** — deliberately spanning three
+different shapes (mundane-but-contested / confident-answer-with-complex-evidence /
+curated debate). Adding a case requires **zero application code changes** (just new
+`case.yaml` / `claims.yaml` / `edges.yaml` / `sources.yaml` files under
+`data/cases/<case_id>/`, see
+[`docs/CONTRIBUTING_CLAIMS.md`](docs/CONTRIBUTING_CLAIMS.md)) — demonstrated twice now,
+not just asserted once. COVID-19 origins (the curated-debate shape) remains open —
+named as such in `docs/METHODOLOGY.md`, not glossed over.
 
 ## Running it
 

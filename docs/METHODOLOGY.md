@@ -108,17 +108,32 @@ not stress-tested by contributors with different priorities or incentives. The
 methodology's resistance to motivated editing is, so far, argued rather than
 demonstrated in practice.
 
-**Only one of the competition's three official case studies has real content.** The
-competition provides `eggs`, `COVID-19 origins`, and `LHC black hole risk` —
-deliberately one each of three shapes (mundane-but-contested / curated debate /
-confident-answer-with-complex-evidence). This project only builds out the eggs shape;
-`toy` is synthetic pipeline-testing, not a second real case. The "zero-code-change
-generalizability" claim (`docs/CONTRIBUTING_CLAIMS.md`) is true by construction —
-nothing in `app/` references `eggs` by name — but it is *architectural*, not yet
-*demonstrated* on the other two officially-provided shapes. This is the single
-weakest point against the Generalizability criterion's explicit "not narrowly overfit
-to the provided case studies" bar, and it's named here rather than left for a judge
-to discover.
+**Two of the competition's three official case studies now have real content —
+COVID-19 origins is still open.** The competition provides `eggs`, `COVID-19
+origins`, and `LHC black hole risk` — deliberately one each of three shapes
+(mundane-but-contested / curated debate / confident-answer-with-complex-evidence).
+`lhc-black-holes` (added 2026-07-19, ~19 real, individually funding-verified sources)
+demonstrates the "confident-answer-with-complex-evidence" shape and required
+**zero application code changes** — proving the generalizability claim rather than
+just asserting it, as this document previously named as the single weakest point
+against the Generalizability criterion. `toy` remains synthetic pipeline-testing, not
+a third real case; COVID-19 origins (the "curated debate" shape) is still
+unaddressed. A real, honestly-sourced case for that shape would be the next item, not
+this one — rushing it with weak sourcing would be worse than leaving it open (see
+`docs/CONTRIBUTING_CLAIMS.md`'s standing insistence on verifiable citations).
+
+**The LHC case's shape itself is worth naming as a limitation of the comparison.**
+`lhc-black-holes` is not a symmetric rival-schools-of-thought debate the way `eggs`
+is — it's an overwhelming, institutionally-endorsed consensus against a handful of
+named, individually-rebutted critics. Modeling both cases with the same "two roots"
+primitive is honest (disagreement is still structural, a diverging tree, regardless
+of how lopsided the two trees' actual evidentiary weight is), but a reader skimming
+only the graph shape without reading the claims themselves could mistake this for a
+more balanced dispute than it is. The root-thesis text and the crux/coverage findings
+recover the actual asymmetry (a single-root crux for the dissenting side only, versus
+`eggs`'s double-crux — a real, different structural signature, not a copy), but this
+is worth naming rather than letting the shared "two roots" pattern imply more
+symmetry than the underlying content has.
 
 **Shared-authorship detection is plain string matching, not verified identity.**
 `src/ingestion.py`'s `shared_authorship()` flags sources listing a common surname in

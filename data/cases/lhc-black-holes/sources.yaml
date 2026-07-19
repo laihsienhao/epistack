@@ -1,0 +1,207 @@
+# --- Mainstream safety case ---
+
+- id: lsag-report
+  type: guideline
+  title: "Review of the Safety of LHC Collisions"
+  authors: "Ellis J, Giudice GF, Mangano ML, Tkachev I, Wiedemann UA"
+  year: 2008
+  venue: "Journal of Physics G, 35:115004"
+  url: "https://arxiv.org/abs/0806.3414"
+  funding: government
+  bias_note: "No explicit funding statement in the report text; classified as government since it's an official CERN LSAG working-group output — 4 of 5 authors are CERN Theory Division staff (funded by CERN's member-state governments), with the fifth from the Russian Academy of Sciences' Institute for Nuclear Research, a state academy."
+
+- id: giddings-mangano-2008
+  type: other
+  title: "Astrophysical implications of hypothetical stable TeV-scale black holes"
+  authors: "Giddings SB, Mangano ML"
+  year: 2008
+  venue: "Physical Review D, 78:035009"
+  url: "https://arxiv.org/abs/0806.3381"
+  funding: mixed
+  bias_note: "Giddings' work supported by US DOE contract DE-FG02-91ER40618 and a grant from the Foundational Questions Institute (FQXi); Mangano is CERN staff with no separate funding stated."
+
+- id: jaffe-busza-sandweiss-wilczek-2000
+  type: review
+  title: "Review of Speculative 'Disaster Scenarios' at RHIC"
+  authors: "Jaffe RL, Busza W, Sandweiss J, Wilczek F"
+  year: 2000
+  venue: "Reviews of Modern Physics, 72:1125"
+  url: "https://arxiv.org/abs/hep-ph/9910333"
+  funding: government
+  bias_note: "Supported by US Department of Energy cooperative agreements/grants (DE-FC02-94ER40818, DE-FG02-92ER40704, DE-FG02-90ER40562, DE-FG02-90ER40542)."
+
+- id: dimopoulos-landsberg-2001
+  type: other
+  title: "Black Holes at the LHC"
+  authors: "Dimopoulos S, Landsberg G"
+  year: 2001
+  venue: "Physical Review Letters, 87:161602"
+  url: "https://arxiv.org/abs/hep-ph/0106295"
+  funding: unknown
+  bias_note: null
+
+- id: giddings-thomas-2002
+  type: other
+  title: "High Energy Colliders as Black Hole Factories: The End of Short Distance Physics"
+  authors: "Giddings SB, Thomas S"
+  year: 2002
+  venue: "Physical Review D, 65:056010"
+  url: "https://arxiv.org/abs/hep-ph/0106219"
+  funding: mixed
+  bias_note: "Supported by NSF grants PHY99-07949 and PHY98-70115, US DOE contract DE-FG-03-91ER40618, and the Alfred P. Sloan Foundation."
+
+- id: giddings-mangano-2008-rebuttal
+  type: other
+  title: "Comments on claimed risk from metastable black holes"
+  authors: "Giddings SB, Mangano ML"
+  year: 2008
+  venue: null
+  url: "https://arxiv.org/abs/0808.4087"
+  funding: unknown
+  bias_note: "Short 3-page technical comment with no acknowledgments section at all."
+
+- id: cms-2012-microscopic-bh-search
+  type: other
+  title: "Search for microscopic black holes in pp collisions at sqrt(s) = 7 TeV"
+  authors: "CMS Collaboration"
+  year: 2012
+  venue: null
+  url: "https://arxiv.org/abs/1202.6396"
+  funding: government
+  bias_note: "Standard CMS Collaboration acknowledgements credit a large multi-national consortium of public science agencies (CERN plus national funding bodies across dozens of countries, including US DOE and NSF), not a single government sponsor."
+
+- id: atlas-2014-bh-string-balls-search
+  type: other
+  title: "Search for microscopic black holes and string balls in final states with leptons and jets with the ATLAS detector"
+  authors: "ATLAS Collaboration"
+  year: 2014
+  venue: "Journal of High Energy Physics, 2014:103"
+  url: "https://arxiv.org/abs/1405.4254"
+  funding: government
+  bias_note: "Standard ATLAS Collaboration acknowledgements credit a large multi-national consortium of public science agencies (CERN, the European Research Council, and national funding bodies across roughly 40 countries, including US DOE and NSF), not a single government sponsor."
+
+- id: atlas-2018-strong-gravity-search
+  type: other
+  title: "Search for strong gravity in multijet final states produced in pp collisions at sqrt(s) = 13 TeV"
+  authors: "ATLAS Collaboration"
+  year: 2018
+  venue: "European Physical Journal C, 78:565"
+  url: "https://arxiv.org/abs/1804.10823"
+  funding: government
+  bias_note: "Follows ATLAS's standard collaboration-wide acknowledgements practice (same multi-national consortium as above); this specific paper's acknowledgements text could not be directly extracted, so this is inferred from the collaboration's consistent, verified practice in contemporaneous papers rather than a direct per-paper read."
+
+# --- Dissenting critiques ---
+
+- id: plaga-2008
+  type: other
+  title: "On the potential catastrophic risk from metastable quantum-black holes produced at particle colliders"
+  authors: "Plaga R"
+  year: 2008
+  venue: null
+  url: "https://arxiv.org/abs/0808.1415"
+  funding: unknown
+  bias_note: "Never peer-reviewed or published in a journal (arXiv preprint only, revised through 2009); no institutional affiliation or funding source disclosed anywhere in the paper."
+
+- id: rossler-2008-abraham-solution
+  type: other
+  title: "Abraham-Solution to Schwarzschild Metric Implies That CERN Miniblack Holes Pose a Planetary Risk"
+  authors: "Rössler O"
+  year: 2008
+  venue: "Vernetzte Wissenschaften: Crosslinks in Natural and Social Sciences (Logos Verlag, Berlin)"
+  url: null
+  funding: unknown
+  bias_note: "Published in a non-peer-reviewed edited proceedings volume, not a journal or arXiv; no funding statement found, and the original host page is now dead."
+
+- id: bruhn-2008-commentary
+  type: other
+  title: "Commentary on two papers by O.E. Rössler on black holes"
+  authors: "Bruhn GW"
+  year: 2008
+  venue: "Self-hosted, TU Darmstadt"
+  url: "https://www2.mathematik.tu-darmstadt.de/~bruhn/CommRoesslerPaper.html"
+  funding: independent
+  bias_note: null
+
+# --- Legal history ---
+
+- id: johnson-2009-black-hole-case
+  type: other
+  title: "The Black Hole Case: The Injunction Against the End of the World"
+  authors: "Johnson EE"
+  year: 2009
+  venue: "Tennessee Law Review, 76:819-908"
+  url: "https://arxiv.org/abs/0912.5480"
+  funding: independent
+  bias_note: null
+
+- id: symmetry-2010-lhc-lawsuit-dismissed
+  type: news
+  title: "LHC lawsuit dismissed by US court"
+  authors: "symmetry magazine"
+  year: 2010
+  venue: "symmetry magazine"
+  url: "https://www.symmetrymagazine.org/breaking/2010/08/26/lhc-lawsuit-dismissed-by-us-court"
+  funding: government
+  bias_note: "Jointly published by Fermilab and SLAC, both US Department of Energy national laboratories, and funded by the DOE Office of Science."
+
+- id: physorg-2010-lhc-lawsuit-dismissed
+  type: news
+  title: "LHC lawsuit case dismissed by US court"
+  authors: "phys.org"
+  year: 2010
+  venue: "Phys.org"
+  url: null
+  funding: industry
+  bias_note: "Published by the Science X Network, wholly owned by Omicron Limited (Isle of Man), a private for-profit science-news aggregator rather than a traditional news organization or nonprofit."
+
+- id: nbc-2008-doomsday-fears-lawsuit
+  type: news
+  title: "Doomsday fears spark lawsuit"
+  authors: "Boyle A"
+  year: 2008
+  venue: "NBC News (Cosmic Log)"
+  url: "https://www.nbcnews.com/id/wbna23844529"
+  funding: industry
+  bias_note: "NBC News is owned by NBCUniversal, a wholly-owned subsidiary of Comcast Corporation."
+
+- id: nbc-2010-collider-court-case-closed
+  type: news
+  title: "Collider court case finally closed"
+  authors: "Boyle A"
+  year: 2010
+  venue: "NBC News (Cosmic Log)"
+  url: "https://www.nbcnews.com/sciencemain/collider-court-case-finally-closed-6c10403768"
+  funding: industry
+  bias_note: "NBC News is owned by NBCUniversal, a wholly-owned subsidiary of Comcast Corporation."
+
+# --- Independent institutional review & corroborating searches ---
+
+- id: cern-safety-page
+  type: guideline
+  title: "The Safety of the LHC"
+  authors: "CERN"
+  year: 2024
+  venue: "home.cern"
+  url: "https://home.web.cern.ch/science/accelerators/large-hadron-collider/safety-lhc"
+  funding: government
+  bias_note: "CERN's own institutional safety assessment of its own facility; the underlying LSAG report was reviewed and unanimously endorsed by CERN's Scientific Policy Committee, a body of 20 independent external scientists."
+
+- id: cern-2008-reiterates-safety-news
+  type: news
+  title: "CERN reiterates safety of LHC on eve of first beam"
+  authors: "CERN"
+  year: 2008
+  venue: "CERN news"
+  url: "https://home.cern/cern-reiterates-safety-of-lhc-on-eve-of-first-beam/"
+  funding: government
+  bias_note: "CERN's own press release restating the LSAG safety findings; the underlying report was peer-reviewed (J. Phys. G) and endorsed by an external 20-member Scientific Policy Committee, and reviewed by the CERN Council (20 member states) in 2003 and June 2008."
+
+- id: tang-2005-rhic-strangelet-search
+  type: other
+  title: "Strangelet search at RHIC"
+  authors: "Tang AH"
+  year: 2005
+  venue: "Journal of Physics G, 32"
+  url: "https://arxiv.org/abs/nucl-ex/0412011"
+  funding: government
+  bias_note: "Paper's own acknowledgments defer to a standard STAR Collaboration funding appendix not reproduced in this short proceedings version; contemporaneous STAR papers' standard boilerplate credits the US DOE Office of Science (Nuclear and High-Energy Physics divisions), the US NSF, and multiple international government funding agencies — a publicly-funded, multi-national collaboration based at Brookhaven National Laboratory."
