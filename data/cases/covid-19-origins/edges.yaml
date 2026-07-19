@@ -1,0 +1,119 @@
+- id: e1
+  relation: depends_on
+  from: proximal-origin-genomic-argument
+  to: covid-natural-spillover-most-likely
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e2
+  relation: supports
+  from: huanan-market-epicenter-evidence
+  to: covid-natural-spillover-most-likely
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e3
+  relation: supports
+  from: multiple-spillover-genomic-epidemiology
+  to: covid-natural-spillover-most-likely
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e4
+  relation: supports
+  from: zoonotic-precedent-sars-mers
+  to: covid-natural-spillover-most-likely
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e5
+  relation: supports
+  from: defuse-proposal-furin-site-precedent
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e6
+  relation: supports
+  from: genomic-anomaly-minority-view
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e7
+  relation: supports
+  from: intelligence-community-split-on-origin
+  to: covid-natural-spillover-most-likely
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e8
+  relation: supports
+  from: intelligence-community-split-on-origin
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e9
+  relation: supports
+  from: wiv-biosafety-and-illness-reports-2019
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e10
+  relation: supports
+  from: wiv-database-takedown-unexplained
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e11
+  relation: supports
+  from: who-mission-independence-controversy
+  to: covid-natural-spillover-most-likely
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e12
+  relation: supports
+  from: who-mission-independence-controversy
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e13
+  relation: supports
+  from: proximal-origin-authors-private-doubts-controversy
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e14
+  relation: supports
+  from: ecohealth-debarment-and-oversight-failures
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e15
+  relation: supports
+  from: house-select-subcommittee-2024-partisan-split
+  to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19

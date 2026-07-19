@@ -91,19 +91,34 @@ are answering.
   roughly-symmetric rival-schools-of-thought debate, but an overwhelming,
   institutionally-endorsed scientific consensus against a handful of named,
   individually-rebutted critics. ~19 real sources, individually funding-verified.
+- **`covid-19-origins`** — "How did SARS-CoV-2 first enter the human population?"
+  Matches the competition's own "COVID-19 origins" official case study — the
+  "curated debate" shape, and the most evenly-contested of the three: natural
+  zoonotic spillover (the dominant peer-reviewed virology position) against a
+  plausible, unexcluded research-related origin (taken seriously by several split
+  US intelligence assessments). 32 real sources, individually funding-verified,
+  including several with disclosed industry/advocacy ties on both sides of the
+  debate, surfaced rather than smoothed over. Crux detection finds a genuine
+  single-root crux here too — but, unlike `lhc-black-holes` (crux on the
+  dissenting side), it lands on the *consensus-leaning* side: the natural-origin
+  root structurally depends on the genome showing no engineering signature,
+  since deliberate engineering and pure natural spillover are mutually exclusive,
+  while the lab-related-origin root doesn't depend on any single claim the same
+  way (a research-accident scenario doesn't require engineering at all) — a third
+  distinct structural signature, found by direct computation, not designed in
+  advance.
 - **`toy`** — "Is habitual moderate coffee consumption beneficial or harmful for
   long-term health?" A small synthetic example used to exercise and test the
   pipeline's mechanics independent of any real research question.
 
-The competition provides three official case studies — **eggs** and **LHC black hole
-risk** (both covered above), and **COVID-19 origins** — deliberately spanning three
-different shapes (mundane-but-contested / confident-answer-with-complex-evidence /
-curated debate). Adding a case requires **zero application code changes** (just new
-`case.yaml` / `claims.yaml` / `edges.yaml` / `sources.yaml` files under
-`data/cases/<case_id>/`, see
-[`docs/CONTRIBUTING_CLAIMS.md`](docs/CONTRIBUTING_CLAIMS.md)) — demonstrated twice now,
-not just asserted once. COVID-19 origins (the curated-debate shape) remains open —
-named as such in `docs/METHODOLOGY.md`, not glossed over.
+The competition provides three official case studies — **eggs**, **LHC black hole
+risk**, and **COVID-19 origins** (all three now covered above) — deliberately
+spanning three different shapes (mundane-but-contested /
+confident-answer-with-complex-evidence / curated debate). Adding a case requires
+**zero application code changes** (just new `case.yaml` / `claims.yaml` /
+`edges.yaml` / `sources.yaml` files under `data/cases/<case_id>/`, see
+[`docs/CONTRIBUTING_CLAIMS.md`](docs/CONTRIBUTING_CLAIMS.md)) — demonstrated on all
+three of the competition's own cases now, not just asserted once.
 
 ## Running it
 

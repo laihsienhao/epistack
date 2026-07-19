@@ -1,0 +1,483 @@
+# --- Roots ---
+
+- id: covid-natural-spillover-most-likely
+  case: covid-19-origins
+  label: "COVID-19 most likely originated via natural zoonotic spillover"
+  text: >-
+    SARS-CoV-2 most likely entered the human population through a natural
+    zoonotic spillover event, probably involving wildlife sold at the Huanan
+    Seafood Wholesale Market in Wuhan, consistent with the origin pattern of
+    prior coronavirus outbreaks including SARS-1 and MERS.
+  status: reviewed
+  tags: []
+  sources: []
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+- id: covid-lab-related-origin-plausible
+  case: covid-19-origins
+  label: "COVID-19 plausibly originated via a research-related incident"
+  text: >-
+    SARS-CoV-2 plausibly entered the human population via a research-related
+    incident connected to coronavirus research conducted at or near the
+    Wuhan Institute of Virology, rather than a natural zoonotic spillover — a
+    possibility that has not been excluded and is taken seriously by several
+    government intelligence assessments.
+  status: reviewed
+  tags: []
+  sources: []
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+
+# --- Supporting natural-spillover origin ---
+
+- id: proximal-origin-genomic-argument
+  case: covid-19-origins
+  label: "SARS-CoV-2's genome shows no signature of deliberate genetic engineering"
+  text: >-
+    Analysis of SARS-CoV-2's receptor-binding domain and its polybasic furin
+    cleavage site found no evidence consistent with the virus being a
+    deliberately engineered laboratory construct; the specific molecular
+    solutions found in the genome differ from what computational design
+    would likely have predicted at the time, suggesting natural selection —
+    possibly within an intermediate host — rather than intentional
+    engineering.
+  status: reviewed
+  tags: [topic:furin-cleavage-site, topic:genomic-evidence]
+  sources: [andersen2020-proximal-origin]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    The paper's two central arguments: first, the receptor-binding domain of
+    the spike protein binds human ACE2 with high affinity through a
+    molecular solution different from what computational modeling at the
+    time would have predicted — evidence favoring natural selection over
+    deliberate design. Second, the polybasic furin cleavage site is absent
+    from the virus's closest known relatives, and its acquisition is more
+    consistent with natural evolution, recombination, or passage in an
+    animal host than with deliberate insertion, since deliberate engineering
+    would most plausibly have started from a previously isolated, very
+    closely related progenitor virus — which had not been documented at the
+    time of writing.
+
+    A congressional investigation later obtained private Slack messages and
+    emails in which some of this paper's own authors expressed considerably
+    more uncertainty about lab origin in the days before publication than
+    the paper's confident public conclusion suggests. That controversy — and
+    the dispute over whether it reflects a legitimate scientific reversal or
+    an undisclosed conflict of interest — is treated separately in this
+    graph (see the claim on the authors' private doubts).
+
+- id: huanan-market-epicenter-evidence
+  case: covid-19-origins
+  label: "The Huanan Market is the pandemic's most likely geographic origin"
+  text: >-
+    Spatial analysis of the earliest known COVID-19 cases shows they cluster
+    geographically around the Huanan Seafood Wholesale Market to a degree
+    not explained by population density alone, live susceptible wildlife
+    species were sold at the market's stalls, and later environmental
+    sampling recovered virus genetically near-identical to the earliest
+    human cases specifically from those stalls, alongside genetic material
+    from susceptible wildlife.
+  status: reviewed
+  tags: [topic:market-origin]
+  sources: [worobey2022-huanan-market-epicenter, liu2023-nature-market-surveillance, crits-christoph2024-cell-genetic-tracing, stoyan-chiu2024-critique]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    Three complementary lines of evidence: Worobey et al.'s spatial-
+    statistical analysis found the earliest cases without a known market
+    link were still geographically centered on the market to a degree
+    inconsistent with random citywide spread. A China CDC-led study sampling
+    the closed market recovered SARS-CoV-2 from 74 environmental swabs,
+    three of which yielded live virus essentially identical to the earliest
+    documented human case — though notably, no animal samples in that
+    dataset tested positive. A later independent reanalysis of the same raw
+    sequencing data found genetic material from raccoon dogs and other
+    susceptible wildlife co-occurring with viral genetic material in
+    specific stalls known to have sold live animals.
+
+    This reading is disputed: a peer-reviewed critique argues the underlying
+    case-location data are incomplete and that spatial centrality alone
+    doesn't establish causal origin; the original authors published a
+    rebuttal defending their analysis. None of this evidence directly
+    confirms an infected intermediate animal host — the wildlife
+    co-detection findings are correlational, not proof of an infected
+    animal.
+
+- id: multiple-spillover-genomic-epidemiology
+  case: covid-19-origins
+  label: "Whether SARS-CoV-2 entered humans via one or two spillovers is contested"
+  text: >-
+    Molecular-clock analysis of the two earliest known SARS-CoV-2 lineages
+    found them separated by two mutations with no documented intermediate
+    genome, which the original authors argue is more consistent with two
+    independent zoonotic introductions at the market than a single
+    introduction followed by early diversification — a reading directly
+    disputed by a peer-reviewed critique arguing relevant intermediate
+    genomes were wrongly excluded.
+  status: reviewed
+  tags: [contested, topic:genomic-evidence, topic:market-origin]
+  sources: [pekar2022-multiple-zoonotic-origins, massey2023-critique, pekar2025-virus-evolution-rebuttal]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    Pekar et al.'s coalescent modeling of the earliest sampled genomes
+    argued the two main early lineages (A and B) are best explained by two
+    separate spillover events, supporting a wildlife-trade-driven,
+    multiple-introduction origin at the market. A subsequent correction was
+    published after modeling concerns were raised publicly.
+
+    Massey, Jones, Zhang, Deigin, and Quay argue the original analysis
+    unjustifiably excluded genomes that could represent true evolutionary
+    intermediates between the two lineages — which, if included, would
+    undercut the two-spillover conclusion. Two of that critique's five
+    authors are public advocates of the lab-origin hypothesis with
+    disclosed biotech-industry affiliations.
+
+    Pekar and colleagues later responded that newly available genomes
+    proposed as true intermediates were sampled months after the earliest
+    cases and are better explained as later, independently-derived
+    mutations rather than true ancestors — defending the original
+    two-spillover conclusion. The underlying methodological dispute has not
+    been resolved to universal agreement.
+
+- id: zoonotic-precedent-sars-mers
+  case: covid-19-origins
+  label: "Prior coronavirus outbreaks (SARS-1, MERS) originated via natural zoonotic spillover"
+  text: >-
+    Both prior human coronavirus outbreaks with a well-established origin —
+    SARS-1 (2003) and MERS — trace back to natural zoonotic spillover: SARS-1
+    to masked palm civets and other animals sold in Guangdong markets
+    carrying viruses genetically close to the human epidemic strain, and
+    MERS to widespread camel-to-human transmission.
+  status: reviewed
+  tags: [topic:zoonotic-precedent]
+  sources: [guan2003-sars-civets]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    Guan et al. isolated SARS-like coronaviruses from masked palm civets and
+    other animals sold in live-animal markets in Guangdong, genetically
+    close to the human SARS-1 epidemic strain — the clearest precedent for a
+    market-associated zoonotic spillover producing a novel human
+    coronavirus. MERS-CoV's camel reservoir is separately well-established
+    in the broader virology literature. Proponents of natural origin for
+    SARS-CoV-2 argue this precedent makes market-associated zoonotic
+    spillover the default, base-rate explanation absent strong contrary
+    evidence.
+
+# --- Supporting research-related/lab-associated origin ---
+
+- id: defuse-proposal-furin-site-precedent
+  case: covid-19-origins
+  label: "A 2018 research proposal proposed inserting furin cleavage sites into bat coronaviruses"
+  text: >-
+    A 2018 grant proposal ("DEFUSE") submitted to DARPA by EcoHealth
+    Alliance, in collaboration with Ralph Baric, Linfa Wang, and Zhengli Shi
+    of the Wuhan Institute of Virology, explicitly proposed inserting
+    human-specific furin cleavage sites into the spike proteins of bat
+    SARS-related coronaviruses to test their capacity to infect human
+    cells. DARPA rejected the proposal.
+  status: reviewed
+  tags: [topic:furin-cleavage-site]
+  sources: [intercept2021-defuse-proposal]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    The proposal sought roughly $14.2 million from DARPA, with about $1.18
+    million earmarked for WIV, to survey and characterize bat SARS-related
+    coronaviruses. DARPA rejected it in 2018, reportedly over dual-use-
+    research-of-concern risk, and there is no confirmed evidence this
+    specific experiment was subsequently carried out on the SARS-CoV-2
+    lineage. Its relevance to the origins debate is that it shows precisely
+    this kind of furin-cleavage-site-insertion experiment was seriously
+    proposed by this exact research collaboration roughly a year before the
+    pandemic — which lab-origin proponents argue makes coincidence-based
+    dismissals of the furin cleavage site's presence in SARS-CoV-2 less
+    persuasive, even though the proposal's rejection means it does not
+    itself demonstrate the insertion was performed.
+
+- id: genomic-anomaly-minority-view
+  case: covid-19-origins
+  label: "Whether SARS-CoV-2's genome shows signs of laboratory manipulation is contested"
+  text: >-
+    A minority of scientists argue specific features of SARS-CoV-2's genome
+    — its chimeric structure, its furin cleavage site, and an unusually even
+    spacing of restriction-enzyme recognition sites resembling
+    synthetic-biology cloning patterns — are more consistent with
+    laboratory manipulation than natural evolution; this view has been
+    directly, publicly contested in the peer-reviewed literature and has not
+    been accepted by the broader virology community.
+  status: reviewed
+  tags: [contested, topic:furin-cleavage-site, topic:genomic-evidence]
+  sources: [segreto-deigin2020-bioessays, tyshkovskiy-panchin2021-rebuttal, bruttel2022-biorxiv-preprint, wu2023-environmental-research-rebuttal, fernandez2021-acs-medchemlett-gof-clues]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    Segreto and Deigin argued in a peer-reviewed hypothesis paper that
+    SARS-CoV-2's chimeric genome (a RaTG13-like backbone with a
+    pangolin-coronavirus-like receptor-binding domain) and its furin
+    cleavage site are consistent with, though not proof of, laboratory
+    construction via serial passage or targeted recombination. This
+    triggered a direct peer-reviewed rebuttal, "There is no evidence of
+    SARS-CoV-2 laboratory origin," and a further published round of reply
+    and response — a genuine, substantive scientific back-and-forth, not a
+    one-sided dismissal.
+
+    Separately, a non-peer-reviewed preprint by Bruttel, Washburne, and
+    VanDongen argued the genome's type IIS restriction-enzyme recognition
+    sites are unusually evenly spaced in a pattern resembling
+    synthetic-biology genome assembly. A peer-reviewed rebuttal examined
+    roughly 2,700 other coronavirus genomes and found around 40 with
+    similar patterns, arguing SARS-CoV-2 is not the statistical outlier the
+    preprint claimed and that the pattern is unstable across variants.
+
+    A separate single-author letter making a related genomic-anomaly
+    argument was later the subject of a formal Expression of Concern from
+    its journal, on the stated grounds that some of its references were
+    opinion pieces or popular-press articles rather than primary
+    literature.
+
+- id: intelligence-community-split-on-origin
+  case: covid-19-origins
+  label: "US intelligence agencies disagree on COVID-19's origin"
+  text: >-
+    The US intelligence community has not reached consensus on SARS-CoV-2's
+    origin: as of 2021, four intelligence elements plus the National
+    Intelligence Council assessed with low confidence that natural exposure
+    was more likely, one element (widely reported as the FBI) assessed with
+    moderate confidence that a lab-associated incident was more likely, and
+    others reached no conclusion; by 2023-2025, the Department of Energy
+    and CIA had each separately shifted to a low-confidence lean toward a
+    lab-related origin, based on renewed analysis of existing evidence
+    rather than new intelligence. All assessments agree the virus was not
+    developed as a bioweapon.
+  status: reviewed
+  tags: [topic:intelligence-assessments]
+  sources: [odni-2021-unclassified-summary, npr2023-doe-lab-leak-assessment, cbs2025-cia-assessment]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    The 2021 ODNI unclassified summary explicitly records this as a split
+    judgment across agencies, not a unified finding, and states China's lack
+    of cooperation is a key obstacle to a more conclusive assessment. In
+    February 2023, the Department of Energy shifted from "undecided" to a
+    low-confidence lab-leak lean, reportedly after renewed review of
+    existing evidence with outside experts rather than new intelligence. In
+    January 2025, the CIA similarly shifted to assessing a research-related
+    origin as more likely than natural origin, with low confidence, while
+    explicitly stating both scenarios "remain plausible." As of these
+    assessments, the FBI and DOE lean lab-related (moderate and low
+    confidence respectively), the CIA leans lab-related (low confidence),
+    and other agencies and the National Intelligence Council still lean
+    natural or remain undecided — genuine, unresolved institutional
+    disagreement, not a shift in consensus.
+
+- id: wiv-biosafety-and-illness-reports-2019
+  case: covid-19-origins
+  label: "US intelligence reporting describes WIV biosafety issues and researcher illness in 2019"
+  text: >-
+    A declassified 2023 US intelligence report describes reportedly aging
+    equipment and inadequate ventilation/disinfection practices at the
+    Wuhan Institute of Virology's BSL-4 laboratory, and states that three
+    WIV researchers were "mildly ill" in fall 2019 with symptoms consistent
+    with, but not diagnostic of, COVID-19, identified during routine annual
+    biosafety health exams.
+  status: reviewed
+  tags: [topic:wiv-biosafety]
+  sources: [odni-2023-wiv-links-report]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    The report is explicitly a fact/context document, not a fresh judgment
+    on which origin hypothesis is more likely — it does not name the
+    researchers involved or specify their exact symptoms, and does not
+    itself conclude the illnesses were COVID-19. It is cited by lab-origin
+    proponents as circumstantial evidence of an early cluster of illness
+    connected to WIV specifically, prior to any public acknowledgment of
+    the outbreak.
+
+- id: wiv-database-takedown-unexplained
+  case: covid-19-origins
+  label: "Whether the 2019 WIV database takedown was routine or significant is contested"
+  text: >-
+    In September 2019, the Wuhan Institute of Virology took its virus
+    sample and sequence databases offline, months before China's outbreak
+    announcement. Chinese officials have attributed this to repeated
+    cyberattacks, but no external, verifiable evidence of the alleged
+    attacks has been made public, and the explanation has not been
+    independently confirmed.
+  status: reviewed
+  tags: [contested, topic:wiv-biosafety]
+  sources: [buzzfeed-aldhous-wiv-database, europarl-wiv-database-question, who-china-joint-mission-2021]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    The database takedown itself (September 12, 2019) is well-documented
+    across independent sources, including a European Parliament record and
+    a journalist's technical investigation that tracked down some of the
+    disappeared sequences via other repositories. WIV's own explanation — a
+    cyberattack — has been repeated consistently by Chinese officials in
+    multiple settings, including to the WHO-China joint mission, but no
+    logs, incident reports, or other independent evidence of the claimed
+    attack have been released. The event's timing, before the outbreak was
+    publicly known, is suggestive but not conclusive on its own: it is
+    consistent with routine security housekeeping, a genuine cyberattack,
+    or (the reading favored by lab-origin proponents) an internal signal
+    that something was amiss — none of which has been independently
+    confirmed.
+
+# --- Shared ground-truth / institutional controversy ---
+
+- id: who-mission-independence-controversy
+  case: covid-19-origins
+  label: "The WHO-China joint mission's independence and access have been widely criticized"
+  text: >-
+    The 2021 WHO-China joint mission, which rated a lab-related incident
+    "extremely unlikely," has been criticized for its limited access and
+    independence: China restricted data access and imposed confidentiality
+    conditions, the mission's sole US-based member (Peter Daszak) had a
+    long-standing funding and research relationship with WIV that was not
+    initially disclosed, and WHO's own Director-General publicly stated the
+    lab-leak assessment had not been extensive enough.
+  status: reviewed
+  tags: [topic:who-investigation]
+  sources: [who-china-joint-mission-2021, science-aaas-who-mission-fights, lancet-addendum-2021-daszak-coi, bloom-chan-baric2021-science-letter]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    The joint mission's report rated intermediate-host zoonotic spillover
+    "likely to very likely" and a laboratory incident "extremely unlikely,"
+    but WHO Director-General Tedros Adhanom Ghebreyesus stated at the
+    report's release that the lab-leak assessment "had not been extensive
+    enough" and that all hypotheses remained open. Reporting on the
+    mission's internal process describes disputes over a confidentiality
+    pledge and over conflicts of interest — mission member Peter Daszak had
+    co-funded and co-designed WIV bat-coronavirus research for years prior,
+    a relationship he had not disclosed when organizing a February 2020
+    public statement dismissing lab-origin theories; The Lancet later
+    published a formal addendum disclosing his competing interests.
+    Eighteen scientists separately published an open letter calling for a
+    more rigorous, independently overseen investigation of all hypotheses.
+
+    Both sides of this debate cite the same underlying facts differently:
+    proponents of natural origin note that subsequent, methodologically
+    independent research (market spatial analysis, environmental sampling)
+    reached similar conclusions regardless of the mission's limitations;
+    proponents of a lab-related origin cite the same access and
+    conflict-of-interest issues as reason to distrust the mission's
+    headline conclusion.
+
+- id: proximal-origin-authors-private-doubts-controversy
+  case: covid-19-origins
+  label: "Whether the Proximal Origin authors' private doubts reveal bias is contested"
+  text: >-
+    Congressional investigators obtained Slack messages and emails showing
+    that in early February 2020, before publishing "The Proximal Origin of
+    SARS-CoV-2," some of its authors privately expressed substantially more
+    openness to a lab-origin scenario than the paper's confident public
+    conclusion suggests; the authors maintain this reflected a genuine
+    scientific update following new genomic evidence, not suppression, and
+    dispute that a subsequent NIH grant to two of the authors represented an
+    undisclosed conflict of interest.
+  status: reviewed
+  tags: [contested, topic:scientific-integrity]
+  sources: [theintercept2023-slack-messages, theintercept2023-nih-grant-timeline, farrar2021-spike-memoir]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    Following a confidential February 1, 2020 conference call convened by
+    Wellcome Trust director Jeremy Farrar, participants including several
+    of the paper's eventual authors exchanged messages debating the
+    probability of lab versus natural origin — Farrar's own published
+    memoir recounts that immediately after the call, one author was roughly
+    80% confident in lab origin and another was 60-70% confident, with
+    Farrar himself at "50-50." By mid-February, following the release of a
+    pangolin-coronavirus sequence with a similar receptor-binding domain but
+    without the furin cleavage site that had concerned them, the same
+    authors' confidence shifted; the paper published weeks later concluded
+    lab origin was not plausible.
+
+    The authors testified under oath in 2023 that this reflected new
+    scientific evidence, not suppression or influence from a pending $8.9
+    million NIH grant to two of the authors, formally approved roughly
+    three months after the February call. A fact-check review found no
+    direct evidence of a quid pro quo, though the grant's approval timeline
+    is itself part of the documented record and disputed interpretation.
+    One co-author has publicly dismissed the congressional inquiry itself
+    as illegitimate. The raw content of the private messages is well-
+    corroborated across independent sourcing; whether it represents a
+    cover-up or an honest scientific update remains a genuinely contested
+    interpretation, not a settled fact either way.
+
+- id: ecohealth-debarment-and-oversight-failures
+  case: covid-19-origins
+  label: "EcoHealth Alliance and Peter Daszak were federally debarred over oversight failures"
+  text: >-
+    In January 2025, US Health and Human Services formally debarred
+    EcoHealth Alliance and its former president Peter Daszak from federal
+    funding for five years, citing failures to report required research
+    records and a significantly overdue progress report related to
+    NIH-funded bat-coronavirus research subcontracted to the Wuhan
+    Institute of Virology.
+  status: reviewed
+  tags: [topic:scientific-integrity]
+  sources: [hhs-debarment-notice-2025, science-aaas-ecohealth-suspension-2024]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    EcoHealth Alliance held an NIH/NIAID grant, first awarded in 2014 and
+    renewed in 2019, that subcontracted work to WIV for bat-coronavirus
+    surveillance. NIH suspended and later moved to terminate the grant,
+    citing EcoHealth's failure to produce WIV lab records; HHS suspended
+    EcoHealth's federal funding in May 2024 and formally debarred both
+    EcoHealth and Daszak in January 2025, drawing substantially on findings
+    from the Republican-led House Select Subcommittee's investigation. This
+    action concerns oversight and reporting compliance — it is not, and
+    should not be read as, a formal government finding that EcoHealth's
+    research caused the pandemic; whether the underlying WIV experiments
+    actually constituted regulated "gain-of-function" research is itself
+    separately disputed among scientists and biosafety experts.
+
+- id: house-select-subcommittee-2024-partisan-split
+  case: covid-19-origins
+  label: "A 2024 congressional investigation split along party lines on COVID-19's origin"
+  text: >-
+    In December 2024, the Republican-majority staff of the US House Select
+    Subcommittee on the Coronavirus Pandemic concluded a lab-related
+    incident was most likely the pandemic's origin; the subcommittee's
+    Democratic minority released a separate report the following day
+    disputing this conclusion and the broader investigation's conduct.
+  status: reviewed
+  tags: [topic:intelligence-assessments]
+  sources: [house-subcommittee-2024-majority-report, house-subcommittee-2024-minority-dissent]
+  confidence: null
+  author: 171384n
+  created: 2026-07-19
+  explanation: >-
+    The roughly 500-page Republican-majority report concludes that a
+    lab-related incident involving gain-of-function research is most
+    likely the pandemic's origin, citing genomic features it argues are
+    unusual for natural spillover and illness among WIV researchers in
+    fall 2019. The Democratic minority, led by Ranking Member Raul Ruiz,
+    released a separate dissenting report the next day, arguing the
+    coronaviruses studied under EcoHealth's NIH-funded WIV subcontract were
+    genetically too distant from SARS-CoV-2 to have caused the pandemic and
+    disputing claims that NIH leadership orchestrated a "lab-leak
+    suppression" campaign. These are two adversarial, single-party
+    documents from the same subcommittee, not a bipartisan finding.

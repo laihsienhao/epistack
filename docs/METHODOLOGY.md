@@ -100,27 +100,29 @@ simply fail to disclose a real conflict — in which case it will render as
 not, and cannot, detect undisclosed ones. It should be read as "here is what was
 disclosed," not "here is a guarantee of independence."
 
-**No adversarial diversity of contributors yet.** Both case studies (`eggs`, `toy`)
-currently have a single author. Every design decision above — the tagging discipline
+**No adversarial diversity of contributors yet.** All case studies (`eggs`,
+`lhc-black-holes`, `covid-19-origins`, `toy`) currently have a single author. Every
+design decision above — the tagging discipline
 required for Coverage, the verification discipline required for funding notes, the
 labeling discipline required for cruxes — has been exercised by one person's judgment,
 not stress-tested by contributors with different priorities or incentives. The
 methodology's resistance to motivated editing is, so far, argued rather than
 demonstrated in practice.
 
-**Two of the competition's three official case studies now have real content —
-COVID-19 origins is still open.** The competition provides `eggs`, `COVID-19
-origins`, and `LHC black hole risk` — deliberately one each of three shapes
-(mundane-but-contested / curated debate / confident-answer-with-complex-evidence).
-`lhc-black-holes` (added 2026-07-19, ~19 real, individually funding-verified sources)
-demonstrates the "confident-answer-with-complex-evidence" shape and required
-**zero application code changes** — proving the generalizability claim rather than
-just asserting it, as this document previously named as the single weakest point
-against the Generalizability criterion. `toy` remains synthetic pipeline-testing, not
-a third real case; COVID-19 origins (the "curated debate" shape) is still
-unaddressed. A real, honestly-sourced case for that shape would be the next item, not
-this one — rushing it with weak sourcing would be worse than leaving it open (see
-`docs/CONTRIBUTING_CLAIMS.md`'s standing insistence on verifiable citations).
+**All three of the competition's official case studies now have real content.** The
+competition provides `eggs`, `LHC black hole risk`, and `COVID-19 origins` —
+deliberately one each of three shapes (mundane-but-contested /
+confident-answer-with-complex-evidence / curated debate). `lhc-black-holes` (added
+2026-07-19, ~19 real, individually funding-verified sources) demonstrated the
+"confident-answer-with-complex-evidence" shape; `covid-19-origins` (added
+2026-07-19, 32 real, individually funding-verified sources) demonstrates the
+"curated debate" shape — the most evenly-contested of the three, with real,
+disclosed industry/advocacy ties surfaced on *both* sides rather than only the side
+it would be politically convenient to flag. Both required **zero application code
+changes** — proving the generalizability claim on three structurally distinct real
+cases rather than asserting it once, as this document previously named as the
+single weakest point against the Generalizability criterion. `toy` remains
+synthetic pipeline-testing, not a fourth real case.
 
 **The LHC case's shape itself is worth naming as a limitation of the comparison.**
 `lhc-black-holes` is not a symmetric rival-schools-of-thought debate the way `eggs`
@@ -157,10 +159,16 @@ checking each paper's actual disclosed funding/COI statement — not one person 
 37 papers by hand. `src/ingestion.py`'s `shared_authorship()` flag was itself debugged
 this way: a false positive (two different "Zhao"s conflated by surname-only matching)
 was caught by checking a primary source (a co-investigator's own CV) before being
-reported, not by code inspection. This is the "benefits as base-model capability
-rises" bullet in action, not an argument for it: the same fetch-verify-structure
-pipeline (formalized below) gets cheaper and more accurate as the underlying model
-improves, with zero code changes required.
+reported, not by code inspection. The `covid-19-origins` funding-verification pass
+caught a different kind of error entirely: a source citation given to a research
+agent as "Quay, Muller & Young 2021" turned out, on direct fetch of the DOI against
+PubMed/Crossref/Semantic Scholar, to be a single-author paper by a different
+scientist (Ariel Fernández) — the citation was corrected before it reached this
+graph, rather than being published on the strength of a plausible-sounding author
+list. This is the "benefits as base-model capability rises" bullet in action, not an
+argument for it: the same fetch-verify-structure pipeline (formalized below) gets
+cheaper and more accurate as the underlying model improves, with zero code changes
+required.
 
 **More compute/scrutiny strictly improves existing checks, never degrades them.** The
 shared-authorship checker currently does surname+initials-compatibility string

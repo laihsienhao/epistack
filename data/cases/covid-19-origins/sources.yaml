@@ -1,0 +1,325 @@
+# --- Natural/zoonotic-spillover case ---
+
+- id: andersen2020-proximal-origin
+  type: other
+  title: "The proximal origin of SARS-CoV-2"
+  authors: "Andersen KG, Rambaut A, Lipkin WI, Holmes EC, Garry RF"
+  year: 2020
+  venue: "Nature Medicine, 26:450-452"
+  url: "https://doi.org/10.1038/s41591-020-0820-9"
+  funding: mixed
+  bias_note: "Funded by US NIH grants (U19AI135995, U54HG007480, U19AI142790), a Wellcome Trust Collaborator Award (206298/Z/17/Z), a European Research Council grant (725422), and an Australian Research Council Laureate Fellowship. Garry discloses being a co-founder of Zalgen Labs, a biotechnology company developing countermeasures for emerging viruses."
+
+- id: worobey2022-huanan-market-epicenter
+  type: other
+  title: "The Huanan Seafood Wholesale Market in Wuhan was the early epicenter of the COVID-19 pandemic"
+  authors: "Worobey M, Levy JI, Malpica Serrano L, Crits-Christoph A, Pekar JE, Goldstein SA, et al."
+  year: 2022
+  venue: "Science, 377(6609):951-959"
+  url: "https://doi.org/10.1126/science.abp8715"
+  funding: government
+  bias_note: "Supported by US NIH/NIAID contract 75N93021C00015 and NSF funding. A correction to supplementary data (posted 2023, formally indexed as an erratum in 2024) did not change the paper's statistical conclusions, per the authors."
+
+- id: liu2023-nature-market-surveillance
+  type: other
+  title: "Surveillance of SARS-CoV-2 at the Huanan Seafood Market"
+  authors: "Liu P, Jiang JZ, Wan XF, Hua Y, Gao GF, et al."
+  year: 2023
+  venue: "Nature, 618:254-260"
+  url: "https://doi.org/10.1038/s41586-023-06043-2"
+  funding: government
+  bias_note: "Led by China CDC researchers and funded by the National Natural Science Foundation of China; authors state no competing interests. Notably, no animal samples in this dataset tested positive for the virus, only environmental swabs."
+
+- id: crits-christoph2024-cell-genetic-tracing
+  type: other
+  title: "Genetic tracing of market wildlife and viruses at the epicenter of the COVID-19 pandemic"
+  authors: "Crits-Christoph A, Levy JI, Pekar JE, Goldstein SA, Singh R, et al."
+  year: 2024
+  venue: "Cell, 187(19):5468-5482"
+  url: "https://doi.org/10.1016/j.cell.2024.08.010"
+  funding: mixed
+  bias_note: "Predominantly funded by US NIH/NIAID and international public science agencies (Portugal, EU, Canada/Saskatchewan). Co-author R.F. Garry discloses being a cofounder of Zalgen Labs; co-author M.A. Suchard discloses contracts with Janssen Research & Development; several authors disclose paid consulting/expert testimony on SARS-CoV-2 origins, each stated by the authors as unrelated to this specific study."
+
+- id: stoyan-chiu2024-critique
+  type: other
+  title: "Statistics did not prove that the Huanan Seafood Wholesale Market was the early epicentre of the COVID-19 pandemic"
+  authors: "Stoyan D, Chiu SN"
+  year: 2024
+  venue: "Journal of the Royal Statistical Society Series A, 187(3):710"
+  url: "https://academic.oup.com/jrsssa/article/187/3/710/7557954"
+  funding: government
+  bias_note: "Chiu's work supported by a Hong Kong Research Grants Council grant (RMGS-2022-11-08); authors declare no competing interests."
+
+- id: pekar2022-multiple-zoonotic-origins
+  type: other
+  title: "The molecular epidemiology of multiple zoonotic origins of SARS-CoV-2"
+  authors: "Pekar JE, Magee A, Parker E, Moshiri N, Izhikevich K, Havens JL, et al."
+  year: 2022
+  venue: "Science, 377(6609):960-966"
+  url: "https://doi.org/10.1126/science.abp8337"
+  funding: government
+  bias_note: "Supported by US NIH/NIAID funding and an NSF-affiliated fellowship. A substantial correction was published in October 2023 after modeling concerns were raised publicly; critics say the correction did not resolve all concerns."
+
+- id: massey2023-critique
+  type: other
+  title: "Unwarranted Exclusion of Intermediate Lineage A-B SARS-CoV-2 Genomes Is Inconsistent with the Two-Spillover Hypothesis of the Origin of COVID-19"
+  authors: "Massey SE, Jones A, Zhang D, Deigin Y, Quay SC"
+  year: 2023
+  venue: "Microbiology Research, 14(1):448-453"
+  url: "https://doi.org/10.3390/microbiolres14010033"
+  funding: mixed
+  bias_note: "Two of five co-authors disclose for-profit biotech-industry affiliations on the paper itself (Yuri Deigin, Youthereum Genetics Inc.; Steven C. Quay, Atossa Therapeutics Inc.), both public lab-leak-hypothesis advocates; the other three authors are academic/independent researchers. The paper's own full conflicts-of-interest statement could not be independently retrieved for this case study."
+
+- id: pekar2025-virus-evolution-rebuttal
+  type: other
+  title: "Recently reported SARS-CoV-2 genomes suggested to be intermediate between the two early main lineages are instead likely derived"
+  authors: "Pekar JE, et al."
+  year: 2025
+  venue: "Virus Evolution, 11(1):veaf008"
+  url: "https://doi.org/10.1093/ve/veaf008"
+  funding: government
+  bias_note: "Funded by US NIH/NIAID and international public science agencies (Portugal, EU, Australia, Hong Kong); several authors disclose paid consulting/expert testimony specifically on SARS-CoV-2 origins."
+
+- id: guan2003-sars-civets
+  type: other
+  title: "Isolation and Characterization of Viruses Related to the SARS Coronavirus from Animals in Southern China"
+  authors: "Guan Y, Zheng BJ, He YQ, Liu XL, Zhuang ZX, et al."
+  year: 2003
+  venue: "Science, 302(5643):276-278"
+  url: "https://doi.org/10.1126/science.1087139"
+  funding: mixed
+  bias_note: "Supported by a Hong Kong government public-health research grant, US NIAID funding, the Wellcome Trust, and University of Hong Kong SARS research funds. Predates modern conflict-of-interest disclosure norms; established masked palm civets and other market animals as carrying SARS-CoV-like viruses genetically close to the human epidemic strain."
+
+- id: who-china-joint-mission-2021
+  type: guideline
+  title: "WHO-convened Global Study of Origins of SARS-CoV-2: China Part"
+  authors: "WHO-China Joint Mission"
+  year: 2021
+  venue: "World Health Organization"
+  url: "https://www.who.int/publications/i/item/who-convened-global-study-of-origins-of-sars-cov-2-china-part"
+  funding: government
+  bias_note: "A joint 17-member Chinese/17-member international expert team report. WHO Director-General Tedros Adhanom Ghebreyesus stated publicly at the report's release that its assessment of the lab-leak hypothesis had 'not been extensive enough' and that all hypotheses remained open."
+
+# --- Research-related/lab-associated-origin case ---
+
+- id: intercept2021-defuse-proposal
+  type: news
+  title: "Leaked Grant Proposal Details High-Risk Coronavirus Research"
+  authors: "Lerner S, Hibbett M"
+  year: 2021
+  venue: "The Intercept"
+  url: "https://theintercept.com/2021/09/23/coronavirus-research-grant-darpa/"
+  funding: independent
+  bias_note: "The Intercept was founded by Pierre Omidyar via First Look Media and became an independent nonprofit in 2023. The DEFUSE proposal itself sought DARPA funding for EcoHealth Alliance, Ralph Baric (UNC), Linfa Wang (Duke-NUS), and Zhengli Shi (WIV), and was rejected by DARPA in 2018."
+
+- id: segreto-deigin2020-bioessays
+  type: other
+  title: "The genetic structure of SARS-CoV-2 does not rule out a laboratory origin"
+  authors: "Segreto R, Deigin Y"
+  year: 2020
+  venue: "BioEssays, 43(3):2000240"
+  url: "https://doi.org/10.1002/bies.202000240"
+  funding: independent
+  bias_note: "The paper states it received no external funding and declares no conflicts of interest. Co-author Yuri Deigin's own printed institutional affiliation on the paper is Youthereum Genetics Inc., a biotechnology company he co-founded — disclosed as an affiliation but not flagged by the authors as a conflict of interest."
+
+- id: tyshkovskiy-panchin2021-rebuttal
+  type: other
+  title: "There is no evidence of SARS-CoV-2 laboratory origin"
+  authors: "Tyshkovskiy A, Panchin A"
+  year: 2021
+  venue: "BioEssays, 43(9):2000325"
+  url: "https://doi.org/10.1002/bies.202000325"
+  funding: government
+  bias_note: "Supported by a Russian Science Foundation grant (RSF 20-14-00178) and a Russian Foundation for Basic Research grant (RFBR 18-29-13014 mk). Authors declare no conflicts of interest."
+
+- id: bruttel2022-biorxiv-preprint
+  type: other
+  title: "Endonuclease fingerprint indicates a synthetic origin of SARS-CoV-2"
+  authors: "Bruttel V, Washburne A, VanDongen A"
+  year: 2022
+  venue: "bioRxiv preprint"
+  url: "https://doi.org/10.1101/2022.10.18.512756"
+  funding: unknown
+  bias_note: "Remains an unpublished, non-peer-reviewed preprint as of 2026 (confirmed via bioRxiv's own publication-status record). No funding source is stated anywhere in the preprint. Co-author Alex Washburne's listed institutional affiliation is his own private company, Selva Analytics; the authors declare no conflicts of interest."
+
+- id: wu2023-environmental-research-rebuttal
+  type: other
+  title: "Updated analysis to reject the laboratory-engineering hypothesis of SARS-CoV-2"
+  authors: "Wu F"
+  year: 2023
+  venue: "Environmental Research, 224:115481"
+  url: "https://doi.org/10.1016/j.envres.2023.115481"
+  funding: government
+  bias_note: "Supported by the Center of Infectious Diseases at UTHealth, a UT System Rising STARs award, and the Texas Epidemic Public Health Institute. The author discloses, in the paper's own competing-interest statement, having received a Master of Science degree from the Wuhan Institute of Virology in 2012, while stating no financial conflicts of interest."
+
+- id: fernandez2021-acs-medchemlett-gof-clues
+  type: other
+  title: "Molecular Biology Clues Portray SARS-CoV-2 as a Gain-of-Function Laboratory Manipulation of Bat CoV RaTG13"
+  authors: "Fernández A"
+  year: 2021
+  venue: "ACS Medicinal Chemistry Letters, 12(6):941-942"
+  url: "https://doi.org/10.1021/acsmedchemlett.1c00274"
+  funding: unknown
+  bias_note: "The journal issued a formal Expression of Concern for this letter (DOI 10.1021/acsmedchemlett.1c00525) on the stated grounds that several of its references are opinion pieces or popular-press articles rather than primary literature. Funding/COI could not be independently verified for this case study."
+
+- id: odni-2021-unclassified-summary
+  type: guideline
+  title: "Unclassified Summary of Assessment on COVID-19 Origins"
+  authors: "Office of the Director of National Intelligence"
+  year: 2021
+  venue: "ODNI"
+  url: "https://www.dni.gov/files/ODNI/documents/assessments/Unclassified-Summary-of-Assessment-on-COVID-19-Origins.pdf"
+  funding: government
+  bias_note: "An aggregate assessment across multiple US intelligence agencies, not a single unanimous voice: four agencies plus the National Intelligence Council assessed with low confidence that natural exposure was more likely; one agency (widely reported to be the FBI) assessed with moderate confidence that a lab-associated incident was more likely; three others reached no conclusion. All agencies agreed the virus was not developed as a bioweapon."
+
+- id: npr2023-doe-lab-leak-assessment
+  type: news
+  title: "U.S. Department of Energy says, with 'low confidence,' that COVID may have leaked from a lab"
+  authors: "NPR"
+  year: 2023
+  venue: "NPR"
+  url: "https://www.npr.org/2023/02/28/1160157977/u-s-dept-of-energy-says-with-low-confidence-that-covid-may-have-leaked-from-a-la"
+  funding: mixed
+  bias_note: "NPR's funding mixes corporate sponsorships/underwriting (its largest single source), member-station programming fees, direct federal (CPB) funding, and foundation/individual donations. Federal CPB funding to public broadcasting was rescinded in 2025."
+
+- id: cbs2025-cia-assessment
+  type: news
+  title: "CIA says COVID-19 likely originated from a lab, with 'low confidence'"
+  authors: "CBS News"
+  year: 2025
+  venue: "CBS News"
+  url: "https://www.cbsnews.com/news/cia-covid-likely-originated-lab-low-confidence-assessment/"
+  funding: industry
+  bias_note: "At time of publication, CBS News was owned by Paramount Global (Redstone family control); following the August 2025 Paramount-Skydance merger, ownership passed to Paramount Skydance Corporation (Ellison family/RedBird Capital). In July 2025 Paramount paid $16 million to settle a lawsuit over a separate CBS news segment, reported as related to clearing the merger's FCC approval."
+
+- id: odni-2023-wiv-links-report
+  type: guideline
+  title: "Report on Potential Links Between the Wuhan Institute of Virology and the Origins of COVID-19"
+  authors: "Office of the Director of National Intelligence"
+  year: 2023
+  venue: "ODNI"
+  url: "https://www.dni.gov/files/ODNI/documents/assessments/Report-on-Potential-Links-Between-the-Wuhan-Institute-of-Virology-and-the-Origins-of-COVID-19-20230623.pdf"
+  funding: government
+  bias_note: "Declassified under the COVID-19 Origin Act of 2023. The report explicitly does not adjudicate between the natural-origin and lab-related-origin hypotheses; it describes WIV's reported biosafety conditions and states three researchers were 'mildly ill' in fall 2019 with symptoms consistent with, but not diagnostic of, COVID-19."
+
+- id: buzzfeed-aldhous-wiv-database
+  type: news
+  title: "A Scientist Tracked Down Chinese Coronavirus Sequences That Had Disappeared Online"
+  authors: "Aldhous P"
+  year: 2021
+  venue: "BuzzFeed News"
+  url: "https://www.buzzfeednews.com/article/peteraldhous/coronavirus-sequences-deleted-china-nih"
+  funding: industry
+  bias_note: "BuzzFeed News operated as a division of the publicly-traded BuzzFeed Inc. (Comcast/NBCUniversal held a minority equity stake) until the division was shut down entirely in April 2023."
+
+- id: europarl-wiv-database-question
+  type: other
+  title: "Parliamentary question E-000608/2022, on the WIV virus-database takedown"
+  authors: "Kuhs J (MEP)"
+  year: 2022
+  venue: "European Parliament"
+  url: "https://www.europarl.europa.eu/doceo/document/E-9-2022-000608_EN.html"
+  funding: government
+  bias_note: "A formal written question submitted by a single Member of the European Parliament (sitting with the right-wing 'Identity and Democracy' political group) to the European Commission — not a Parliament resolution or institutional finding."
+
+# --- Meta-controversies: WHO mission, authorship, oversight ---
+
+- id: science-aaas-who-mission-fights
+  type: news
+  title: "Fights over confidentiality pledge and conflicts of interest tore apart COVID-19 origin probe"
+  authors: "Cohen J"
+  year: 2021
+  venue: "Science (AAAS)"
+  url: "https://www.science.org/content/article/fights-over-confidentiality-pledge-and-conflicts-interest-tore-apart-covid-19-origin-probe"
+  funding: independent
+  bias_note: "AAAS is a nonprofit scientific membership society funded primarily by member dues and journal subscriptions/licensing; it also engages in science-policy advocacy as part of its institutional mission."
+
+- id: lancet-addendum-2021-daszak-coi
+  type: other
+  title: "Addendum: Competing interests and the origins of SARS-CoV-2"
+  authors: "The Lancet editors"
+  year: 2021
+  venue: "The Lancet"
+  url: "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)01377-5/fulltext"
+  funding: mixed
+  bias_note: "The Lancet is published by Elsevier (RELX Group), a publicly-traded for-profit publisher. The addendum itself is an editorial correction disclosing the competing interests (notably Peter Daszak's EcoHealth Alliance/WIV ties) of signatories to a February 2020 Lancet statement dismissing lab-origin theories — the conflict being disclosed belongs to the signatories, not to the publisher."
+
+- id: bloom-chan-baric2021-science-letter
+  type: other
+  title: "Investigate the origins of COVID-19"
+  authors: "Bloom JD, Chan YA, Baric RS, et al."
+  year: 2021
+  venue: "Science, 372(6543):694"
+  url: "https://doi.org/10.1126/science.abj0016"
+  funding: independent
+  bias_note: "A signed opinion letter from 18 scientists calling for a transparent, objective investigation of all origin hypotheses; not a funded research study, and individual signatories' own funding sources are not disclosed in the letter itself."
+
+- id: theintercept2023-slack-messages
+  type: news
+  title: "House Republicans Accidentally Released a Trove of Damning Covid Documents"
+  authors: "Lerner S"
+  year: 2023
+  venue: "The Intercept"
+  url: "https://theintercept.com/2023/07/12/covid-documents-house-republicans/"
+  funding: independent
+  bias_note: "The Intercept became an independent nonprofit in 2023 after a decade funded primarily by Pierre Omidyar via First Look Media; at the time of this reporting it was still substantially reliant on First Look's multiyear transition grant."
+
+- id: theintercept2023-nih-grant-timeline
+  type: news
+  title: "Key Scientist in Covid Origin Controversy Misled Congress on Status of $8.9 Million NIH Grant"
+  authors: "Lerner S"
+  year: 2023
+  venue: "The Intercept"
+  url: "https://theintercept.com/2023/07/21/covid-origin-nih-lab-leak/"
+  funding: independent
+  bias_note: "Same outlet/funding profile as the item above."
+
+- id: farrar2021-spike-memoir
+  type: other
+  title: "Spike: The Virus vs. The People — the Inside Story"
+  authors: "Farrar J, Ahuja A"
+  year: 2021
+  venue: "Profile Books"
+  url: null
+  funding: independent
+  bias_note: "Farrar was Director of the Wellcome Trust (a major infectious-disease research funder) throughout the events described, and became WHO Chief Scientist in 2023 — a direct personal institutional stake in how the origins investigation is publicly assessed, separate from the publisher's own independence."
+
+- id: hhs-debarment-notice-2025
+  type: guideline
+  title: "Notice of Debarment: EcoHealth Alliance and Dr. Peter Daszak"
+  authors: "U.S. Department of Health and Human Services"
+  year: 2025
+  venue: "HHS"
+  url: "https://oversight.house.gov/wp-content/uploads/2025/01/Dr.-Peter-Daszak-HHS-Notice_Jan-17-2025_Redacted.pdf"
+  funding: government
+  bias_note: "A five-year federal debarment (through May 2029), following a May 2024 suspension notice. Its evidentiary basis draws substantially on findings from the Republican-led House Select Subcommittee's investigation. The action concerns oversight and reporting violations, not a formal finding that EcoHealth's research caused the pandemic."
+
+- id: science-aaas-ecohealth-suspension-2024
+  type: news
+  title: "Federal officials suspend funding to EcoHealth Alliance"
+  authors: "Kaiser J"
+  year: 2024
+  venue: "Science (AAAS)"
+  url: "https://www.science.org/content/article/federal-officials-suspend-funding-ecohealth-alliance-nonprofit-entangled-covid-19"
+  funding: independent
+  bias_note: null
+
+- id: house-subcommittee-2024-majority-report
+  type: guideline
+  title: "After Action Review of the COVID-19 Pandemic: The Lessons Learned and a Path Forward"
+  authors: "House Select Subcommittee on the Coronavirus Pandemic (Majority staff)"
+  year: 2024
+  venue: "U.S. House of Representatives, 118th Congress"
+  url: "https://oversight.house.gov/release/final-report-covid-select-concludes-2-year-investigation-issues-500-page-final-report-on-lessons-learned-and-the-path-forward/"
+  funding: government
+  bias_note: "A Republican-majority-staff report, not a bipartisan committee finding; concludes a lab-related incident is the most likely origin. See the separate Democratic minority dissent in this graph, which directly disputes this conclusion."
+
+- id: house-subcommittee-2024-minority-dissent
+  type: guideline
+  title: "Select Subcommittee Democrats' final report"
+  authors: "House Select Subcommittee on the Coronavirus Pandemic (Minority staff, Ranking Member Raul Ruiz)"
+  year: 2024
+  venue: "U.S. House of Representatives, 118th Congress"
+  url: "https://oversightdemocrats.house.gov/news/press-releases/ranking-member-ruiz-leads-select-subcommittee-democrats-releasing-final-report"
+  funding: government
+  bias_note: "A Democratic-minority-staff report dissenting from the majority's origin conclusion, arguing the coronaviruses studied under EcoHealth's NIH-funded WIV subcontract were genetically too distant from SARS-CoV-2 to have caused the pandemic."
