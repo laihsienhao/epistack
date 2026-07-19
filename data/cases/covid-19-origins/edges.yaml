@@ -33,7 +33,7 @@
 - id: e5
   relation: supports
   from: defuse-proposal-furin-site-precedent
-  to: covid-lab-related-origin-plausible
+  to: genomic-anomaly-minority-view
   provenance: []
   author: 171384n
   created: 2026-07-19
@@ -114,6 +114,14 @@
   relation: supports
   from: house-select-subcommittee-2024-partisan-split
   to: covid-lab-related-origin-plausible
+  provenance: []
+  author: 171384n
+  created: 2026-07-19
+
+- id: e16
+  relation: supports
+  from: house-select-subcommittee-2024-partisan-split
+  to: ecohealth-debarment-and-oversight-failures
   provenance: []
   author: 171384n
   created: 2026-07-19

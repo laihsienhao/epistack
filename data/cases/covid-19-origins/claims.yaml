@@ -177,7 +177,7 @@
 
 - id: defuse-proposal-furin-site-precedent
   case: covid-19-origins
-  label: "A 2018 research proposal proposed inserting furin cleavage sites into bat coronaviruses"
+  label: "Furin-cleavage-site insertion into bat coronaviruses was proposed pre-pandemic"
   text: >-
     A 2018 grant proposal ("DEFUSE") submitted to DARPA by EcoHealth
     Alliance, in collaboration with Ralph Baric, Linfa Wang, and Zhengli Shi
@@ -285,7 +285,7 @@
 
 - id: wiv-biosafety-and-illness-reports-2019
   case: covid-19-origins
-  label: "US intelligence reporting describes WIV biosafety issues and researcher illness in 2019"
+  label: "WIV had biosafety issues and researcher illness in 2019"
   text: >-
     A declassified 2023 US intelligence report describes reportedly aging
     equipment and inadequate ventilation/disinfection practices at the
@@ -343,7 +343,7 @@
 
 - id: who-mission-independence-controversy
   case: covid-19-origins
-  label: "The WHO-China joint mission's independence and access have been widely criticized"
+  label: "The WHO-China joint mission lacked genuine independence and access"
   text: >-
     The 2021 WHO-China joint mission, which rated a lab-related incident
     "extremely unlikely," has been criticized for its limited access and
@@ -456,7 +456,7 @@
 
 - id: house-select-subcommittee-2024-partisan-split
   case: covid-19-origins
-  label: "A 2024 congressional investigation split along party lines on COVID-19's origin"
+  label: "Congress split along party lines on COVID-19's origin"
   text: >-
     In December 2024, the Republican-majority staff of the US House Select
     Subcommittee on the Coronavirus Pandemic concluded a lab-related

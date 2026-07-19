@@ -8,9 +8,16 @@ from streamlit_agraph import _agraph as _agraph_component
 from src.crux import compute_cruxes
 from src.loader import Graph, compute_depths, reachable_roots
 
-# Stable widget key for the graph component -- deliberately never changes
-# (see detail_panel.py's dismiss handler for why this matters: it lets us
-# reset the tracked click value without remounting the component).
+# Widget key for the graph component -- stable *within* a case (deliberately
+# never changes across filter/search/zoom/dialog-dismiss reruns for the same
+# case: see detail_panel.py's dismiss handler for why that matters, it lets
+# us reset the tracked click value without remounting the component), but
+# keyed by case id so switching cases *does* remount it. Without that,
+# vis-network's own internal zoom/pan state (tied to the previous case's
+# entirely different layout) carried over onto the newly selected case's
+# layout, which reads as arbitrary/wrong rather than a fresh default view.
+# Found 2026-07-19 per user request that switching cases should reset the
+# view. render_graph() interpolates the actual case id in.
 GRAPH_WIDGET_KEY = "agraph_graph"
 
 # The dataviz skill's validated categorical palette, in its documented fixed
@@ -65,6 +72,10 @@ NON_ROOT_NODE_WIDTH = 140
 
 NODE_GAP = 200
 LEVEL_HEIGHT = 250
+
+CANVAS_WIDTH_REFERENCE = 1400  # matches render_graph's own width= assumption
+CANVAS_MIN_HEIGHT = 450  # floor so a very flat case still keeps some margin
+CANVAS_MAX_HEIGHT = 1000  # ceiling so a very tall/narrow case can't run away
 BLOCK_MARGIN = 100  # small extra buffer between adjacent root blocks, on top of
 # the per-depth neutral clearance _compute_positions already guarantees
 SPLIT_THRESHOLD = 4  # side-groups larger than this split into two stacked rows,
@@ -75,6 +86,24 @@ SPLIT_GAP = NODE_GAP  # vertical gap between a split tier's two rows -- kept
 # sits at the midpoint, closer than NODE_GAP away vertically) comes from
 # horizontal separation instead -- see half_width below, which always
 # reserves that regardless of whether a row is split.
+EDGE_SAFETY_MARGIN = 150  # extra blank world-space reserved beyond each
+# side's outermost row, added to shared_half_width in _compute_positions.
+# Found 2026-07-19 on `covid-19-origins` (the widest case built so far, one
+# side splitting to 7 members): the rendered graph consistently opens
+# shifted ~28px left of true center -- measured identically on `eggs` and
+# `lhc-black-holes` too, so it's a small, constant, pre-existing quirk in how
+# the underlying vis-network component's one-time initial fit() centers
+# itself (not something introduced by any case's data), invisible on
+# narrower graphs that have enough slack to absorb it, but big enough here
+# to clip the outermost node. `autoResize=False` in render_graph() means
+# nothing ever corrects an initial mis-fit afterward (deliberately, so the
+# detail-panel dialog's overlay/hide cycle never resets a user's own
+# zoom/pan), so the fix is a data-side safety margin rather than chasing the
+# vis-network internals -- this pushes both sides' outermost row further
+# from center, which nothing else in the layout depends on (it only ever
+# increases pairwise node distance, never decreases it, so it can't
+# reintroduce overlap; re-run the min-pairwise-distance sanity check anyway
+# after touching this).
 
 QUESTION_WRAP_WIDTH = 36
 QUESTION_FONT_SIZE = 42
@@ -270,7 +299,7 @@ def _compute_positions(
     # re-run the min-pairwise-distance sanity check in CLAUDE.md after
     # touching this function.
     root_x: dict[str, float] = {}
-    shared_half_width = max(half_width.values()) if half_width else 0.0
+    shared_half_width = (max(half_width.values()) if half_width else 0.0) + EDGE_SAFETY_MARGIN
     split_index = (len(roots_sorted) + 1) // 2
     for sign, side_roots in ((-1.0, roots_sorted[:split_index]), (1.0, roots_sorted[split_index:])):
         cursor = 0.0
@@ -475,6 +504,31 @@ def build_elements(
     return nodes, edges
 
 
+def _compute_canvas_height(nodes: list[Node], width_reference: int = CANVAS_WIDTH_REFERENCE) -> int:
+    """A flat `height=800` for every case regardless of content leaves most of
+    the canvas as dead vertical space whenever a case's content is much wider
+    than tall (e.g. `eggs` at ~895/2400 -- roughly a third as tall as wide --
+    inside an 800-tall canvas, which is *taller* in proportion than the
+    content itself needs): vis-network's fit() then has to zoom to the
+    tighter (width) constraint, leaving the excess height empty top and
+    bottom. Found 2026-07-19 per user observation that the canvas wasn't
+    making good use of its vertical space. Instead, size the canvas to the
+    content's own aspect ratio at a fixed reference width (`width` itself is
+    a responsive `"100%"` CSS value by the time this renders, see below, so
+    there's no live pixel width to measure from Python -- this reference is
+    the same assumption the pre-existing `width=1400` default already made).
+    Clamped so neither a very flat case (nearly no vertical padding) nor a
+    very tall/narrow one (a runaway canvas) is possible."""
+    ys = [n.y for n in nodes]
+    xs = [n.x for n in nodes]
+    content_height = max(ys) - min(ys)
+    content_width = max(xs) - min(xs)
+    if content_width <= 0:
+        return CANVAS_MIN_HEIGHT
+    proportional = width_reference * (content_height / content_width)
+    return int(max(CANVAS_MIN_HEIGHT, min(CANVAS_MAX_HEIGHT, proportional)))
+
+
 def render_graph(
     graph: Graph,
     search_query: str = "",
@@ -484,7 +538,7 @@ def render_graph(
 ) -> str | None:
     nodes, edges = build_elements(graph, search_query, show_only_cruxes, topic_filter, dark_mode)
     config = Config(
-        height=800,
+        height=_compute_canvas_height(nodes),
         width=1400,
         directed=True,
         physics=False,
@@ -522,10 +576,12 @@ def render_graph(
     # enough (2800px) to overflow past the page on typical screens.
     config.width = "100%"
     # Calling the raw declared component (rather than streamlit_agraph's own
-    # agraph() wrapper, which doesn't forward key) so we can give it a
-    # stable, explicit key. This keeps the same component instance across
-    # reruns (filters, zoom, etc.) instead of Streamlit's default arg-hash
-    # keying possibly remounting it when the data payload changes shape.
+    # agraph() wrapper, which doesn't forward key) so we can give it an
+    # explicit key. Keyed by case id -- stable across reruns *within* the
+    # same case (filters, zoom, dialog dismiss, etc.), but changes when the
+    # selected case changes, so switching cases remounts the component and
+    # gets a fresh default view instead of inheriting the previous case's
+    # zoom/pan onto a completely different layout.
     data_json = json.dumps({"nodes": [n.to_dict() for n in nodes], "edges": [e.to_dict() for e in edges]})
     config_json = json.dumps(config.__dict__)
-    return _agraph_component(data=data_json, config=config_json, key=GRAPH_WIDGET_KEY)
+    return _agraph_component(data=data_json, config=config_json, key=f"{GRAPH_WIDGET_KEY}_{graph.case_id}")
