@@ -10,12 +10,12 @@ def _render_root_cruxes(graph: Graph) -> None:
     if not crux_map:
         st.info(
             "No cruxes detected for the current root theses. This can mean the case "
-            "hasn't been built out yet — add depends-on edges to mark load-bearing "
-            "claims. It can also be a genuine finding rather than a gap: once a thesis "
+            "hasn't been built out yet: add depends-on edges to mark load-bearing "
+            "claims. It can also be a legitimate finding rather than a gap: once a thesis "
             "rests on several independently-sufficient pillars (e.g. a broad 'eggs are "
             "unhealthy' claim backed by cholesterol, TMAO, diabetes risk, and food-safety "
             "arguments that don't depend on each other), no single sub-question is "
-            "strictly necessary for it anymore — so nothing qualifies as a crux at that "
+            "strictly necessary for it anymore, so nothing qualifies as a crux at that "
             "level, even though narrower sub-arguments inside the tree may still have "
             "their own load-bearing cruxes (see Research priorities below)."
         )
@@ -24,7 +24,7 @@ def _render_root_cruxes(graph: Graph) -> None:
     st.markdown(
         "Claims whose falsification would break a necessary condition for a root "
         "thesis, ranked by how many theses they're load-bearing for. "
-        "Double cruxes are the highest-value entries — settling them would "
+        "Double cruxes are the highest-value entries: settling them would "
         "move more than one school of thought."
     )
 
@@ -47,7 +47,7 @@ def _render_research_priorities(graph: Graph) -> None:
     priorities = research_priorities(graph)
     if not priorities:
         st.info(
-            "No research priorities identified — either nothing is a crux for any root "
+            "No research priorities identified: either nothing is a crux for any root "
             "or synthesizing sub-thesis yet, or every such crux is tagged `contextual` "
             "(an apparent conflict that resolves once a variable is specified, not an "
             "open question)."
@@ -55,13 +55,13 @@ def _render_research_priorities(graph: Graph) -> None:
         return
 
     st.markdown(
-        "Ranked by how many reference points — root theses **and** synthesizing "
+        "Ranked by how many reference points, root theses **and** synthesizing "
         "sub-theses (non-root claims 2+ other claims feed into, so a broadened thesis "
-        "doesn't hide a genuinely load-bearing claim just because it's no longer "
-        "necessary at the top level) — a claim is load-bearing for, then by how much of "
+        "doesn't hide a claim that is still load-bearing just because it's no longer "
+        "necessary at the top level), a claim is load-bearing for, then by how much of "
         "the graph's argument structure routes through them. This is the closest this "
         "tool gets to answering *what's the single most valuable question new research "
-        "could resolve?* Claims tagged `contextual` are excluded — an apparent conflict "
+        "could resolve?* Claims tagged `contextual` are excluded: an apparent conflict "
         "that resolves once a variable is specified isn't an open question, just an "
         "under-scoped one."
     )

@@ -51,9 +51,9 @@ st.markdown(
 
 st.title("Epistemic claim graph")
 st.caption(
-    "Structure layer of the epistemic stack — claims as nodes, \"supports\" and "
-    "\"depends on\" as edges. Hierarchy, sides, and cruxes are all derived from the "
-    "graph, never stored."
+    "Structure layer of the epistemic stack: claims as nodes, relationships (\"supports\" and "
+    "\"depends on\") as edges. Hierarchy, sides, and cruxes are all derived from the "
+    "graph."
 )
 
 cases = list_cases()
@@ -61,11 +61,9 @@ if not cases:
     st.error("No cases found under data/cases/.")
     st.stop()
 
-default_index = cases.index("eggs") if "eggs" in cases else 0
-
 bar = st.columns([1.1, 2, 1.8, 1.2, 1])
 with bar[0]:
-    case_id = st.selectbox("Case", cases, index=default_index)
+    case_id = st.selectbox("Case", cases, index=0)
 
 errors = validate_case(case_id)
 if errors:
@@ -120,7 +118,7 @@ with bar[4]:
         )
         st.markdown("---")
         st.markdown(
-            "**Edges** — thin gray = supports; thick amber = depends-on; "
+            "**Edges**: thin gray = supports; thick amber = depends-on; "
             "dashed = no direct source citation (editorial judgment)."
         )
 

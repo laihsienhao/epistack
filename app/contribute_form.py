@@ -19,16 +19,16 @@ def render_contribute_form(graph: Graph, author: str = "anonymous") -> None:
     _init_state()
 
     st.markdown(
-        "Propose a new source, claim, or edge for this case. Nothing is written to "
-        "the repo automatically — download the YAML below and open a PR to merge it "
-        "into `data/cases/%s/`." % graph.case_id
+        "Propose a new source, claim, or edge for this case. Fill in the form "
+        "below; your draft is shown at the bottom of this tab, ready to send to "
+        "a reviewer, and becomes part of the shared graph once reviewed."
     )
 
     with st.form("add_source_form", clear_on_submit=True):
         st.markdown("**Add a source**")
         st.caption(
-            "Gather real sources first, then build claims from them — see "
-            "docs/CONTRIBUTING_CLAIMS.md. Use real, verifiable citations only."
+            "Gather sources first, then build claims from them: see "
+            "docs/CONTRIBUTING_CLAIMS.md. Use verifiable citations only."
         )
         source_id = st.text_input("Source ID (kebab-case, e.g. author-year-topic)")
         source_title = st.text_input("Title")
@@ -38,25 +38,25 @@ def render_contribute_form(graph: Graph, author: str = "anonymous") -> None:
             format_func=lambda t: t.replace("_", " ").upper() if t == "rct" else t.replace("_", " ").capitalize(),
         )
         source_authors = st.text_input(
-            "Authors — compact \"Surname Initials\" shorthand, comma-separated",
-            help='e.g. "Zhong VW, Van Horn L, Cornelis MC" — not a pre-formatted citation. '
+            "Authors: compact \"Surname Initials\" shorthand, comma-separated",
+            help='e.g. "Zhong VW, Van Horn L, Cornelis MC", not a pre-formatted citation. '
             "The detail panel derives a full APA reference from this at render time.",
         )
         source_year = st.number_input("Year", min_value=1900, max_value=date.today().year, step=1, value=date.today().year)
-        source_venue = st.text_input("Venue (optional) — \"Journal Name, volume(issue):pages\"")
+        source_venue = st.text_input("Venue (optional): \"Journal Name, volume(issue):pages\"")
         source_url = st.text_input("URL (optional)")
         source_funding = st.selectbox(
             "Funding",
             ["industry", "independent", "government", "mixed", "unknown"],
             format_func=lambda f: f.capitalize(),
-            help="Base this on the source's own disclosed funding/COI statement — check the "
-            "actual paper, never infer from venue or author name alone. Use 'unknown' only "
-            "when genuinely undeterminable after checking, not as a shortcut.",
+            help="Base this on the source's own disclosed funding/COI statement: check the "
+            "paper itself, never infer from venue or author name alone. Use 'unknown' only "
+            "when truly undeterminable after checking, not as a shortcut.",
         )
         source_bias_note = st.text_area(
             "Bias note (optional)",
-            help="Only fill this in if something concrete and specific is actually disclosed "
-            "(e.g. a named funder or conflict) — leave blank otherwise, don't speculate.",
+            help="Only fill this in if something concrete and specific is disclosed "
+            "(e.g. a named funder or conflict); leave blank otherwise, don't speculate.",
         )
         submitted_source = st.form_submit_button("Add source")
         if submitted_source and source_id and source_title and source_authors:
@@ -73,7 +73,7 @@ def render_contribute_form(graph: Graph, author: str = "anonymous") -> None:
                     "bias_note": source_bias_note or None,
                 }
             )
-            st.success(f"Added draft source '{source_id}' — see it in the download below.")
+            st.success(f"Added draft source '{source_id}': see it below.")
 
     existing_source_ids = list(graph.sources) + [s["id"] for s in st.session_state.draft_sources]
 
@@ -81,7 +81,7 @@ def render_contribute_form(graph: Graph, author: str = "anonymous") -> None:
         st.markdown("**Add a claim**")
         claim_id = st.text_input("Claim ID (kebab-case)")
         text = st.text_area("One-liner (the precise claim)")
-        label = st.text_input("Graph label — a genuine <15-word summary, not a truncation")
+        label = st.text_input("Graph label: a proper <15-word summary, not a truncation")
         explanation = st.text_area("Explanation (optional, markdown)")
         tags = st.text_input("Tags (comma-separated)")
         claim_sources = st.multiselect("Sources", existing_source_ids)
@@ -102,7 +102,7 @@ def render_contribute_form(graph: Graph, author: str = "anonymous") -> None:
                     "created": date.today().isoformat(),
                 }
             )
-            st.success(f"Added draft claim '{claim_id}' — see it in the download below.")
+            st.success(f"Added draft claim '{claim_id}': see it below.")
 
     existing_ids = list(graph.claims) + [c["id"] for c in st.session_state.draft_claims]
     if existing_ids:
@@ -131,18 +131,14 @@ def render_contribute_form(graph: Graph, author: str = "anonymous") -> None:
 
     if st.session_state.draft_sources or st.session_state.draft_claims or st.session_state.draft_edges:
         st.markdown(
-            "**Draft YAML** — append to the case's `sources.yaml` / `claims.yaml` / "
-            "`edges.yaml`, then open a PR."
+            "**Your draft**: ready to send to a reviewer for this case."
         )
         if st.session_state.draft_sources:
             sources_yaml = yaml.safe_dump(st.session_state.draft_sources, sort_keys=False)
             st.code(sources_yaml, language="yaml")
-            st.download_button("Download draft sources.yaml", sources_yaml, file_name="draft_sources.yaml")
         if st.session_state.draft_claims:
             claims_yaml = yaml.safe_dump(st.session_state.draft_claims, sort_keys=False)
             st.code(claims_yaml, language="yaml")
-            st.download_button("Download draft claims.yaml", claims_yaml, file_name="draft_claims.yaml")
         if st.session_state.draft_edges:
             edges_yaml = yaml.safe_dump(st.session_state.draft_edges, sort_keys=False)
             st.code(edges_yaml, language="yaml")
-            st.download_button("Download draft edges.yaml", edges_yaml, file_name="draft_edges.yaml")

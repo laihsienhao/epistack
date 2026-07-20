@@ -115,7 +115,7 @@ def _render_source_card(source: Source) -> None:
     # reads as annotation *about* the citation rather than competing on equal
     # visual footing with the citation itself.
     with st.container(border=True):
-        st.markdown(f"**{source.year} — {source.title}**")
+        st.markdown(f"**{source.year}: {source.title}**")
         badges = [_TYPE_LABELS.get(source.type, source.type), _FUNDING_LABELS.get(source.funding, source.funding)]
         st.caption(" · ".join(badges))
         st.markdown(_format_citation_apa(source))
@@ -202,7 +202,7 @@ def _render_body(graph: Graph, claim_id: str) -> None:
                 names = ", ".join(s.title() for s in surnames)
                 st.info(
                     f"“{a.title}” and “{b.title}” list author surname(s) in "
-                    f"common ({names}) — worth checking whether this is independent "
+                    f"common ({names}); worth checking whether this is independent "
                     "corroboration or the same research group before treating them as two."
                 )
             for source in sources:
