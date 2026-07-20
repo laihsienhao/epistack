@@ -2,5 +2,4 @@ streamlit
 streamlit-agraph
 pydantic
 pyyaml
-pandas
 pytest

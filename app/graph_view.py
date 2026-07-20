@@ -30,10 +30,14 @@ CATEGORICAL_HUES = ["#2a78d6", "#008300", "#e87ba4", "#eda100", "#1baf7a", "#eb6
 # Off the palette's stock blue/red entirely -- both the original saturated
 # primary pair (clashing crayon-box look) and a muted navy/terracotta pass
 # (read as flat and lifeless) missed the mark against the app's cream
-# background. Indigo/coral is a warm/cool jewel-tone pair instead: saturated
+# background. Indigo/red is a warm/cool jewel-tone pair instead: saturated
 # enough to stay lively, still two clearly distinct, non-red-green hues
 # (colorblind safe), and clear of the amber/near-black crux border colors.
-DIVERGING_PAIR = ("#4b4a8f", "#e0724f")  # indigo, coral
+# The warm hue was nudged from an original coral (#e0724f) to a fuller red
+# (#e04f4f) so it reads as clearly distinct from Claude's own brand color,
+# which sits in the coral/orange range this project's original pick was
+# close to.
+DIVERGING_PAIR = ("#4b4a8f", "#e04f4f")  # indigo, red
 
 # Non-root claims tint their side's hue toward this instead of pure white, so
 # the lightened fills read as warm paper tones consistent with the page

@@ -1,28 +1,48 @@
 # Contributing to a claim graph
 
-This project's real deliverable is the data under `data/cases/`, not just the app:
-the goal is a compounding artifact that other people can extend. This document
-covers how to add to an existing case, or start a new one.
+This project treats each case as a shared, living graph, closer to a Wikipedia
+article than a codebase: the goal is a compounding artifact that anyone can
+extend, not a private dataset. Contributing does not require cloning a
+repository, installing anything, or writing YAML by hand. It happens directly
+on the platform. This document covers how to add to an existing case, or
+propose a new one, and is the content-quality reference for stage 4 (claim and
+edge authoring) of the workflow described in
+[`docs/METHODOLOGY.md`](METHODOLOGY.md), whether that stage is carried out by
+a contributor directly or with AI assistance.
 
-## Adding a claim or edge to an existing case
+## Adding a claim, edge, or source to an existing case
 
-The easiest path is to run the app (`streamlit run app/app.py`), open the
-**Contribute** tab for the case, fill in the form, and download the generated YAML
-snippet. Then:
+Open the case on the platform, go to the **Contribute** tab, and fill in the
+form for whatever you are adding, a claim, an edge, or a source. Submit it
+from there; there is no file to download, edit, or upload.
 
-1. Open `data/cases/<case_id>/claims.yaml` (or `edges.yaml`) and paste the new
-   entry in, keeping the existing entries untouched.
-2. Run `python -m src.main validate <case_id>` and fix anything it flags.
-3. Open a pull request.
+Your submission is queued for review before it becomes part of the shared
+graph, the same review a claim, edge, or source has always gone through in
+this project (see `docs/METHODOLOGY.md`'s workflow, stage 4, and the
+governance discussion under Scalability). A reviewer checks it against the
+guidance in this document, principally whether `supports` versus `depends_on`
+was judged correctly, since that is what the rest of the graph's structure is
+computed from, and whether a `contested`/`contextual` tag and funding
+classification are backed by something real rather than asserted. Once
+reviewed, your contribution is merged into the case and immediately visible
+to every reader.
 
-You can also edit the YAML files directly. They are plain, human-readable YAML,
-and no tooling is required.
+Structural checks (schema conformance, referential integrity, no cycles) run
+automatically before anything goes live, the same
+`python -m src.main validate <case_id>` check described in
+`docs/METHODOLOGY.md`, so a submission cannot silently corrupt the graph's
+hierarchy even before a human reviewer looks at its content.
 
 ## Schema at a glance
 
+The fields below are what the Contribute form's inputs map to; contributing
+through the platform never requires writing or editing them directly, but
+knowing what each one means is what separates a well-formed submission from
+one a reviewer has to send back.
+
 **Case** (`schema/case.schema.json`, `case.yaml`): just `question`, the neutral
-problem the case explores, not a position on it. See "Starting a new case study"
-below for authoring guidance.
+problem the case explores, not a position on it. See "Proposing a new case
+study" below for authoring guidance.
 
 **Claim** (`schema/claim.schema.json`): `id`, `case`, `text` (the precise claim
 statement, shown in the detail panel and cruxes list, which can be as long as it
@@ -209,20 +229,27 @@ against an existing root, either:
   trees; it will automatically render as a shared ground truth, and, if it is an
   open question rather than a settled fact, potentially a double crux.
 
-## Starting a new case study
+## Proposing a new case study
 
-1. Create `data/cases/<case_id>/` with `case.yaml`, `claims.yaml`, `edges.yaml`,
-   and `sources.yaml`.
-2. Write `case.yaml`'s `question`, the neutral problem the case explores (for
-   example, "What are the health impacts of eggs as a human food source?"), not a
-   position on it. This is authored, not derived: unlike hierarchy, cruxes, or
-   topic coverage, there is no mechanical way to produce the shared question from
-   the root claims themselves, since a root is one side's answer, not the
-   question both sides are answering.
-3. Identify the competing root claims (schools of thought) for the topic.
-4. Gather real sources first (`sources.yaml`), then build claims and edges from
-   them.
-5. Run `python -m src.main validate <case_id>` until it reports clean.
+Propose a new case from the platform the same way you would add to an existing
+one, no separate setup step.
 
-No application code changes are needed. The case selector in `app/app.py` picks
-up any directory under `data/cases/` automatically.
+1. State the case's neutral framing question, the shared problem both sides
+   are answering (for example, "What are the health impacts of eggs as a human
+   food source?"), not a position on it. This is authored, not derived: unlike
+   hierarchy, cruxes, or topic coverage, there is no mechanical way to produce
+   the shared question from the root claims themselves, since a root is one
+   side's answer, not the question both sides are answering.
+2. Identify the competing root claims (schools of thought) for the topic.
+3. Submit real sources first, then build claims and edges from them, through
+   the same Contribute flow as adding to an existing case.
+4. The same automated structural check and review step described above apply
+   before the new case appears alongside the others.
+
+No application code changes are needed for a new case to appear once it is
+approved: the case selector picks up any case in the shared graph
+automatically, the same way it already does for `eggs`, `lhc-black-holes`,
+`covid-19-origins`, and `toy`. Under the hood, a case is stored as
+`case.yaml` / `claims.yaml` / `edges.yaml` / `sources.yaml`, plain YAML
+matching the schema in `schema/*.schema.json`, though contributing to it never
+requires touching those files directly.

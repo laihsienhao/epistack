@@ -6,7 +6,7 @@ TOPIC_PREFIX = "topic:"
 
 # Known acronyms that shouldn't just be title-cased like an ordinary word,
 # shared by every UI surface that renders a topic tag as a readable label.
-_TOPIC_ACRONYMS = {"tmao", "t2d"}
+_TOPIC_ACRONYMS = {"tmao", "t2d", "nafld", "who", "wiv"}
 
 
 def topic_label(tag: str) -> str:

@@ -3,12 +3,13 @@
 This is supporting material for judges of the Future of Life Foundation's Epistemic
 Case Study Competition. It covers two things: the workflow used to build every
 claim, edge, and source in this repository, and how that workflow and the
-resulting tool relate to the competition's judging criteria, including where the
-methodology is currently uncertain or incomplete. For the mapping of specific
+resulting claim graph relate to the competition's judging criteria, including
+where the methodology is currently uncertain or incomplete. Together, the graph
+and the workflow are referred to as the framework. For the mapping of specific
 features onto the competition's Ingestion / Structure / Assessment taxonomy, see
 [`README.md`](../README.md#where-this-fits-in-the-stack).
 
-## The claim-construction pipeline
+## The Workflow
 
 Every claim, edge, and source in this repository was built through the same
 six-stage workflow. Writing it down here makes it something a reader could
@@ -56,14 +57,27 @@ back into one dataset. Stage 4, claim and edge authoring, including the
 curating, with no automated check afterward. The full decision procedure behind
 stages 2 through 4 is set out below.
 
-## Decision procedures: how each judgment call feeds the graph model
+A modified version of this same workflow also covers how the graph is updated
+after initial construction, and splits into two modes. **Manual entry**:
+a contributor follows stages 2 through 5 by hand (or with the Contribute tab's
+form), starting from a source they already have rather than stage 1's
+AI-driven discovery; this is how the graph can be extended with no AI
+involvement at all, the same way Wikipedia's own contribution model needs
+none. **AI-assisted updating**: an agent periodically runs stage 1 against
+new publications on a case's existing sub-questions, proposes claims or edges
+through stages 2 through 4, and a separate agent re-runs stage 6 before a
+human merges the change. Only the first mode is implemented today; the second
+is a natural extension of the same workflow, not a different one, and is
+named again under Scalability below.
 
-The pipeline above names four points where a human, or an AI assistant, makes a
+## Decision procedures: how each judgment call feeds the graph
+
+The workflow above names four points where a human, or an AI assistant, makes a
 judgment call rather than following a mechanical check. None of these need to
 be built as running code to be formalized: each can be written down as an
 explicit decision procedure, precise enough that a different person, or a
 different model, applying it to the same source material should reach the same
-label most of the time. The graph model only ever sees the output of these
+label most of the time. The graph only ever sees the output of these
 procedures, not the reasoning behind them, so the procedures are the actual
 point of leverage over what the graph ends up saying.
 
@@ -130,7 +144,7 @@ built on top of it.
    with exactly one incoming edge should almost always have that edge as
    `depends_on`, since nothing else could be doing the work of holding it up.
 
-### Where these four procedures meet the graph model
+### Where these four procedures meet the graph
 
 `src/crux.py`'s `compute_cruxes_for` and `src/research_priorities.py`'s ranking
 never look at a source, a funding note, or a tag directly; they only ever
@@ -157,13 +171,13 @@ of task: read the evidence, apply a fixed test, output a label.
 ### Generalizability
 
 The schema (`case.yaml` / `claims.yaml` / `edges.yaml` / `sources.yaml`) and the
-pipeline above have no case-specific logic anywhere in `src/` or `app/`. All
+workflow above have no case-specific logic anywhere in `src/` or `app/`. All
 three of the competition's official case studies, `eggs`, `lhc-black-holes`, and
 `covid-19-origins`, are built on this schema, and each spans a different shape:
 mundane-but-contested, confident-answer-with-complex-evidence, and curated
 debate respectively. Adding each case required only new YAML files under
 `data/cases/<case_id>/`, with no changes to `src/` or `app/`. `toy` is a fourth,
-synthetic case used to exercise the pipeline's mechanics; it is not one of the
+synthetic case used to exercise the workflow's mechanics; it is not one of the
 three official cases.
 
 Modeling every case with the same two-or-more-roots primitive has a real limit
@@ -203,7 +217,7 @@ funding or conflict-of-interest statement. A citation-verification pass on the
 author list that turned out, on verification against PubMed, Crossref, and
 Semantic Scholar, to be a single-author paper by a different scientist. The
 citation was corrected before it reached the graph. The same fetch-verify-
-structure pipeline gets cheaper and more accurate as the underlying model
+structure workflow gets cheaper and more accurate as the underlying model
 improves, with no code changes required.
 
 More compute or scrutiny improves existing checks without changing their shape.
@@ -225,22 +239,32 @@ depends on; an agent applying that procedure to a claim's sources could flag
 disagreements with the existing label for review, the same auditor role
 described there.
 
-#### Governance models for scaling contribution
+The AI-assisted updating mode described under "The Workflow" above, an agent
+periodically proposing new claims or edges from newly published sources, is the
+same scaling argument applied to keeping a case current rather than only to
+building it the first time. It is designed, not built, for the same reason the
+edge-labeling auditor is not: this round of work prioritized building and
+verifying three real cases over building the automation to maintain them.
+
+#### Governance approaches for scaling contribution
 
 How contribution scales matters as much as the schema itself, since the data
-under `data/cases/` is the deliverable. Today, the project runs an informal,
-ungated process: anyone can open a pull request against `data/cases/`, and there
-is no documented review gate. The comparison below weighs two ways this could be
-formalized against this project's specific attack surface (mislabeled
-`supports`/`depends_on` edges, ungrounded `topic:` tags, unverified `funding`
-classifications).
+under `data/cases/` is the deliverable. This project has not yet deployed a
+live, multi-contributor version of the platform: today, a single author has
+been both contributor and reviewer for all four cases, the same limitation
+named under Adversarial robustness above. The comparison below weighs two
+ways contribution could be governed once it is deployed, against this
+project's specific attack surface (mislabeled `supports`/`depends_on` edges,
+ungrounded `topic:` tags, unverified `funding` classifications). Neither is a
+decision this document is making in advance.
 
 **Wikipedia-style: open, ungated editing.**
 - For: scales directly with the number of contributors and with available
-  compute, since an AI-assisted contributor can propose claims, edges, and
-  sources at whatever rate review capacity allows, so no single reviewer caps
-  throughput. Motivated errors are, in principle, correctable by anyone who
-  notices them, given enough eyes and revision history.
+  compute, since a contributor can submit claims, edges, and sources through
+  the Contribute tab (see `docs/CONTRIBUTING_CLAIMS.md`) at whatever rate
+  review capacity allows, so no single reviewer caps throughput. Motivated
+  errors are, in principle, correctable by anyone who notices them, given
+  enough eyes and revision history.
 - Against: "enough eyes" assumes a level of traffic none of the current cases
   have. A low-traffic case does not have Wikipedia's editor density, so a
   mistaken or bad-faith edge, tag, or funding note could sit uncorrected for a
@@ -258,15 +282,15 @@ classifications).
   capability, and a single reviewer's blind spots become the project's blind
   spots.
 
-Neither model is implemented today. A hybrid, with review scaled to a change's
-blast radius so root theses and crux-adjacent edges get more scrutiny than a new
-source's metadata, is a reasonable next step but is not this document's call to
-make on behalf of whoever takes the project past its current single-author
-stage.
+Neither approach is implemented today. A hybrid, open submission through the
+Contribute tab with review scaled to a change's blast radius so root theses
+and crux-adjacent edges get more scrutiny than a new source's metadata, is a
+reasonable next step but is not this document's call to make on behalf of
+whoever takes the project past its current single-author stage.
 
 ### Methodological transparency
 
-The pipeline above names its decision points directly: stage 2's rule for
+The workflow above names its decision points directly: stage 2's rule for
 unverifiable sources, stage 3's `unknown`-funding rule, stage 4's
 `supports`/`depends_on` judgment. "Decision procedures" above turns each of
 those into an explicit, ordered test rather than leaving them as a general
@@ -293,24 +317,29 @@ does not exist.
 ### Adversarial robustness
 
 The citation-verification catch described under Scalability was caught by stage
-6 of the pipeline (the derived-view sanity check), not by re-reading source
+6 of the workflow (the derived-view sanity check), not by re-reading source
 code. The same stage caught an earlier version of the shared-authorship checker
 flagging two different scientists named "Zhao" as the same person by matching on
 surname alone; the false positive was caught by checking the two sources'
 actual, differing initials, and fixed by requiring surname-and-initials
-compatibility.
+compatibility. Separately, an early funding-verification pass produced a
+plausible-looking acknowledgments excerpt for one paper that turned out to be
+copied from an unrelated page; this was caught by re-extracting the actual
+document text rather than trusting a first-pass search result, the same stage-6
+discipline.
 
 The methodology has real, unaddressed exposure alongside those catches. Crux
 detection, one of the most load-bearing outputs of this tool, rests entirely on
 one distinction, `supports` versus `depends_on` (`src/crux.py`), decided by the
 procedure set out above, with no automated check that a given edge follows it,
-only human review at pull-request time. A single mislabeled edge can manufacture a crux that should
-not exist, overstating how load-bearing a claim is, or hide a real one,
-understating it. `src/research_priorities.py`'s ranking, which reference points
-a claim is load-bearing for and how much of the graph's structure routes through
-it, is built on this same edge labeling, so a mislabeled `depends_on` edge
-distorts research-priority ranking as well as crux detection, potentially
-pointing a reader at the wrong open question as highest-impact.
+only human review at submission time. A single mislabeled edge can manufacture
+a crux that should not exist, overstating how load-bearing a claim is, or hide a
+real one, understating it. `src/research_priorities.py`'s ranking, which
+reference points a claim is load-bearing for and how much of the graph's
+structure routes through it, is built on this same edge labeling, so a
+mislabeled `depends_on` edge distorts research-priority ranking as well as crux
+detection, potentially pointing a reader at the wrong open question as
+highest-impact.
 
 The Coverage tab (`src/discourse.py`, `app/discourse_panel.py`) is gameable at
 the tagging layer it depends on. It surfaces which side engages with which
