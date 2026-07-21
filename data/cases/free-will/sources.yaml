@@ -1,0 +1,277 @@
+# --- Incompatibilism / libertarian free will ---
+
+- id: van-inwagen-1983-essay
+  type: other
+  title: "An Essay on Free Will"
+  authors: "van Inwagen P"
+  year: 1983
+  venue: "Oxford University Press (Clarendon Press)"
+  url: "https://philpapers.org/rec/VANAEO"
+  funding: unknown
+  bias_note: "Academic monograph; no funding-disclosure norm existed for philosophy books of this era."
+
+- id: vihvelin-sep-incompatibilism
+  type: review
+  title: "Arguments for Incompatibilism"
+  authors: "Vihvelin K"
+  year: 2022
+  venue: "Stanford Encyclopedia of Philosophy"
+  url: "https://plato.stanford.edu/entries/incompatibilism-arguments/"
+  funding: unknown
+  bias_note: "Stanford Encyclopedia of Philosophy entries carry no per-article funding disclosure; the encyclopedia itself is funded via library subscriptions and foundation grants, not per-entry."
+
+- id: oconnor-2000-persons-causes
+  type: other
+  title: "Persons and Causes: The Metaphysics of Free Will"
+  authors: "O'Connor T"
+  year: 2000
+  venue: "Oxford University Press"
+  url: "https://global.oup.com/academic/product/9780195133080"
+  funding: unknown
+
+- id: kane-1996-significance
+  type: other
+  title: "The Significance of Free Will"
+  authors: "Kane R"
+  year: 1996
+  venue: "Oxford University Press"
+  url: "https://global.oup.com/academic/product/the-significance-of-free-will-9780195105506"
+  funding: unknown
+
+- id: mele-2006-free-will-luck
+  type: other
+  title: "Free Will and Luck"
+  authors: "Mele AR"
+  year: 2006
+  venue: "Oxford University Press"
+  url: "https://academic.oup.com/book/2891"
+  funding: unknown
+  bias_note: "Predates Mele's later John Templeton Foundation-funded free-will research program; this book itself carries no funding disclosure."
+
+- id: bourget-chalmers-2023-philpapers
+  type: other
+  title: "Philosophers on Philosophy: The 2020 PhilPapers Survey"
+  authors: "Bourget D, Chalmers DJ"
+  year: 2023
+  venue: "Philosophers' Imprint, 23(11)"
+  url: "https://philarchive.org/rec/BOUPOP-3"
+  funding: unknown
+  bias_note: "Reported percentages (compatibilism 59.16%, libertarianism 18.83%, no free will 11.21%) are corroborated across two independent secondary aggregations of the survey's results; the primary interactive results page and journal PDF returned access errors on direct fetch, so these figures were not independently re-derived from the raw data table."
+
+# --- Compatibilism ---
+
+- id: frankfurt-1971-freedom-of-will
+  type: other
+  title: "Freedom of the Will and the Concept of a Person"
+  authors: "Frankfurt HG"
+  year: 1971
+  venue: "The Journal of Philosophy, 68(1):5-20"
+  url: "https://philpapers.org/rec/FRAFOT"
+  funding: unknown
+
+- id: frankfurt-1969-alternate-possibilities
+  type: other
+  title: "Alternate Possibilities and Moral Responsibility"
+  authors: "Frankfurt HG"
+  year: 1969
+  venue: "The Journal of Philosophy, 66(23):829-839"
+  url: "https://www.pdcnet.org/jphil/content/jphil_1969_0066_0023_0829_0839"
+  funding: unknown
+
+- id: widerker-1995-dilemma-defense
+  type: other
+  title: "Libertarianism and Frankfurt's Attack on the Principle of Alternate Possibilities"
+  authors: "Widerker D"
+  year: 1995
+  venue: "The Philosophical Review, 104(2):247-261"
+  url: "https://doi.org/10.2307/2185979"
+  funding: unknown
+
+- id: fischer-ravizza-1998-responsibility-control
+  type: other
+  title: "Responsibility and Control: A Theory of Moral Responsibility"
+  authors: "Fischer JM, Ravizza M"
+  year: 1998
+  venue: "Cambridge University Press"
+  url: "https://www.cambridge.org/us/universitypress/subjects/philosophy/political-philosophy/responsibility-and-control-theory-moral-responsibility"
+  funding: unknown
+
+- id: nahmias-2005-surveying-freedom
+  type: other
+  title: "Surveying Freedom: Folk Intuitions about Free Will and Moral Responsibility"
+  authors: "Nahmias E, Morris S, Nadelhoffer T, Turner J"
+  year: 2005
+  venue: "Philosophical Psychology, 18(5):561-584"
+  url: "https://doi.org/10.1080/09515080500264180"
+  funding: unknown
+  bias_note: "Acknowledgments thank colleagues for feedback but state no grant or sponsor; absence of a funding line was confirmed, not the absence of funding itself."
+
+# --- No free will / hard incompatibilism ---
+
+- id: strawson-1994-basic-argument
+  type: other
+  title: "The Impossibility of Moral Responsibility"
+  authors: "Strawson G"
+  year: 1994
+  venue: "Philosophical Studies, 75(1-2):5-24"
+  url: "https://doi.org/10.1007/BF00989879"
+  funding: unknown
+
+- id: pereboom-2001-living-without-free-will
+  type: other
+  title: "Living Without Free Will"
+  authors: "Pereboom D"
+  year: 2001
+  venue: "Cambridge University Press"
+  url: "https://www.cambridge.org/core/books/living-without-free-will/6A4A6C531D58B61C53F6AE4D1A9FD74A"
+  funding: unknown
+
+- id: pereboom-2014-free-will-agency-meaning
+  type: other
+  title: "Free Will, Agency, and Meaning in Life"
+  authors: "Pereboom D"
+  year: 2014
+  venue: "Oxford University Press"
+  url: "https://global.oup.com/academic/product/9780199685516"
+  funding: unknown
+
+- id: sapolsky-2023-determined
+  type: other
+  title: "Determined: A Science of Life Without Free Will"
+  authors: "Sapolsky RM"
+  year: 2023
+  venue: "Penguin Press"
+  url: "https://ndpr.nd.edu/reviews/determined-a-science-of-life-without-free-will/"
+  funding: unknown
+  bias_note: "Popular-science trade book by a working neurobiologist, not a peer-reviewed monograph."
+
+- id: harris-2012-free-will
+  type: other
+  title: "Free Will"
+  authors: "Harris S"
+  year: 2012
+  venue: "Free Press"
+  url: "https://www.samharris.org/books/free-will"
+  funding: unknown
+  bias_note: "Popular-level trade essay, not a peer-reviewed academic work."
+
+# --- Neuroscience of volition ---
+
+- id: libet-1983-readiness-potential
+  type: other
+  title: "Time of Conscious Intention to Act in Relation to Onset of Cerebral Activity (Readiness-Potential): The Unconscious Initiation of a Freely Voluntary Act"
+  authors: "Libet B, Gleason CA, Wright EW, Pearl DK"
+  year: 1983
+  venue: "Brain, 106(3):623-642"
+  url: "https://doi.org/10.1093/brain/106.3.623"
+  funding: unknown
+  bias_note: "Funding/acknowledgments section could not be accessed (paywalled, no working mirror found); not guessed."
+
+- id: soon-2008-unconscious-determinants
+  type: other
+  title: "Unconscious Determinants of Free Decisions in the Human Brain"
+  authors: "Soon CS, Brass M, Heinze HJ, Haynes JD"
+  year: 2008
+  venue: "Nature Neuroscience, 11:543-545"
+  url: "https://doi.org/10.1038/nn.2112"
+  funding: government
+  bias_note: "Max Planck Society and German Federal Ministry of Education and Research (BMBF), per institutional press materials; no industry ties found."
+
+- id: schurger-2012-accumulator-model
+  type: other
+  title: "An Accumulator Model for Spontaneous Neural Activity Prior to Self-Initiated Movement"
+  authors: "Schurger A, Sitt JD, Dehaene S"
+  year: 2012
+  venue: "Proceedings of the National Academy of Sciences, 109(42):E2904-E2913"
+  url: "https://doi.org/10.1073/pnas.1210467109"
+  funding: mixed
+  bias_note: "Marie Curie postdoctoral fellowship (European Commission); NeuroSpin MEG facility funded by INSERM and CEA (French government); additional support from the Fondation pour la Recherche Médicale and the Bettencourt-Schueller Foundation (private foundations) and the Région Île-de-France. No conflict of interest declared."
+
+- id: travers-2020-readiness-potentials-all-the-time
+  type: other
+  title: "Do Readiness Potentials Happen All the Time?"
+  authors: "Travers E, Khalighinejad N, Schurger A, Haggard P"
+  year: 2020
+  venue: "NeuroImage, 206:116286"
+  url: "https://doi.org/10.1016/j.neuroimage.2019.116286"
+  funding: unknown
+  bias_note: "Acknowledgments section could not be accessed directly; not guessed from adjacent papers by the same lab."
+
+- id: schlegel-2013-barking-up-wrong-free
+  type: other
+  title: "Barking Up the Wrong Free: Readiness Potentials Reflect Processes Independent of Conscious Will"
+  authors: "Schlegel A, Alexander P, Sinnott-Armstrong W, Roskies AL, Tse P, Wheatley T"
+  year: 2013
+  venue: "Experimental Brain Research, 229:329-335"
+  url: "https://doi.org/10.1007/s00221-013-3479-3"
+  funding: mixed
+  bias_note: "Funded through Alfred Mele's John Templeton Foundation-funded 'Big Questions in Free Will' project (2010-2013). The Foundation has a specific philosophical/religion-friendly orientation on free-will topics; disclosed here as a funding relationship, not as evidence of distorted conclusions."
+
+- id: mele-2008-testing-free-will
+  type: other
+  title: "Testing Free Will"
+  authors: "Mele AR"
+  year: 2008
+  venue: "Neuroethics, 3(2):161-172"
+  url: "https://doi.org/10.1007/s12152-008-9027-3"
+  funding: unknown
+  bias_note: "Funding/acknowledgments for this specific article could not be accessed; Mele's broader free-will research program is separately, heavily Templeton-funded (see mele-2014-free-book), but that is not asserted for this article without direct confirmation."
+
+- id: mele-2014-free-book
+  type: other
+  title: "Free: Why Science Hasn't Disproved Free Will"
+  authors: "Mele AR"
+  year: 2014
+  venue: "Oxford University Press"
+  url: "https://global.oup.com/academic/product/free-9780199371624"
+  funding: mixed
+  bias_note: "Written under Mele's approximately $4.4M John Templeton Foundation grant ('Free Will: Empirical and Philosophical Investigations'), openly disclosed by the author. The Foundation has a specific philosophical/religion-friendly orientation on free-will topics."
+
+- id: brass-furstenberg-mele-2019-neuroscience-does-not-disprove
+  type: review
+  title: "Why Neuroscience Does Not Disprove Free Will"
+  authors: "Brass M, Furstenberg A, Mele AR"
+  year: 2019
+  venue: "Neuroscience & Biobehavioral Reviews, 102:251-263"
+  url: "https://doi.org/10.1016/j.neubiorev.2019.04.024"
+  funding: unknown
+  bias_note: "Co-authored by Marcel Brass, a co-author of the original 2008 Soon et al. fMRI study, arguing against over-interpreting that study's own findings. Funding/acknowledgments could not be directly accessed."
+
+# --- Psychology of free-will belief ---
+
+- id: vohs-schooler-2008-value-of-believing
+  type: other
+  title: "The Value of Believing in Free Will: Encouraging a Belief in Determinism Increases Cheating"
+  authors: "Vohs KD, Schooler JW"
+  year: 2008
+  venue: "Psychological Science, 19(1):49-54"
+  url: "https://doi.org/10.1111/j.1467-9280.2008.02045.x"
+  funding: government
+  bias_note: "Canada Research Chair program, Social Sciences and Humanities Research Council of Canada (SSHRC), and Natural Sciences and Engineering Research Council of Canada (NSERC) for Schooler; McKnight Land-Grant Professorship (University of Minnesota) for Vohs."
+
+- id: embley-2015-replication
+  type: other
+  title: "Replication of Vohs and Schooler (2008), Experiment 1"
+  authors: "Embley J, Johnson LG, Giner-Sorolla R"
+  year: 2015
+  venue: "Registered Replication Report, Open Science Collaboration"
+  url: "https://osf.io/uwt5f"
+  funding: unknown
+
+- id: buttrick-2020-many-labs-5
+  type: meta_analysis
+  title: "Many Labs 5: Registered Replication of Vohs and Schooler (2008), Experiment 1"
+  authors: "Buttrick N, Aczel B, et al."
+  year: 2020
+  venue: "Advances in Methods and Practices in Psychological Science"
+  url: "https://doi.org/10.1177/2515245920917931"
+  funding: unknown
+
+- id: genschow-2023-meta-analysis-belief-manipulation
+  type: meta_analysis
+  title: "Manipulating Belief in Free Will and Its Downstream Consequences: A Meta-Analysis"
+  authors: "Genschow O, Cracco E, Schneider J, Protzko J, Wisniewski D, Brass M, Schooler JW"
+  year: 2023
+  venue: "Personality and Social Psychology Review, 27(1):52-82"
+  url: "https://doi.org/10.1177/10888683221087527"
+  funding: unknown

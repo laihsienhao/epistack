@@ -80,7 +80,7 @@ LEVEL_HEIGHT = 250
 CANVAS_WIDTH_REFERENCE = 1400  # matches render_graph's own width= assumption
 CANVAS_MIN_HEIGHT = 450  # floor so a very flat case still keeps some margin
 CANVAS_MAX_HEIGHT = 1000  # ceiling so a very tall/narrow case can't run away
-BLOCK_MARGIN = 100  # small extra buffer between adjacent root blocks, on top of
+BLOCK_MARGIN = 60  # small extra buffer between adjacent root blocks, on top of
 # the per-depth neutral clearance _compute_positions already guarantees
 SPLIT_THRESHOLD = 4  # side-groups larger than this split into two stacked rows,
 # to keep any one tier from stretching too wide
@@ -106,15 +106,15 @@ SPLIT_GAP = NODE_GAP  # vertical gap between a split tier's two rows -- kept
 # invariant, not extra padding) is what still guarantees no node overlap.
 
 QUESTION_WRAP_WIDTH = 36
-QUESTION_FONT_SIZE = 42
-QUESTION_LINE_HEIGHT = 50  # approx pixel-equivalent height of one wrapped
+QUESTION_FONT_SIZE = 52
+QUESTION_LINE_HEIGHT = 62  # approx pixel-equivalent height of one wrapped
 # question line at QUESTION_FONT_SIZE (world units == screen px at zoom 1,
 # same space widthConstraint/NODE_GAP already use) -- needed because a
 # longer question can wrap to 3+ lines instead of 2, and a *fixed* y-offset
 # (an earlier version of this) doesn't grow with line count, so a longer
 # question's text block can reach down far enough to overlap the roots'
 # top edge (found on the `toy` case, whose question wraps to 3 lines).
-QUESTION_MIN_GAP = 40  # clearance kept between the question's text block
+QUESTION_MIN_GAP = 100  # clearance kept between the question's text block
 # and the root's top edge, regardless of how many lines it wraps to.
 
 
@@ -217,6 +217,102 @@ def _offset_max(members: list[str]) -> float:
     return ((count - 1) / 2) * NODE_GAP if count else 0.0
 
 
+def _row_half_width(count: int) -> float:
+    """Half-footprint of a side's row of this many members, for root-anchor
+    spacing -- accounting for the same >SPLIT_THRESHOLD stacked-row split the
+    position-filling loop below actually renders. A split row's *rendered*
+    width is set by its wider half (ceil(count/2) members side by side), not
+    the full unsplit count -- using the unsplit count here (as a prior
+    version of this function did) overestimated how much horizontal room a
+    root with many split children actually needs on screen, since those
+    children render as two narrower stacked rows, not one wide one. Found
+    2026-07-21: this was the dominant, previously-unaddressed source of
+    excess root-to-root spacing in wide cases (e.g. free-will's 7-child,
+    2-row determinism root), not BLOCK_MARGIN or the shared/own half-width
+    split those earlier fixes touched.
+
+    Using the split width outright (ceil(count/2)) packed the inner cluster
+    too tight -- confirmed visually on free-will, where the neutral column
+    ended up nearly touching both its neighbors. Averaging the unsplit and
+    split widths keeps a real, visible correction (the full fix from the
+    prior comment overshot) while still leaving clearance the split rows'
+    own two-tier stacking benefits from."""
+    full = ((count - 1) / 2) * NODE_GAP if count else 0.0
+    if count > SPLIT_THRESHOLD:
+        split_count = -(-count // 2)  # ceil(count / 2): the wider of the two rendered split rows
+        split = ((split_count - 1) / 2) * NODE_GAP
+        return (full + split) / 2
+    return full
+
+
+def _order_roots_for_layout(roots: set[str], reached: dict[str, set[str]]) -> tuple[list[str], int]:
+    """Order roots left-to-right for root_x below, returning (order, split
+    index between the left and right groups).
+
+    Plain alphabetical order (the previous approach) has no notion of which
+    roots actually share a claim -- harmless with exactly two roots, since
+    there's only one root per side either way, but with three or more it can
+    place an unconnected root between two roots that share a claim, forcing
+    that claim's edges to stretch past it instead of landing on immediate
+    neighbors of the neutral column at x=0. This orders roots so that any
+    two sharing a reachable claim end up on opposite sides, and are the
+    innermost (closest to x=0) root on their own side, while roots with no
+    shared claim at all are pushed outward, where no edge needs them closer.
+    Root order and the left/right split are two aspects of the same
+    decision, so they're computed and returned together rather than the
+    caller re-deriving a split point from a fixed arithmetic midpoint."""
+    roots_list = sorted(roots)
+    shared_with: dict[str, set[str]] = {r: set() for r in roots_list}
+    for claim_roots in reached.values():
+        relevant = claim_roots & roots
+        if len(relevant) < 2:
+            continue
+        for r in relevant:
+            shared_with[r] |= relevant - {r}
+
+    # Most-connected root first (alphabetical tiebreak, for a deterministic
+    # layout); greedily two-color via shared connections so connected roots
+    # land on opposite sides. In a *mixed* case (some roots share a claim,
+    # some don't), a root with no shared connections at all joins whichever
+    # side already has a root on it (defaulting to "b") rather than starting
+    # a side of its own -- an unconnected root has no edges pulling it toward
+    # either side, so it should stack onto an existing side as that side's
+    # outermost member, not become the sole reason a third side-worth of
+    # space gets used. This bias only applies when at least one root in the
+    # case actually has a shared connection; if none do (the common case for
+    # exactly two roots with no claim reachable from both), every root would
+    # otherwise look "isolated" and this rule would push all of them onto
+    # the same side -- so it falls through to the plain balance rule below
+    # instead, which is what correctly splits two disconnected roots one per
+    # side.
+    any_shared_connections = any(shared_with.values())
+    processing_order = sorted(roots_list, key=lambda r: (-len(shared_with[r]), r))
+    side_a: list[str] = []
+    side_b: list[str] = []
+    assigned: dict[str, str] = {}
+    for r in processing_order:
+        neighbor_sides = {assigned[n] for n in shared_with[r] if n in assigned}
+        if neighbor_sides == {"a"}:
+            target = "b"
+        elif neighbor_sides == {"b"}:
+            target = "a"
+        elif not shared_with[r] and any_shared_connections:
+            target = "b" if len(side_a) <= len(side_b) else "a"
+        else:
+            target = "a" if len(side_a) <= len(side_b) else "b"
+        (side_a if target == "a" else side_b).append(r)
+        assigned[r] = target
+
+    # Innermost-first within each side: a root with a cross-side connection
+    # first, so the neutral column's edges to it stay short; unconnected
+    # roots last, pushed outward, since nothing needs them near the center.
+    def _inner_first(side: list[str]) -> list[str]:
+        return sorted(side, key=lambda r: (not shared_with[r], r))
+
+    ordered = _inner_first(side_a) + _inner_first(side_b)
+    return ordered, len(side_a)
+
+
 def _compute_positions(
     graph: Graph, roots: set[str], reached: dict[str, set[str]], depths: dict[str, int]
 ) -> dict[str, tuple[float, float]]:
@@ -266,7 +362,7 @@ def _compute_positions(
 
     neutral_offset_max = {depth: _offset_max(members) for (depth, side), members in groups.items() if side is None}
 
-    roots_sorted = sorted(roots)
+    roots_sorted, root_split_index = _order_roots_for_layout(roots, reached)
     half_width: dict[str, float] = {}
     for r in roots_sorted:
         terms = [NODE_GAP]
@@ -278,37 +374,47 @@ def _compute_positions(
             # kept small (see above), the vertical distance to a split row's
             # midpoint-seated neutral column isn't enough on its own, so
             # horizontal separation is what actually guarantees no overlap.
-            terms.append(_offset_max(members) + neutral_offset_max.get(depth, 0.0) + NODE_GAP)
+            terms.append(_row_half_width(len(members)) + neutral_offset_max.get(depth, 0.0) + NODE_GAP)
         half_width[r] = max(terms)
 
     # Pack roots outward from the neutral column at x=0 -- first half of the
     # sorted roots to the left (negative x), second half to the right
-    # (positive x). Every root uses the SAME shared half-width (the widest
-    # any root actually needs), not its own -- using each root's own
-    # half_width (as a prior version of this function did) let one side's
-    # anchor sit closer to 0 than the other's whenever the two sides' content
-    # was asymmetric (e.g. one side with more branches than the other), which
+    # (positive x). The *innermost* root on each side (the one adjacent to
+    # the neutral column) uses the SAME shared half-width (the widest any
+    # root actually needs), not its own -- using each root's own half_width
+    # (as a prior version of this function did) let one side's anchor sit
+    # closer to 0 than the other's whenever the two sides' content was
+    # asymmetric (e.g. one side with more branches than the other), which
     # pulled the true visual midpoint between the two root anchors away from
     # 0 -- exactly where the neutral/shared column is always rendered. Found
     # 2026-07-18 when the user noticed the neutral nodes weren't centered
-    # under the two roots. Using the shared max keeps every root at least as
-    # far from 0 as it needs (so clearance from the neutral column is never
-    # reduced, only ever generous) while guaranteeing the two root anchors
-    # are symmetric around 0 -- the narrower side just gets some unused
-    # horizontal margin as a result, which is a strictly safe trade. Always
+    # under the two roots. Using the shared max for the innermost root on
+    # each side keeps both of *those* anchors symmetric around 0 regardless
+    # of how much wider one side's subtree is.
+    #
+    # Any further root beyond the innermost one (only possible with 3+
+    # roots, since it needs a side with more than one root on it) doesn't
+    # carry that same symmetry burden -- nothing else needs to line up with
+    # it the way the neutral column needs to line up with the innermost
+    # pair -- so it uses its own actual half-width instead. Applying the
+    # shared (often much larger) half-width to every root regardless of
+    # position, as an earlier version of this did, gave every outer root as
+    # much clearance as the single widest root in the whole case needed,
+    # even when its own subtree was much narrower, which is what made a
+    # 3-root case's outer root sit needlessly far from the rest. Always
     # re-run the min-pairwise-distance sanity check in CLAUDE.md after
     # touching this function.
     root_x: dict[str, float] = {}
     shared_half_width = max(half_width.values()) if half_width else 0.0
-    split_index = (len(roots_sorted) + 1) // 2
-    for sign, side_roots in ((-1.0, roots_sorted[:split_index]), (1.0, roots_sorted[split_index:])):
+    for sign, side_roots in ((-1.0, roots_sorted[:root_split_index]), (1.0, roots_sorted[root_split_index:])):
         cursor = 0.0
         for i, r in enumerate(side_roots):
-            cursor += shared_half_width
+            own_half_width = half_width[r]
+            cursor += shared_half_width if i == 0 else own_half_width
             if i > 0:
                 cursor += BLOCK_MARGIN
             root_x[r] = sign * cursor
-            cursor += shared_half_width
+            cursor += own_half_width
 
     def _place_row(members: list[str], base_x: float, y: float, positions: dict[str, tuple[float, float]]) -> None:
         count = len(members)
@@ -459,10 +565,24 @@ def build_elements(
         # y that keeps the block's *bottom* edge QUESTION_MIN_GAP above the
         # root's top edge, regardless of how many lines it wraps to.
         question_y = root_top_edge - QUESTION_MIN_GAP - (text_block_height / 2)
+        # x is the midpoint between the leftmost and rightmost root, not a
+        # hardcoded 0. With exactly two roots this is always 0 anyway (they
+        # sit at -W/+W by construction), so existing cases are unaffected.
+        # It stops being 0 once root count is odd: an uneven left/right
+        # split (e.g. two roots left, one right) necessarily extends the
+        # busier side further out, which pulls the true visual center of all
+        # root positions away from x=0 -- the one fixed point reserved for
+        # the neutral/shared-claim column, which has to stay there since
+        # that's what keeps those claims' own edges short (see root_x
+        # above). The question isn't about shared claims specifically, it's
+        # about the whole debate, so it follows the roots' actual spread
+        # instead of the neutral column's fixed anchor.
+        root_xs = [positions[r][0] for r in roots if r in positions]
+        question_x = (min(root_xs) + max(root_xs)) / 2 if root_xs else 0.0
         question_node = Node(
             id="__question__",
             label=wrapped_question,
-            x=0,
+            x=question_x,
             y=question_y,
             fixed={"x": True, "y": True},
             shape="text",

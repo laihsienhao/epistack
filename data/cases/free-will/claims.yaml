@@ -1,0 +1,450 @@
+- id: libertarian-free-will
+  case: free-will
+  text: "Human beings possess free will in a robust, libertarian sense: at least some of our choices are not fully determined by prior causes, and this indeterminism is what allows us to be the genuine, ultimate source of our actions."
+  label: "Libertarianism: free will needs indeterminism"
+  explanation: >-
+    The root thesis of libertarian (incompatibilist) free will, resting on
+    three pillars: the Consequence Argument's case that determinism itself
+    would rule out free will, a positive metaphysical account of how
+    undetermined choice could still be an agent's own doing (agent-causal
+    or event-causal), and an answer to the standard worry that
+    indeterminism just introduces luck rather than control.
+  status: reviewed
+  tags: [root, thesis-libertarian]
+  sources: []
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: compatibilist-free-will
+  case: free-will
+  text: "Human beings possess free will in the sense that actually matters for moral responsibility and self-governance: acting from one's own reasons, desires, and values, free of external coercion or manipulation, regardless of whether the universe is deterministic."
+  label: "Compatibilism: free will survives determinism"
+  explanation: >-
+    The root thesis of compatibilism, the majority position among
+    professional philosophers per the most recent PhilPapers survey. Rests
+    on redefining what free will and responsibility require, away from
+    "could have done otherwise in the same circumstances" and toward
+    reasons-responsiveness and ownership of one's own motivational
+    structure, so that the truth of determinism becomes irrelevant to
+    whether people are free.
+  status: reviewed
+  tags: [root, thesis-compatibilist]
+  sources: []
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: no-free-will
+  case: free-will
+  text: "Human beings lack free will in any sense robust enough to ground genuine, basic-desert moral responsibility, whether or not determinism is true: neither a fully determined nor an indeterministic universe supplies the kind of ultimate control this would require."
+  label: "Determinism: free will does not exist"
+  explanation: >-
+    The root thesis of hard incompatibilism / free-will skepticism. Unlike
+    classical hard determinism, this position does not need determinism to
+    be true: it holds that indeterminism does not rescue responsibility
+    either, since a partly random choice is no more "up to you" in the
+    relevant sense than a fully caused one. The case rests on two largely
+    independent lines of argument (Strawson's regress-based Basic Argument
+    and Pereboom's manipulation argument), both of which presuppose that
+    genuine responsibility requires "basic desert," being truly and
+    ultimately deserving of praise or blame, rather than the more modest
+    standard compatibilists offer.
+  status: reviewed
+  tags: [root, thesis-no-free-will]
+  sources: []
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: incompatibilism-consequence-argument
+  case: free-will
+  text: "If determinism is true, then every one of our acts is the inevitable consequence of the laws of nature and the state of the world before we were born, neither of which is up to us; therefore its consequences, including our present acts, are not up to us either."
+  label: "Determinism would rule out being able to do otherwise"
+  explanation: >-
+    Peter van Inwagen's Consequence Argument, the canonical formal case
+    for incompatibilism, the shared premise of both libertarianism and
+    hard incompatibilism, which agree that free will and determinism
+    cannot coexist and only disagree about which to give up. Compatibilists
+    reject the argument's implicit assumption that responsibility requires
+    the ability to do otherwise in exactly the same circumstances; see
+    `frankfurt-cases-against-pap` for the standard compatibilist reply.
+    The Stanford Encyclopedia of Philosophy's "Arguments for
+    Incompatibilism" entry surveys the argument's several formal versions
+    and the responses each has drawn.
+  status: reviewed
+  tags: [topic:incompatibilism]
+  sources: [van-inwagen-1983-essay, vihvelin-sep-incompatibilism]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: agent-causal-libertarianism
+  case: free-will
+  text: "Free actions are caused directly by the agent as an irreducible cause, not merely by a chain of prior events or states, which is what allows a free choice to originate with the person rather than with antecedent causes."
+  label: "Agents themselves, not just prior events, cause free actions"
+  explanation: >-
+    Timothy O'Connor's agent-causal account, one of two main positive
+    metaphysical pictures of how libertarian free will could work (the
+    other being event-causal accounts like Kane's, see
+    `event-causal-libertarianism-quantum`). On this view, an agent's
+    causing an action is a fundamentally different kind of causal relation
+    than one event causing another, so a free choice is not just an
+    undetermined event but the direct exercise of an agent's own causal
+    power.
+  status: reviewed
+  tags: [topic:metaphysics-of-agency]
+  sources: [oconnor-2000-persons-causes]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: event-causal-libertarianism-quantum
+  case: free-will
+  text: "At moments of genuine moral or motivational conflict ('self-forming actions'), amplified quantum-level indeterminacy in neural processing leaves the outcome genuinely undetermined until the agent resolves it, which is what allows the agent to be the ultimate source of that choice without the choice being fully caused by antecedent states."
+  label: "Quantum indeterminacy can ground self-forming free choices"
+  explanation: >-
+    Robert Kane's event-causal libertarian account, and the standard
+    citable answer to whether quantum indeterminacy specifically (rather
+    than indeterminism in the abstract) could ground free will. Kane
+    argues that self-forming actions, deliberate moments where a person's
+    competing values and desires are genuinely in tension, are exactly
+    where amplified indeterminacy at the neural level would leave the
+    decision open in a way ordinary determined choices are not.
+  status: reviewed
+  tags: [topic:quantum-indeterminacy]
+  sources: [kane-1996-significance]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: luck-argument-contested
+  case: free-will
+  text: "Whether indeterminism at the moment of choice grounds an agent's genuine control over that choice, or is simply luck (something that happens to the agent rather than something the agent does), is unresolved."
+  label: "Whether indeterminism grounds control or is just luck is contested"
+  explanation: >-
+    Alfred Mele's "Luck Argument," the central objection to libertarian
+    free will: if a choice is undetermined, then holding fixed everything
+    about the agent up to the moment of choice, including their character,
+    reasons, and deliberation, the choice could still have gone either way,
+    which sounds less like the agent exercising control and more like a
+    matter of chance. The Stanford Encyclopedia of Philosophy puts the
+    objection vividly, comparing an undetermined neural event to "the
+    spinning of a roulette wheel inside my brain." Kane's reply (see
+    `event-causal-libertarianism-quantum`) is that self-forming actions are
+    precisely the moments where an agent's whole prior character is
+    already in tension, so the "luck" is not brute randomness but
+    indeterminacy between options the agent has already, through their own
+    history, made live options. Whether that reply actually answers the
+    objection, rather than relabeling it, remains a live dispute.
+  status: reviewed
+  tags: [contested, topic:quantum-indeterminacy]
+  sources: [mele-2006-free-will-luck, vihvelin-sep-incompatibilism]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: hierarchical-mesh-theory
+  case: free-will
+  text: "A person acts of their own free will when the desire driving their action is one they reflectively endorse at a higher level, that is, when their first-order desires align with their own second-order desires about which desires should move them, regardless of how that motivational structure came about."
+  label: "Free will is acting on desires you reflectively endorse"
+  explanation: >-
+    Harry Frankfurt's hierarchical mesh theory of personhood and free will.
+    On this view, what makes a want truly yours, and hence free, is not
+    that it arose undetermined, but that you want to want it: an addict
+    who wishes they did not crave a drug is unfree in a sense a person
+    whose first- and second-order desires align is not, entirely
+    independent of whether either state was itself causally determined.
+  status: reviewed
+  tags: [topic:compatibilism]
+  sources: [frankfurt-1971-freedom-of-will]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: frankfurt-cases-against-pap
+  case: free-will
+  text: "Moral responsibility does not require that an agent could have done otherwise: a person can be fully responsible for an act even in a scenario where a counterfactual intervener would have forced the same outcome had the person shown any sign of choosing differently, since the intervener never actually needed to act."
+  label: "Moral responsibility does not require alternate possibilities"
+  explanation: >-
+    Harry Frankfurt's counterexamples to the Principle of Alternate
+    Possibilities (PAP), the assumption underlying the Consequence
+    Argument that responsibility requires being able to do otherwise. A
+    "Frankfurt case" describes a would-be manipulator poised to force a
+    particular choice but who never has to intervene because the agent
+    makes that choice on their own; the agent seems clearly responsible
+    despite having no real alternative.
+
+    The main incompatibilist reply is the "dilemma defense" (Widerker
+    1995; independently, Kane): if the agent's actual choice was itself
+    undetermined, the intervener would need some reliable prior sign to
+    know when to step in, but no such deterministic sign can exist without
+    already assuming determinism, so the case either begs the question
+    against libertarians or collapses into an ordinary deterministic
+    scenario. Whether Frankfurt cases survive this objection is itself
+    contested within the literature, though it does not change that
+    Frankfurt cases remain one supporting consideration among several for
+    compatibilism (see `guidance-control-semicompatibilism` and
+    `hierarchical-mesh-theory`), not the sole basis for it.
+  status: reviewed
+  tags: [topic:compatibilism, topic:moral-responsibility]
+  sources: [frankfurt-1969-alternate-possibilities, widerker-1995-dilemma-defense]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: guidance-control-semicompatibilism
+  case: free-will
+  text: "Moral responsibility requires only that an action issue from a mechanism that is the agent's own and that is at least moderately responsive to reasons, not that the agent could have done otherwise or that the mechanism itself arose undetermined."
+  label: "Responsibility requires reasons-responsive guidance, not alternate possibilities"
+  explanation: >-
+    John Martin Fischer and Mark Ravizza's "semi-compatibilism": rather
+    than arguing free will itself is compatible with determinism, they
+    argue moral responsibility is, via "guidance control," decoupling the
+    entire question of responsibility from the deeper metaphysical dispute
+    about whether libertarian free will is even possible. This is a
+    distinct pillar from Frankfurt's mesh theory: it does not depend on
+    Frankfurt cases succeeding against the dilemma defense, since guidance
+    control asks only whether the actual mechanism producing the action is
+    appropriately reasons-responsive, not whether alternate possibilities
+    existed at all.
+  status: reviewed
+  tags: [topic:moral-responsibility]
+  sources: [fischer-ravizza-1998-responsibility-control]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: professional-opinion-favors-compatibilism
+  case: free-will
+  text: "In the 2020 PhilPapers Survey of professional philosophers, 59.16% endorsed compatibilism about free will, versus 18.83% for libertarianism and 11.21% for no free will, making compatibilism the clear plurality position among specialists in the field."
+  label: "Professional philosophers lean compatibilist by a wide margin"
+  explanation: >-
+    The largest survey of professional philosophers' views, cited here as
+    weak evidence (expert opinion is not proof) that compatibilism holds
+    up best under sustained specialist scrutiny. This is one contributing
+    consideration among several for compatibilism, not a decisive one:
+    expert consensus can be wrong, and the same survey shows meaningful
+    minority support for both rival positions.
+  status: reviewed
+  tags: [topic:survey-data]
+  sources: [bourget-chalmers-2023-philpapers]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: folk-intuitions-framing-contextual
+  case: free-will
+  text: "Ordinary people's intuitions about whether a determined agent has free will and is morally responsible depend heavily on how concretely the scenario is described: abstract descriptions of determinism tend to elicit incompatibilist intuitions, while concrete, emotionally engaging descriptions of a specific determined agent's specific choice tend to elicit compatibilist intuitions."
+  label: "Concreteness of framing determines folk intuitions about free will"
+  explanation: >-
+    Eddy Nahmias and colleagues' empirical studies of folk intuitions
+    found that when a deterministic scenario is described abstractly,
+    people tend to judge the agent unfree, but when the same scenario is
+    made concrete (a specific person, a specific act, described
+    emotionally), people tend to judge the agent responsible after all.
+    This is a contextual finding, not a genuinely unresolved dispute: the
+    apparent conflict between "ordinary people are incompatibilist" and
+    "ordinary people are compatibilist" is explained by the concreteness
+    of the framing used to elicit the judgment, once you specify which
+    kind of framing was used, the result is fairly predictable on each
+    side. Cited here as modest support for compatibilism, since the more
+    ecologically realistic framing (concrete, specific scenarios) is the
+    one that tracks compatibilist intuitions.
+  status: reviewed
+  tags: [contextual, topic:moral-responsibility]
+  sources: [nahmias-2005-surveying-freedom]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: basic-desert-responsibility-standard
+  case: free-will
+  text: "Whether genuine moral responsibility requires 'basic desert', that a person be truly and ultimately deserving of praise or blame in a way that does not reduce to any further fact about them, rather than merely being a reasons-responsive agent whose actions issue from a mechanism that is their own, is a live and unresolved question."
+  label: "Whether responsibility requires basic desert is unresolved"
+  explanation: >-
+    Both of hard incompatibilism's main arguments (Strawson's Basic
+    Argument and Pereboom's manipulation argument) are arguments that
+    basic-desert responsibility is impossible; neither argument does any
+    work against the compatibilist who simply denies that basic desert is
+    the right standard for responsibility in the first place, and instead
+    accepts something more modest like Fischer and Ravizza's guidance
+    control. If basic desert is not actually required for the kind of
+    responsibility that matters, hard incompatibilism's case collapses
+    even if both of its arguments are individually sound, since they would
+    be arguing against a standard nobody needs to meet. This is the single
+    claim the whole no-free-will thesis is load-bearing on: it is not just
+    one consideration among several, since both of the position's
+    supporting arguments independently presuppose it.
+  status: reviewed
+  tags: [contested, topic:moral-responsibility]
+  sources: [strawson-1994-basic-argument, pereboom-2001-living-without-free-will, fischer-ravizza-1998-responsibility-control]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: strawson-basic-argument
+  case: free-will
+  text: "To be truly, ultimately morally responsible for an action, a person would have to be responsible for the way they are, mentally speaking, in the relevant respects; but one cannot be responsible for the way one is without having chosen to be that way, and one cannot have chosen to be that way without already having existed with some prior character to do the choosing, which leads to an infinite regress that makes ultimate responsibility impossible."
+  label: "Ultimate responsibility leads to an impossible infinite regress"
+  explanation: >-
+    Galen Strawson's "Basic Argument," argued to hold regardless of
+    whether determinism or indeterminism is true, since the regress
+    problem arises either way: whatever caused you to be the kind of
+    person who makes the choices you make, you did not choose that in
+    turn, all the way back. Strawson takes this to show ultimate moral
+    responsibility, and hence the only kind of free will that would matter
+    for it, is impossible in principle.
+  status: reviewed
+  tags: [topic:moral-responsibility]
+  sources: [strawson-1994-basic-argument]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: manipulation-argument-against-compatibilism
+  case: free-will
+  text: "There is no principled difference between an agent whose every choice is directly, covertly engineered moment-to-moment by neuroscientists and an agent whose choices arise from an ordinary deterministic causal history stretching back before their birth; since the first agent is clearly not responsible, and compatibilism cannot identify a relevant difference, compatibilism cannot secure genuine responsibility either."
+  label: "Manipulated agents and determined agents are not relevantly different"
+  explanation: >-
+    Derk Pereboom's four-case manipulation argument, built as a sequence of
+    cases running from direct, moment-to-moment neural manipulation to
+    ordinary determinism, with no principled stopping point in between
+    where responsibility reappears. Because Pereboom's hard
+    incompatibilism holds regardless of whether determinism or
+    indeterminism is true, he separately argues that libertarian
+    indeterminism does not escape the same problem: an event-causal
+    "self-forming action" (see `event-causal-libertarianism-quantum`) is,
+    from the agent's own perspective at the moment of choice, no more
+    within their control than a fully determined one, since the
+    indeterminacy is not itself something the agent controls.
+  status: reviewed
+  tags: [topic:manipulation-argument, topic:moral-responsibility]
+  sources: [pereboom-2001-living-without-free-will, pereboom-2014-free-will-agency-meaning]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: sapolsky-biological-determinism
+  case: free-will
+  text: "A person's every action is fully explained by the interaction of their genes, prenatal environment, childhood experience, hormones, and immediate neurobiology, leaving no causal gap anywhere in the chain for a freely choosing self to intervene."
+  label: "Biology fully explains behavior, leaving no room for a choosing self"
+  explanation: >-
+    Robert Sapolsky's biologically-grounded case against free will,
+    synthesizing findings across genetics, endocrinology, developmental
+    neuroscience, and neuroscience proper into a single cumulative
+    argument that every choice, traced back far enough, resolves into
+    factors the person never chose. Sapolsky explicitly addresses and
+    rejects chaos theory and quantum indeterminacy as escape routes,
+    arguing that neither supplies the kind of self-directed control free
+    will would require.
+  status: reviewed
+  tags: [topic:neuroscience]
+  sources: [sapolsky-2023-determined]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: harris-popular-illusionism
+  case: free-will
+  text: "Introspection on the actual moment of choosing reveals no freely choosing self behind one's thoughts and intentions: thoughts and intentions simply arise in consciousness, unauthored, which is enough to show that free will as ordinarily conceived is an illusion."
+  label: "Introspection reveals no author behind our thoughts"
+  explanation: >-
+    Sam Harris's widely-read popular argument, distinct from the academic
+    arguments elsewhere in this case: rather than a formal philosophical
+    argument, it appeals directly to first-person introspection on where
+    thoughts and intentions actually seem to come from. This is a
+    popular-level trade essay, not a peer-reviewed academic contribution,
+    a real distinction worth naming rather than treating it as
+    equivalent in evidentiary weight to the academic literature it
+    summarizes and popularizes.
+  status: reviewed
+  tags: [topic:neuroscience]
+  sources: [harris-2012-free-will]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: libet-readiness-potential
+  case: free-will
+  text: "In experiments where subjects freely decide when to perform a simple voluntary action, measurable brain activity, a 'readiness potential' in EEG recordings, or decodable patterns in fMRI, precedes the subject's own reported moment of conscious decision, in some paradigms by several seconds."
+  label: "Brain activity precedes reported conscious decisions"
+  explanation: >-
+    The foundational empirical finding, first shown by Benjamin Libet
+    using EEG (a readiness potential 350-550ms before reported decision)
+    and later extended by Chun Siong Soon and colleagues using fMRI, who
+    found the outcome of a simple left/right button-press choice was
+    decodable from prefrontal and parietal activity up to 10 seconds
+    before the subject reported deciding. This raw finding is not itself
+    in serious dispute; what is disputed is what, if anything, it shows
+    about free will (see `neuroscience-relevance-contested`).
+  status: reviewed
+  tags: [topic:neuroscience]
+  sources: [libet-1983-readiness-potential, soon-2008-unconscious-determinants]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: neuroscience-relevance-contested
+  case: free-will
+  text: "Whether the Libet/Soon readiness-potential findings actually show that unconscious brain activity determines a person's decision before they consciously choose, rather than reflecting spontaneous neural noise that happens to cross a detection threshold around the same time as an unrelated, later act of deciding, is a live methodological dispute."
+  label: "Whether readiness potentials show the brain deciding first is contested"
+  explanation: >-
+    The central methodological controversy in this literature. Aaron
+    Schurger and colleagues proposed that the readiness potential is the
+    trace of ongoing stochastic neural activity crossing a decision
+    threshold, not evidence of a discrete unconscious "decision", and a
+    follow-up study by Schurger's own group found readiness-potential-like
+    waveforms occurring in background EEG even when no movement followed,
+    at rates matching this account. A separate line of work (Schlegel and
+    colleagues) argued readiness potentials reflect processes dissociable
+    from the moment of conscious willing on different grounds, and failed
+    to replicate an earlier reported correlation between an EEG signal and
+    conscious-will timing.
+
+    Notably, Marcel Brass, a co-author of the original 2008 fMRI study,
+    later co-authored a paper arguing neuroscience findings including his
+    own do not disprove free will, cautioning against the strong
+    interpretation his own earlier work is often given. Alfred Mele has
+    separately argued at length, including in a monograph funded by the
+    John Templeton Foundation (a funder with a specific philosophical and
+    religion-friendly orientation on free-will topics, disclosed here as a
+    funding relationship rather than a defect), that the simple
+    button-press "urges" these studies measure are not the same kind of
+    mental event as the deliberative choices the free-will debate is
+    actually about.
+  status: reviewed
+  tags: [contested, topic:neuroscience]
+  sources: [schurger-2012-accumulator-model, travers-2020-readiness-potentials-all-the-time, schlegel-2013-barking-up-wrong-free, mele-2008-testing-free-will, mele-2014-free-book, brass-furstenberg-mele-2019-neuroscience-does-not-disprove]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21
+
+- id: determinism-belief-cheating-contested
+  case: free-will
+  text: "Whether inducing disbelief in free will causes people to behave worse, for example by cheating more, is a live and largely unresolved empirical question."
+  label: "Whether disbelief in free will causes worse behavior is contested"
+  explanation: >-
+    Kathleen Vohs and Jonathan Schooler's widely-cited 2008 finding that
+    reading a determinism-endorsing passage increased cheating on a
+    subsequent task, relative to a neutral passage, is a real and famous
+    result, but it has fared poorly under scrutiny. A direct replication
+    found no effect, and "Many Labs 5," a large, pre-registered,
+    multi-site replication (n=621) explicitly designed to address concerns
+    about the original study's methodology, also found no reliable effect
+    (d = 0.076, 95% CI crossing zero). A 2023 meta-analysis of 145
+    experiments, spanning both published and unpublished studies, found
+    that manipulating stated belief in free will works reliably, but that
+    downstream behavioral effects like cheating are not reliably
+    supported, and that the literature's apparent effect was likely driven
+    by underpowered original studies. This does not bear directly on
+    whether free will exists, but it does undermine a common practical
+    objection to openly defending free-will skepticism, that doing so
+    would be dangerous, since the feared behavioral consequence has not
+    held up.
+  status: reviewed
+  tags: [contested, topic:psychological-consequences]
+  sources: [vohs-schooler-2008-value-of-believing, embley-2015-replication, buttrick-2020-many-labs-5, genschow-2023-meta-analysis-belief-manipulation]
+  confidence: null
+  author: 171384n
+  created: 2026-07-21

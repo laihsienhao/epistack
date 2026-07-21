@@ -1,0 +1,143 @@
+- id: e1
+  relation: supports
+  from: incompatibilism-consequence-argument
+  to: libertarian-free-will
+  provenance: [van-inwagen-1983-essay]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e2
+  relation: supports
+  from: incompatibilism-consequence-argument
+  to: no-free-will
+  provenance: [van-inwagen-1983-essay]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e3
+  relation: supports
+  from: agent-causal-libertarianism
+  to: libertarian-free-will
+  provenance: [oconnor-2000-persons-causes]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e4
+  relation: supports
+  from: event-causal-libertarianism-quantum
+  to: libertarian-free-will
+  provenance: [kane-1996-significance]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e5
+  relation: depends_on
+  from: luck-argument-contested
+  to: libertarian-free-will
+  provenance: [mele-2006-free-will-luck]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e6
+  relation: supports
+  from: hierarchical-mesh-theory
+  to: compatibilist-free-will
+  provenance: [frankfurt-1971-freedom-of-will]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e7
+  relation: supports
+  from: frankfurt-cases-against-pap
+  to: compatibilist-free-will
+  provenance: [frankfurt-1969-alternate-possibilities]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e8
+  relation: supports
+  from: guidance-control-semicompatibilism
+  to: compatibilist-free-will
+  provenance: [fischer-ravizza-1998-responsibility-control]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e9
+  relation: supports
+  from: professional-opinion-favors-compatibilism
+  to: compatibilist-free-will
+  provenance: [bourget-chalmers-2023-philpapers]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e10
+  relation: supports
+  from: folk-intuitions-framing-contextual
+  to: compatibilist-free-will
+  provenance: [nahmias-2005-surveying-freedom]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e11
+  relation: depends_on
+  from: basic-desert-responsibility-standard
+  to: no-free-will
+  provenance: [strawson-1994-basic-argument, pereboom-2001-living-without-free-will]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e12
+  relation: supports
+  from: strawson-basic-argument
+  to: no-free-will
+  provenance: [strawson-1994-basic-argument]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e13
+  relation: supports
+  from: manipulation-argument-against-compatibilism
+  to: no-free-will
+  provenance: [pereboom-2001-living-without-free-will, pereboom-2014-free-will-agency-meaning]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e14
+  relation: supports
+  from: sapolsky-biological-determinism
+  to: no-free-will
+  provenance: [sapolsky-2023-determined]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e15
+  relation: supports
+  from: harris-popular-illusionism
+  to: no-free-will
+  provenance: [harris-2012-free-will]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e16
+  relation: supports
+  from: libet-readiness-potential
+  to: neuroscience-relevance-contested
+  provenance: [libet-1983-readiness-potential, soon-2008-unconscious-determinants]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e17
+  relation: supports
+  from: neuroscience-relevance-contested
+  to: no-free-will
+  provenance: [schurger-2012-accumulator-model]
+  author: 171384n
+  created: 2026-07-21
+
+- id: e18
+  relation: supports
+  from: determinism-belief-cheating-contested
+  to: no-free-will
+  provenance: [vohs-schooler-2008-value-of-believing]
+  author: 171384n
+  created: 2026-07-21
