@@ -448,3 +448,243 @@
   confidence: null
   author: 171384n
   created: 2026-07-21
+
+- id: reactive-attitudes-compatibilism
+  case: free-will
+  text: "Moral responsibility is grounded in the natural human practice of holding reactive attitudes toward one another, resentment, gratitude, indignation, forgiveness, love, rather than in any prior metaphysical fact about whether the universe is deterministic; these attitudes are so deeply woven into interpersonal life that no truth about physics could give us good reason to abandon them."
+  label: "Responsibility rests on reactive attitudes, not metaphysics"
+  explanation: >-
+    P.F. Strawson's "Freedom and Resentment," one of the most influential
+    papers in the entire free-will literature and the ancestor of much
+    subsequent compatibilist work, including Fischer and Ravizza's guidance
+    control (see `guidance-control-semicompatibilism`). Strawson's move is
+    to set aside the abstract question of whether determinism is true and
+    ask instead what would actually happen to our reactive attitudes if we
+    came to believe it: he argues we could not, and should not, give them
+    up, since they are constitutive of treating one another as persons
+    rather than as objects to be managed. This reframes the debate as a
+    question about human practice rather than metaphysics, distinct from
+    Frankfurt's mesh theory and Fischer and Ravizza's guidance control,
+    which both still describe conditions an individual agent must meet;
+    Strawson's argument instead locates responsibility in the interpersonal
+    practice itself.
+  status: reviewed
+  tags: [topic:reactive-attitudes, topic:moral-responsibility]
+  sources: [strawson-1962-freedom-and-resentment]
+  confidence: null
+  author: 171384n
+  created: 2026-07-22
+
+- id: dennett-varieties-worth-wanting
+  case: free-will
+  text: "The only variety of free will worth wanting, one that grounds real self-control, moral agency, and creativity, is fully compatible with a deterministic universe and can be explained in ordinary scientific terms (evolutionary biology, cognitive science), without appeal to any contra-causal power incompatibilists insist on."
+  label: "The free will worth wanting is compatible with determinism"
+  explanation: >-
+    Daniel Dennett's "Elbow Room" (and its sequel "Freedom Evolves") argue
+    that incompatibilists smuggle in an incoherent, metaphysically inflated
+    picture of what free will would have to be, a could-have-done-otherwise-
+    in-exactly-the-same-circumstances power that would not actually be worth
+    wanting even if we had it, since it would make our choices less
+    connected to our own reasons and character, not more. Dennett argues
+    the abilities that actually matter, evaluating alternatives, learning
+    from mistakes, resisting temptation, being swayed by argument, are all
+    real, naturalistically explicable capacities that a deterministic agent
+    can fully possess, and that demanding anything further is demanding a
+    form of freedom no one should actually want.
+  status: reviewed
+  tags: [topic:compatibilism]
+  sources: [dennett-1984-elbow-room]
+  confidence: null
+  author: 171384n
+  created: 2026-07-22
+
+- id: sense-of-agency-intentional-binding
+  case: free-will
+  text: "People experience a measurable 'sense of agency': a subjective compression in perceived time between a voluntary action and its sensory effect ('intentional binding'), which is reduced or absent when the same movement is passively caused (for example by transcranial magnetic stimulation), providing empirical evidence for a real psychological experience of authorship distinct from the neural-timing question the readiness-potential literature addresses."
+  label: "People measurably experience a sense of authorship over their acts"
+  explanation: >-
+    Patrick Haggard, Sam Clark, and Jeri Kalogeras's foundational
+    "intentional binding" studies found that the perceived time of a
+    voluntary action and the perceived time of its sensory consequence draw
+    closer together in conscious experience, compared to the same two
+    events when the movement is involuntary. This is a genuinely distinct
+    research program from the Libet/Soon readiness-potential literature
+    (see `libet-readiness-potential`): it is not about whether an
+    unconscious signal precedes a conscious decision, but about whether
+    there is a real, measurable subjective marker of feeling like the
+    author of one's own action at all. Cited here as support for
+    compatibilism's emphasis on ownership of one's own motivational
+    structure (see `hierarchical-mesh-theory`), since the finding shows
+    that "acting as oneself" is not just a philosophical stipulation but
+    tracks a genuine, measurable psychological state.
+  status: reviewed
+  tags: [topic:sense-of-agency]
+  sources: [haggard-clark-kalogeras-2002-intentional-binding]
+  confidence: null
+  author: 171384n
+  created: 2026-07-22
+
+- id: soft-line-reply-to-manipulation-argument-contested
+  case: free-will
+  text: "Whether compatibilists can identify a principled difference between Pereboom's directly, covertly manipulated agent and an ordinary agent whose choices arise from an unremarkable deterministic history, for example by arguing that manipulation itself bypasses the agent's own reasons-responsive mechanism or violates the psychological continuity ordinary causal histories preserve, or whether every such attempted line collapses back into an arbitrary stopping point, remains disputed."
+  label: "Whether a principled line blocks the manipulation argument is contested"
+  explanation: >-
+    A direct compatibilist reply to
+    `manipulation-argument-against-compatibilism`. Kristin Demetriou's
+    "soft-line" solution argues covert manipulation is disanalogous to
+    ordinary determinism in a way that matters: it installs values and
+    reasoning patterns from the outside, bypassing the very process (the
+    agent's own history of reflection and revision) that guidance control
+    and mesh theories say makes a motivational structure genuinely one's
+    own, whereas ordinary development, however determined, still runs
+    through the agent's own reasoning across time. Michael McKenna's paper,
+    the one that entrenches the "soft-line" versus "hard-line" terminology
+    for this specific debate, argues the opposite ("hard-line") position
+    instead, that the manipulated agent really is responsible too, and that
+    compatibilists should accept this rather than search for a principled
+    line. Whether any soft-line proposal succeeds, or whether Pereboom's
+    original argument survives all of them, remains an active dispute in
+    the literature.
+  status: reviewed
+  tags: [contested, topic:manipulation-argument]
+  sources: [demetriou-2010-soft-line-solution, mckenna-2008-hard-line-reply]
+  confidence: null
+  author: 171384n
+  created: 2026-07-22
+
+- id: deliberation-presupposes-alternatives
+  case: free-will
+  text: "The ordinary practice of rational deliberation, weighing reasons while genuinely treating more than one option as still open, seems to presuppose that the deliberating agent is able to do otherwise; libertarians take this as strong, if indirect, evidence for libertarian free will, even though neither agent-causal nor event-causal accounts has fully silenced the objections each faces."
+  label: "Whether deliberation itself proves we can do otherwise is contested"
+  explanation: >-
+    Peter van Inwagen, the same philosopher behind the Consequence Argument
+    (see `incompatibilism-consequence-argument`), is unusually candid in
+    "Free Will Remains a Mystery" that he cannot fully explain how
+    libertarian free will works: neither agent-causation (see
+    `agent-causal-libertarianism`) nor event-causal indeterminism (see
+    `event-causal-libertarianism-quantum`) has a satisfying answer to every
+    objection raised against it, including the luck argument (see
+    `luck-argument-contested`). His case for believing in libertarian free
+    will anyway rests not on having solved these problems but on the
+    phenomenology of deliberation itself: when we genuinely weigh a
+    decision, we cannot help but treat the outcome as still open, and van
+    Inwagen argues this practical commitment gives us stronger reason to
+    believe we have libertarian free will than the unresolved metaphysical
+    puzzles give us reason to doubt it. Whether this kind of indirect,
+    practice-based argument can do the work van Inwagen wants, rather than
+    just restating that libertarian free will would be nice to have, is
+    itself contested.
+  status: reviewed
+  tags: [contested, topic:deliberation]
+  sources: [van-inwagen-2000-free-will-mystery]
+  confidence: null
+  author: 171384n
+  created: 2026-07-22
+
+- id: quantum-mechanics-fundamental-indeterminism
+  case: free-will
+  text: "On the standard (Copenhagen) interpretation of quantum mechanics, at least some physical events are not fully determined by prior states; however, deterministic interpretations (Bohmian mechanics, the many-worlds interpretation) remain live and are, at present, empirically indistinguishable from indeterministic ones, so physics alone does not settle whether the universe is ultimately deterministic."
+  label: "Whether physics itself is deterministic is contested"
+  explanation: >-
+    Background physics for `event-causal-libertarianism-quantum`'s appeal
+    to quantum indeterminacy: the Stanford Encyclopedia of Philosophy's
+    "Causal Determinism" entry surveys how the interpretation question
+    remains genuinely open among physicists and philosophers of physics
+    alike. This matters structurally for this case: it is part of why the
+    `no-free-will` thesis here is deliberately framed to hold whether or
+    not determinism is true (see its own explanation) rather than resting
+    on classical hard determinism, since the truth of determinism at the
+    physical level is not settled science. It also means Kane's
+    event-causal account cannot simply assume indeterminism is real at the
+    physical level; it depends on the Copenhagen-family interpretations
+    being correct rather than the deterministic alternatives.
+  status: reviewed
+  tags: [contested, topic:physics-of-determinism]
+  sources: [hoefer-sep-causal-determinism]
+  confidence: null
+  author: 171384n
+  created: 2026-07-22
+
+- id: retributive-punishment-under-pressure
+  case: free-will
+  text: "Because the criminal justice system's retributive punishment framework implicitly presupposes that offenders are basic-desert responsible for their acts, denying free will in this robust sense undercuts retribution's own justification and supports replacing it with a forward-looking, non-retributive model of criminal justice focused on incapacitation, rehabilitation, and public safety."
+  label: "Rejecting free will undercuts retributive punishment"
+  explanation: >-
+    Joshua Greene and Jonathan Cohen argue that neuroscience's cumulative
+    case against basic-desert responsibility (see
+    `basic-desert-responsibility-standard`) will increasingly make
+    retributive, backward-looking punishment, punishing someone because
+    they deserve it, look unjustified, even though the law's practical need
+    to respond to dangerous behavior will not disappear. Gregg Caruso
+    develops this into a fully worked-out alternative, a "public
+    health-quarantine" model that justifies incapacitating dangerous
+    individuals on the same grounds public health justifies quarantining a
+    carrier of a dangerous disease, proportionality and the least
+    restrictive means necessary, not desert, and argues this reform is both
+    defensible and more humane than retributivism. Compatibilists reply
+    that retributive punishment does not actually require libertarian free
+    will or basic desert in the first place, only the more modest
+    reasons-responsiveness guidance control already supplies (see
+    `guidance-control-semicompatibilism`), so this practical stake does not
+    by itself settle the deeper metaphysical dispute.
+  status: reviewed
+  tags: [topic:practical-implications]
+  sources: [greene-cohen-2004-law-neuroscience, caruso-2016-public-health-quarantine, caruso-2021-rejecting-retributivism]
+  confidence: null
+  author: 171384n
+  created: 2026-07-22
+
+- id: life-without-free-will-still-meaningful
+  case: free-will
+  text: "Giving up belief in basic-desert moral responsibility does not require giving up a meaningful life: love, moral growth, and interpersonal relationships do not depend on basic desert, and forward-looking (rather than backward-looking, retributive) responses to wrongdoing, protection, moral formation, and repair, remain fully available without it."
+  label: "Life remains meaningful without basic-desert free will"
+  explanation: >-
+    A direct answer to the common objection that free-will skepticism
+    implies nihilism or that "nothing would matter" if determinism-style
+    conclusions were true. Derk Pereboom's own "optimistic skepticism"
+    argues that what actually makes relationships and moral life valuable,
+    love, care, honesty, moral growth, does not require that anyone be
+    ultimately, basic-desert deserving of praise or blame; forward-looking
+    responses to wrongdoing (protecting others, encouraging moral
+    improvement, repairing harm) remain fully justified without
+    backward-looking retribution. The edited volume "Neuroexistentialism,"
+    surveying how a range of philosophers and scientists have responded to
+    the existential worry that losing free will, souls, or cosmic purpose
+    empties life of meaning, reaches a similarly measured conclusion:
+    meaning survives the loss of these traditional metaphysical supports,
+    though the volume also documents real disagreement about how much
+    revision to ordinary moral practice this actually requires.
+  status: reviewed
+  tags: [topic:practical-implications]
+  sources: [pereboom-2001-living-without-free-will, pereboom-2014-free-will-agency-meaning, caruso-flanagan-2018-neuroexistentialism]
+  confidence: null
+  author: 171384n
+  created: 2026-07-22
+
+- id: conscious-veto-free-wont-contested
+  case: free-will
+  text: "Whether a conscious 'veto' power, the ability to suppress an already-initiated urge before acting, preserves a genuine role for free will even if the initial urge to act arises unconsciously, or whether the veto decision itself is, like the initiating urge, also predictable from brain activity before the person reports deciding to withhold action, is unresolved."
+  label: "Whether a conscious veto power rescues free will is contested"
+  explanation: >-
+    Benjamin Libet's own proposed way to reconcile his readiness-potential
+    finding (see `libet-readiness-potential`) with a residual role for free
+    will: even if the brain unconsciously initiates the urge to act,
+    conscious awareness retains, on his account, a roughly 100-150
+    millisecond window to veto the act before it occurs, "free won't"
+    rather than free will. Matthias Schultze-Kraft and colleagues later
+    tested whether this veto itself is preceded by decodable brain
+    activity, using a closed-loop, brain-computer-interface paradigm, and
+    found a "point of no return" after which the veto could no longer
+    succeed, with the outcome (whether a veto would occur) decodable from
+    brain signals before it happened up to that point. This does not fully
+    resolve the dispute: whether a decodable precursor to a veto shows the
+    veto itself is unconsciously determined, in the same way defenders of
+    `neuroscience-relevance-contested` dispute for the original readiness
+    potential, is itself an open, actively studied question rather than a
+    settled refutation of Libet's "free won't" proposal.
+  status: reviewed
+  tags: [contested, topic:neuroscience]
+  sources: [libet-1999-free-wont, schultze-kraft-2016-point-of-no-return]
+  confidence: null
+  author: 171384n
+  created: 2026-07-22

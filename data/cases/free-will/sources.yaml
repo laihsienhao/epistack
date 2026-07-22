@@ -38,6 +38,25 @@
   url: "https://global.oup.com/academic/product/the-significance-of-free-will-9780195105506"
   funding: unknown
 
+- id: van-inwagen-2000-free-will-mystery
+  type: other
+  title: "Free Will Remains a Mystery: The Eighth Philosophical Perspectives Lecture"
+  authors: "van Inwagen P"
+  year: 2000
+  venue: "Nous, 34(s14) [Philosophical Perspectives, 14]:1-19"
+  url: "https://doi.org/10.1111/0029-4624.34.s14.1"
+  funding: unknown
+
+- id: hoefer-sep-causal-determinism
+  type: review
+  title: "Causal Determinism"
+  authors: "Hoefer C"
+  year: 2023
+  venue: "Stanford Encyclopedia of Philosophy"
+  url: "https://plato.stanford.edu/entries/determinism-causal/"
+  funding: unknown
+  bias_note: "First published 2003; substantive revision 2023. Stanford Encyclopedia of Philosophy entries carry no per-article funding disclosure."
+
 - id: mele-2006-free-will-luck
   type: other
   title: "Free Will and Luck"
@@ -105,6 +124,55 @@
   url: "https://doi.org/10.1080/09515080500264180"
   funding: unknown
   bias_note: "Acknowledgments thank colleagues for feedback but state no grant or sponsor; absence of a funding line was confirmed, not the absence of funding itself."
+
+- id: strawson-1962-freedom-and-resentment
+  type: other
+  title: "Freedom and Resentment"
+  authors: "Strawson PF"
+  year: 1962
+  venue: "Proceedings of the British Academy, 48:1-25"
+  url: "https://philpapers.org/rec/STRFAR"
+  funding: unknown
+  bias_note: "Delivered as a British Academy lecture; no funding-disclosure norm existed for philosophy papers of this era."
+
+- id: dennett-1984-elbow-room
+  type: other
+  title: "Elbow Room: The Varieties of Free Will Worth Wanting"
+  authors: "Dennett DC"
+  year: 1984
+  venue: "MIT Press"
+  url: "https://mitpress.mit.edu/9780262527798/elbow-room/"
+  funding: unknown
+
+- id: haggard-clark-kalogeras-2002-intentional-binding
+  type: other
+  title: "Voluntary Action and Conscious Awareness"
+  authors: "Haggard P, Clark S, Kalogeras J"
+  year: 2002
+  venue: "Nature Neuroscience, 5(4):382-385"
+  url: "https://doi.org/10.1038/nn827"
+  funding: government
+  bias_note: "UK Medical Research Council, Wellcome Trust, and Leverhulme Trust; authors declare no competing financial interests."
+
+- id: mckenna-2008-hard-line-reply
+  type: other
+  title: "A Hard-Line Reply to Pereboom's Four-Case Manipulation Argument"
+  authors: "McKenna M"
+  year: 2008
+  venue: "Philosophy and Phenomenological Research, 77(1):142-159"
+  url: "https://doi.org/10.1111/j.1933-1592.2008.00179.x"
+  funding: unknown
+  bias_note: "Argues the opposite ('hard-line') side of the reply this claim centers on; included because it is the paper that entrenches the soft-line/hard-line terminology for this debate."
+
+- id: demetriou-2010-soft-line-solution
+  type: other
+  title: "The Soft-Line Solution to Pereboom's Four-Case Argument"
+  authors: "Demetriou K"
+  year: 2010
+  venue: "Australasian Journal of Philosophy, 88(4):595-617"
+  url: "https://doi.org/10.1080/00048400903382691"
+  funding: unknown
+  bias_note: "Author later published under the name Kristin M. Mickelson; cited under the original 2010 byline."
 
 # --- No free will / hard incompatibilism ---
 
@@ -237,6 +305,26 @@
   funding: unknown
   bias_note: "Co-authored by Marcel Brass, a co-author of the original 2008 Soon et al. fMRI study, arguing against over-interpreting that study's own findings. Funding/acknowledgments could not be directly accessed."
 
+- id: libet-1999-free-wont
+  type: other
+  title: "Do We Have Free Will?"
+  authors: "Libet B"
+  year: 1999
+  venue: "Journal of Consciousness Studies, 6(8-9):47-57"
+  url: "https://philpapers.org/rec/LIBDWH"
+  funding: unknown
+  bias_note: "No acknowledgments or funding-disclosure section appears anywhere in the article."
+
+- id: schultze-kraft-2016-point-of-no-return
+  type: other
+  title: "The Point of No Return in Vetoing Self-Initiated Movements"
+  authors: "Schultze-Kraft M, Birman D, Rusconi M, Allefeld C, Gorgen K, Dahne S, Blankertz B, Haynes JD"
+  year: 2016
+  venue: "Proceedings of the National Academy of Sciences, 113(4):1080-1085"
+  url: "https://doi.org/10.1073/pnas.1513569112"
+  funding: government
+  bias_note: "German Federal Ministry of Education and Research (BMBF) grants 01GQ0850, 01GQ0851, 01GQ1001C, and German Research Foundation (DFG) grants SFB 940, KFO 247, GRK 1589/1; no conflict of interest declared."
+
 # --- Psychology of free-will belief ---
 
 - id: vohs-schooler-2008-value-of-believing
@@ -274,4 +362,42 @@
   year: 2023
   venue: "Personality and Social Psychology Review, 27(1):52-82"
   url: "https://doi.org/10.1177/10888683221087527"
+  funding: unknown
+
+# --- Practical and legal implications ---
+
+- id: greene-cohen-2004-law-neuroscience
+  type: other
+  title: "For the Law, Neuroscience Changes Nothing and Everything"
+  authors: "Greene J, Cohen JD"
+  year: 2004
+  venue: "Philosophical Transactions of the Royal Society B, 359(1451):1775-1785"
+  url: "https://doi.org/10.1098/rstb.2004.1546"
+  funding: unknown
+
+- id: caruso-2016-public-health-quarantine
+  type: other
+  title: "Free Will Skepticism and Criminal Behavior: A Public Health-Quarantine Model"
+  authors: "Caruso GD"
+  year: 2016
+  venue: "Southwest Philosophy Review, 32(1):25-48"
+  url: "https://philarchive.org/rec/CARFWS-3"
+  funding: unknown
+
+- id: caruso-2021-rejecting-retributivism
+  type: other
+  title: "Rejecting Retributivism: Free Will, Punishment, and Criminal Justice"
+  authors: "Caruso GD"
+  year: 2021
+  venue: "Cambridge University Press"
+  url: "https://www.cambridge.org/core/books/abs/rejecting-retributivism/rejecting-retributivism/52C14296EF962B564BE93EF918798A17"
+  funding: unknown
+
+- id: caruso-flanagan-2018-neuroexistentialism
+  type: other
+  title: "Neuroexistentialism: Meaning, Morals, and Purpose in the Age of Neuroscience"
+  authors: "Caruso GD, Flanagan O (eds.)"
+  year: 2018
+  venue: "Oxford University Press"
+  url: "https://academic.oup.com/book/12253"
   funding: unknown

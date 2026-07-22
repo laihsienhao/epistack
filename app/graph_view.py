@@ -77,11 +77,38 @@ NON_ROOT_NODE_WIDTH = 140
 NODE_GAP = 200
 LEVEL_HEIGHT = 250
 
-CANVAS_WIDTH_REFERENCE = 1400  # matches render_graph's own width= assumption
+CANVAS_WIDTH_REFERENCE = 1700  # the component's actual live rendered width in
+# a typical desktop browser under the page's "wide" layout (measured directly
+# via Playwright against the real `streamlit_agraph.agraph` iframe -- 1736px
+# at an 1800px browser window) -- not the stale 1400 this used to assume
+# (set before the page's own margins/layout were last touched). Since
+# `render_graph`'s `width` Config is a responsive `"100%"` CSS value (there's
+# no live pixel width to read from Python at all), `_compute_canvas_height`
+# below has always had to guess at what that resolves to; found 2026-07-22
+# that the old 1400 guess was ~24% under the real value, which meant every
+# case's canvas was shorter than its own content's aspect ratio actually
+# supports at the real rendered width -- vis-network's fit() was zooming to
+# the (artificially tight) height constraint instead of the width one for
+# every case narrower than `free-will`, leaving it more zoomed-out, and the
+# page more empty above/below the graph, than the real available width
+# allowed. Confirmed by direct computation before changing this: eggs/
+# `lhc-black-holes`/`covid-19-origins` were all height-bound under the old
+# reference (now correctly width-bound, i.e. actually using the real
+# available width to zoom in further); `free-will`'s layout is wide enough
+# that it stays width-bound either way, so this specific fix doesn't grow
+# its effective viewing area -- the bottleneck there is its own layout width
+# relative to the page, not this reference constant.
 CANVAS_MIN_HEIGHT = 450  # floor so a very flat case still keeps some margin
-CANVAS_MAX_HEIGHT = 1000  # ceiling so a very tall/narrow case can't run away
-BLOCK_MARGIN = 60  # small extra buffer between adjacent root blocks, on top of
-# the per-depth neutral clearance _compute_positions already guarantees
+CANVAS_MAX_HEIGHT = 1150  # ceiling so a very tall/narrow case can't run away;
+# raised from 1000 alongside the reference-width fix above since `toy` (the
+# only case that was already hitting this ceiling) benefits from the same
+# "expand the viewing area" request this bump is part of.
+BLOCK_MARGIN = 40  # small extra buffer between adjacent root blocks, on top of
+# the per-depth neutral clearance _compute_positions already guarantees.
+# Trimmed from 60 alongside _row_half_width's tighter blend (2026-07-22) --
+# only affects the gap between two roots on the *same* side (e.g.
+# `free-will`'s compatibilist-free-will, the sole outer root today), so it's
+# a small, safe part of the same further-compaction request.
 SPLIT_THRESHOLD = 4  # side-groups larger than this split into two stacked rows,
 # to keep any one tier from stretching too wide
 SPLIT_GAP = NODE_GAP  # vertical gap between a split tier's two rows -- kept
@@ -106,7 +133,33 @@ SPLIT_GAP = NODE_GAP  # vertical gap between a split tier's two rows -- kept
 # invariant, not extra padding) is what still guarantees no node overlap.
 
 QUESTION_WRAP_WIDTH = 36
-QUESTION_FONT_SIZE = 52
+QUESTION_FONT_SIZE = 52  # base size, correct at or below QUESTION_FONT_REFERENCE_WIDTH
+QUESTION_FONT_REFERENCE_WIDTH = 2200  # the widest any existing 2-root case's
+# total layout (root-to-root x-span, see _compute_positions) reaches today
+# (`eggs`, `lhc-black-holes`); QUESTION_FONT_SIZE already renders correctly
+# up to this width. A case whose actual layout is wider needs a
+# *proportionally bigger* internal font size to render the question at the
+# same apparent size, not just a flat bump: streamlit_agraph's vendored
+# frontend auto-fits the whole network to its container on load (see the
+# "off-center" entry in CLAUDE.md -- there's no programmatic hook to
+# override this), so a wider layout forces that auto-fit to zoom out
+# further, uniformly shrinking every node and label, including this one.
+# A flat +8-per-extra-root bump was tried first and, on direct pixel
+# measurement of the rendered page, actually came out *smaller* than the
+# unscaled baseline once `free-will`'s wider 3-root layout's extra zoom-out
+# was accounted for -- the bump was being silently cancelled by the very
+# effect it needed to counteract. Scaling by actual measured layout width,
+# not a proxy like root count, fixes this at the real cause and keeps every
+# case at or under the reference width byte-identical to before (the
+# max(1.0, ...) floor below), while still deriving purely from this case's
+# own data rather than hardcoding a case id.
+QUESTION_FONT_EMPHASIS = 1.4  # extra multiplier on top of the width-scale
+# cancellation above. width_scale alone only claws back to *parity* with the
+# reference-width baseline (confirmed by direct pixel measurement: at
+# width_scale alone, `free-will`'s rendered heading came out the same size as
+# `covid-19-origins`'s, not bigger) -- this is what actually makes a
+# wider-than-reference case's question render bigger than the baseline,
+# rather than merely no-longer-smaller.
 QUESTION_LINE_HEIGHT = 62  # approx pixel-equivalent height of one wrapped
 # question line at QUESTION_FONT_SIZE (world units == screen px at zoom 1,
 # same space widthConstraint/NODE_GAP already use) -- needed because a
@@ -114,6 +167,8 @@ QUESTION_LINE_HEIGHT = 62  # approx pixel-equivalent height of one wrapped
 # (an earlier version of this) doesn't grow with line count, so a longer
 # question's text block can reach down far enough to overlap the roots'
 # top edge (found on the `toy` case, whose question wraps to 3 lines).
+# Scales with the actual font size used (see QUESTION_FONT_SIZE_PER_EXTRA_ROOT)
+# so a bumped-up font's taller lines still get correct y-clearance.
 QUESTION_MIN_GAP = 100  # clearance kept between the question's text block
 # and the root's top edge, regardless of how many lines it wraps to.
 
@@ -233,15 +288,23 @@ def _row_half_width(count: int) -> float:
 
     Using the split width outright (ceil(count/2)) packed the inner cluster
     too tight -- confirmed visually on free-will, where the neutral column
-    ended up nearly touching both its neighbors. Averaging the unsplit and
-    split widths keeps a real, visible correction (the full fix from the
-    prior comment overshot) while still leaving clearance the split rows'
-    own two-tier stacking benefits from."""
+    ended up nearly touching both its neighbors. A plain 50/50 average of
+    the unsplit and split widths was the next attempt, and was the right
+    middle ground for that pass. Re-tightened 2026-07-22, after that same
+    pass's research expansion grew `no-free-will` and `compatibilist-
+    free-will` to 9 direct children each (from 7 and 5): weighted the blend
+    further toward the split value (30% unsplit / 70% split, not 50/50),
+    per explicit user request to compact the layout further once free-will
+    was confirmed to be genuinely width-bound on screen (see
+    CANVAS_WIDTH_REFERENCE) rather than height-bound -- re-verified visually
+    at this larger child count that the tighter blend still keeps real
+    clearance around the neutral column, not just assumed from the earlier,
+    smaller-graph finding above."""
     full = ((count - 1) / 2) * NODE_GAP if count else 0.0
     if count > SPLIT_THRESHOLD:
         split_count = -(-count // 2)  # ceil(count / 2): the wider of the two rendered split rows
         split = ((split_count - 1) / 2) * NODE_GAP
-        return (full + split) / 2
+        return full * 0.3 + split * 0.7
     return full
 
 
@@ -556,9 +619,15 @@ def build_elements(
     # no circle/box, so it reads as a heading rather than another node.
     # Always shown regardless of search/crux/topic filters, same as roots.
     if graph.question:
+        all_xs = [x for x, _y in positions.values()]
+        total_width = (max(all_xs) - min(all_xs)) if all_xs else 0.0
+        width_scale = max(1.0, total_width / QUESTION_FONT_REFERENCE_WIDTH)
+        emphasis = QUESTION_FONT_EMPHASIS if width_scale > 1.0 else 1.0
+        question_font_size = QUESTION_FONT_SIZE * width_scale * emphasis
+        question_line_height = QUESTION_LINE_HEIGHT * (question_font_size / QUESTION_FONT_SIZE)
         wrapped_question = _wrap(graph.question, width=QUESTION_WRAP_WIDTH)
         line_count = wrapped_question.count("\n") + 1
-        text_block_height = line_count * QUESTION_LINE_HEIGHT
+        text_block_height = line_count * question_line_height
         root_top_edge = -(ROOT_NODE_WIDTH / 2)  # roots sit at y=0
         # vis-network centers a text-shape label vertically at its given y,
         # so half the text block extends below that point -- solve for the
@@ -594,7 +663,7 @@ def build_elements(
                 # and near-black dark theme (.streamlit/config.toml), so its
                 # text color has to follow that rather than being fixed.
                 "color": TEXT_ON_DARK if dark_mode else TEXT_ON_LIGHT,
-                "size": QUESTION_FONT_SIZE,
+                "size": question_font_size,
                 "face": "Georgia, serif",
                 "multi": False,
                 "mod": "bold",

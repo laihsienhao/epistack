@@ -141,3 +141,75 @@
   provenance: [vohs-schooler-2008-value-of-believing]
   author: 171384n
   created: 2026-07-21
+
+- id: e19
+  relation: supports
+  from: reactive-attitudes-compatibilism
+  to: compatibilist-free-will
+  provenance: [strawson-1962-freedom-and-resentment]
+  author: 171384n
+  created: 2026-07-22
+
+- id: e20
+  relation: supports
+  from: dennett-varieties-worth-wanting
+  to: compatibilist-free-will
+  provenance: [dennett-1984-elbow-room]
+  author: 171384n
+  created: 2026-07-22
+
+- id: e21
+  relation: supports
+  from: sense-of-agency-intentional-binding
+  to: compatibilist-free-will
+  provenance: [haggard-clark-kalogeras-2002-intentional-binding]
+  author: 171384n
+  created: 2026-07-22
+
+- id: e22
+  relation: supports
+  from: soft-line-reply-to-manipulation-argument-contested
+  to: compatibilist-free-will
+  provenance: [demetriou-2010-soft-line-solution, mckenna-2008-hard-line-reply]
+  author: 171384n
+  created: 2026-07-22
+
+- id: e23
+  relation: supports
+  from: deliberation-presupposes-alternatives
+  to: libertarian-free-will
+  provenance: [van-inwagen-2000-free-will-mystery]
+  author: 171384n
+  created: 2026-07-22
+
+- id: e24
+  relation: supports
+  from: quantum-mechanics-fundamental-indeterminism
+  to: event-causal-libertarianism-quantum
+  provenance: [hoefer-sep-causal-determinism]
+  author: 171384n
+  created: 2026-07-22
+
+- id: e25
+  relation: supports
+  from: retributive-punishment-under-pressure
+  to: no-free-will
+  provenance: [greene-cohen-2004-law-neuroscience, caruso-2016-public-health-quarantine, caruso-2021-rejecting-retributivism]
+  author: 171384n
+  created: 2026-07-22
+
+- id: e26
+  relation: supports
+  from: life-without-free-will-still-meaningful
+  to: no-free-will
+  provenance: [pereboom-2001-living-without-free-will, pereboom-2014-free-will-agency-meaning, caruso-flanagan-2018-neuroexistentialism]
+  author: 171384n
+  created: 2026-07-22
+
+- id: e27
+  relation: supports
+  from: conscious-veto-free-wont-contested
+  to: neuroscience-relevance-contested
+  provenance: [libet-1999-free-wont, schultze-kraft-2016-point-of-no-return]
+  author: 171384n
+  created: 2026-07-22
